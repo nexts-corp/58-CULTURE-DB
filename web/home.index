@@ -1,0 +1,198 @@
+<?php
+require("apps/common/view/header.php")
+?>
+
+<div role="main" class="main">
+    <div class="home-intro home" id="home-intro">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        ระบบสารสนเทศเพื่อการบริหารจัดการ <b class="blue">การระบายข้าว</b>
+                        <span>กองบริหารการค้าข้าว กรมการค้าต่างประเทศ</span>
+
+                        <span>Information Management System for Rice.</span>
+                    </p>
+                </div>
+                <div class="col-md-4">
+
+
+                    <div class="get-started">
+                        <h6 class="short word-rotator-title">
+                            ปริมาณข้าวคงเหลือ
+                            <strong class="inverted">
+									<span class="word-rotate active" data-plugin-options="{&quot;delay&quot;: 10000, &quot;animDelay&quot;: 1000}">
+										<span class="word-rotate-items" style="width: 69px; top: 0px;">
+											<span>1,000,000</span>
+											<span>2,000,000</span>
+											<span>3,000,000</span>
+                                        </span>
+									</span>
+                            </strong>
+                            ตัน
+                        </h6>
+                        <h6 class="short word-rotator-title">
+                            คัดกรองตามเกณฑ์มาตรฐาน
+                            <strong class="inverted">
+									<span class="word-rotate active" data-plugin-options="{&quot;delay&quot;: 10000, &quot;animDelay&quot;: 1000}">
+										<span class="word-rotate-items" style="width: 69px; top: 0px;">
+											<span>ผ่าน : 100</span>
+											<span>ไม่ผ่าน : 200</span>
+											<span>ผิดไปจากมาตราฐาน : 300</span>
+										<span>ผิดชนิดข้าว : 400</span>
+									</span>
+                            </strong>
+                        </h6>
+
+                    </div>
+
+                    <!--                <div class="get-started">-->
+                    <!--                    <a href="#" class="btn btn-lg btn-primary">Get Started Now!</a>-->
+                    <!--                    <div class="learn-more">or <a href="index.html">learn more.</a></div>-->
+                    <!--                </div>-->
+                </div>
+
+            </div>
+            <hr class="tall dashboard">
+        </div>
+
+
+    </div>
+
+
+
+    <div class="container">
+
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <div class="col-sm-6 dashboard left-menu">
+                    <div class="feature-box menu" link-data="Auction">
+                        <div class="feature-box-icon big-rice">
+                            <!--                        <i class="fa fa-group"></i>-->
+                        </div>
+                        <div class="feature-box-info">
+                            <h4 class="shorter">สำรองข้าวเพื่อการประมูล</h4>
+                            <p class="tall">Lorem ipsum dolor sit amet, consectetur adip.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box menu" link-data="Store">
+                        <div class="feature-box-icon add-rice">
+                            <!--                        <i class="fa fa-google-plus"></i>-->
+                        </div>
+                        <div class="feature-box-info">
+                            <h4 class="shorter">อัพเดทข้อมูลข้าวจาก อคส.</h4>
+                            <p class="tall">Lorem ipsum dolor sit amet, consectetur adip.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box menu" link-data="StoreManage">
+                        <div class="feature-box-icon silo">
+                            <!--                        <i class="fa fa-file"></i>-->
+                        </div>
+                        <div class="feature-box-info" >
+                            <h4 class="shorter">อัพเดทราคาข้าวย้อนหลัง</h4>
+                            <p class="tall">Lorem ipsum dolor sit amet, adip.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box menu" link-data="GroupManage">
+                        <div class="feature-box-icon stock">
+                            <!--                        <i class="fa fa-adjust"></i>-->
+                        </div>
+                        <div class="feature-box-info">
+                            <h4 class="shorter">ออกรายงาน อตก./อคส.</h4>
+                            <p class="tall">Lorem ipsum dolor sit amet, consectetur adip.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="feature-box menu" link-data="GroupManage">
+                        <div class="feature-box-icon money">
+                            <!--                        <i class="fa fa-google-plus"></i>-->
+                        </div>
+                        <div class="feature-box-info">
+                            <h4 class="shorter">Floor Price</h4>
+                            <p class="tall">Lorem ipsum dolor sit amet, consectetur adip.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box menu" link-data="GroupManage">
+                        <div class="feature-box-icon import">
+                            <!--                        <i class="fa fa-adjust"></i>-->
+                        </div>
+                        <div class="feature-box-info">
+                            <h4 class="shorter">Import</h4>
+                            <p class="tall">Lorem ipsum dolor sit amet, consectetur adip.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div><!-- col-md-3 -->
+
+
+            <div class="col-md-9">
+
+
+                <div class="pricing-table left-menu">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="plan" link-data="Auction">
+                            <h3>Stock for Auction<span class="rice"></span></h3>
+                            <ul>
+                                <li><b>Stock for Auction</b><br> สำรองข้าวในระบบก่อนจัดการประมูล</li>
+                                <li><b><u>หมายเหตุ</u></b> -</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="plan" link-data="Store">
+                            <h3>Add Store<span class="add-rice"></span></h3>
+                            <ul>
+                                <li><b>Add Stock</b><br> จัดเก็บข้อมูลข้าวในแต่ละประเภท</li>
+                                <li><b><u>หมายเหตุ</u></b> -</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 center">
+                        <div class="plan" link-data="StoreManage">
+
+                            <h3>Store Manage<span class="silo"></span></h3>
+                            <ul>
+                                <li><b>Stock Manage</b><br> ระบบจัดการสำรองข้าวในระบบ</li>
+                                <li><b><u>หมายเหตุ</u></b> -</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="plan" link-data="GroupManage">
+                            <h3>Group Manage<span class="stock"></span></h3>
+                            <ul>
+                                <li><b>Group Manage</b><br> ระบบจัดการเพื่อแยกกลุ่มของประเภทข้าว</li>
+                                <li><b><u>หมายเหตุ</u></b> -</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div><!-- col-md-9 -->
+
+
+        </div>
+
+
+    </div>
+</div>
+<script>
+var chk=    $.cookie("token");
+if(!chk){
+    window.location.href = '/ricedb_2/apps/auction/view/bidderInfo.php';
+}
+</script>
+<?php require("apps/common/view/footer.php") ?>

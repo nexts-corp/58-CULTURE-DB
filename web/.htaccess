@@ -1,0 +1,43 @@
+DirectoryIndex index.html index.php
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access 1 days"
+  ExpiresByType text/html "access plus 1 seconds"
+  ExpiresByType image/gif "access plus 120 minutes"
+  ExpiresByType image/jpeg "access plus 120 minutes"
+  ExpiresByType image/png "access plus 120 minutes"
+  ExpiresByType text/css "access plus 120 minutes"
+  ExpiresByType text/javascript "access plus 60 minutes"
+  ExpiresByType application/x-javascript "access plus 60 minutes"
+  
+</IfModule>
+
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+
+    # You can't compress what is already compressed
+
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+    SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+
+    # Make proxies work as they should.
+    <IfModule mod_headers.c>
+        Header append Vary User-Agent
+    </IfModule>
+
+</IfModule> 
+
+<IfModule mod_rewrite.c>
+Options -MultiViews
+RewriteEngine On
+RewriteRule ^manifest/.*\.(json)$ - [F,L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule api/(.*)$ api.php?request=$1 [QSA,NC,L]
+
+RewriteRule manifest.server.json$  - [NC,F]
+RewriteRule manifest.app.json$  - [NC,F]
+RewriteRule log4php.properties$  - [NC,F]
+RewriteRule ^CDE-3.5/(.*)$  - [NC,F]
+
+</IfModule>
