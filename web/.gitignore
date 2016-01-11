@@ -1,2 +1,4 @@
 /composer.json
 /manifest.server.json
+/.idea
+/logs
