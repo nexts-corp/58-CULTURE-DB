@@ -1,0 +1,59 @@
+{{>headerLogin}}
+<div role="main" class="main">
+    <div class="home-intro home" id="home-intro">
+        <div class="container center col-md-12">
+            <div class="col-md-3"></div>
+            <div class="row col-md-6">
+                <div class="col-md-12">
+                    <div class="col-xs-12">
+                        <div class="row featured-boxes login">
+                            <div class="col-sm-12">
+                                <div class="featured-box featured-box-secundary default info-content">
+                                    <div class="box-content">
+                                        <h4>เข้าใช้งานระบบ</h4>
+                                        <form id="form" method="post" action="{{_context_path}}/api/oauth/authen/authorization">
+                                             <input type="hidden" name="code" value="{{code}}" />
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <label>ชื่อผู้ใช้งาน</label>
+                                                        <input type="text" name="username"  value="{{username}}"  class="form-control input-lg req" placeholder="Username" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <!--<a class="pull-right" href="#">(Lost Password?)</a>-->
+                                                        <label>รหัสผ่าน</label>
+                                                        <input type="password" name="password" value="{{password}}" class="form-control input-lg" placeholder="Password" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-top: 20px;">
+                                                <!--<div class="col-md-6">
+                                                    <span class="remember-box checkbox">
+                                                        <label for="rememberme">
+                                                            <input type="checkbox" id="rememberme" name="rememberme">Remember Me
+                                                        </label>
+                                                    </span>
+                                                </div>-->
+                                                <div class="col-md-12 text-right">
+                                                    <input id="submit" type="submit" value="เข้าใช้งาน" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3"></div>
+            <hr class="tall dashboard">
+        </div>
+    </div>
+</div>
+{{>footer}}

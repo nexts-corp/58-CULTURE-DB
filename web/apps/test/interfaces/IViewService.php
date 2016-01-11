@@ -1,5 +1,5 @@
 <?php
-namespace apps\user\interfaces;
+namespace apps\test\interfaces;
 
 /**
  * @name ViewService
@@ -9,13 +9,11 @@ namespace apps\user\interfaces;
 interface IViewService {
    
     /**
-     * @name userManager
-     * @uri /userManager
-     * @description  userManager
-     * @authen true
-     * @resource 1000
+     * @name index
+     * @uri /index
+     * @description  index
      */ 
-    public function userManager();
+    public function index();
     
 
 }

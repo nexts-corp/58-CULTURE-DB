@@ -1,12 +1,12 @@
 <?php
 
-namespace apps\user\service;
+namespace apps\test\service;
 
 use th\co\bpg\cde\core\CServiceBase;
 use th\co\bpg\cde\data\CDataContext;
-use apps\user\interfaces\IUserManagerService;
+use apps\test\interfaces\ITestService;
 
-class UserManagerService extends CServiceBase implements IUserManagerService {
+class TestService extends CServiceBase implements ITestService {
 
     public $datacontext;
     public $logger;

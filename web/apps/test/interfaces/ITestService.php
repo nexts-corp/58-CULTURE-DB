@@ -1,13 +1,13 @@
 <?php
 
-namespace apps\user\interfaces;
+namespace apps\test\interfaces;
 
 /**
- * @name IUserManagerService
- * @uri /userManager
+ * @name ITestService
+ * @uri /test
  * @description ข้อมูลเจ้าหน้าที่
  */
-interface IUserManagerService {
+interface ITestService {
 
     /**
      * @name listsUser
