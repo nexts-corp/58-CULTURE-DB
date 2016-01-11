@@ -1,0 +1,31 @@
+{
+    "context_path":"/culture/web",
+    "test" : "test",
+    "welcome_page":"/culture/web/api/root/view/index",
+    "locale":"th-TH",
+    "context": [
+        {
+            "contextName": "default",
+            "contextType": "data",
+            "propertys": [
+                {"name": "driver","value": "pdo_sqlsrv"}, 
+                {"name": "host","value": "202.44.34.86"},
+                {"name": "port","value": "1443"},
+                {"name": "dbname","value": ""},
+                {"name": "user","value": ""},
+                {"name": "password","value": ""},
+                {"name": "charset","value": "utf8"}
+            ]
+        }
+    ],
+    "oauth":{
+        "provider":"\\apps\\common\\AuthClient",
+        "propertys": [
+                {"name": "OAUTH2_CLIENT_ID","value": "123456"},
+                {"name": "OAUTH2_CLIENT_SECRET","value": "123456"},
+                {"name": "OAUTH2_ACCESS_KEY","value": "code"},
+                {"name": "OAUTH2_AUTH_URL","value": "/culture/web/api/oauth/authen/authorization"},
+                {"name": "OAUTH2_TOKEN_URI","value":"http://localhost/culture/web/api/oauth/authen/authenticate"}
+       ]
+    }
+}
