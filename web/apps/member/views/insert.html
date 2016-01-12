@@ -86,21 +86,21 @@
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ชื่อ </label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" placeholder="กรุณาป้อนชื่อ" data-validation="alphanumeric" data-validation-allowing="" class="col-xs-10 col-sm-5" />
+                                <input type="text" id="form-field-1" placeholder="กรุณาป้อนชื่อ" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" data-validation-allowing="" class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> นามสกุล </label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" placeholder="กรุณาป้อนนามสกุล" class="col-xs-10 col-sm-5" />
+                                <input type="text" id="form-field-1" placeholder="กรุณาป้อนนามสกุล" class="col-xs-10 col-sm-5" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> หน่วยงาน </label>
 
                             <div class="col-xs-10 col-sm-5">
-                                <select class="form-control col-xs-10 col-sm-5" id="departmentId" data-placeholder="Choose a State...">
+                                <select class="form-control col-xs-10 col-sm-5" id="departmentId" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาเลือกข้อมูล">
                                     <option value="">เลือกหน่วยงาน</option>
                                     {{#depattment}}
                                     <option value="{{departmentId}}">{{departmentId}} {{departmentName}}</option>
