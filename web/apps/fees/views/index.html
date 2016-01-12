@@ -283,28 +283,23 @@
 //            t.columns(4).search(this.value).draw();
 //        });
 
-        $('.chosen-select').chosen(
-                {
-                    allow_single_deselect: true
-                }
-        );
-        $(window)
-                .off('resize.chosen')
-                .on('resize.chosen', function () {
-                    $('.chosen-select').each(function () {
-                        var $this = $(this);
-                        $this.next().css({'width': $this.parent().width()});
-                    })
-                }).trigger('resize.chosen');
-        $(document).on('settings.ace.chosen', function (e, event_name, event_val) {
-            if (event_name != 'sidebar_collapsed')
-                return;
-            $('.chosen-select').each(function () {
-                var $this = $(this);
-                $this.next().css({'width': $this.parent().width()});
-            })
+        $('.chosen-select').chosen({allow_single_deselect: true});
+//        $(window)
+//                .off('resize.chosen')
+//                .on('resize.chosen', function () {
+//                    $('.chosen-select').each(function () {
+//                        var $this = $(this);
+//                        $this.next().css({'width': $this.parent().width()});
+//                    })
+//                }).trigger('resize.chosen');
+
+        $("#searchType").change(function () {
+            t.columns(3).search($(this).val()).draw();
         });
-        
+        $("#searchStatus").change(function () {
+            t.columns(4).search($(this).val()).draw();
+        });
+
         $("button.detail").click(function () {
             var feesId = $(this).attr("data-feesId");
             var data = listsArr[feesId];
