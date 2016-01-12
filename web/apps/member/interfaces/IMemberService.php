@@ -52,4 +52,12 @@ interface IMemberService {
      **/
     public function viewManage();
     
+    /**
+     * @name addMamber
+     * @uri /add
+     * @description เพิ่มผู้ใช้งาน
+     * @resource 1000
+     **/
+    public function addMember();
+    
 }
