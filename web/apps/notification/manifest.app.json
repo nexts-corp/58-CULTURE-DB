@@ -1,0 +1,17 @@
+{
+    "id": "notification",
+    "version": "1.0",
+    "title": "Notification",
+    "authors": "Pinsuda",
+    "owners": "NEXTS-CORP CO.,LTD.",
+    "description": "content plugin for notification",
+    "releaseNotes": "content plugin for notification",
+    "summary": "content plugin for notification",
+    "language": "th",
+    "main": "api/root/view/index",
+    "icon": "api/root/view/index.png",
+    "sitemap":"api/root/sitemap",
+    "license": "content",
+    "copyright": "content",
+    "about": "content.html"
+}

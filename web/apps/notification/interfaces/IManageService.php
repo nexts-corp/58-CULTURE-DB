@@ -1,12 +1,17 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: PIN
- * Date: 1/12/2016
- * Time: 12:40 PM
- */
-interface IManageService
-{
+namespace apps\notification\interfaces;
 
+/**
+ * @name IManageService
+ * @uri /manage
+ * @description ระบบเตือนผู้ใช้งาน
+ */
+interface IManageService {
+    /**
+     * @name view
+     * @uri /view
+     * @description  manage.html
+     */
+    public function view();
 }
