@@ -1,0 +1,314 @@
+{{>header}}
+
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">Home</a>
+                </li>
+                <li class="active">ระบบชำระค่าธรรมเนียม</li>
+            </ul><!-- /.breadcrumb -->
+
+            <div class="nav-search" id="nav-search">
+                <form class="form-search">
+                    <span class="input-icon">
+                        <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                        <i class="ace-icon fa fa-search nav-search-icon"></i>
+                    </span>
+                </form>
+            </div><!-- /.nav-search -->
+        </div>
+
+        <div class="page-content">
+            <div class="ace-settings-container" id="ace-settings-container">
+                <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                    <i class="ace-icon fa fa-cog bigger-130"></i>
+                </div>
+
+                <div class="ace-settings-box clearfix" id="ace-settings-box">
+                    <div class="pull-left width-50">
+                        <div class="ace-settings-item">
+                            <div class="pull-left">
+                                <select id="skin-colorpicker" class="hide">
+                                    <option data-skin="no-skin" value="#438EB9">#438EB9</option>
+                                    <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                                    <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                                    <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                                </select>
+                            </div>
+                            <span>&nbsp; Choose Skin</span>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                            <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+                            <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+                            <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+                            <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+                            <label class="lbl" for="ace-settings-add-container">
+                                Inside
+                                <b>.container</b>
+                            </label>
+                        </div>
+                    </div><!-- /.pull-left -->
+
+                    <div class="pull-left width-50">
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" />
+                            <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" />
+                            <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" />
+                            <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+                        </div>
+                    </div><!-- /.pull-left -->
+                </div><!-- /.ace-settings-box -->
+            </div><!-- /.ace-settings-container -->
+
+            <div class="page-header">
+                <h1>
+                    ระบบชำระค่าธรรมเนียม
+                    <!--								<small>
+                                                                                            <i class="ace-icon fa fa-angle-double-right"></i>
+                                                                                            overview &amp; stats
+                                                                                    </small>-->
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="space-6"></div>
+                        <div class="col-sm-3">
+                            <div class="widget-box transparent">
+                                <div class="widget-header widget-header-flat">
+                                    <h4 class="widget-title lighter">
+                                        <i class="ace-icon fa fa-search"></i>
+                                        ค้นหา
+                                    </h4>
+
+                                    <div class="widget-toolbar">
+                                        <a href="#" data-action="collapse">
+                                            <i class="ace-icon fa fa-chevron-up"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="widget-body">
+                                    <div class="widget-main padding-4">
+                                        <div id="sales-charts"></div>
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-4 control-label text-right">ประเภท :</label>
+                                            <div class="col-sm-8">
+                                                <select id="searchType" class="chosen-select form-control"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-4 control-label text-right">สถานะ :</label>
+                                            <div class="col-sm-8">
+                                                <select id="searchStatus" class="chosen-select form-control"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+
+
+                                        </div>
+                                    </div><!-- /.widget-main -->
+                                </div><!-- /.widget-body -->
+                            </div><!-- /.widget-box -->
+                        </div><!-- /.col -->
+                        <div class="col-md-9">
+                            <table id="table" class="table table-bordered table-striped table-condensed mb-none">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center col-md-1">ลำดับ</th>
+                                        <th class="text-center col-md-1">เลขที่เอกสาร</th>
+                                        <th class="text-center col-md-4">ชื่อ-สกุล/บริษัท</th>
+                                        <th class="text-center col-md-2">ประเภท</th>
+                                        <th class="text-center col-md-2">สถานะ</th>
+                                        <th class="text-center col-md-2">รายละเอียด</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="text-center">-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.col -->
+
+
+                    </div><!-- /.row -->
+
+                    <div class="hr hr32 hr-dotted"></div>
+
+
+
+                    <!-- PAGE CONTENT ENDS -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+
+{{>footer}}
+
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var listsArr = {};
+        var datas = callAjax("{{_context_path}}/apps/search/datatest.json", "get", {}, "json")["lists"];
+        var t = $("#table").DataTable({
+            "destroy": true,
+            "data": datas,
+            "order": [0, 'asc'],
+            "iDisplayLength": 50,
+            "columnDefs": [
+                {
+                    "targets": 0,
+                    "searchable": false,
+                    "orderable": false,
+                    "data": "feesId",
+                    "sClass": "text-center col-md-1"
+                },
+                {
+                    "targets": 1,
+                    "data": "feesCode",
+                    "sClass": "text-center col-md-1",
+//                    "render": function (data) {
+//                        return 'ง.' + data;
+//                    }
+                },
+                {
+                    "targets": 2,
+                    "data": "customerName",
+                    "sClass": "col-md-3",
+//                    "render": function (data, key, full) {
+//                        return full["facultyName"] + ' / ' + full["deptName"];
+//                    }
+
+                },
+                {
+                    "targets": 3,
+                    "data": "typeName",
+                    "sClass": "text-center col-md-2"
+                },
+                {
+                    "targets": 4,
+                    "data": "statusCode",
+                    "sClass": "text-center col-md-2",
+                    "render": function (data) {
+                        if (data == "PAID") {
+                            return '<span class="label label-success arrowed-in arrowed-in-right">PAID</span>'
+                        } else {
+                            return '<span class="label label-warning arrowed arrowed-right">WAITING</span>'
+                        }
+
+                    }
+                },
+                {
+                    "targets": 5,
+                    "data": "feesId",
+                    "sClass": "text-center col-md-2",
+                    "render": function (data) {
+                        return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-feesId="' + data + '"><i class="fa fa-list"></i></button>'
+                        // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
+
+                    }
+                }
+            ]
+        });
+        t.on('order.dt search.dt', function () {
+            t.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                cell.innerHTML = i + 1;
+            });
+        }).draw();
+
+        var datasType = {}
+        var datasStatus = {};
+        $.each(datas, function (key, value) {
+            listsArr[value["feesId"]] = value;
+            datasType[value["typeName"]] = value["typeName"];
+            datasStatus[value["statusCode"]] = value["statusCode"];
+        });
+        //search selectbox type
+        var search = '<option value="" selected="selected">ทั้งหมด</option>';
+        $.each(datasType, function (key, value) {
+            search += '<option value="' + value + '">' + value + '</option>';
+        });
+        $("#searchType").html(search);
+//        $("#searchType").html(search).select2().change(function () {
+//            t.columns(3).search(this.value).draw();
+//        });
+        //search selectbox status
+        var search = '<option value="" selected="selected">ทั้งหมด</option>';
+        $.each(datasStatus, function (key, value) {
+            search += '<option value="' + value + '">' + value + '</option>';
+        });
+        $("#searchStatus").html(search);
+//        $("#searchStatus").html(search).select2().change(function () {
+//            t.columns(4).search(this.value).draw();
+//        });
+
+        $('.chosen-select').chosen(
+                {
+                    allow_single_deselect: true
+                }
+        );
+        $(window)
+                .off('resize.chosen')
+                .on('resize.chosen', function () {
+                    $('.chosen-select').each(function () {
+                        var $this = $(this);
+                        $this.next().css({'width': $this.parent().width()});
+                    })
+                }).trigger('resize.chosen');
+        $(document).on('settings.ace.chosen', function (e, event_name, event_val) {
+            if (event_name != 'sidebar_collapsed')
+                return;
+            $('.chosen-select').each(function () {
+                var $this = $(this);
+                $this.next().css({'width': $this.parent().width()});
+            })
+        });
+        
+        $("button.detail").click(function () {
+            var feesId = $(this).attr("data-feesId");
+            var data = listsArr[feesId];
+            console.log(data);
+        });
+    });
+</script>
