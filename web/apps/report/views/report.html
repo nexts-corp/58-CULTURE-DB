@@ -1,0 +1,112 @@
+{{>header}}
+
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    เรียกดูรายงาน
+                </h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                    <div class="col-md-4">
+                        <label class="col-md-3 control-label"> ประเภท </label>
+
+                        <div class="col-sm-9">
+                            <select class="chosen-select form-control" id="select">
+                                <option value="">เลือกประเภท</option>
+                                <option value="AL">ภาพยนต์</option>
+                                <option value="AK">ใบอนุญาติ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="col-md-3 control-label"> ประเภท </label>
+
+                        <div class="col-sm-9">
+                            <select class="chosen-select form-control" id="select2">
+                                <option value="">เลือกประเภท</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                &nbsp;
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                    <div class="col-md-4">
+                        <label class="col-md-3 control-label"> ช่วงเวลา </label>
+
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-sm">
+                                <input type="text" id="dateStart" class="form-control"/>
+                                <span class="input-group-addon">
+                                    <i class="ace-icon fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="col-md-3 control-label"> ถึง </label>
+
+                        <div class="col-sm-9">
+                            <div class="input-group input-group-sm">
+                                <input type="text" id="dateEnd" class="form-control"/>
+                                <span class="input-group-addon">
+                                    <i class="ace-icon fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- div.dataTables_borderWrap -->
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                    <div class="clearfix">
+                        <div class="pull-right tableTools-container"></div>
+                    </div>
+                    <div>
+                        <table id="tableReport" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="col-md-2">ลำดับ</th>
+                                <th class="col-md-6">ชื่อรายงาน</th>
+                                <th class="col-md-4">เครื่องมือ</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.main-content -->
+
+{{>footer}}
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function ($) {
+
+        $('#tableReport').dataTable({
+            bAutoWidth: false,
+            "aaSorting": []
+        });
+
+        $("#dateStart").datepicker({
+            showOtherMonths: true,
+            selectOtherMonths: false, dateFormat: 'dd/mm/yy'
+        });
+
+        $("#dateEnd").datepicker({
+            showOtherMonths: true,
+            selectOtherMonths: false, dateFormat: 'dd/mm/yy'
+        });
+
+    });
+</script>
