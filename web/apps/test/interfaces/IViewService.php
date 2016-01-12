@@ -8,12 +8,7 @@ namespace apps\test\interfaces;
  */
 interface IViewService {
    
-    /**
-     * @name index
-     * @uri /index
-     * @description  index
-     */ 
-    public function index();
+
     
 
 }

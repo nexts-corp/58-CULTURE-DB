@@ -5,6 +5,8 @@ namespace apps\test\service;
 use th\co\bpg\cde\core\CServiceBase;
 use th\co\bpg\cde\data\CDataContext;
 use apps\test\interfaces\ITestService;
+use th\co\bpg\cde\collection\CJView;
+use th\co\bpg\cde\collection\CJViewType;
 
 class TestService extends CServiceBase implements ITestService {
 
@@ -16,6 +18,11 @@ class TestService extends CServiceBase implements ITestService {
     public function __construct() {
         $this->logger = \Logger::getLogger("root");
         $this->datacontext = new CDataContext(NULL);
+    }
+
+    public function index() {
+        $view = new CJView("index", CJViewType::HTML_VIEW_ENGINE);
+        return $view;
     }
 
     public function listsUser(){

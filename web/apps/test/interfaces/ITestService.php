@@ -8,6 +8,12 @@ namespace apps\test\interfaces;
  * @description ข้อมูลเจ้าหน้าที่
  */
 interface ITestService {
+    /**
+     * @name index
+     * @uri /view/index
+     * @description  index
+     */
+    public function index();
 
     /**
      * @name listsUser
