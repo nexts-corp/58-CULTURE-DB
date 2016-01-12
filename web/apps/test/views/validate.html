@@ -1,0 +1,127 @@
+{{>header}}
+<!--<link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.8/theme-default.min.css"
+      rel="stylesheet" type="text/css" />-->
+<div class="main-content">
+   <form id="complete-test-form" class="form-horizontal well test-form has-validation-callback">
+    <div class="control-group">
+        <label class="control-label">E-mail</label>
+
+        <div class="controls">
+            <input type="text" name="email" data-validation="email" placeholder="E-mail" data-validation-help="Some help info..." class="has-help-txt">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">URL</label>
+
+        <div class="controls">
+            <input type="text" name="email" data-validation="url" placeholder="http://">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Number</label>
+
+        <div class="controls">
+            <input type="text" name="num" data-validation="number" data-validation-allowing="negative,number">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Only allows alphanumeric characters and hyphen and underscore</label>
+
+        <div class="controls">
+            <input type="text" name="email" data-validation="alphanumeric" data-validation-allowing="-_">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Only lowercase letters a-z (regexp)</label>
+
+        <div class="controls">
+            <input type="text" name="email" data-validation="custom" data-validation-regexp="^([a-z]+)$">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Minimum 5 chars
+        </label>
+
+        <div class="controls">
+            <input type="text" name="email" data-validation="length" data-validation-length="min5">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Maximum 5 chars
+        </label>
+
+        <div class="controls">
+            <input type="text" name="email" data-validation="length" data-validation-length="max5">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Between 3-5 chars
+        </label>
+
+        <div class="controls">
+            <input type="text" name="email" data-validation="length" data-validation-length="3-5">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            What's your favorite color?
+        </label>
+
+        <div class="controls">
+            <input type="text" name="color" data-suggestions="Blue, Green, White, Red, Magenta, Orange, Black, Gray, Yellow, Brown, Purple" autocomplete="off" data-validation-suggestion-nr="1" class="has-suggestions">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Validate e-mail but only if
+            an answer is given
+        </label>
+
+        <div class="controls">
+            <input type="text" name="email" data-validation="email" data-validation-optional="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Validate e-mail but only if
+            checkbox is checked
+            <input type="checkbox" name="the-checkbox">
+        </label>
+
+        <div class="controls">
+            <input type="text" name="email" data-validation="email" data-validation-if-checked="the-checkbox">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Restricted length
+        </label>
+
+        <div class="controls">
+            <span class="max-chars">100</span> chars left<br>
+            <textarea class="length-restricted form-control"></textarea>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn">Validate</button>
+        </div>
+    </div>
+</form>
+</div><!-- /.main-content -->
+
+
+{{>footer}}
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.8/jquery.form-validator.min.js"></script>-->
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.validate();
+    });
+
+</script>
