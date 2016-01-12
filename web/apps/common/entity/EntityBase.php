@@ -9,72 +9,73 @@ namespace apps\common\entity;
 class EntityBase {
 
     /**
-     * @column(name="Date_Created",type="datetime")
+     * @column(name="CreatedBy",type="string",length=255)
      */
-    public $dateCreated;
+    public $createdBy;
 
     /**
-     * @column(name="Date_Updated",type="datetime")
+     * @column(name="UpdatedBy",type="string",length=255)
      */
-    public $dateUpdated;
+    public $updatedBy;
 
     /**
-     * @column(name="CreateBy",type="string",length=100)
+     * @column(name="CreatedTime",type="datetime")
      */
-    public $createBy;
+    public $createdTime;
 
     /**
-     * @column(name="UpdateBy",type="string",length=100)
+     * @column(name="UpdatedTime",type="datetime")
      */
-    public $updateBy;
+    public $updatedTime;
+
 
     /**
      * @PrePersist
      */
     function prePersist() {
-        $this->dateCreated = new \DateTime("now");
-         $this->createBy = \th\co\bpg\cde\core\impl\ChangdaoEngineImpl::$_CURRENT_USER->name;
-         $this->updateBy = \th\co\bpg\cde\core\impl\ChangdaoEngineImpl::$_CURRENT_USER->name;
+        $this->createdTime = new \DateTime("now");
+        $this->createdBy = \th\co\bpg\cde\core\impl\ChangdaoEngineImpl::$_CURRENT_USER->name;
     }
 
     /**
      * @PreUpdate
      */
     function preUpdate() {
-        $this->dateUpdated = new \DateTime("now");
-        $this->updateBy = \th\co\bpg\cde\core\impl\ChangdaoEngineImpl::$_CURRENT_USER->name;
+        $this->updatedTime = new \DateTime("now");
+        $this->updatedBy = \th\co\bpg\cde\core\impl\ChangdaoEngineImpl::$_CURRENT_USER->name;
     }
 
-    public function getDateCreated() {
-        return $this->dateCreated;
+    function getCreatedBy(){
+        return $this->createdBy;
     }
 
-    public function getDateUpdated() {
-        return $this->dateUpdated;
+    function getUpdatedBy(){
+        return $this->updatedBy;
     }
 
-    public function setDateCreated($dateCreated) {
-        $this->dateCreated = $dateCreated;
+    function getCreatedTime(){
+        return $this->createdTime;
     }
 
-    public function setDateUpdated($dateUpdated) {
-        $this->dateUpdated = $dateUpdated;
+    function getUpdatedTime(){
+        return $this->updatedTime;
     }
 
-    function getCreateBy() {
-        return $this->createBy;
+    function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
     }
 
-    function getUpdateBy() {
-        return $this->updateBy;
+    function setUpdatedBy($updatedBy)
+    {
+        $this->updatedBy = $updatedBy;
     }
 
-    function setCreateBy($createBy) {
-        $this->createBy = $createBy;
+    function setCreatedTime($createdTime){
+        $this->createdTime = $createdTime;
     }
 
-    function setUpdateBy($updateBy) {
-        $this->updateBy = $updateBy;
+    function setUpdatedTime($updatedTime){
+        $this->updatedTime = $updatedTime;
     }
-
 }
