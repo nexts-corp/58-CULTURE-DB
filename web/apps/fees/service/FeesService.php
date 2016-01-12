@@ -1,13 +1,13 @@
 <?php
 
-namespace apps\search\service;
+namespace apps\fees\service;
 
 use th\co\bpg\cde\core\CServiceBase;
 use th\co\bpg\cde\collection\CJView;
 use th\co\bpg\cde\collection\CJViewType;
-use apps\search\interfaces\ISearchService;
+use apps\fees\interfaces\IFeesService;
 
-class SearchService extends CServiceBase implements ISearchService {
+class FeesService extends CServiceBase implements IFeesService {
 
     public function index() {
         $view = new CJView("index", CJViewType::HTML_VIEW_ENGINE);

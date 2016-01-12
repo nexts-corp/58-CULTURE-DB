@@ -1,13 +1,13 @@
 <?php
 
-namespace apps\search\interfaces;
+namespace apps\fees\interfaces;
 
 /**
- * @name SearchService
- * @uri /search
- * @description SearchService
+ * @name FeesService
+ * @uri /fees
+ * @description FeesService
  */
-interface ISearchService {
+interface IFeesService {
 
     /**
      * @name view/index

@@ -190,7 +190,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var listsArr = {};
-        var datas = callAjax("{{_context_path}}/apps/search/datatest.json", "get", {}, "json")["lists"];
+        var datas = callAjax("{{_context_path}}/apps/fees/datatest.json", "get", {}, "json")["lists"];
         var t = $("#table").DataTable({
             "destroy": true,
             "data": datas,
