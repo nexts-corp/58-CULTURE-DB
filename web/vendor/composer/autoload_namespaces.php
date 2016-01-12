@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Realestate\\MssqlBundle' => array($vendorDir . '/isoft/mssql-bundle'),
-    'PHPExcel' => array($vendorDir . '/phpexcel/phpexcel/Classes'),
     'Mustache' => array($vendorDir . '/mustache/mustache/src'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),

@@ -46,7 +46,7 @@ interface IMemberService {
     
     /**
      * @name viewmanage
-     * @uri /viewmanage
+     * @uri /view/manage
      * @description แสดงหน้าการจัดการผู้ใช้งาน
      * @resource 1000
      **/
