@@ -13,7 +13,7 @@ body {
     line-height: 1.5
 }
 
-.main-container:before {
+.main-container:before
     display: block;
     content: "";
     position: absolute;
@@ -1319,7 +1319,8 @@ pre.prettyprint {
     -webkit-box-shadow: none;
     box-shadow: none;
     min-height: 55px;
-    background: #438eb9
+    /*background: #438eb9*/
+    background: #6C2670;
 }
 
 .navbar .navbar-text, .navbar .navbar-link {
