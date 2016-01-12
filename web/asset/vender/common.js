@@ -8,8 +8,8 @@ $.extend(true, $.fn.dataTable.defaults, {
         "sEmptyTable": "ไม่มีข้อมูล",
         "sLengthMenu": "_MENU_ รายการต่อหน้า",
         "oPaginate": {
-            "sPrevious": "<<",
-            "sNext": ">>"
+            "sPrevious": "❮❮",
+            "sNext": "❯❯"
         },
         "sSearch": "ค้นหา : "
     }
@@ -162,12 +162,6 @@ function getTag(param, defaultValue) {
     return param;
 }
 
-
-function logout(){
-    $.removeCookie("token", { path: '/' });
-    $.removeCookie("userinfo", { path: '/' });
-    window.location.href = '/kmutnb-ebudget/api/root/view/index';
-}
 
 function jsonEncode(data) {
     var dataJSON = JSON.stringify(data);
