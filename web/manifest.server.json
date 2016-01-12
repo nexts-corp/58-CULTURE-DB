@@ -11,9 +11,9 @@
                 {"name": "driver","value": "pdo_sqlsrv"}, 
                 {"name": "host","value": "202.44.34.86"},
                 {"name": "port","value": "1443"},
-                {"name": "dbname","value": ""},
-                {"name": "user","value": ""},
-                {"name": "password","value": ""},
+                {"name": "dbname","value": "CultureDB"},
+                {"name": "user","value": "ctuser"},
+                {"name": "password","value": "ct1234"},
                 {"name": "charset","value": "utf8"}
             ]
         }

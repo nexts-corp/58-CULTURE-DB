@@ -8,6 +8,9 @@ use th\co\bpg\cde\collection\CJView;
 use th\co\bpg\cde\collection\CJViewType;
 use apps\member\interfaces\IMemberService;
 
+use apps\common\entity;
+use apps\common\entity\Department;
+
 class MemberService extends CServiceBase implements IMemberService  {
 
     public $datacontext;
@@ -106,6 +109,24 @@ class MemberService extends CServiceBase implements IMemberService  {
     public function viewManage() {
   
         $view = new CJView("manage", CJViewType::HTML_VIEW_ENGINE);
+        return $view;
+    }
+
+    public function addMember() {
+        $view = new CJView("insert", CJViewType::HTML_VIEW_ENGINE);
+        
+        $sql = new Department();
+        $sql->setDepartmentStatus("YES");
+        $data = $this->datacontext->getObject($sql);
+        
+        $result = array();
+        foreach ($data as $key => $value) {
+            $result[$key]["numRow"] = $key+1;
+            $result[$key]["departmentId"] = $value->departmentId;
+            $result[$key]["departmentName"] = $value->departmentName;
+        }
+        $view->depattment=$result;
+        
         return $view;
     }
 
