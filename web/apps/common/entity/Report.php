@@ -17,7 +17,6 @@ class Report extends EntityBase
     /**
      * @Id
      * @Column(type="string",length=11,name="ReportId")
-     * @GeneratedValue
      */
     public $reportId;
 
@@ -29,5 +28,72 @@ class Report extends EntityBase
 
     /** @Column(type="string",length=255, name="IsActive") */
     public $isActive;
+
+    /**
+     * @return mixed
+     */
+    public function getReportId()
+    {
+        return $this->reportId;
+    }
+
+    /**
+     * @param mixed $reportId
+     */
+    public function setReportId($reportId)
+    {
+        $this->reportId = $reportId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReportName()
+    {
+        return $this->reportName;
+    }
+
+    /**
+     * @param mixed $reportName
+     */
+    public function setReportName($reportName)
+    {
+        $this->reportName = $reportName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReportType()
+    {
+        return $this->reportType;
+    }
+
+    /**
+     * @param mixed $reportType
+     */
+    public function setReportType($reportType)
+    {
+        $this->reportType = $reportType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+
+
 
 }

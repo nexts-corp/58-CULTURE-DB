@@ -33,6 +33,8 @@ class ReportService extends CServiceBase implements IReportService
 
     public function listReport()
     {
-        return $this->datacontext->getObject(new Report());
+        $obj = new Report();
+        $obj->setIsActive("Y");
+        return $this->datacontext->getObject($obj);
     }
 }
