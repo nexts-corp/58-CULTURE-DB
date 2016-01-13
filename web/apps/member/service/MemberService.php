@@ -132,6 +132,24 @@ class MemberService extends CServiceBase implements IMemberService  {
         return $view;
     }
 
+    public function updateMember() {
+        $view = new CJView("update", CJViewType::HTML_VIEW_ENGINE);
+        
+        $sql = new Department();
+        $sql->setDepartmentStatus("YES");
+        $data = $this->datacontext->getObject($sql);
+        
+        $result = array();
+        foreach ($data as $key => $value) {
+            $result[$key]["numRow"] = $key+1;
+            $result[$key]["departmentId"] = $value->departmentId;
+            $result[$key]["departmentName"] = $value->departmentName;
+        }
+        $view->depattment=$result;
+        
+        return $view;
+    }
+
 }
 
 ?>

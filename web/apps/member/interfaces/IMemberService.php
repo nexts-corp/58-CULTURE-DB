@@ -53,10 +53,18 @@ interface IMemberService {
     
     /**
      * @name addMamber
-     * @uri /add
+     * @uri /view/add
      * @description เพิ่มผู้ใช้งาน
      * @resource 1000
      **/
     public function addMember();
+    
+    /**
+     * @name addMamber
+     * @uri /view/update
+     * @description แก้ไขข้อมูลผู้ใช้งาน
+     * @resource 1000
+     **/
+    public function updateMember();
     
 }
