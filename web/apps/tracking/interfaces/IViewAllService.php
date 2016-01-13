@@ -1,12 +1,19 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: PIN
- * Date: 1/12/2016
- * Time: 12:25 PM
- */
-interface IViewAll
-{
+namespace apps\tracking\interfaces;
 
+/**
+ * @name IViewAllService
+ * @uri /all
+ * @description ระบบติดตาม
+ */
+interface IViewAllService {
+    /**
+     * @name view
+     * @uri /view
+     * @description  viewAll.html
+     */
+    public function view();
 }
+
+?>

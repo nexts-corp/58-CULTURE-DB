@@ -1,10 +1,180 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{{>header}}
 
-</body>
-</html>
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">หน้าหลัก</a>
+                </li>
+                <li class="active">ระบบเตือนผู้ใช้งาน</li>
+            </ul><!-- /.breadcrumb -->
+        </div>
+
+        <div class="page-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget-box transparent">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="widget-title lighter">
+                                <i class="ace-icon fa fa-signal"></i>
+                                Sale Stats
+                            </h4>
+
+                            <div class="widget-toolbar">
+                                <a href="#" data-action="collapse">
+                                    <i class="ace-icon fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main padding-4">
+                                <div id="sales-charts"></div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget-box transparent">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="widget-title lighter red">
+                                <i class="ace-icon fa fa-star orange"></i>
+                                Summary
+                            </h4>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <table class="table">
+                                    <tbody>
+                                    <tr class="no-border">
+                                        <td class="col-md-4" rowspan="2">
+                                            <i class="ace-icon fa fa-caret-right blue"></i> ใบอนุญาตประกอบกิจการ
+                                        </td>
+                                        <td class="col-md-1">ได้รับ</td>
+                                        <td class="col-md-1">1</td>
+                                    </tr>
+                                    <tr class="no-border">
+                                        <td>ไม่ได้รับ</td>
+                                        <td>1</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4" rowspan="2">
+                                            <i class="ace-icon fa fa-caret-right blue"></i> การอนุญาตเผยแพร่
+                                        </td>
+                                        <td class="col-md-1">ได้รับ</td>
+                                        <td class="col-md-1">1</td>
+                                    </tr>
+                                    <tr class="no-border">
+                                        <td>ได้รับ</td>
+                                        <td>1</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>footer}}
+
+<style>
+    .table tbody tr.no-border td{
+        border: none;
+    }
+</style>
+<script src="{{_context_path}}/asset/vendor/highcharts/js/highcharts.js"></script>
+
+<script>
+    $(function() {
+        plotChart();
+    });
+
+    function plotChart(){
+        $('#sales-charts').css({'width':'100%' , 'height':'220px'}).highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Stacked column chart'
+            },
+            xAxis: {
+                categories: ['ใบอนุญาตประกอบกิจการ', 'การอนุญาตเผยแพร่']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'จำนวน'
+                },
+                stackLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    }
+                }
+            },
+            legend: {
+                align: 'right',
+                x: -30,
+                verticalAlign: 'top',
+                y: 25,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                borderColor: '#CCC',
+                borderWidth: 1,
+                shadow: false
+            },
+            tooltip: {
+                headerFormat: '<b>{point.x}</b><br/>',
+                pointFormat: '{series.name}: {point.y}<br/>ทั้งหมด: {point.stackTotal}'
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                        style: {
+                            textShadow: '0 0 3px black'
+                        }
+                    }
+                },
+                series: {
+                    pointWidth: 80
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'ผ่าน / ได้รับ',
+                data: [5, 3]
+            }, {
+                name: 'ไม่ผ่าน / ไม่ได้รับ',
+                data: [2, 2]
+            }]
+        });
+
+
+    }
+
+</script>
