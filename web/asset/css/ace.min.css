@@ -13,7 +13,7 @@ body {
     line-height: 1.5
 }
 
-.main-container:before
+.main-container:before {
     display: block;
     content: "";
     position: absolute;
@@ -1318,9 +1318,8 @@ pre.prettyprint {
     border-radius: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
-    min-height: 55px;
-    /*background: #438eb9*/
-    background: #6C2670;
+    min-height: 45px;
+    background: #438eb9
 }
 
 .navbar .navbar-text, .navbar .navbar-link {
@@ -15336,7 +15335,7 @@ ul.attachment-list > li {
 }
 
 .dataTables_info {
-    font-size: 12px
+    font-size: 14px
 }
 
 .dataTables_paginate {
@@ -20516,7 +20515,7 @@ input.typeahead.scrollable ~ .tt-dropdown-menu {
     }
 
     .navbar-fixed-top.navbar-collapse + .main-container {
-        padding-top: 45px
+        padding-top: 55px
     }
 }
 

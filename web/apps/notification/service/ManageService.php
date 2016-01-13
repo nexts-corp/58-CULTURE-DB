@@ -24,4 +24,15 @@ class ManageService extends CServiceBase implements IManageService {
         $view = new CJView("manage", CJViewType::HTML_VIEW_ENGINE);
         return $view;
     }
+
+    public function insert(){
+        $test = new \apps\common\entity\Member();
+        $test->username = "test";
+        if(!$this->datacontext->saveObject($test)){
+            return $this->datacontext->getLastMessage();
+        }
+        else{
+            return true;
+        }
+    }
 }

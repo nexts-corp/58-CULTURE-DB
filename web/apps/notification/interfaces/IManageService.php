@@ -14,4 +14,11 @@ interface IManageService {
      * @description  manage.html
      */
     public function view();
+
+    /**
+     * @name insert
+     * @uri /insert
+     * @description  manage.html
+     */
+    public function insert();
 }
