@@ -3,23 +3,20 @@
 <div class="main-content">
     <div class="main-content-inner">        
         <div class="page-content">
-            
-                
+
+
 
             <div class="page-header">
                 <h1>
                     จัดการผู้ใช้งาน
-                    <small>
-                        <i class="ace-icon fa fa-angle-double-right"></i>
-                        บุคลากรภายใน
-                    </small>
-                    <button class="btn btn-primary pull-right btn-sm RbtnMargin" type="button"><i class="fa fa-plus-circle"></i> เพิ่มผู้ใช้งาน</button>
+                    
+                    <button class="btn btn-primary pull-right btn-sm RbtnMargin btn-add" type="button"><i class="fa fa-plus-circle"></i> เพิ่มผู้ใช้งาน</button>
                 </h1>
-                
-                
-                
+
+
+
             </div><!-- /.page-header -->
-            
+
             <div class="row">
                 <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
@@ -53,6 +50,20 @@
     </div>
 </div><!-- /.main-content -->
 
+<!-- dialog-confirm -->
+<div id="dialog-confirm" class="hide">
+    <!--
+    <div class="alert alert-info bigger-110">
+        ต้องการลบข้อมูลใช่หรือไม่
+    </div>
+    -->
+    <div class="space-6"></div> 
+
+    <p class="bigger-110 bolder center grey">
+        <i class="ace-icon fa fa-hand-o-right blue bigger-120"></i>
+        ต้องการลบข้อมูลหรือไม่
+    </p>
+</div><!-- #dialog-confirm -->
 {{>footer}}
 
 
@@ -60,13 +71,20 @@
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
     jQuery(function($) {
-        
+
         var dataSet = [
-                        {memberId:"1",firstname:"นายยุทธชัย",lastName:"สมมุติ",departmentName:"กลุ่มพัฒนาระบบบริหาร",email:"Test1@mail.com",telephone:"0827496186",memberType:"1"},
-                        {memberId:"2",firstname:"นายปัญญา",lastName:"รมเย็น",departmentName:"กลุ่มพัฒนาระบบบริหาร",email:"Test2@mail.com",telephone:"0812345678",memberType:"1"},
-                        {memberId:"3",firstname:"นายสมปอง",lastName:"สายเหลือง",departmentName:"สำนักพิจารณาภาพยนตร์และวีดิทัศน์",email:"Test3@mail.com",telephone:"0897894561",memberType:"1"}
-                    ]
-        
+            {memberId: "1", firstname: "นายยุทธชัย", lastName: "สมมุติ", departmentName: "กลุ่มพัฒนาระบบบริหาร", email: "Test1@mail.com", telephone: "0827496186", memberType: "1"},
+            {memberId: "2", firstname: "นายปัญญา", lastName: "รมเย็น", departmentName: "กลุ่มพัฒนาระบบบริหาร", email: "Test2@mail.com", telephone: "0812345678", memberType: "1"},
+            {memberId: "3", firstname: "นายสมปอง", lastName: "สายเหลือง", departmentName: "สำนักพิจารณาภาพยนตร์และวีดิทัศน์", email: "Test3@mail.com", telephone: "0897894561", memberType: "1"}
+        ]
+
+
+
+        $(".btn-add").unbind("click").click(function() {
+            
+            window.location.assign("{{_context_path}}/api/member/member/view/add");
+        });
+
         var t = $("#table").DataTable({
             "destroy": true,
             "data": dataSet,
@@ -85,7 +103,7 @@
                     "data": "firstname",
                     "sClass": "text-left col-md-2",
                     "render": function(data, key, full) {
-                        return full["firstname"]+"&nbsp;&nbsp;"+full["lastName"];
+                        return full["firstname"] + "&nbsp;&nbsp;" + full["lastName"];
                     }
                 },
                 {
@@ -108,11 +126,11 @@
                     "data": "memberId",
                     "sClass": "text-center",
                     "render": function(data, key, full) {
-                        $html=' <button class="btn btn-info btn-xs btn-bold"><i class="fa fa-cog"></i> ตั้งค่าการเข้าใช้งาน</button>';
-                        $html+=' <button class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
-                        $html+=' <button class="btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
+                        $html = ' <button  class="btn btn-info btn-xs btn-bold"><i class="fa fa-cog"></i> ตั้งค่าการเข้าใช้งาน</button>';
+                        $html += ' <button class="btn-update btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
+                        $html += ' <button  class="dialogDelete btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
 
-                                
+
                         return $html;
                     }
                 }
@@ -123,5 +141,58 @@
                 cell.innerHTML = i + 1;
             });
         }).draw();
+
+        //override dialog's title function to allow for HTML titles
+        $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+            _title: function(title) {
+                var $title = this.options.title || '&nbsp;'
+                if (("title_html" in this.options) && this.options.title_html == true)
+                    title.html($title);
+                else
+                    title.text($title);
+            }
+        }));
+
+        //dialog confirm
+        $(".dialogDelete").on('click', function(e) {
+            e.preventDefault();
+            var tr = $(this).closest("tr");
+            $("#dialog-confirm").removeClass('hide').dialog({
+                resizable: false,
+                width: '320',
+                modal: true,
+                title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> ยืนยันการลบข้อมูล</h4></div>",
+                title_html: true,
+                buttons: [
+                    {
+                        html: "<i class='ace-icon fa fa-trash-o bigger-110'></i>&nbsp; Delete",
+                        "class": "btn btn-danger btn-minier",
+                        click: function() {
+
+                            //var Rows=$(this).closest("tr").index();
+                            tr.remove();
+                            $(this).dialog("close");
+                            //alert(tr);
+                        }
+                    }
+                    ,
+                    {
+                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
+                        "class": "btn btn-minier",
+                        click: function() {
+                            $(this).dialog("close");
+                        }
+                    }
+                ]
+            });
+        });
+        
+        $(".btn-update").unbind("click").click(function() {
+            
+            window.location.assign("{{_context_path}}/api/member/member/view/update");
+        });
+
+        
+
     })
 </script>
