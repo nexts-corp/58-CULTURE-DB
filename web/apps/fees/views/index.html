@@ -110,7 +110,7 @@
                 <div class="col-xs-12">
                     <div class="row">
                         <div class="space-6"></div>
-                        <div class="col-sm-3">
+                        <div class="col-md-12">
                             <div class="widget-box transparent">
                                 <div class="widget-header widget-header-flat">
                                     <h4 class="widget-title lighter">
@@ -127,16 +127,15 @@
 
                                 <div class="widget-body">
                                     <div class="widget-main padding-4">
-                                        <div id="sales-charts"></div>
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-6">
                                             <label class="col-sm-4 control-label text-right">ประเภท :</label>
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-8 text-left">
                                                 <select id="searchType" class="chosen-select form-control"></select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-6">
                                             <label class="col-sm-4 control-label text-right">สถานะ :</label>
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-8 text-left">
                                                 <select id="searchStatus" class="chosen-select form-control"></select>
                                             </div>
                                         </div>
@@ -147,25 +146,40 @@
                                     </div><!-- /.widget-main -->
                                 </div><!-- /.widget-body -->
                             </div><!-- /.widget-box -->
-                        </div><!-- /.col -->
-                        <div class="col-md-9">
-                            <table id="table" class="table table-bordered table-striped table-condensed mb-none">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center col-md-1">ลำดับ</th>
-                                        <th class="text-center col-md-1">เลขที่เอกสาร</th>
-                                        <th class="text-center col-md-4">ชื่อ-สกุล/บริษัท</th>
-                                        <th class="text-center col-md-2">ประเภท</th>
-                                        <th class="text-center col-md-2">สถานะ</th>
-                                        <th class="text-center col-md-2">รายละเอียด</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td colspan="6" class="text-center">-</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="space-2"></div>
+                            <div class="widget-box transparent">
+                                <div class="widget-header widget-header-flat">
+                                    <!--       <h4 class="widget-title lighter">
+                                            <i class="ace-icon fa fa-list"></i>
+                                            
+                                        </h4>
+    
+                                      <div class="widget-toolbar">
+                                            <a href="#" data-action="collapse">
+                                                <i class="ace-icon fa fa-chevron-up"></i>
+                                            </a>
+                                        </div>-->
+                                </div>
+                                <div class="widget-body">
+                                    <table id="table" class="table table-bordered table-striped table-condensed mb-none">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center col-md-1">ลำดับ</th>
+                                                <th class="text-center col-md-1">เลขที่เอกสาร</th>
+                                                <th class="text-center col-md-4">ชื่อ-สกุล/บริษัท</th>
+                                                <th class="text-center col-md-2">ประเภท</th>
+                                                <th class="text-center col-md-2">สถานะ</th>
+                                                <th class="text-center col-md-2">รายละเอียด</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="6" class="text-center">-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div><!-- /.col -->
 
 
@@ -179,6 +193,79 @@
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.page-content -->
+
+        <!-- dialog message -->
+        <div id="dialog-message" class="hide">
+            <div class="widget-box transparent">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="widget-title lighter">
+                        <i class="ace-icon fa fa-credit-card"></i>
+                        ค่าธรรมเนียม
+                    </h4>
+
+                    <!--                   <div class="widget-toolbar">
+                                            <a href="#" data-action="collapse">
+                                                <i class="ace-icon fa fa-chevron-up"></i>
+                                            </a>
+                                        </div>-->
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main padding-4">
+                        <div class="col-sm-12">
+                            <div class="tabbable tabs-left">
+                                <ul class="nav nav-tabs" id="myTab3">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#tabCustomer">
+                                            <i class="purple ace-icon fa fa-user bigger-110"></i>
+                                            ลูกค้า
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a data-toggle="tab" href="#tabType">
+                                            <i class="blue ace-icon fa fa-file-movie-o bigger-110"></i>
+                                            ประเภท
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a data-toggle="tab" href="#tabStatus">
+                                            <i class="green fa fa-check-square-o bigger-110"></i>
+                                            สถานะ
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tabNormal">
+                                            <i class="red fa fa-rocket"></i>
+                                            ข้อมูลทั่วไป
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div id="home3" class="tab-pane in active">
+                                        <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
+                                        <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
+                                    </div>
+
+                                    <div id="profile3" class="tab-pane">
+                                        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
+                                        <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
+                                    </div>
+
+                                    <div id="dropdown13" class="tab-pane">
+                                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade.</p>
+                                        <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.col -->
+                    </div><!-- /.widget-main -->
+                </div><!-- /.widget-body -->
+            </div><!-- /.widget-box -->
+        </div><!-- #dialog-message -->
+        <!-- /.dialog message -->
     </div>
 </div><!-- /.main-content -->
 
@@ -284,14 +371,14 @@
 //        });
 
         $('.chosen-select').chosen({allow_single_deselect: true});
-//        $(window)
-//                .off('resize.chosen')
-//                .on('resize.chosen', function () {
-//                    $('.chosen-select').each(function () {
-//                        var $this = $(this);
-//                        $this.next().css({'width': $this.parent().width()});
-//                    })
-//                }).trigger('resize.chosen');
+        $(window)
+                .off('resize.chosen')
+                .on('resize.chosen', function () {
+                    $('.chosen-select').each(function () {
+                        var $this = $(this);
+                        $this.next().css({'width': $this.parent().width()});
+                    })
+                }).trigger('resize.chosen');
 
         $("#searchType").change(function () {
             t.columns(3).search($(this).val()).draw();
@@ -300,10 +387,73 @@
             t.columns(4).search($(this).val()).draw();
         });
 
-        $("button.detail").click(function () {
+        $("button.detail").click(function (e) {
+            e.preventDefault();
             var feesId = $(this).attr("data-feesId");
             var data = listsArr[feesId];
-            console.log(data);
+
+            if (data["statusCode"] == "WAITING") {
+                var dialog = $("#dialog-message").removeClass('hide').dialog({
+                    modal: true,
+//                title: "ค่าธรรมเนียม",
+//                title_html: true,
+                    maxWidth: 500,
+                    maxHeight: 300,
+                    width: 500,
+                    height: 300,
+                    buttons: [
+                        {
+                            text: "ยกเลิก",
+                            "class": "btn btn-default btn-minier",
+                            click: function () {
+                                $(this).dialog("close");
+                            }
+                        },
+                        {
+                            text: "ชำระค่าธรรมเนียม",
+                            "class": "btn btn-success btn-minier",
+                            click: function () {
+                                $(this).dialog("close");
+                            }
+                        },
+                        {
+                            text: "พิมพ์ใบเสร็จ",
+                            "class": "btn btn-primary btn-minier",
+                            click: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    ]
+                });
+            } else if (data["statusCode"] == "PAID") {
+                var dialog = $("#dialog-message").removeClass('hide').dialog({
+                    modal: true,
+//                title: "ค่าธรรมเนียม",
+//                title_html: true,
+                    maxWidth: 500,
+                    maxHeight: 300,
+                    width: 500,
+                    height: 300,
+                    buttons: [
+                        {
+                            text: "ยกเลิก",
+                            "class": "btn btn-default btn-minier",
+                            click: function () {
+                                $(this).dialog("close");
+                            }
+                        },
+                        {
+                            text: "พิมพ์ใบเสร็จ",
+                            "class": "btn btn-primary btn-minier",
+                            click: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    ]
+                });
+            }
+
+
         });
     });
 </script>
