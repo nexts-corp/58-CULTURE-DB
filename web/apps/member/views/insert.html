@@ -81,26 +81,26 @@
             <div class="row">
                 <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
-                    <form id="complete-test-form" class="form-horizontal test-form has-validation-callback" role="form" >
+                    <form id="member-form" class="form-horizontal member-form has-validation-callback" role="form" >
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ชื่อ </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" id="form-field-1" placeholder="กรุณาป้อนชื่อ" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" data-validation-allowing="" class="col-xs-10 col-sm-5" />
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ชื่อ * </label>
+                            
+                            <div class="col-xs-10 col-sm-5">
+                                <input type="text" id="firstname"  placeholder="กรุณาป้อนชื่อ" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" data-validation-allowing="" class="form-control" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> นามสกุล </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" id="form-field-1" placeholder="กรุณาป้อนนามสกุล" class="col-xs-10 col-sm-5" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> หน่วยงาน </label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> นามสกุล * </label>
 
                             <div class="col-xs-10 col-sm-5">
-                                <select class="form-control col-xs-10 col-sm-5" id="departmentId" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาเลือกข้อมูล">
+                                <input type="text" id="lastname" placeholder="กรุณาป้อนนามสกุล" class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> หน่วยงาน * </label>
+
+                            <div class="col-xs-10 col-sm-5">
+                                <select class="form-control" id="departmentId" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาเลือกข้อมูล">
                                     <option value="">เลือกหน่วยงาน</option>
                                     {{#depattment}}
                                     <option value="{{departmentId}}">{{departmentId}} {{departmentName}}</option>
@@ -110,32 +110,32 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> เบอร์โทร </label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> เบอร์โทร * </label>
 
-                            <div class="col-sm-9">
-                                <input type="text" id="form-field-1" placeholder="กรุณาเบอร์โทร" class="col-xs-10 col-sm-5" />
+                            <div class="col-xs-10 col-sm-5">
+                                <input type="text" id="telephone" placeholder="กรุณาเบอร์โทร" class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณากรอกข้อมูล"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> อีเมล์ </label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> อีเมล์ * </label>
 
-                            <div class="col-sm-9">
-                                <input type="text" data-validation="email" id="form-field-1" placeholder="กรุณาป้อนอีเมล์" class="col-xs-10 col-sm-5" />
+                            <div class="col-xs-10 col-sm-5">
+                                <input type="text" id="email" data-validation="email" data-validation-error-msg="&nbsp;&nbsp;ข้อมูลอีเมล์ไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง"  placeholder="กรุณาป้อนอีเมล์" class="form-control" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Username </label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Username * </label>
 
-                            <div class="col-sm-9">
-                                <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />
+                            <div class="col-xs-10 col-sm-5">
+                                <input type="text" id="username" placeholder="Username" class="form-control" data-validation="length" data-validation-length="min5" data-validation-error-msg="&nbsp;&nbsp;Username ต้องมีตัวอักษรไม่ต่ำกว่า 5 ตัวอักษร"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Password </label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Password * </label>
 
-                            <div class="col-sm-9">
-                                <input type="password" id="form-field-1" placeholder="Password" class="col-xs-10 col-sm-5" />
+                            <div class="col-xs-10 col-sm-5">
+                                <input type="password" id="password" placeholder="Password" class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณากรอกข้อมูล"/>
                             </div>
                         </div>
 
@@ -168,15 +168,36 @@
 <script type="text/javascript">
     jQuery(function($) {
         //$("#departmentId").select2();
-
+        
         $.validate({
             addValidClassOnAll: true
         });
-   
+        
 
-        $("#member-form").submit(function(event) {
-            
-            //event.preventDefault();
+
+        $('#member-form').on('submit', function() {
+           if($(this).isValid()) {
+                //displayErrors( errors );
+                
+                var data = {};
+                data['firstname'] = $("#firstname").val();
+                data['lastname'] = $("#lastname").val();
+                data['departmentId'] = $("#departmentId").val();
+                data['telephone'] = $("#telephone").val();
+                data['email'] = $("#email").val();
+                data['username'] = $("#username").val();
+                data['password'] = $("#password").val();
+
+                var jdata = {};
+                jdata['member'] = data;
+
+                var result=callAjax('{{_context_path}}/api/member/member/insert', 'post', jsonEncode(jdata),'json');
+                console.log(result);
+                
+                return false;
+           } 
         });
+
+
     });
 </script>

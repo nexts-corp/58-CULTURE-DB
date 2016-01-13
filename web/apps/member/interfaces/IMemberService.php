@@ -14,13 +14,12 @@ interface IMemberService {
     /**
      * @name insert
      * @uri /insert
-     * @param apps\common\entity\User user Description
+     * @param apps\common\entity\Member member Description
      * @return boolean add Description
      * @description เพิ่มข้อมูลเจ้าหน้าที่
-     * @authen true
      * @resource 1000
      */
-    public function insert($user);
+    public function insert($member);
 
     /**
      * @name update

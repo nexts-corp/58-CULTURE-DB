@@ -10,6 +10,7 @@ use apps\member\interfaces\IMemberService;
 
 use apps\common\entity;
 use apps\common\entity\Department;
+use apps\common\entity\Member;
 
 class MemberService extends CServiceBase implements IMemberService  {
 
@@ -54,21 +55,22 @@ class MemberService extends CServiceBase implements IMemberService  {
         return $data;
     }
     
-    public function insert($user){
+    public function insert($member){
         $return = true;
+        $info = new Member();
+        $info->username = $member->username;
         
-        $info = new \apps\common\entity\User();
-        $info->username = $user->username;
         $dataInfo = $this->datacontext->getObject($info);
+        $member->dateOfBirth = new \DateTime("now");
+      
         if(count($dataInfo) == 0){
-            if (!$this->datacontext->saveObject($user)) {
+            if (!$this->datacontext->saveObject($member)) {
                 $return = $this->datacontext->getLastMessage();
             }
         }
         else{
             $return = "Username already exists";
         }
-        
         return $return;
     }
     

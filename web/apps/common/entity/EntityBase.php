@@ -28,13 +28,14 @@ class EntityBase {
      */
     public $updatedTime;
 
-
     /**
      * @PrePersist
      */
     function prePersist() {
+        //  $this->createdTime = "2016-01-13 22:22:22";
         $this->createdTime = new \DateTime("now");
-        $this->createdBy = \th\co\bpg\cde\core\impl\ChangdaoEngineImpl::$_CURRENT_USER->name;
+        $this->updatedTime = new \DateTime("now");
+        //$this->createdBy = \th\co\bpg\cde\core\impl\ChangdaoEngineImpl::$_CURRENT_USER->name;
     }
 
     /**
@@ -42,40 +43,39 @@ class EntityBase {
      */
     function preUpdate() {
         $this->updatedTime = new \DateTime("now");
-        $this->updatedBy = \th\co\bpg\cde\core\impl\ChangdaoEngineImpl::$_CURRENT_USER->name;
+        //$this->updatedBy = \th\co\bpg\cde\core\impl\ChangdaoEngineImpl::$_CURRENT_USER->name;
     }
 
-    function getCreatedBy(){
+    public function getCreatedBy() {
         return $this->createdBy;
     }
 
-    function getUpdatedBy(){
+    public function getUpdatedBy() {
         return $this->updatedBy;
     }
 
-    function getCreatedTime(){
+    public function getCreatedTime() {
         return $this->createdTime;
     }
 
-    function getUpdatedTime(){
+    public function getUpdatedTime() {
         return $this->updatedTime;
     }
 
-    function setCreatedBy($createdBy)
-    {
+    public function setCreatedBy($createdBy) {
         $this->createdBy = $createdBy;
     }
 
-    function setUpdatedBy($updatedBy)
-    {
+    public function setUpdatedBy($updatedBy) {
         $this->updatedBy = $updatedBy;
     }
 
-    function setCreatedTime($createdTime){
+    public function setCreatedTime($createdTime) {
         $this->createdTime = $createdTime;
     }
 
-    function setUpdatedTime($updatedTime){
+    public function setUpdatedTime($updatedTime) {
         $this->updatedTime = $updatedTime;
     }
+
 }
