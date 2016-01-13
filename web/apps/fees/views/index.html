@@ -212,53 +212,44 @@
 
                 <div class="widget-body">
                     <div class="widget-main padding-4">
-                        <div class="col-sm-12">
-                            <div class="tabbable tabs-left">
-                                <ul class="nav nav-tabs" id="myTab3">
-                                    <li class="active">
-                                        <a data-toggle="tab" href="#tabCustomer">
-                                            <i class="purple ace-icon fa fa-user bigger-110"></i>
-                                            ลูกค้า
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a data-toggle="tab" href="#tabType">
-                                            <i class="blue ace-icon fa fa-file-movie-o bigger-110"></i>
-                                            ประเภท
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a data-toggle="tab" href="#tabStatus">
-                                            <i class="green fa fa-check-square-o bigger-110"></i>
-                                            สถานะ
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="tab" href="#tabNormal">
-                                            <i class="red fa fa-rocket"></i>
-                                            ข้อมูลทั่วไป
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content">
-                                    <div id="home3" class="tab-pane in active">
-                                        <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
-                                        <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
-                                    </div>
-
-                                    <div id="profile3" class="tab-pane">
-                                        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-                                        <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
-                                    </div>
-
-                                    <div id="dropdown13" class="tab-pane">
-                                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade.</p>
-                                        <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="blue fa fa-user"></i> ลูกค้า :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="customerName" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="purple fa fa-file-video-o"></i> ประเภท :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="typeName" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="green fa fa-check-circle"></i> สถานะ :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="statusCode" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="red fa fa-bank"></i> ค่าธรรมเนียม :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="amount" style="font-weight: bold;"></span><span> บาท</span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="red fa fa-credit-card"></i> วันที่ชำระ :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="datePay" style="font-weight: bold;"></span></h4>
                             </div>
                         </div><!-- /.col -->
                     </div><!-- /.widget-main -->
@@ -278,182 +269,201 @@
     $(document).ready(function () {
         var listsArr = {};
         var datas = callAjax("{{_context_path}}/apps/fees/datatest.json", "get", {}, "json")["lists"];
-        var t = $("#table").DataTable({
-            "destroy": true,
-            "data": datas,
-            "order": [0, 'asc'],
-            "iDisplayLength": 50,
-            "columnDefs": [
-                {
-                    "targets": 0,
-                    "searchable": false,
-                    "orderable": false,
-                    "data": "feesId",
-                    "sClass": "text-center col-md-1"
-                },
-                {
-                    "targets": 1,
-                    "data": "feesCode",
-                    "sClass": "text-center col-md-1",
+        var t;
+        drawTable(datas);
+        searchSelect(datas);
+
+
+        function drawTable(datas) {
+            t = $("#table").DataTable({
+                "destroy": true,
+                "data": datas,
+                "order": [0, 'asc'],
+                "iDisplayLength": 50,
+                "columnDefs": [
+                    {
+                        "targets": 0,
+                        "searchable": false,
+                        "orderable": false,
+                        "data": "feesId",
+                        "sClass": "text-center col-md-1"
+                    },
+                    {
+                        "targets": 1,
+                        "data": "feesCode",
+                        "sClass": "text-center col-md-1",
 //                    "render": function (data) {
 //                        return 'ง.' + data;
 //                    }
-                },
-                {
-                    "targets": 2,
-                    "data": "customerName",
-                    "sClass": "col-md-3",
+                    },
+                    {
+                        "targets": 2,
+                        "data": "customerName",
+                        "sClass": "col-md-3",
 //                    "render": function (data, key, full) {
 //                        return full["facultyName"] + ' / ' + full["deptName"];
 //                    }
 
-                },
-                {
-                    "targets": 3,
-                    "data": "typeName",
-                    "sClass": "text-center col-md-2"
-                },
-                {
-                    "targets": 4,
-                    "data": "statusCode",
-                    "sClass": "text-center col-md-2",
-                    "render": function (data) {
-                        if (data == "PAID") {
-                            return '<span class="label label-success arrowed-in arrowed-in-right">PAID</span>'
-                        } else {
-                            return '<span class="label label-warning arrowed arrowed-right">WAITING</span>'
+                    },
+                    {
+                        "targets": 3,
+                        "data": "typeName",
+                        "sClass": "text-center col-md-2"
+                    },
+                    {
+                        "targets": 4,
+                        "data": "statusCode",
+                        "sClass": "text-center col-md-2",
+                        "render": function (data) {
+                            if (data == "PAID") {
+                                return '<span class="label label-success arrowed-in arrowed-in-right">PAID</span>'
+                            } else {
+                                return '<span class="label label-warning arrowed arrowed-right">WAITING</span>'
+                            }
+
                         }
+                    },
+                    {
+                        "targets": 5,
+                        "data": "feesId",
+                        "sClass": "text-center col-md-2",
+                        "render": function (data) {
+                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-feesId="' + data + '"><i class="fa fa-list"></i></button>'
+                            // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
 
+                        }
                     }
-                },
-                {
-                    "targets": 5,
-                    "data": "feesId",
-                    "sClass": "text-center col-md-2",
-                    "render": function (data) {
-                        return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-feesId="' + data + '"><i class="fa fa-list"></i></button>'
-                        // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
-
-                    }
-                }
-            ]
-        });
-        t.on('order.dt search.dt', function () {
-            t.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
-                cell.innerHTML = i + 1;
+                ]
             });
-        }).draw();
+            t.on('order.dt search.dt', function () {
+                t.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
 
-        var datasType = {}
-        var datasStatus = {};
-        $.each(datas, function (key, value) {
-            listsArr[value["feesId"]] = value;
-            datasType[value["typeName"]] = value["typeName"];
-            datasStatus[value["statusCode"]] = value["statusCode"];
-        });
-        //search selectbox type
-        var search = '<option value="" selected="selected">ทั้งหมด</option>';
-        $.each(datasType, function (key, value) {
-            search += '<option value="' + value + '">' + value + '</option>';
-        });
-        $("#searchType").html(search);
-//        $("#searchType").html(search).select2().change(function () {
-//            t.columns(3).search(this.value).draw();
-//        });
-        //search selectbox status
-        var search = '<option value="" selected="selected">ทั้งหมด</option>';
-        $.each(datasStatus, function (key, value) {
-            search += '<option value="' + value + '">' + value + '</option>';
-        });
-        $("#searchStatus").html(search);
-//        $("#searchStatus").html(search).select2().change(function () {
-//            t.columns(4).search(this.value).draw();
-//        });
 
-        $('.chosen-select').chosen({allow_single_deselect: true});
-        $(window)
-                .off('resize.chosen')
-                .on('resize.chosen', function () {
-                    $('.chosen-select').each(function () {
-                        var $this = $(this);
-                        $this.next().css({'width': $this.parent().width()});
-                    })
-                }).trigger('resize.chosen');
+            btnEdit();
+        }
+        function searchSelect(datas) {
+            var datasType = {}
+            var datasStatus = {};
+            $.each(datas, function (key, value) {
+                listsArr[value["feesId"]] = value;
+                datasType[value["typeName"]] = value["typeName"];
+                datasStatus[value["statusCode"]] = value["statusCode"];
+            });
 
-        $("#searchType").change(function () {
-            t.columns(3).search($(this).val()).draw();
-        });
-        $("#searchStatus").change(function () {
-            t.columns(4).search($(this).val()).draw();
-        });
+            //search selectbox type
+            var search = '<option value="" selected="selected">ทั้งหมด</option>';
+            $.each(datasType, function (key, value) {
+                search += '<option value="' + value + '">' + value + '</option>';
+            });
+            $("#searchType").html(search);
+            //search selectbox status
+            var search = '<option value="" selected="selected">ทั้งหมด</option>';
+            $.each(datasStatus, function (key, value) {
+                search += '<option value="' + value + '">' + value + '</option>';
+            });
+            $("#searchStatus").html(search);
+            $('.chosen-select').chosen({allow_single_deselect: true});
+            $(window)
+                    .off('resize.chosen')
+                    .on('resize.chosen', function () {
+                        $('.chosen-select').each(function () {
+                            var $this = $(this);
+                            $this.next().css({'width': $this.parent().width()});
+                        })
+                    }).trigger('resize.chosen');
 
-        $("button.detail").click(function (e) {
-            e.preventDefault();
-            var feesId = $(this).attr("data-feesId");
-            var data = listsArr[feesId];
+            $("#searchType").change(function () {
+                t.columns(3).search($(this).val()).draw();
+            });
+            $("#searchStatus").change(function () {
+                t.columns(4).search($(this).val()).draw();
+            });
+        }
 
-            if (data["statusCode"] == "WAITING") {
-                var dialog = $("#dialog-message").removeClass('hide').dialog({
-                    modal: true,
+        function btnEdit() {
+            $("button.detail").click(function (e) {
+                e.preventDefault();
+                var feesId = $(this).attr("data-feesId");
+                var data = listsArr[feesId];
+                $("#customerName").text(data["customerName"]);
+                $("#typeName").text(data["typeName"]);
+                $("#statusCode").text(data["statusCode"]);
+                $("#amount").text(data["amount"]);
+
+                if (data["statusCode"] == "WAITING") {
+                    $("#datePay").text("-");
+                    var dialog = $("#dialog-message").removeClass('hide').dialog({
+                        modal: true,
 //                title: "ค่าธรรมเนียม",
 //                title_html: true,
-                    maxWidth: 500,
-                    maxHeight: 300,
-                    width: 500,
-                    height: 300,
-                    buttons: [
-                        {
-                            text: "ยกเลิก",
-                            "class": "btn btn-default btn-minier",
-                            click: function () {
-                                $(this).dialog("close");
+                        maxWidth: 500,
+                        maxHeight: 370,
+                        width: 500,
+                        height: 370,
+                        buttons: [
+                            {
+                                text: "ยกเลิก",
+                                "class": "btn btn-default btn-minier",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            {
+                                text: "ชำระค่าธรรมเนียม",
+                                "class": "btn btn-success btn-minier",
+                                click: function () {
+                                    listsArr[feesId]["statusCode"] = "PAID";
+                                    var datax = [];
+                                    $.each(listsArr, function (k, v) {
+                                        datax.push(v);
+                                    });
+                                    drawTable(datax);
+                                    //searchSelect(datax);
+                                    $(this).dialog("close");
+
+                                }
+                            },
+                            {
+                                text: "พิมพ์ใบเสร็จ",
+                                "class": "btn btn-primary btn-minier",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
                             }
-                        },
-                        {
-                            text: "ชำระค่าธรรมเนียม",
-                            "class": "btn btn-success btn-minier",
-                            click: function () {
-                                $(this).dialog("close");
-                            }
-                        },
-                        {
-                            text: "พิมพ์ใบเสร็จ",
-                            "class": "btn btn-primary btn-minier",
-                            click: function () {
-                                $(this).dialog("close");
-                            }
-                        }
-                    ]
-                });
-            } else if (data["statusCode"] == "PAID") {
-                var dialog = $("#dialog-message").removeClass('hide').dialog({
-                    modal: true,
+                        ]
+                    });
+                } else if (data["statusCode"] == "PAID") {
+                    $("#datePay").text(data["datePay"]);
+                    var dialog = $("#dialog-message").removeClass('hide').dialog({
+                        modal: true,
 //                title: "ค่าธรรมเนียม",
 //                title_html: true,
-                    maxWidth: 500,
-                    maxHeight: 300,
-                    width: 500,
-                    height: 300,
-                    buttons: [
-                        {
-                            text: "ยกเลิก",
-                            "class": "btn btn-default btn-minier",
-                            click: function () {
-                                $(this).dialog("close");
+                        maxWidth: 500,
+                        maxHeight: 370,
+                        width: 500,
+                        height: 370,
+                        buttons: [
+                            {
+                                text: "ยกเลิก",
+                                "class": "btn btn-default btn-minier",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            {
+                                text: "พิมพ์ใบเสร็จ",
+                                "class": "btn btn-primary btn-minier",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
                             }
-                        },
-                        {
-                            text: "พิมพ์ใบเสร็จ",
-                            "class": "btn btn-primary btn-minier",
-                            click: function () {
-                                $(this).dialog("close");
-                            }
-                        }
-                    ]
-                });
-            }
-
-
-        });
+                        ]
+                    });
+                }
+            });
+        }
     });
 </script>
