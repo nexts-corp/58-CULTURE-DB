@@ -15,7 +15,7 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="#">Home</a>
                 </li>
-                <li class="active">ระบบชำระค่าธรรมเนียม</li>
+                <li class="active">{{#i18n}}fees.title{{/i18n}}</li>
             </ul><!-- /.breadcrumb -->
 
             <div class="nav-search" id="nav-search">
@@ -98,7 +98,7 @@
 
             <div class="page-header">
                 <h1>
-                    ระบบชำระค่าธรรมเนียม
+                    {{#i18n}}fees.title{{/i18n}}
                     <!--								<small>
                                                                                             <i class="ace-icon fa fa-angle-double-right"></i>
                                                                                             overview &amp; stats
@@ -115,7 +115,7 @@
                                 <div class="widget-header widget-header-flat">
                                     <h4 class="widget-title lighter">
                                         <i class="ace-icon fa fa-search"></i>
-                                        ค้นหา
+                                        {{#i18n}}search{{/i18n}}
                                     </h4>
 
                                     <div class="widget-toolbar">
@@ -128,20 +128,16 @@
                                 <div class="widget-body">
                                     <div class="widget-main padding-4">
                                         <div class="col-sm-6">
-                                            <label class="col-sm-4 control-label text-right">ประเภท :</label>
+                                            <label class="col-sm-4 control-label text-right">{{#i18n}}type{{/i18n}} :</label>
                                             <div class="col-sm-8 text-left">
                                                 <select id="searchType" class="chosen-select form-control"></select>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <label class="col-sm-4 control-label text-right">สถานะ :</label>
+                                            <label class="col-sm-4 control-label text-right">{{#i18n}}status{{/i18n}} :</label>
                                             <div class="col-sm-8 text-left">
                                                 <select id="searchStatus" class="chosen-select form-control"></select>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12">
-
-
                                         </div>
                                     </div><!-- /.widget-main -->
                                 </div><!-- /.widget-body -->
@@ -164,12 +160,12 @@
                                     <table id="table" class="table table-bordered table-striped table-condensed mb-none">
                                         <thead>
                                             <tr>
-                                                <th class="text-center col-md-1">ลำดับ</th>
-                                                <th class="text-center col-md-1">เลขที่เอกสาร</th>
-                                                <th class="text-center col-md-4">ชื่อ-สกุล/บริษัท</th>
-                                                <th class="text-center col-md-2">ประเภท</th>
-                                                <th class="text-center col-md-2">สถานะ</th>
-                                                <th class="text-center col-md-2">รายละเอียด</th>
+                                                <th class="text-center col-md-1">{{#i18n}}table.no{{/i18n}}</th>
+                                                <th class="text-center col-md-1">{{#i18n}}feesCode{{/i18n}}</th>
+                                                <th class="text-center col-md-4">{{#i18n}}customerName{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}type{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}status{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}detail{{/i18n}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -200,7 +196,7 @@
                 <div class="widget-header widget-header-flat">
                     <h4 class="widget-title lighter">
                         <i class="ace-icon fa fa-info-circle"></i>
-                        รายละเอียด
+                        {{#i18n}}detail{{/i18n}}
                     </h4>
 
                     <!--                   <div class="widget-toolbar">
@@ -214,7 +210,7 @@
                     <div class="widget-main padding-4">
                         <div class="row">
                             <div class="col-sm-4 text-right">
-                                <h4><i class="blue fa fa-user"></i> ลูกค้า :</h4>
+                                <h4><i class="blue fa fa-user"></i> {{#i18n}}customer{{/i18n}} :</h4>
                             </div>
                             <div class="col-sm-8">
                                 <h4><span id="customerName" style="font-weight: bold;"></span></h4>
@@ -222,7 +218,7 @@
                         </div><!-- /.col -->
                         <div class="row">
                             <div class="col-sm-4 text-right">
-                                <h4><i class="purple fa fa-file-video-o"></i> ประเภท :</h4>
+                                <h4><i class="purple fa fa-file-video-o"></i> {{#i18n}}type{{/i18n}} :</h4>
                             </div>
                             <div class="col-sm-8">
                                 <h4><span id="typeName" style="font-weight: bold;"></span></h4>
@@ -230,7 +226,7 @@
                         </div><!-- /.col -->
                         <div class="row">
                             <div class="col-sm-4 text-right">
-                                <h4><i class="green fa fa-check-square"></i> สถานะ :</h4>
+                                <h4><i class="green fa fa-check-square"></i> {{#i18n}}status{{/i18n}} :</h4>
                             </div>
                             <div class="col-sm-8">
                                 <h4><span id="statusCode" style="font-weight: bold;"></span></h4>
@@ -238,15 +234,15 @@
                         </div><!-- /.col -->
                         <div class="row">
                             <div class="col-sm-4 text-right">
-                                <h4><i class="red fa fa-bank"></i> ค่าธรรมเนียม :</h4>
+                                <h4><i class="red fa fa-bank"></i> {{#i18n}}fees{{/i18n}} :</h4>
                             </div>
                             <div class="col-sm-8">
-                                <h4><span id="amount" style="font-weight: bold;"></span><span> บาท</span></h4>
+                                <h4><span id="amount" style="font-weight: bold;"></span><span> {{#i18n}}currency.th{{/i18n}}</span></h4>
                             </div>
                         </div><!-- /.col -->
                         <div class="row">
                             <div class="col-sm-4 text-right">
-                                <h4><i class="red fa fa-credit-card"></i> วันที่ชำระ :</h4>
+                                <h4><i class="red fa fa-credit-card"></i> {{#i18n}}datePay{{/i18n}} :</h4>
                             </div>
                             <div class="col-sm-8">
                                 <h4><span id="datePay" style="font-weight: bold;"></span></h4>
@@ -316,9 +312,9 @@
                         "sClass": "text-center col-md-2",
                         "render": function (data) {
                             if (data == "PAID") {
-                                return '<span class="label label-success arrowed-in arrowed-in-right">PAID</span>'
+                                return '<span class="label label-success arrowed-in arrowed-in-right">{{#i18n}}PAID{{/i18n}}</span>'
                             } else {
-                                return '<span class="label label-warning arrowed arrowed-right">WAITING</span>'
+                                return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}WAITING{{/i18n}}</span>'
                             }
 
                         }
@@ -354,16 +350,23 @@
             });
 
             //search selectbox type
-            var search = '<option value="" selected="selected">ทั้งหมด</option>';
+            var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
             $.each(datasType, function (key, value) {
                 search += '<option value="' + value + '">' + value + '</option>';
             });
             $("#searchType").html(search);
             //search selectbox status
-            var search = '<option value="" selected="selected">ทั้งหมด</option>';
+            var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
             $.each(datasStatus, function (key, value) {
-                search += '<option value="' + value + '">' + value + '</option>';
+                if(value=="PAID"){
+                    search += '<option value="{{#i18n}}PAID{{/i18n}}">{{#i18n}}PAID{{/i18n}}</option>';
+                }else if(value=="WAITING"){
+                    search += '<option value="{{#i18n}}WAITING{{/i18n}}">{{#i18n}}WAITING{{/i18n}}</option>';
+                }
+               // search += '<option value="' + val + '">' + val + '</option>';
+
             });
+            console.log(search);
             $("#searchStatus").html(search);
             $('.chosen-select').chosen({allow_single_deselect: true});
             $(window)
@@ -405,14 +408,14 @@
                         height: 370,
                         buttons: [
                             {
-                                text: "ยกเลิก",
+                                text: "{{#i18n}}cancel{{/i18n}}",
                                 "class": "btn btn-default btn-minier",
                                 click: function () {
                                     $(this).dialog("close");
                                 }
                             },
                             {
-                                text: "ชำระค่าธรรมเนียม",
+                                text: "{{#i18n}}feesPay{{/i18n}}",
                                 "class": "btn btn-success btn-minier",
                                 click: function () {
                                     listsArr[feesId]["statusCode"] = "PAID";
@@ -421,17 +424,9 @@
                                         datax.push(v);
                                     });
                                     drawTable(datax);
-                                    //searchSelect(datax);
                                     $(this).dialog("close");
-
-                                }
-                            },
-                            {
-                                text: "พิมพ์ใบเสร็จ",
-                                "class": "btn btn-primary btn-minier",
-                                click: function () {
                                     window.open("http://localhost/culture/web/apps/report/views/files/bill.pdf", '_blank');
-                                    $(this).dialog("close");
+
                                 }
                             }
                         ]
@@ -448,17 +443,16 @@
                         height: 370,
                         buttons: [
                             {
-                                text: "ยกเลิก",
+                                text: "{{#i18n}}cancel{{/i18n}}",
                                 "class": "btn btn-default btn-minier",
                                 click: function () {
                                     $(this).dialog("close");
                                 }
                             },
                             {
-                                text: "พิมพ์ใบเสร็จ",
+                                text: "{{#i18n}}printReceipt{{/i18n}}",
                                 "class": "btn btn-primary btn-minier",
                                 click: function () {
-
                                     window.open("http://localhost/culture/web/apps/report/views/files/bill.pdf", '_blank');
                                     $(this).dialog("close");
                                 }
