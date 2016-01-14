@@ -1,0 +1,52 @@
+{
+    "lists": [
+        {
+            "feesId": "1",
+            "feesCode": "00001/2558",
+            "customerId": "1",
+            "customerName": "แมงป่อง",
+            "typeId": "11",
+            "typeName": "ขอใบอนุญาต",
+            "amount":"10,000",
+            "datePay": "2015-12-03 09:00:00",
+            "statusCode": "WAITING",
+            "isActive": "ACTIVE"
+        },
+        {
+            "feesId": "2",
+            "feesCode": "00002/2558",
+            "customerId": "2",
+            "customerName": "แมงมุม",
+            "typeId": "11",
+            "typeName": "ขอใบอนุญาต",
+            "amount":"20,000",
+            "datePay": "2015-12-03 09:00:00",
+            "statusCode": "PAID",
+            "isActive": "ACTIVE"
+        },
+        {
+            "feesId": "3",
+            "feesCode": "00003/2558",
+            "customerId": "3",
+            "customerName": "แมงดา",
+            "typeId": "22",
+            "typeName": "วีดีทัศน์",
+            "amount":"30,000",
+            "datePay": "2015-12-03 09:00:00",
+            "statusCode": "WAITING",
+            "isActive": "ACTIVE"
+        },
+        {
+            "feesId": "4",
+            "feesCode": "00004/2558",
+            "customerId": "4",
+            "customerName": "แมงกะพรุน",
+            "typeId": "22",
+            "typeName": "วีดีทัศน์",
+            "amount":"40,000",
+            "datePay": "2015-12-03 09:00:00",
+            "statusCode": "PAID",
+            "isActive": "ACTIVE"
+        }
+    ]
+}

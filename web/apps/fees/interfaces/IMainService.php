@@ -3,11 +3,11 @@
 namespace apps\fees\interfaces;
 
 /**
- * @name FeesService
- * @uri /fees
- * @description FeesService
+ * @name MainService
+ * @uri /main
+ * @description MainService
  */
-interface IFeesService {
+interface IMainService {
 
     /**
      * @name view/index
