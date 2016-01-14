@@ -18,50 +18,75 @@
 
         <div class="page-content">
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="widget-box transparent">
-                        <div class="widget-header widget-header-flat">
-                            <h4 class="widget-title lighter">
-                                <i class="ace-icon fa fa-signal"></i>
-                                Sale Stats
-                            </h4>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="widget-box transparent">
+                                <div class="widget-header widget-header-flat">
+                                    <h4 class="widget-title lighter">
+                                        <i class="ace-icon fa fa-signal"></i>
+                                        ใบอนุญาติประกอบกิจการ
+                                    </h4>
 
-                            <div class="widget-toolbar">
-                                <a href="#" data-action="collapse">
-                                    <i class="ace-icon fa fa-chevron-up"></i>
-                                </a>
+                                    <div class="widget-toolbar">
+                                        <a href="#" data-action="collapse">
+                                            <i class="ace-icon fa fa-chevron-up"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="widget-body">
+                                    <div class="widget-main padding-4">
+                                        <div id="storeChart"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="widget-body">
-                            <div class="widget-main padding-4">
-                                <div id="sales-charts"></div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="widget-box transparent">
+                                <div class="widget-header widget-header-flat">
+                                    <h4 class="widget-title lighter">
+                                        <i class="ace-icon fa fa-signal"></i>
+                                        การอนุญาตเผยแพร่
+                                    </h4>
+
+                                    <div class="widget-toolbar">
+                                        <a href="#" data-action="collapse">
+                                            <i class="ace-icon fa fa-chevron-up"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="widget-body">
+                                    <div class="widget-main padding-4">
+                                        <div id="permitChart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="widget-box">
+                            <div class="widget-header">
+                                <h4 class="widget-title lighter">
+                                    ตารางแสดงรายละเอียด
+                                </h4>
+                            </div>
+
+                            <div class="widget-body">
+                                <div id="detail" class="widget-main">
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="widget-box">
-                        <div class="widget-header">
-                            <h4 class="widget-title lighter red">
-                                Summary
-                            </h4>
-                        </div>
-
-                        <div class="widget-body">
-                            <div class="widget-main no-padding">
-                                <table id="summary" class="table">
-                                    <tbody>
-                                        <tr></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- /.col -->
             </div>
         </div>
     </div>
@@ -78,20 +103,87 @@
 
 <script>
     $(function() {
-        plotChart();
-        summary();
+        showData();
     });
 
-    function plotChart(){
-        $('#sales-charts').css({'width':'100%' , 'height':'220px'}).highcharts({
+    function showData(){
+        var data1 = groupStore();
+        var data2 = groupPermit();
+
+        detail(data1, data2);
+    }
+
+    function groupStore(){
+        var dataSet = [];
+
+        var datas = callAjax("{{_context_path}}/api/tracking/all/groupStore", "post", {}, "json");
+        if(typeof datas !== "undefined" && datas != null){
+            var xData = [];
+
+            var app = [];
+            var dis = [];
+
+            $.each(datas["lists"], function(key, value){
+                xData.push(value["groupName"]);
+
+                app.push(value["approve"]);
+                dis.push(value["disapprove"]);
+
+                dataSet.push(value);
+            });
+
+            var yData = [
+                {name: "อนุมัติ", data: app, stack: 1},
+                {name: "ไม่อนุมัติ", data: dis, stack: 1}
+            ];
+
+            plotChart("storeChart", xData, yData);
+        }
+
+        return dataSet;
+    }
+
+    function groupPermit(){
+        var dataSet = [];
+
+        var datas = callAjax("{{_context_path}}/api/tracking/all/groupPermit", "post", {}, "json");
+        if(typeof datas !== "undefined" && datas != null) {
+            var xData = [];
+
+            var app = [];
+            var dis = [];
+
+            $.each(datas["lists"], function (key, value) {
+                xData.push(value["groupName"]);
+
+                app.push(value["approve"]);
+                dis.push(value["disapprove"]);
+
+                dataSet.push(value);
+            });
+
+            var yData = [
+                {name: "อนุมัติ", data: app, stack: 1},
+                {name: "ไม่อนุมัติ", data: dis, stack: 1}
+            ];
+
+            plotChart("permitChart", xData, yData);
+        }
+
+        return dataSet;
+    }
+
+    function plotChart(div, xData, yData){
+        $('#'+div).css({'width':'100%' , 'height':'300px'}).highcharts({
             chart: {
-                type: 'column'
+                type: 'column',
+                marginBottom: 80
             },
             title: {
-                text: 'Stacked column chart'
+                text: ''
             },
             xAxis: {
-                categories: ['ใบอนุญาตประกอบกิจการ', 'การอนุญาตเผยแพร่']
+                categories: xData
             },
             yAxis: {
                 min: 0,
@@ -107,10 +199,10 @@
                 }
             },
             legend: {
-                align: 'right',
-                x: -30,
-                verticalAlign: 'top',
-                y: 25,
+                align: 'center',
+                x: 0,
+                verticalAlign: 'bottom',
+                y: 0,
                 floating: true,
                 backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
                 borderColor: '#CCC',
@@ -134,47 +226,73 @@
                     }
                 },
                 series: {
-                    pointWidth: 80
+                    pointWidth: 50
                 }
             },
             credits: {
                 enabled: false
             },
-            series: [{
-                name: 'ผ่าน / ได้รับ',
-                data: [5, 3]
-            }, {
-                name: 'ไม่ผ่าน / ไม่ได้รับ',
-                data: [2, 2]
-            }]
+            series: yData
         });
     }
 
-    function summary(){
-        var html = '<tr class="no-border">'
-                + '<td class="col-md-5 bolder" rowspan="2">'
-                    + '<i class="ace-icon fa fa-caret-right blue"></i> ใบอนุญาตประกอบกิจการ'
-                + '</td>'
-                + '<td class="col-md-2 green bolder">ได้รับ</td>'
-                + '<td class="col-md-1 green bolder"><div id="pass1">5</div></td>'
-            + '</tr>'
-            + '<tr class="no-border">'
-                + '<td class="red bolder">ไม่ได้รับ</td>'
-                + '<td class="red bolder"><div id="noPass1">2</div></td>'
-            + '</tr>'
-            + '<tr>'
-                + '<td class="col-md-5 bolder" rowspan="2">'
-                    + '<i class="ace-icon fa fa-caret-right blue"></i> การอนุญาตเผยแพร่'
-                + '</td>'
-                + '<td class="col-md-2 green bolder">ผ่าน</td>'
-                + '<td class="col-md-1 green bolder"><div id="pass2">3</div></td>'
-            + '</tr>'
-            + '<tr class="no-border">'
-                + '<td class="red bolder">ไม่ผ่าน</td>'
-                + '<td class="red bolder"><div id="noPass2">2</div></td>'
-            + '</tr>';
+    function detail(dataStore, dataPermit){
+        var arr = [
+            {
+                name: "ใบอนุญาตประกอบกิจการ",
+                data: dataStore
+            },
+            {
+                name: "การอนุญาตเผยแพร่",
+                data: dataPermit
+            }
+        ];
 
-        $("#summary tbody").html(html);
+        var html = '';
+        $.each(arr, function(gKey, gValue){
+            html += '<p class="bolder">'
+                    + '<i class="ace-icon fa fa-caret-right blue"></i> '+gValue["name"]
+                + '</p>'
+
+                + '<table class="table table-bordered">'
+                    + '<thead>'
+                        + '<tr>'
+                            + '<th rowspan="2" class="center" style="width: 50%;">รายการ</th>'
+                            + '<th colspan="2" class="center" style="width: 30%;">จำนวน (รายการ)</th>'
+                            + '<th rowspan="2" class="center" style="width: 20%;">รวม</th>'
+                        + '</tr>'
+                        + '<tr>'
+                            + '<th class="center" style="width: 15%;">อนุมัติ</th>'
+                            + '<th class="center" style="width: 15%;">ไม่อนุมัติ</th>'
+                        + '</tr>'
+                    + '</thead>'
+                    + '<tbody>';
+                        var countApp = 0;
+                        var countDis = 0;
+                        $.each(gValue["data"], function(key, value){
+                            html += '<tr>'
+                                    + '<td class="bolder">'+value["groupName"]+'</td>'
+                                    + '<td class="green text-right">'+value["approve"]+'</td>'
+                                    + '<td class="red text-right">'+value["disapprove"]+'</td>'
+                                    + '<td class="bolder text-right">'+(value["approve"] + value["disapprove"])+'</td>'
+                                + '</tr>';
+
+                            countApp += value["approve"];
+                            countDis += value["disapprove"];
+                        });
+                    html += '</tbody>'
+                    + '<tfoot>'
+                        + '<tr>'
+                            + '<th class="center">รวมทั้งหมด</th>'
+                            + '<th class="green text-right">'+countApp+'</th>'
+                            + '<th class="red text-right">'+countDis+'</th>'
+                            + '<th class="text-right">'+(countApp + countDis)+'</th>'
+                        + '</tr>'
+                    + '</tfoot>'
+                + '</table>';
+        });
+
+        $("#detail").html(html);
     }
 
 </script>
