@@ -24,5 +24,39 @@ class ViewListService extends CServiceBase implements IViewListService {
         $view = new CJView("viewList", CJViewType::HTML_VIEW_ENGINE);
         return $view;
     }
+
+    public function listsJob(){
+        $data = [
+            [
+                "no" => 1001,
+                "name" => "รายการ 1",
+                "deadline" => 4,
+                "remark" => "",
+                "status" => "normal"
+            ],
+            [
+                "no" => 1002,
+                "name" => "รายการ 2",
+                "deadline" => 3,
+                "remark" => "",
+                "status" => "normal"
+            ],
+            [
+                "no" => 1003,
+                "name" => "รายการ 3",
+                "deadline" => 2,
+                "remark" => "",
+                "status" => "warning"
+            ],
+            [
+                "no" => 1004,
+                "name" => "รายการ 4",
+                "deadline" => 1,
+                "remark" => "",
+                "status" => "danger"
+            ]
+        ];
+        return $data;
+    }
 }
 ?>
