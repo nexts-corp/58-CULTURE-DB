@@ -10,34 +10,47 @@
             </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
-                    <div class="col-md-4">
-                        <label class="col-md-3 control-label"> ประเภท </label>
+                    <div class="col-md-12">
 
-                        <div class="col-sm-9">
-                            <select class="chosen-select form-control" id="select">
-                                <option value="">เลือกประเภท</option>
-                                <option value="AL">การขอใบอนุญาตฉายภาพยนต์</option>
-                                <option value="AK">การขอใบอนุญาติประกอบกิจการ</option>
-                            </select>
+                        <label class="col-md-1 control-label"><b> กลุ่มงาน </b></label>
+
+
+                        <div class="radio radio-inline no-padding no-margin">
+                            <label>
+                                <input name="groupRadio" type="radio" class="ace input-md" value="1"/>
+                                <span class="lbl"> พัฒนาการประกอบกิจการ</span>
+                            </label>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="col-md-3 control-label"> ประเภท </label>
-
-                        <div class="col-sm-9">
-                            <select class="chosen-select form-control" id="select2">
-                                <option value="">เลือกประเภท</option>
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <option value="AZ">Arizona</option>
-                            </select>
+                        <div class="radio radio-inline no-padding no-margin">
+                            <label>
+                                <input name="groupRadio" type="radio" class="ace input-md" value="2"/>
+                                <span class="lbl"> ใบอนุญาตประกอบกิจการ</span>
+                            </label>
+                        </div>
+                        <div class="radio radio-inline no-padding no-margin">
+                            <label>
+                                <input name="groupRadio" type="radio" class="ace input-md" value="3"/>
+                                <span class="lbl"> พิจารณาภาพยนต์และวีดีทัศน์</span>
+                            </label>
+                        </div>
+                        <div class="radio radio-inline no-padding no-margin">
+                            <label>
+                                <input name="groupRadio" type="radio" class="ace input-md" value="4"/>
+                                <span class="lbl"> ตรวจของกลาง</span>
+                            </label>
+                        </div>
+                        <div class="radio radio-inline no-padding no-margin">
+                            <label>
+                                <input name="groupRadio" type="radio" class="ace input-md" value="5"/>
+                                <span class="lbl"> สนับสนุนอื่นๆ</span>
+                            </label>
                         </div>
                     </div>
                 </div>
                 &nbsp;
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
-                    <div class="col-md-4">
-                        <label class="col-md-3 control-label"> ช่วงเวลา </label>
+                    <div class="col-md-6">
+                        <label class="col-md-2 control-label"><b> ช่วงเวลา </b></label>
 
                         <div class="col-md-9">
                             <div class="input-daterange input-group">
@@ -47,6 +60,14 @@
                                     </span>
                                 <input id="endDate" type="text" class="input-sm form-control" name="end"/>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="valid" class="col-md-12 text-center" style="margin-top: 40px;">
+                    <div class="col-md-12 text-center">
+                        <div class="form-control">
+                            <i class="glyphicon glyphicon-asterisk"></i>
+                            <label class="text-bold"> กรุณาเลือกข้อมูลให้ครบ </label>
                         </div>
                     </div>
                 </div>
@@ -62,6 +83,8 @@
                                 <th class="col-sm-1">ลำดับ</th>
                                 <th class="col-md-8">ชื่อรายงาน</th>
                                 <th class="col-md-3">ส่งออก</th>
+                                <th class="col-md-3">ประเภทกลุ่มงาน</th>
+                                <!-- invisible -->
                             </tr>
                             </thead>
                             <tbody>
@@ -76,7 +99,6 @@
 </div><!-- /.main-content -->
 
 {{>footer}}
-
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
@@ -106,9 +128,8 @@
                     "data": "reportName"
                 }, {
                     "targets": 2,
-                    "searchable": false,
                     "orderable": false,
-                    "data": "reportId",
+                    "data": "workGroupId",
                     "sClass": "text-center",
                     "render": function (data, key, value) {
                         var rptId = value["reportId"];
@@ -119,6 +140,12 @@
 
                         return html;
                     }
+                }, {
+                    "targets": 3,
+                    "searchable": true,
+                    "orderable": false,
+                    "visible": false,
+                    "data": "workGroupId"
                 }
             ]
         });
@@ -142,11 +169,16 @@
             exportRPT(rptId, "docx");
         });
 
-        $("#select,#select2,#startDate,#endDate").change(function () {
-            if ($("#select").val() != "" && $("#select2").val() != "" && $("#startDate").val() != "" && $("#endDate").val() != "") {
+        $("#startDate,#endDate,input[name='groupRadio']").change(function () {
+
+            if ($("#startDate").val() != "" && $("#endDate").val() != "" && $("input[name='groupRadio']:checked").val() != undefined) {
                 $("#contrainerDataTable").show();
+                $("#valid").hide();
+                dataTable.columns(3).search($("input[name='groupRadio']:checked").val()).draw();
             } else {
+
                 $("#contrainerDataTable").hide();
+                $("#valid").show();
             }
         });
 

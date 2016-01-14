@@ -23,8 +23,8 @@ class Report extends EntityBase
     /** @Column(type="string",length=255, name="ReportName") */
     public $reportName;
 
-    /** @Column(type="string",length=255, name="ReportType") */
-    public $reportType;
+    /** @Column(type="string",length=255, name="WorkGroupId") */
+    public $workGroupId;
 
     /** @Column(type="string",length=255, name="IsActive") */
     public $isActive;
@@ -64,17 +64,17 @@ class Report extends EntityBase
     /**
      * @return mixed
      */
-    public function getReportType()
+    public function getWorkGroupId()
     {
-        return $this->reportType;
+        return $this->workGroupId;
     }
 
     /**
-     * @param mixed $reportType
+     * @param mixed $workGroupId
      */
-    public function setReportType($reportType)
+    public function setWorkGroupId($workGroupId)
     {
-        $this->reportType = $reportType;
+        $this->workGroupId = $workGroupId;
     }
 
     /**
@@ -92,6 +92,8 @@ class Report extends EntityBase
     {
         $this->isActive = $isActive;
     }
+
+
 
 
 
