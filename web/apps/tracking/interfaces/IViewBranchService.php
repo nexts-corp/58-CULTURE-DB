@@ -1,0 +1,19 @@
+<?php
+
+namespace apps\tracking\interfaces;
+
+/**
+ * @name IViewBranchService
+ * @uri /branch
+ * @description ระบบติดตาม
+ */
+interface IViewBranchService {
+    /**
+     * @name view
+     * @uri /view
+     * @description  viewBranch.html
+     */
+    public function view();
+}
+
+?>
