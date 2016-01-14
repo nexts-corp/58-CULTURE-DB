@@ -12,7 +12,7 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="#">หน้าหลัก</a>
                 </li>
-                <li class="active">ระบบเตือนผู้ใช้งาน</li>
+                <li class="active">ระบบติดตามสถานะงาน</li>
             </ul><!-- /.breadcrumb -->
         </div>
 
@@ -43,9 +43,9 @@
 
             </div>
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="widget-box transparent">
-                        <div class="widget-header widget-header-flat">
+                <div class="col-md-12">
+                    <div class="widget-box">
+                        <div class="widget-header">
                             <h4 class="widget-title lighter red">
                                 Summary
                             </h4>
@@ -53,17 +53,15 @@
 
                         <div class="widget-body">
                             <div class="widget-main no-padding">
-                                <div class="col-xs-8">
-                                    <table id="summary" class="table">
-                                        <tbody>
-                                            <tr></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <table id="summary" class="table">
+                                    <tbody>
+                                        <tr></tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><!-- /.col -->
             </div>
         </div>
     </div>
@@ -71,16 +69,17 @@
 
 {{>footer}}
 
-<!--<style>
+<style>
     .table tbody tr.no-border td{
         border: none;
     }
-</style>-->
+</style>
 <script src="{{_context_path}}/asset/vendor/highcharts/js/highcharts.js"></script>
 
 <script>
     $(function() {
         plotChart();
+        summary();
     });
 
     function plotChart(){
@@ -122,6 +121,7 @@
                 headerFormat: '<b>{point.x}</b><br/>',
                 pointFormat: '{series.name}: {point.y}<br/>ทั้งหมด: {point.stackTotal}'
             },
+            colors: ['#69aa46', '#dd5a43'],
             plotOptions: {
                 column: {
                     stacking: 'normal',
@@ -156,23 +156,25 @@
                     + '<i class="ace-icon fa fa-caret-right blue"></i> ใบอนุญาตประกอบกิจการ'
                 + '</td>'
                 + '<td class="col-md-2 green bolder">ได้รับ</td>'
-                + '<td class="col-md-1 green bolder"><div id="pass1">-</div></td>'
+                + '<td class="col-md-1 green bolder"><div id="pass1">5</div></td>'
             + '</tr>'
             + '<tr class="no-border">'
-                + '<td class="red2 bolder">ไม่ได้รับ</td>'
-                + '<td class="red2 bolder"><div id="noPass1">-</div></td>'
+                + '<td class="red bolder">ไม่ได้รับ</td>'
+                + '<td class="red bolder"><div id="noPass1">2</div></td>'
             + '</tr>'
             + '<tr>'
                 + '<td class="col-md-5 bolder" rowspan="2">'
                     + '<i class="ace-icon fa fa-caret-right blue"></i> การอนุญาตเผยแพร่'
-                + '</td>';
-        /*<td class="col-md-2 green bolder">ผ่าน</td>
-        <td class="col-md-1 green bolder"><div id="pass2">-</div></td>
-        </tr>
-        <tr class="no-border">
-                <td class="red2 bolder">ไม่ผ่าน</td>
-        <td class="red2 bolder"><div id="noPass2">-</div></td>
-        </tr>*/
+                + '</td>'
+                + '<td class="col-md-2 green bolder">ผ่าน</td>'
+                + '<td class="col-md-1 green bolder"><div id="pass2">3</div></td>'
+            + '</tr>'
+            + '<tr class="no-border">'
+                + '<td class="red bolder">ไม่ผ่าน</td>'
+                + '<td class="red bolder"><div id="noPass2">2</div></td>'
+            + '</tr>';
+
+        $("#summary tbody").html(html);
     }
 
 </script>
