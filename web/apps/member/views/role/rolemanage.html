@@ -27,7 +27,14 @@
                         </tbody>
                     </table>
 
-
+                    <div class="ace-settings-item">
+                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                        <label class="lbl" for="ace-settings-navbar"> รับ SMS แจ้งเตือน</label>
+                    </div>
+                    <div class="ace-settings-item">
+                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                        <label class="lbl" for="ace-settings-navbar"> รับ EMail แจ้งเตือน</label>
+                    </div>
 
                     <!-- PAGE CONTENT ENDS -->
                 </div><!-- /.col -->
@@ -90,12 +97,12 @@
 
         $("#listrole").treetable({
             expandable: true
-            
+
         });
         $("#listrole").treetable("expandAll");
 
         $('[data-rel="tooltip"]').tooltip();
-        
+
         var jdata = {};
         jdata['data'] = listdata;
         //jdata['memberId'] = '{{#Member}}{{id}}{{/Member}}';    
@@ -106,7 +113,7 @@
 
         $.each(result, function(key, value1) {
             $.each(value1["data"], function(key, value2) {
-                $('#'+value2["id"]).val(value2["roleselect"]);
+                $('#' + value2["id"]).val(value2["roleselect"]);
                 console.log(value2["roleselect"]);
             });
         });
