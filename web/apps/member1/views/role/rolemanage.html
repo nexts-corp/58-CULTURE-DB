@@ -1,0 +1,123 @@
+{{> header}}
+
+
+<div class="main-content">
+    <div class="main-content-inner">        
+        <div class="page-content">
+
+
+
+            <div class="page-header">
+                <h1>
+                    กำหนดสิทธิ์การเข้าใช้งาน
+                    <small> <i class="ace-icon fa fa-angle-double-right"></i> นายยุทธชัย   สมมุติ</small>
+
+                </h1>
+
+
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- PAGE CONTENT BEGINS -->
+
+                    <table class="table table-striped table-bordered table-hover treetable" id="listrole">
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+
+
+                    <!-- PAGE CONTENT ENDS -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+{{>footer}}
+<script>
+    $(document).ready(function() {
+        var listdata = [
+            {
+                id: "1000",
+                name: "จัดการข้อมูลเบื้องหลัง",
+                data: [
+                    {id: "1001", name: "จัดการด้านแผนพัฒนาการศึกษาระดับอุดมศึกษา", roleselect: "R/W"},
+                    {id: "1002", name: "จัดการผู้ใช้งาน", roleselect: "R"}],
+                role: ["R/W", "R", "None"]
+            }, {
+                id: "2000",
+                name: "รายงาน",
+                data: [
+                    {id: "2001", name: "รายงานที่ 1", roleselect: "R"},
+                    {id: "2003", name: "รายงานที่ 2", roleselect: "R/W"}],
+                role: ["R/W", "R", "None"]
+            }
+        ];
+
+        console.log(listdata);
+        var html = "";
+
+        for (var i = 0; i < listdata.length; i++) {
+
+            html += '<tr data-tt-id="' + i + '">';
+            html += '<td>' + listdata[i]["name"] + '</td>';
+            html += '<td>&nbsp;';
+            html += '</td>';
+            html += "</tr>";
+            //
+
+            for (var j = 0; j < listdata[i]["data"].length; j++) {
+                html += '<tr data-tt-id="' + listdata[i]["data"][j]["id"] + '" data-tt-parent-id="' + i + '">';
+                html += '<td>' + listdata[i]["data"][j]["name"] + '</td>';
+
+                html += '<td>';
+                html += '<select id="' + listdata[i]["data"][j]["id"] + '" class="form-control input-sm" onchange="managerole(' + listdata[i]["data"][j]["id"] + ')">';
+                for (var n = 0; n < listdata[i]["role"].length; n++) {
+                    html += '<option value="' + listdata[i]["role"][n] + '">' + listdata[i]["role"][n] + '</option>';
+                }
+                html += '</select>';
+                html += '</td>';
+                html += "</tr>";
+
+
+            }
+        }
+        console.log(html);
+        $("#listrole tbody").html(html);
+        //$('.tree').treegrid();
+
+        $("#listrole").treetable({
+            expandable: true
+            
+        });
+        $("#listrole").treetable("expandAll");
+
+        $('[data-rel="tooltip"]').tooltip();
+        
+        var jdata = {};
+        jdata['data'] = listdata;
+        //jdata['memberId'] = '{{#Member}}{{id}}{{/Member}}';    
+
+        //var result=callAjax('{{_context_path}}/api/member/Member/checkMenurole', 'post', jsonEncode(jdata),'json');
+        var result = listdata;
+        console.log(result);
+
+        $.each(result, function(key, value1) {
+            $.each(value1["data"], function(key, value2) {
+                $('#'+value2["id"]).val(value2["roleselect"]);
+                console.log(value2["roleselect"]);
+            });
+        });
+
+        /*
+         for(var i=0;i<result.datas.length;i++){
+         for(var j=0;j<result.datas[i]["data"].length;j++){
+         $('#'+result.datas[i]["data"][j]["id"]).val(result.datas[i]["data"][j]["roleselect"]);
+         //alert(listdata[i][2][j][0]);
+         }
+         }
+         */
+    });
+</script>

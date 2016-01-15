@@ -1,13 +1,13 @@
 <?php
 
-namespace apps\member\interfaces;
+namespace apps\dashboard\interfaces;
 
 /**
- * @name IMemberService
- * @uri /member
- * @description จัดการผู้ใช้งาน
+ * @name IDashboardService
+ * @uri /dashboard
+ * @description Dashboard
  */
-interface IMemberService {
+interface IDashboardService {
 
     
     
@@ -44,28 +44,12 @@ interface IMemberService {
     public function delete($user);
     
     /**
-     * @name viewmanage
-     * @uri /view/manage
-     * @description แสดงหน้าการจัดการผู้ใช้งาน
+     * @name Dashboardindex
+     * @uri /view/index
+     * @description แสดงหน้า Dashboard
      * @resource 1000
      **/
-    public function viewManage();
-    
-    /**
-     * @name addMamber
-     * @uri /view/add
-     * @description เพิ่มผู้ใช้งาน
-     * @resource 1000
-     **/
-    public function addMember();
-    
-    /**
-     * @name addMamber
-     * @uri /view/update
-     * @description แก้ไขข้อมูลผู้ใช้งาน
-     * @resource 1000
-     **/
-    public function updateMember();
+    public function index();
     
 
     

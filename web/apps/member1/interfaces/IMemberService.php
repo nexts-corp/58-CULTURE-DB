@@ -1,6 +1,6 @@
 <?php
 
-namespace apps\member\interfaces;
+namespace apps\member1\interfaces;
 
 /**
  * @name IMemberService

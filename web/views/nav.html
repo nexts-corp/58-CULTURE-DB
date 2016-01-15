@@ -30,7 +30,7 @@
 
 <ul class="nav nav-list">
     <li class="active">
-        <a href="index.html">
+        <a href="{{_context_path}}/api/dashboard/dashboard/view/index">
             <i class="menu-icon fa fa-tachometer"></i>
             <span class="menu-text"> Dashboard </span>
         </a>
@@ -44,7 +44,26 @@
             <span class="menu-text">
                 จัดการผู้ใช้งาน
             </span>
+            <b class="arrow fa fa-angle-down"></b>
         </a>
+        <b class="arrow"></b>
+
+        <ul class="submenu">
+            <li class="">
+                <a href="{{_context_path}}/api/member/member/view/manage">
+                    <i class="menu-icon fa fa-caret-right"></i>
+                    จัดการผู้ใช้งานภายในหน่วยงาน
+                </a>
+            </li>
+        </ul>
+        <ul class="submenu">
+            <li class="">
+                <a href="{{_context_path}}/api/member1/member/view/manage">
+                    <i class="menu-icon fa fa-caret-right"></i>
+                    จัดการผู้ใช้งานทั่วไป
+                </a>
+            </li>
+        </ul>
     </li>
     <li class="">
         <a href="#" class="dropdown-toggle">
@@ -58,8 +77,9 @@
         <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-desktop"></i>
             <span class="menu-text">
-                ตรวจสอบ ควบคุมดูแล และดําเนินคดี
+                ตรวจสอบ ควบคุมดูแล  และดําเนินคดี
             </span>
+            
         </a>
     </li>
     <li class="">

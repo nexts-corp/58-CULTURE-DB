@@ -4,10 +4,10 @@ namespace apps\member\interfaces;
 
 /**
  * @name IMemberService
- * @uri /member
+ * @uri /role
  * @description จัดการผู้ใช้งาน
  */
-interface IMemberService {
+interface IRoleService {
 
     
     
@@ -50,22 +50,6 @@ interface IMemberService {
      * @resource 1000
      **/
     public function viewManage();
-    
-    /**
-     * @name addMamber
-     * @uri /view/add
-     * @description เพิ่มผู้ใช้งาน
-     * @resource 1000
-     **/
-    public function addMember();
-    
-    /**
-     * @name addMamber
-     * @uri /view/update
-     * @description แก้ไขข้อมูลผู้ใช้งาน
-     * @resource 1000
-     **/
-    public function updateMember();
     
 
     

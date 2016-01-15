@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta charset="utf-8" />
+        <title>Login Page - Ace Admin</title>
+
+        <meta name="description" content="User login page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+        <!-- bootstrap & fontawesome -->
+        <link rel="stylesheet" href="{{_context_path}}/asset/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="{{_context_path}}/asset/font-awesome/4.2.0/css/font-awesome.min.css" />
+
+        <!-- text fonts -->
+        <link rel="stylesheet" href="{{_context_path}}/asset/fonts/fonts.googleapis.com.css" />
+
+        <!-- ace styles -->
+        <link rel="stylesheet" href="{{_context_path}}/asset/css/ace.min.css" />
+
+        <!--[if lte IE 9]>
+                <link rel="stylesheet" href="{{_context_path}}/asset/css/ace-part2.min.css" />
+        <![endif]-->
+        <link rel="stylesheet" href="{{_context_path}}/asset/css/ace-rtl.min.css" />
+
+        <!--[if lte IE 9]>
+          <link rel="stylesheet" href="{{_context_path}}/asset/css/ace-ie.min.css" />
+        <![endif]-->
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+        <!--[if lt IE 9]>
+        <script src="{{_context_path}}/asset/js/html5shiv.min.js"></script>
+        <script src="{{_context_path}}/asset/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body class="login-layout blur-login">
+        <div class="main-container">
+            <div class="main-content">
+
+                <div class="center">
+                    <h1>
+                        <!-- <span class="red">ระบบขออนุญาต</span> -->
+                        <!-- <span class="white" id="id-text2">เข้าสู่ระบบ</span>-->
+                    </h1>
+                    <img src="{{_context_path}}/images/logo.png" width="120px"/>
+                    <h3 class="white" id="id-company-text">ระบบขออนุญาตประกอบกิจการภาพยนต์และวีดิทัศน์</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="login-container">
+
+
+                            <div class="space-6"></div>
+
+                            <div class="position-relative">
+                                <div id="login-box" class="login-box visible widget-box no-border">
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <h6 class="header  lighter bigger">
+                                                <i class="ace-icon fa fa-credit-card "></i>
+                                                ลงชื่อเช้าใช้ด้วยเลขบัตรประจำตัวประชาชน
+                                            </h6>
+
+                                            <div class="space-6"></div>
+
+                                            <form id="form-login" class="form-horizontal form-login has-validation-callback">
+                                                <fieldset>
+                                                    <label class="block clearfix">
+                                                        <span class="block input-icon input-icon-right">
+                                                            <input type="text" id="idCard" class="form-control"  data-validation="number" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนเลขบัตรประจำตัวประชาชน" autocomplete="off"/>
+                                                        </span>
+                                                    </label>
+
+
+
+                                                    <div class="space-4"></div>
+                                                </fieldset>
+                                            </form>
+
+                                            <div class="checkUserData social-or-login center red">
+                                                <span class="bigger-110 red values"></span>
+                                            </div>
+
+                                            <div class="space-6"></div>
+
+
+                                        </div><!-- /.widget-main -->
+
+                                        <div class="toolbar clearfix Addmember">
+                                            <div>
+                                                <a href="#" data-target="#forgot-box" class="forgot-password-link">
+                                                    <i class="ace-icon fa fa-arrow-left"></i>
+                                                    ติดต่อเรา
+                                                </a>
+                                            </div>
+
+                                            <div>
+                                                <a href="#" data-target="#signup-box" class="user-signup-link">
+                                                    ลงทะเบียนเข้าใช้งาน
+                                                    <i class="ace-icon fa fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="toolbar clearfix CheckUserNotLocation">
+                                            <div>
+                                                <a href="#" data-target="#forgot-box" class="forgot-password-link">
+                                                    <i class="ace-icon fa fa-arrow-left"></i>
+                                                    ติดต่อเรา
+                                                </a>
+                                            </div>
+
+                                            <div>
+                                                <a href="#" data-target="#signup-boxNotLocation" class="user-signup-link">
+                                                    ลงทะเบียนเข้าใช้งาน
+                                                    <i class="ace-icon fa fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div><!-- /.widget-body -->
+                                </div><!-- /.login-box -->
+
+                                <div id="forgot-box" class="forgot-box widget-box no-border">
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <h4 class="header red lighter bigger">
+                                                <i class="fa fa-building-o"></i>
+                                                ข้อมูลติดต่อหน่วยงาน
+                                            </h4>
+
+                                            <div class="space-6"></div>
+                                            <p>
+                                                กลุ่มทะเบียนใบอนุญาต สำนักพิจารณาภาพยนตร์และวีดิทัศน์ กรมส่งเสริมวัฒนธรรม 
+                                            </p>
+                                            <p>
+                                                เลขที่ 14 ถนนเทียมร่วมมิตร แขวงห้วยขวาง เขตห้วยขวาง กทม. 10310
+                                            </p>
+                                            <p>
+                                                โทรศัพท์ 0 2645 4600 ต่อ 5227, 5228, 5232, 5233, 5240
+                                            </p>
+                                            <p>
+                                                <strong>ติดต่อด้วยตนเอง ณ หน่วยงาน </strong><br/>
+                                                1) พักเที่ยงเวลา 12.00 น. ถึง 13.00 น.<br/>
+                                                2) ควรเข้ารับบริการในวันและเวลาทำการหรือก่อนปิดทำการครึ่งชั่วโมง<br/>
+                                            </p>
+                                            
+                                            
+                                        </div><!-- /.widget-main -->
+
+                                        <div class="toolbar center">
+                                            <a href="#" data-target="#login-box" class="back-to-login-link">
+                                                กลับไปหน้า Login
+                                                <i class="ace-icon fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div><!-- /.widget-body -->
+                                </div><!-- /.forgot-box -->
+
+                                <div id="signup-box" class="signup-box widget-box no-border">
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <h4 class="header green lighter bigger">
+                                                <i class="ace-icon fa fa-users blue"></i>
+                                                ลงทะเบียนผู้ใช้งาน
+                                            </h4>
+
+                                            <div class="space-6"></div>
+                                            <p> กรุณาแตะบัตรประจำตัวประชาชน </p>
+
+                                            <form id="form-register" class="form-horizontal form-login has-validation-callback">
+                                                <fieldset>
+                                                    <label class="block clearfix">
+                                                        <span class="block input-icon input-icon-right">
+                                                            <input type="text" id="RegitIdCard" class="form-control" data-validation="number" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนเลขบัตรประจำตัวประชาชน" placeholder="หมายเลขบัตรประจำตัวประชาชน" />
+                                                        </span>
+                                                    </label>
+
+
+                                                    <label class="block clearfix">
+                                                        <span class="block input-icon input-icon-right">
+                                                            <input type="password" class="form-control" id="RegitPassword" placeholder="Password" data-validation="length" data-validation-length="min5" data-validation-error-msg="&nbsp;&nbsp;รหัสผ่านตั้งแต่ 5 ตัวอักษรขึ้นไป"/>
+                                                        </span>
+                                                    </label>
+
+                                                    <label class="block clearfix">
+                                                        <span class="block input-icon input-icon-right">
+                                                            <input type="password" class="form-control" id="RegitConfPassword" placeholder="Repeat password" data-validation="length" data-validation-length="min5" data-validation-error-msg="&nbsp;&nbsp;รหัสผ่านตั้งแต่ 5 ตัวอักษรขึ้นไป"/>
+                                                        </span>
+                                                    </label>
+
+
+                                                    <span id="registerError"></span>
+                                                    <div class="space-24"></div>
+
+                                                    <div class="clearfix">
+                                                        <button type="submit" class="width-65 pull-left btn btn-sm btn-success">
+                                                            <i class="ace-icon fa fa-floppy-o"></i>
+                                                            <span class="bigger-110">ลงทะเบียน</span>
+                                                        </button>
+                                                        <button type="reset" class="width-30 pull-right btn btn-sm">
+                                                            <i class="ace-icon fa fa-refresh"></i>
+                                                            <span class="bigger-110">ยกเลิก</span>
+                                                        </button>
+
+
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+
+                                        <div class="toolbar center">
+                                            <a href="#" data-target="#login-box" class="back-to-login-link">
+                                                <i class="ace-icon fa fa-arrow-left"></i>
+                                                กลับไปหน้า Login
+                                            </a>
+                                        </div>
+                                    </div><!-- /.widget-body -->
+                                </div><!-- /.signup-box -->
+
+                                <div id="signup-boxNotLocation" class="signup-box widget-box no-border">
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <h4 class="header green lighter bigger">
+                                                คำแนะนำขั้นตอนการลงทะเบียน
+                                            </h4>
+
+                                            <div class="space-6"></div>
+                                            <p> กรุณาลงทะเบียนที่ สำนักพิจารณาภาพยนตร์และวีดิทัศน์ กรมส่งเสริมวัฒนธรรม กระทรวงวัฒนธรรม เท่านั้น   </p>
+                                            <p>
+                                                กลุ่มทะเบียนใบอนุญาต สำนักพิจารณาภาพยนตร์และวีดิทัศน์ กรมส่งเสริมวัฒนธรรม 
+                                            </p>
+                                            <p>
+                                                เลขที่ 14 ถนนเทียมร่วมมิตร แขวงห้วยขวาง เขตห้วยขวาง กทม. 10310
+                                            </p>
+                                            <p>
+                                                โทรศัพท์ 0 2645 4600 ต่อ 5227, 5228, 5232, 5233, 5240
+                                            </p>
+                                            <p>
+                                                <strong>ติดต่อด้วยตนเอง ณ หน่วยงาน </strong><br/>
+                                                1) พักเที่ยงเวลา 12.00 น. ถึง 13.00 น.<br/>
+                                                2) ควรเข้ารับบริการในวันและเวลาทำการหรือก่อนปิดทำการครึ่งชั่วโมง<br/>
+                                            </p>
+
+                                        </div>
+
+                                        <div class="toolbar center">
+                                            <a href="#" data-target="#login-box" class="back-to-login-link">
+                                                <i class="ace-icon fa fa-arrow-left"></i>
+                                                กลับไปหน้า Login
+                                            </a>
+                                        </div>
+                                    </div><!-- /.widget-body -->
+                                </div><!-- /.signup-box -->
+
+
+
+                            </div><!-- /.position-relative -->
+
+                            <div class="navbar-fixed-top align-right">
+                                <br />
+                                &nbsp;
+                                <a id="btn-login-dark" href="#">Dark</a>
+                                &nbsp;
+                                <span class="blue">/</span>
+                                &nbsp;
+                                <a id="btn-login-blur" href="#">Blur</a>
+                                &nbsp;
+                                <span class="blue">/</span>
+                                &nbsp;
+                                <a id="btn-login-light" href="#">Light</a>
+                                &nbsp; &nbsp; &nbsp;
+                            </div>
+                        </div>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.main-content -->
+        </div><!-- /.main-container -->
+
+        <!-- basic scripts -->
+
+        <!--[if !IE]> -->
+        <script src="{{_context_path}}/asset/js/jquery.2.1.1.min.js"></script>
+
+        <!-- <![endif]-->
+
+        <!--[if IE]>
+    <script src="{{_context_path}}/asset/js/jquery.1.11.1.min.js"></script>
+    <![endif]-->
+
+        <!--[if !IE]> -->
+        <script type="text/javascript">
+window.jQuery || document.write("<script src='{{_context_path}}/asset/js/jquery.min.js'>" + "<" + "/script>");
+        </script>
+        <script src="{{_context_path}}/asset/js/jquery.form-validator.min.js"></script>
+        <script src="{{_context_path}}/asset/js/jquery.maskedinput.min.js"></script>
+        <!-- <![endif]-->
+
+        <!--[if IE]>
+    <script type="text/javascript">
+    window.jQuery || document.write("<script src='{{_context_path}}/asset/js/jquery1x.min.js'>"+"<"+"/script>");
+    </script>
+    <![endif]-->
+        <script type="text/javascript">
+if ('ontouchstart' in document.documentElement)
+    document.write("<script src='{{_context_path}}/asset/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+        </script>
+
+        <!-- inline scripts related to this page -->
+        <script type="text/javascript">
+            var statusLocation = true;
+            var idCardCheck = "1331600022010"
+            jQuery(function($) {
+                $(".CheckUserNotLocation").hide();
+                $(".checkUserData").hide();
+                $(".Addmember").hide();
+
+
+                $.mask.definitions['~'] = '[+-]';
+                $('#idCard').mask('9-9999-99999-99-9');
+                $("#idCard").focus();
+
+                $('#RegitIdCard').mask('9-9999-99999-99-9');
+                $("#RegitIdCard").focus();
+
+
+                $.validate({
+                    addValidClassOnAll: true
+                });
+
+
+
+                $('#form-register').on('submit', function() {
+                        
+                        
+                    if ($(this).isValid()) {
+
+                        var RegitIdCard = $("#RegitIdCard").val();
+                        var RegitPassword = $("#RegitPassword").val();
+                        var RegitConfPassword = $("#RegitConfPassword").val();
+                        
+                        
+                        RegitIdCard = RegitIdCard.replace("-", "");
+                        RegitIdCard = RegitIdCard.replace("-", "");
+                        RegitIdCard = RegitIdCard.replace("-", "");
+                        RegitIdCard = RegitIdCard.replace("-", "");
+                        //alert(checkID(RegitIdCard));
+                        if (checkID(RegitIdCard)) {
+                            
+                            if(RegitPassword==RegitConfPassword){
+
+                                $("#registerError").html('<div class="alert alert-success" role="alert"><i class="fa fa-check"></i> ลงทะเบียนเรียบร้อยแล้ว</div>');
+                                $("#form-register button").remove();
+                            }else{
+
+                                $("#registerError").html('<div class="alert alert-danger" role="alert">การยืนยันรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง</div>');
+
+                            }
+                            
+                        }else{
+                            
+                            $("#registerError").html('<div class="alert alert-danger" role="alert">เลขบัตรประจำตัวประชาชนไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง</div>');
+                            
+                        }
+                        return false;
+                    }
+
+                });
+
+
+                $('#form-login').on('submit', function() {
+
+
+                    if ($(this).isValid()) {
+                        var idCard = $("#idCard").val();
+
+                        idCard = idCard.replace("-", "");
+                        idCard = idCard.replace("-", "");
+                        idCard = idCard.replace("-", "");
+                        idCard = idCard.replace("-", "");
+                        //displayErrors( errors );
+
+
+
+                        if (checkID(idCard)) {
+
+
+
+
+                            var data = {};
+                            data['firstname'] = $("#firstname").val();
+
+
+                            var jdata = {};
+                            jdata['member'] = data;
+
+
+                            //var result = callAjax('{{_context_path}}/api/member/member/insert', 'post', jsonEncode(jdata), 'json');
+                            if (idCardCheck == idCard) {
+                                window.location.assign("{{_context_path}}/api/member/member/view/manage");
+                                //alert("OK");
+
+                            } else {
+
+                                $(".checkUserData span").html("เลขประจำตัวประชาชนยังไม่ได้ลงทะเบียน");
+                                $(".checkUserData").show();
+
+                                if (statusLocation) {
+
+
+
+                                    $(".Addmember").show();
+
+
+
+
+
+
+                                } else {
+
+                                    $(".CheckUserNotLocation").show();
+
+                                }
+                            }
+                            //window.location.assign("{{_context_path}}/api/member/member/view/manage");
+
+                            //$(".checkUser").show();
+                        } else {
+
+                            $(".checkUserData span").html("เลขประจำตัวประชาชนไม่ถูกต้อง");
+                            $(".checkUserData").show();
+
+
+                        }
+                        return false;
+                    }
+                });
+
+                $(document).on('click', '.toolbar a[data-target]', function(e) {
+                    e.preventDefault();
+                    var target = $(this).data('target');
+                    $('.widget-box.visible').removeClass('visible');//hide others
+                    $(target).addClass('visible');//show target
+                });
+            });
+
+
+
+            //you don't need this, just used for changing background
+            jQuery(function($) {
+
+                $('#btn-login-dark').on('click', function(e) {
+                    $('body').attr('class', 'login-layout');
+                    $('#id-text2').attr('class', 'white');
+                    $('#id-company-text').attr('class', 'blue');
+
+                    e.preventDefault();
+                });
+                $('#btn-login-light').on('click', function(e) {
+                    $('body').attr('class', 'login-layout light-login');
+                    $('#id-text2').attr('class', 'grey');
+                    $('#id-company-text').attr('class', 'blue');
+
+                    e.preventDefault();
+                });
+                $('#btn-login-blur').on('click', function(e) {
+                    $('body').attr('class', 'login-layout blur-login');
+                    $('#id-text2').attr('class', 'white');
+                    $('#id-company-text').attr('class', 'light-blue');
+
+                    e.preventDefault();
+                });
+
+            });
+            function checkID(id)
+            {
+                if (id.length != 13)
+                    return false;
+                for (i = 0, sum = 0; i < 12; i++)
+                    sum += parseFloat(id.charAt(i)) * (13 - i);
+                if ((11 - sum % 11) % 10 != parseFloat(id.charAt(12)))
+                    return false;
+                return true;
+            }
+        </script>
+    </body>
+</html>

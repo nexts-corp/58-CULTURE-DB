@@ -8,7 +8,7 @@
 
             <div class="page-header">
                 <h1>
-                    จัดการผู้ใช้งานภายในหน่วยงาน
+                    จัดการผู้ใช้งานทั่วไป
                     
                     <button class="btn btn-primary pull-right btn-sm RbtnMargin btn-add" type="button"><i class="fa fa-plus-circle"></i> เพิ่มผู้ใช้งาน</button>
                 </h1>
@@ -31,10 +31,10 @@
                                 <tr>
                                     <th class="col-md-2">ลำดับ</th>
                                     <th class="col-md-2">ชื่อ-นามสกุล</th>
-                                    <th class="col-md-2">หน่วยงาน</th>
+                                    <th class="col-md-2">เลขประจำตัวประชาชน</th>
                                     <th class="col-md-2">อีเมล์</th>
                                     <th class="col-md-2">เบอร์โทร</th>
-                                    <th class="col-md-2">เครื่องมือ</th>
+                                    <th class="col-md-1">เครื่องมือ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,9 +73,9 @@
     jQuery(function($) {
 
         var dataSet = [
-            {memberId: "1", firstname: "นายยุทธชัย", lastName: "สมมุติ", departmentName: "กลุ่มพัฒนาระบบบริหาร", email: "Test1@mail.com", telephone: "0827496186", memberType: "1"},
-            {memberId: "2", firstname: "นายปัญญา", lastName: "รมเย็น", departmentName: "กลุ่มพัฒนาระบบบริหาร", email: "Test2@mail.com", telephone: "0812345678", memberType: "1"},
-            {memberId: "3", firstname: "นายสมปอง", lastName: "สายเหลือง", departmentName: "สำนักพิจารณาภาพยนตร์และวีดิทัศน์", email: "Test3@mail.com", telephone: "0897894561", memberType: "1"}
+            {memberId: "1", firstname: "นายยุทธชัย", lastName: "สมมุติ", idCard: "1331600022010", email: "Test1@mail.com", telephone: "0827496186", memberType: "1"},
+            {memberId: "2", firstname: "นายปัญญา", lastName: "รมเย็น", idCard: "1234564564566", email: "Test2@mail.com", telephone: "0812345678", memberType: "1"},
+            {memberId: "3", firstname: "นายสมปอง", lastName: "สายเหลือง", idCard: "0456545657891", email: "Test3@mail.com", telephone: "0897894561", memberType: "1"}
         ]
 
 
@@ -108,7 +108,7 @@
                 },
                 {
                     "targets": 2,
-                    "data": "departmentName",
+                    "data": "idCard",
                     "sClass": "text-center"
                 },
                 {
@@ -126,8 +126,7 @@
                     "data": "memberId",
                     "sClass": "text-center",
                     "render": function(data, key, full) {
-                        $html = ' <button  class="btn-role btn btn-info btn-xs btn-bold"><i class="fa fa-cog"></i> ตั้งค่าการเข้าใช้งาน</button>';
-                        $html += ' <button class="btn-update btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
+                        $html = ' <button class="btn-update btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
                         $html += ' <button  class="dialogDelete btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
 
 
@@ -191,10 +190,7 @@
             
             window.location.assign("{{_context_path}}/api/member/member/view/update");
         });
-        $(".btn-role").unbind("click").click(function() {
-            
-            window.location.assign("{{_context_path}}/api/member/role/view/manage");
-        });
+
         
 
     })
