@@ -10,10 +10,17 @@ namespace apps\search\interfaces;
 interface IMainService {
 
     /**
-     * @name view/index
-     * @uri /view/index
-     * @description หน้าหลัก
+     * @name view/video
+     * @uri /view/video
+     * @description ค้นหาสื่อวีดีทัศน์
      */
-    public function index();
+    public function video();
+    
+    /**
+     * @name view/license
+     * @uri /view/license
+     * @description ค้นหาใบอนุญาต
+     */
+    public function license();
 
 }

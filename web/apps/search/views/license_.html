@@ -1,0 +1,402 @@
+{{>header}}
+
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">Home</a>
+                </li>
+                <li class="active">{{#i18n}}search.title.license{{/i18n}}</li>
+            </ul><!-- /.breadcrumb -->
+
+            <div class="nav-search" id="nav-search">
+                <form class="form-search">
+                    <span class="input-icon">
+                        <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                        <i class="ace-icon fa fa-search nav-search-icon"></i>
+                    </span>
+                </form>
+            </div><!-- /.nav-search -->
+        </div>
+
+        <div class="page-content">
+            <div class="ace-settings-container" id="ace-settings-container">
+                <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                    <i class="ace-icon fa fa-cog bigger-130"></i>
+                </div>
+
+                <div class="ace-settings-box clearfix" id="ace-settings-box">
+                    <div class="pull-left width-50">
+                        <div class="ace-settings-item">
+                            <div class="pull-left">
+                                <select id="skin-colorpicker" class="hide">
+                                    <option data-skin="no-skin" value="#438EB9">#438EB9</option>
+                                    <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                                    <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                                    <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                                </select>
+                            </div>
+                            <span>&nbsp; Choose Skin</span>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                            <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+                            <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+                            <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+                            <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+                            <label class="lbl" for="ace-settings-add-container">
+                                Inside
+                                <b>.container</b>
+                            </label>
+                        </div>
+                    </div><!-- /.pull-left -->
+
+                    <div class="pull-left width-50">
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" />
+                            <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" />
+                            <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" />
+                            <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+                        </div>
+                    </div><!-- /.pull-left -->
+                </div><!-- /.ace-settings-box -->
+            </div><!-- /.ace-settings-container -->
+
+            <div class="page-header">
+                <h1>
+                    {{#i18n}}search.title.license{{/i18n}}
+                    <!--								<small>
+                                                                                            <i class="ace-icon fa fa-angle-double-right"></i>
+                                                                                            overview &amp; stats
+                                                                                    </small>-->
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row"> 
+                        <div class="space-6"></div>
+                        <div class="col-xs-12"><!-- search -->
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input type="text" class="form-control" placeholder="กรอกข้อมูลที่ต้องการค้นหา" id="searchText" />
+                                </div>
+                                <div class="col-xs-2">
+                                    <select id="searchTopic" class="form-control">
+                                        <option value="all" selected>ทั้งหมด</option>
+                                        <option value="title">ชื่อผู้ประกอบกิจการ</option>
+                                        <option value="author">ชื่อกิจการ</option>
+                                        <option value="approveCode">เลขที่ใบอนุญาต</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <select id="searchProvince" class="form-control">
+                                        <option value="all" selected>จังหวัด</option>
+                                        <option value="title">ชื่อผู้ประกอบกิจการ</option>
+                                        <option value="author">ชื่อกิจการ</option>
+                                        <option value="approveCode">เลขที่ใบอนุญาต</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select id="searchArea" class="form-control">
+                                        <option value="all" selected>อำเภอ</option>
+                                        <option value="title">ชื่อผู้ประกอบกิจการ</option>
+                                        <option value="author">ชื่อกิจการ</option>
+                                        <option value="approveCode">เลขที่ใบอนุญาต</option>
+                                    </select>
+                                </div>
+                                <div class='col-xs-6'>
+                                    <button type="button" class="btn btn-info btn-sm" id="btn_search">
+                                        <i class="ace-icon fa fa-search"></i>{{#i18n}}search{{/i18n}}
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div><!-- /.search -->
+                        <div class="space-2"></div>
+                        <div class="row" id="div_info"> <!-- infomation -->
+                            <div class="col-xs-10 col-xs-offset-1">
+
+                                <div class="row">
+                                    <div class="space-6"></div>
+                                    <table class="table table-striped table-bordered" id="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="center">#</th>
+                                                <th>ชื่อกิจการ</th>
+                                                <th>ชื่อผู้ประกอบกิจการ</th>
+                                                <!--                                                                <th class="hidden-480">Discount</th>-->
+                                                <th>รายละเอียด</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="space-10"></div>
+                                <div class="row">
+
+                                    <div class="widget-header widget-header-large">
+                                        <h3 class="widget-title grey lighter">
+                                            <i class="ace-icon fa fa-leaf green"></i>
+                                            ข้อมูลใบอนุญาต
+                                        </h3>
+
+                                        <div class="widget-toolbar no-border invoice-info">
+                                            <span class="invoice-info-label">เลขที่ใบอนุญาต:</span>
+                                            <span class="red">#121212</span>
+
+                                            <br />
+                                            <span class="invoice-info-label">วันที่:</span>
+                                            <span class="blue">04/04/2014</span>
+                                        </div>
+
+                                        <div class="widget-toolbar hidden-480">
+                                            <a href="#">
+                                                <i class="ace-icon fa fa-print"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="widget-box transparent">
+                                            <div class="widget-main padding-24">
+                                                <div class="col-xs-6">
+                                                    <div class="row">
+                                                        <div class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
+                                                            <b>Company Info</b>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <ul class="list-unstyled spaced">
+                                                            <li>
+                                                                <i class="ace-icon fa fa-caret-right blue"></i>Street, City
+                                                            </li>
+
+                                                            <li>
+                                                                <i class="ace-icon fa fa-caret-right blue"></i>Zip Code
+                                                            </li>
+
+                                                            <li>
+                                                                <i class="ace-icon fa fa-caret-right blue"></i>State, Country
+                                                            </li>
+
+                                                            <li>
+                                                                <i class="ace-icon fa fa-caret-right blue"></i>
+                                                                Phone:
+                                                                <b class="red">111-111-111</b>
+                                                            </li>
+
+                                                            <li class="divider"></li>
+
+                                                            <li>
+                                                                <i class="ace-icon fa fa-caret-right blue"></i>
+                                                                Paymant Info
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div><!-- /.col -->
+
+                                                <div class="col-xs-6">
+                                                    <div class="row">
+                                                        <div class="col-xs-11 label label-lg label-success arrowed-in arrowed-right">
+                                                            <b>Customer Info</b>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <ul class="list-unstyled  spaced">
+                                                            <li>
+                                                                <i class="ace-icon fa fa-caret-right green"></i>Street, City
+                                                            </li>
+
+                                                            <li>
+                                                                <i class="ace-icon fa fa-caret-right green"></i>Zip Code
+                                                            </li>
+
+                                                            <li>
+                                                                <i class="ace-icon fa fa-caret-right green"></i>State, Country
+                                                            </li>
+
+                                                            <li class="divider"></li>
+
+                                                            <li>
+                                                                <i class="ace-icon fa fa-caret-right green"></i>
+                                                                Contact Info
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div><!-- /.col -->
+                                            </div><!-- /.row -->
+
+                                            <div class="space"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- ./infomation -->
+                    </div> 
+
+                </div><!-- /.row -->
+
+                <div class="hr hr32 hr-dotted"></div>
+
+
+
+                <!-- PAGE CONTENT ENDS -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.page-content -->
+</div><!-- /.main-content -->
+
+{{>footer}}
+
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#div_info').hide();
+        var listsArr = {};
+        var datas = callAjax("{{_context_path}}/apps/search/datatest.json", "get", {}, "json")["lists"];
+        var t;
+        drawTable(datas);
+        // searchSelect(datas);
+        function drawTable(datas) {
+            t = $("#table").DataTable({
+                "destroy": true,
+                "data": datas,
+                "order": [0, 'asc'],
+                "iDisplayLength": 50,
+                "columnDefs": [
+                    {
+                        "targets": 0,
+                        "searchable": false,
+                        "orderable": false,
+                        "data": "licenseCode",
+                        "sClass": "text-center col-md-1"
+                    },
+                    {
+                        "targets": 1,
+                        "data": "licenseNameTH",
+                        "sClass": "text-center col-md-5",
+                        "render": function (data, key, full) {
+                            return full["licenseNameTH"] + ' (' + full["licenseNameEN"] + ')';
+                        }
+                    },
+                    {
+                        "targets": 2,
+                        "data": "customerName",
+                        "sClass": "text-center col-md-4",
+//                    "render": function (data, key, full) {
+//                        return full["facultyName"] + ' / ' + full["deptName"];
+//                    }
+
+                    },
+                    {
+                        "targets": 3,
+                        "data": "licenseCode",
+                        "sClass": "text-center col-md-2",
+                        "render": function (data) {
+                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-feesId="' + data + '"><i class="fa fa-list"></i></button>'
+                            // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
+
+                        }
+                    }
+                ]
+            });
+            t.on('order.dt search.dt', function () {
+                t.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+        }
+        function searchSelect(datas) {
+            var datasType = {}
+            var datasStatus = {};
+            $.each(datas, function (key, value) {
+                listsArr[value["feesId"]] = value;
+                datasType[value["typeName"]] = value["typeName"];
+                datasStatus[value["statusCode"]] = value["statusCode"];
+            });
+
+            //search selectbox type
+            var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
+            $.each(datasType, function (key, value) {
+                search += '<option value="' + value + '">' + value + '</option>';
+            });
+            $("#searchType").html(search);
+            //search selectbox status
+            var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
+            $.each(datasStatus, function (key, value) {
+                if (value == "PAID") {
+                    search += '<option value="{{#i18n}}PAID{{/i18n}}">{{#i18n}}PAID{{/i18n}}</option>';
+                } else if (value == "WAITING") {
+                    search += '<option value="{{#i18n}}WAITING{{/i18n}}">{{#i18n}}WAITING{{/i18n}}</option>';
+                }
+                // search += '<option value="' + val + '">' + val + '</option>';
+
+            });
+            console.log(search);
+            $("#searchStatus").html(search);
+            $('.chosen-select').chosen({allow_single_deselect: true});
+            $(window)
+                    .off('resize.chosen')
+                    .on('resize.chosen', function () {
+                        $('.chosen-select').each(function () {
+                            var $this = $(this);
+                            $this.next().css({'width': $this.parent().width()});
+                        })
+                    }).trigger('resize.chosen');
+
+            $("#searchType").change(function () {
+                t.columns(3).search($(this).val()).draw();
+            });
+            $("#searchStatus").change(function () {
+                t.columns(4).search($(this).val()).draw();
+            });
+        }
+        $('#btn_search').click(function () {
+            $('#div_info').show();
+        });
+    });
+</script>

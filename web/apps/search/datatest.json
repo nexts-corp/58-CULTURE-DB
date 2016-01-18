@@ -1,51 +1,17 @@
 {
     "lists": [
         {
-            "feesId": "1",
-            "feesCode": "00001/2558",
+            "licenseCode": "00001/2558",
             "customerId": "1",
             "customerName": "แมงป่อง",
+            "customerAddress":"11/222 หมู่ 3 ถ.พระราม4 แขวงพระราม5 เขตพระราม6 กรุงเทพ 7890",
+            "licenseNameTH": "แมงป่อง วงศ์สว่าง",
+            "licenseNameEN": "Scorpion Wongsawang",
             "typeId": "11",
-            "typeName": "ขอใบอนุญาต",
-            "amount":"10,000",
-            "datePay": "2015-12-03 09:00:00",
+            "typeName": "นิติบุคคล",
+            "dateIssue": "2015-12-03",
+            "dateExpire": "2016-12-03",
             "statusCode": "WAITING",
-            "isActive": "ACTIVE"
-        },
-        {
-            "feesId": "2",
-            "feesCode": "00002/2558",
-            "customerId": "2",
-            "customerName": "แมงมุม",
-            "typeId": "11",
-            "typeName": "ขอใบอนุญาต",
-            "amount":"20,000",
-            "datePay": "2015-12-03 09:00:00",
-            "statusCode": "PAID",
-            "isActive": "ACTIVE"
-        },
-        {
-            "feesId": "3",
-            "feesCode": "00003/2558",
-            "customerId": "3",
-            "customerName": "แมงดา",
-            "typeId": "22",
-            "typeName": "วีดีทัศน์",
-            "amount":"30,000",
-            "datePay": "2015-12-03 09:00:00",
-            "statusCode": "WAITING",
-            "isActive": "ACTIVE"
-        },
-        {
-            "feesId": "4",
-            "feesCode": "00004/2558",
-            "customerId": "4",
-            "customerName": "แมงกะพรุน",
-            "typeId": "22",
-            "typeName": "วีดีทัศน์",
-            "amount":"40,000",
-            "datePay": "2015-12-03 09:00:00",
-            "statusCode": "PAID",
             "isActive": "ACTIVE"
         }
     ]

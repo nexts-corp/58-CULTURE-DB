@@ -1,0 +1,466 @@
+{{>header}}
+
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">Home</a>
+                </li>
+                <li class="active">{{#i18n}}fees.title{{/i18n}}</li>
+            </ul><!-- /.breadcrumb -->
+
+            <div class="nav-search" id="nav-search">
+                <form class="form-search">
+                    <span class="input-icon">
+                        <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                        <i class="ace-icon fa fa-search nav-search-icon"></i>
+                    </span>
+                </form>
+            </div><!-- /.nav-search -->
+        </div>
+
+        <div class="page-content">
+            <div class="ace-settings-container" id="ace-settings-container">
+                <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                    <i class="ace-icon fa fa-cog bigger-130"></i>
+                </div>
+
+                <div class="ace-settings-box clearfix" id="ace-settings-box">
+                    <div class="pull-left width-50">
+                        <div class="ace-settings-item">
+                            <div class="pull-left">
+                                <select id="skin-colorpicker" class="hide">
+                                    <option data-skin="no-skin" value="#438EB9">#438EB9</option>
+                                    <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                                    <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                                    <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                                </select>
+                            </div>
+                            <span>&nbsp; Choose Skin</span>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                            <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+                            <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+                            <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+                            <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+                            <label class="lbl" for="ace-settings-add-container">
+                                Inside
+                                <b>.container</b>
+                            </label>
+                        </div>
+                    </div><!-- /.pull-left -->
+
+                    <div class="pull-left width-50">
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" />
+                            <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" />
+                            <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" />
+                            <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+                        </div>
+                    </div><!-- /.pull-left -->
+                </div><!-- /.ace-settings-box -->
+            </div><!-- /.ace-settings-container -->
+
+            <div class="page-header">
+                <h1>
+                    {{#i18n}}fees.title{{/i18n}}
+                    <!--								<small>
+                                                                                            <i class="ace-icon fa fa-angle-double-right"></i>
+                                                                                            overview &amp; stats
+                                                                                    </small>-->
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="space-6"></div>
+                        <div class="col-md-12">
+                            <div class="widget-box transparent">
+                                <div class="widget-header widget-header-flat">
+                                    <h4 class="widget-title lighter">
+                                        <i class="ace-icon fa fa-search"></i>
+                                        {{#i18n}}search{{/i18n}}
+                                    </h4>
+
+                                    <div class="widget-toolbar">
+                                        <a href="#" data-action="collapse">
+                                            <i class="ace-icon fa fa-chevron-up"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="widget-body">
+                                    <div class="widget-main padding-4">
+                                        <div class="col-sm-6">
+                                            <label class="col-sm-4 control-label text-right">{{#i18n}}type{{/i18n}} :</label>
+                                            <div class="col-sm-8 text-left">
+                                                <select id="searchType" class="chosen-select form-control"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="col-sm-4 control-label text-right">{{#i18n}}status{{/i18n}} :</label>
+                                            <div class="col-sm-8 text-left">
+                                                <select id="searchStatus" class="chosen-select form-control"></select>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.widget-main -->
+                                </div><!-- /.widget-body -->
+                            </div><!-- /.widget-box -->
+                            <div class="space-2"></div>
+                            <div class="widget-box transparent">
+                                <div class="widget-header widget-header-flat">
+                                    <!--       <h4 class="widget-title lighter">
+                                            <i class="ace-icon fa fa-list"></i>
+                                            
+                                        </h4>
+    
+                                      <div class="widget-toolbar">
+                                            <a href="#" data-action="collapse">
+                                                <i class="ace-icon fa fa-chevron-up"></i>
+                                            </a>
+                                        </div>-->
+                                </div>
+                                <div class="widget-body">
+                                    <table id="table" class="table table-bordered table-striped table-condensed mb-none">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center col-md-1">{{#i18n}}table.no{{/i18n}}</th>
+                                                <th class="text-center col-md-1">{{#i18n}}feesCode{{/i18n}}</th>
+                                                <th class="text-center col-md-4">{{#i18n}}customerName{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}type{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}status{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}detail{{/i18n}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="6" class="text-center">-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div><!-- /.col -->
+
+
+                    </div><!-- /.row -->
+
+                    <div class="hr hr32 hr-dotted"></div>
+
+
+
+                    <!-- PAGE CONTENT ENDS -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+
+        <!-- dialog message -->
+        <div id="dialog-message" class="hide">
+            <div class="widget-box transparent">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="widget-title lighter">
+                        <i class="ace-icon fa fa-info-circle"></i>
+                        {{#i18n}}detail{{/i18n}}
+                    </h4>
+
+                    <!--                   <div class="widget-toolbar">
+                                            <a href="#" data-action="collapse">
+                                                <i class="ace-icon fa fa-chevron-up"></i>
+                                            </a>
+                                        </div>-->
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main padding-4">
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="blue fa fa-user"></i> {{#i18n}}customer{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="customerName" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="purple fa fa-file-video-o"></i> {{#i18n}}type{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="typeName" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="green fa fa-check-square"></i> {{#i18n}}status{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="statusCode" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="red fa fa-bank"></i> {{#i18n}}fees{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="amount" style="font-weight: bold;"></span><span> {{#i18n}}currency.th{{/i18n}}</span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-4 text-right">
+                                <h4><i class="red fa fa-credit-card"></i> {{#i18n}}datePay{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><span id="datePay" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                    </div><!-- /.widget-main -->
+                </div><!-- /.widget-body -->
+            </div><!-- /.widget-box -->
+        </div><!-- #dialog-message -->
+        <!-- /.dialog message -->
+    </div>
+</div><!-- /.main-content -->
+
+{{>footer}}
+
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var listsArr = {};
+        var datas = callAjax("{{_context_path}}/apps/fees/datatest.json", "get", {}, "json")["lists"];
+        var t;
+        drawTable(datas);
+        searchSelect(datas);
+
+
+        function drawTable(datas) {
+            t = $("#table").DataTable({
+                "destroy": true,
+                "data": datas,
+                "order": [0, 'asc'],
+                "iDisplayLength": 50,
+                "columnDefs": [
+                    {
+                        "targets": 0,
+                        "searchable": false,
+                        "orderable": false,
+                        "data": "feesId",
+                        "sClass": "text-center col-md-1"
+                    },
+                    {
+                        "targets": 1,
+                        "data": "feesCode",
+                        "sClass": "text-center col-md-1",
+//                    "render": function (data) {
+//                        return 'ง.' + data;
+//                    }
+                    },
+                    {
+                        "targets": 2,
+                        "data": "customerName",
+                        "sClass": "col-md-3",
+//                    "render": function (data, key, full) {
+//                        return full["facultyName"] + ' / ' + full["deptName"];
+//                    }
+
+                    },
+                    {
+                        "targets": 3,
+                        "data": "typeName",
+                        "sClass": "text-center col-md-2"
+                    },
+                    {
+                        "targets": 4,
+                        "data": "statusCode",
+                        "sClass": "text-center col-md-2",
+                        "render": function (data) {
+                            if (data == "PAID") {
+                                return '<span class="label label-success arrowed-in arrowed-in-right">{{#i18n}}PAID{{/i18n}}</span>'
+                            } else {
+                                return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}WAITING{{/i18n}}</span>'
+                            }
+
+                        }
+                    },
+                    {
+                        "targets": 5,
+                        "data": "feesId",
+                        "sClass": "text-center col-md-2",
+                        "render": function (data) {
+                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-feesId="' + data + '"><i class="fa fa-list"></i></button>'
+                            // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
+
+                        }
+                    }
+                ]
+            });
+            t.on('order.dt search.dt', function () {
+                t.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+
+
+            btnEdit();
+        }
+        function searchSelect(datas) {
+            var datasType = {}
+            var datasStatus = {};
+            $.each(datas, function (key, value) {
+                listsArr[value["feesId"]] = value;
+                datasType[value["typeName"]] = value["typeName"];
+                datasStatus[value["statusCode"]] = value["statusCode"];
+            });
+
+            //search selectbox type
+            var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
+            $.each(datasType, function (key, value) {
+                search += '<option value="' + value + '">' + value + '</option>';
+            });
+            $("#searchType").html(search);
+            //search selectbox status
+            var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
+            $.each(datasStatus, function (key, value) {
+                if(value=="PAID"){
+                    search += '<option value="{{#i18n}}PAID{{/i18n}}">{{#i18n}}PAID{{/i18n}}</option>';
+                }else if(value=="WAITING"){
+                    search += '<option value="{{#i18n}}WAITING{{/i18n}}">{{#i18n}}WAITING{{/i18n}}</option>';
+                }
+               // search += '<option value="' + val + '">' + val + '</option>';
+
+            });
+            console.log(search);
+            $("#searchStatus").html(search);
+            $('.chosen-select').chosen({allow_single_deselect: true});
+            $(window)
+                    .off('resize.chosen')
+                    .on('resize.chosen', function () {
+                        $('.chosen-select').each(function () {
+                            var $this = $(this);
+                            $this.next().css({'width': $this.parent().width()});
+                        })
+                    }).trigger('resize.chosen');
+
+            $("#searchType").change(function () {
+                t.columns(3).search($(this).val()).draw();
+            });
+            $("#searchStatus").change(function () {
+                t.columns(4).search($(this).val()).draw();
+            });
+        }
+
+        function btnEdit() {
+            $("button.detail").click(function (e) {
+                e.preventDefault();
+                var feesId = $(this).attr("data-feesId");
+                var data = listsArr[feesId];
+                $("#customerName").text(data["customerName"]);
+                $("#typeName").text(data["typeName"]);
+                $("#statusCode").text(data["statusCode"]);
+                $("#amount").text(data["amount"]);
+
+                if (data["statusCode"] == "WAITING") {
+                    $("#datePay").text("-");
+                    var dialog = $("#dialog-message").removeClass('hide').dialog({
+                        modal: true,
+//                title: "ค่าธรรมเนียม",
+//                title_html: true,
+                        maxWidth: 500,
+                        maxHeight: 370,
+                        width: 500,
+                        height: 370,
+                        buttons: [
+                            {
+                                text: "{{#i18n}}cancel{{/i18n}}",
+                                "class": "btn btn-default btn-minier",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            {
+                                text: "{{#i18n}}feesPay{{/i18n}}",
+                                "class": "btn btn-success btn-minier",
+                                click: function () {
+                                    listsArr[feesId]["statusCode"] = "PAID";
+                                    var datax = [];
+                                    $.each(listsArr, function (k, v) {
+                                        datax.push(v);
+                                    });
+                                    drawTable(datax);
+                                    $(this).dialog("close");
+                                    window.open("http://localhost/culture/web/apps/report/views/files/bill.pdf", '_blank');
+
+                                }
+                            }
+                        ]
+                    });
+                } else if (data["statusCode"] == "PAID") {
+                    $("#datePay").text(data["datePay"]);
+                    var dialog = $("#dialog-message").removeClass('hide').dialog({
+                        modal: true,
+//                title: "ค่าธรรมเนียม",
+//                title_html: true,
+                        maxWidth: 500,
+                        maxHeight: 370,
+                        width: 500,
+                        height: 370,
+                        buttons: [
+                            {
+                                text: "{{#i18n}}cancel{{/i18n}}",
+                                "class": "btn btn-default btn-minier",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            {
+                                text: "{{#i18n}}printReceipt{{/i18n}}",
+                                "class": "btn btn-primary btn-minier",
+                                click: function () {
+                                    window.open("http://localhost/culture/web/apps/report/views/files/bill.pdf", '_blank');
+                                    $(this).dialog("close");
+                                }
+                            }
+                        ]
+                    });
+                }
+            });
+        }
+    });
+</script>

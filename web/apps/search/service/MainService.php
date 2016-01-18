@@ -9,10 +9,14 @@ use apps\search\interfaces\IMainService;
 
 class MainService extends CServiceBase implements IMainService {
 
-    public function index() {
-        $view = new CJView("index", CJViewType::HTML_VIEW_ENGINE);
+    public function license() {
+        $view = new CJView("license", CJViewType::HTML_VIEW_ENGINE);
         return $view;
     }
 
+    public function video() {
+        $view = new CJView("video", CJViewType::HTML_VIEW_ENGINE);
+        return $view;
+    }
 
 }
