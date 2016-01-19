@@ -1,5 +1,4 @@
 {{>header}}
-
 <div class="main-content">
     <div class="main-content-inner">
         <div class="breadcrumbs" id="breadcrumbs">
@@ -15,7 +14,7 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="#">Home</a>
                 </li>
-                <li class="active">{{#i18n}}search.title{{/i18n}}</li>
+                <li class="active">{{#i18n}}search.title.video{{/i18n}}</li>
             </ul><!-- /.breadcrumb -->
 
             <div class="nav-search" id="nav-search">
@@ -98,7 +97,7 @@
 
             <div class="page-header">
                 <h1>
-                    {{#i18n}}search.title{{/i18n}}
+                    {{#i18n}}search.title.video{{/i18n}}
                     <!--								<small>
                                                                                             <i class="ace-icon fa fa-angle-double-right"></i>
                                                                                             overview &amp; stats
@@ -111,218 +110,88 @@
                     <div class="row">
                         <div class="space-6"></div>
                         <div class="col-md-12">
-                            <div class="widget-box transparent">
-                                <!--                                <div class="widget-header widget-header-flat">
-                                                                    <h4 class="widget-title lighter">
-                                                                        <i class="ace-icon fa fa-search"></i>
-                                                                        {{#i18n}}search{{/i18n}}
-                                                                    </h4>
-                                
-                                                                    <div class="widget-toolbar">
-                                                                        <a href="#" data-action="collapse">
-                                                                            <i class="ace-icon fa fa-chevron-up"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>-->
-
-                                <div class="widget-body">
-                                    <div class="widget-main padding-8">
-                                        <form class="form-inline padding-2">
-                                            <input type="text" class="col-xs-4" placeholder="กรอกข้อมูลที่ต้องการค้นหา" />
-                                            <select id="searchTitle" class="form-control">
-                                                <option value="all" selected>ทั้งหมด</option>
-                                                <option value="title">ชื่อวีดีทัศน์</option>
-                                                <option value="author">ผู้กำกับ</option>
-                                                <option value="approveCode">เลขที่ใบอนุญาต</option>
-                                            </select>
-                                            <button type="button" class="btn btn-info btn-sm">
-                                                <i class="ace-icon fa fa-search"></i>{{#i18n}}search{{/i18n}}
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div><!-- /.widget-body -->
-                            </div><!-- /.widget-box -->
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input type="text" class="form-control" placeholder="กรอกข้อมูลที่ต้องการค้นหา" id="searchText" />
+                                </div>
+                                <div class="col-xs-2">
+                                    <select id="searchTopic" class="form-control">
+                                        <option value="all" selected>ทั้งหมด</option>
+                                        <option value="title">{{#i18n}}customerName{{/i18n}}</option>
+                                        <option value="author">{{#i18n}}videoName{{/i18n}}</option>
+                                        <option value="approveCode">เลขที่ใบอนุญาต</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="space-2"></div>
                             <div class="row">
-                                <div class="col-sm-10 col-sm-offset-1">
-                                    <div class="widget-box transparent">
-                                        <div class="widget-header widget-header-large">
-                                            <h3 class="widget-title grey lighter">
-                                                <i class="ace-icon fa fa-leaf green"></i>
-                                                Customer Invoice
-                                            </h3>
-
-                                            <div class="widget-toolbar no-border invoice-info">
-                                                <span class="invoice-info-label">Invoice:</span>
-                                                <span class="red">#121212</span>
-
-                                                <br />
-                                                <span class="invoice-info-label">Date:</span>
-                                                <span class="blue">04/04/2014</span>
-                                            </div>
-
-                                            <div class="widget-toolbar hidden-480">
-                                                <a href="#">
-                                                    <i class="ace-icon fa fa-print"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="widget-body">
-                                            <div class="widget-main padding-24">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="row">
-                                                            <div class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
-                                                                <b>Company Info</b>
-                                                            </div>
-                                                        </div>
-
-                                                        <div>
-                                                            <ul class="list-unstyled spaced">
-                                                                <li>
-                                                                    <i class="ace-icon fa fa-caret-right blue"></i>Street, City
-                                                                </li>
-
-                                                                <li>
-                                                                    <i class="ace-icon fa fa-caret-right blue"></i>Zip Code
-                                                                </li>
-
-                                                                <li>
-                                                                    <i class="ace-icon fa fa-caret-right blue"></i>State, Country
-                                                                </li>
-
-                                                                <li>
-                                                                    <i class="ace-icon fa fa-caret-right blue"></i>
-                                                                    Phone:
-                                                                    <b class="red">111-111-111</b>
-                                                                </li>
-
-                                                                <li class="divider"></li>
-
-                                                                <li>
-                                                                    <i class="ace-icon fa fa-caret-right blue"></i>
-                                                                    Paymant Info
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- /.col -->
-
-                                                    <div class="col-sm-6">
-                                                        <div class="row">
-                                                            <div class="col-xs-11 label label-lg label-success arrowed-in arrowed-right">
-                                                                <b>Customer Info</b>
-                                                            </div>
-                                                        </div>
-
-                                                        <div>
-                                                            <ul class="list-unstyled  spaced">
-                                                                <li>
-                                                                    <i class="ace-icon fa fa-caret-right green"></i>Street, City
-                                                                </li>
-
-                                                                <li>
-                                                                    <i class="ace-icon fa fa-caret-right green"></i>Zip Code
-                                                                </li>
-
-                                                                <li>
-                                                                    <i class="ace-icon fa fa-caret-right green"></i>State, Country
-                                                                </li>
-
-                                                                <li class="divider"></li>
-
-                                                                <li>
-                                                                    <i class="ace-icon fa fa-caret-right green"></i>
-                                                                    Contact Info
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- /.col -->
-                                                </div><!-- /.row -->
-
-                                                <div class="space"></div>
-
-                                                <div>
-                                                    <table class="table table-striped table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="center">#</th>
-                                                                <th>Product</th>
-                                                                <th class="hidden-xs">Description</th>
-                                                                <th class="hidden-480">Discount</th>
-                                                                <th>Total</th>
-                                                            </tr>
-                                                        </thead>
-
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="center">1</td>
-
-                                                                <td>
-                                                                    <a href="#">google.com</a>
-                                                                </td>
-                                                                <td class="hidden-xs">
-                                                                    1 year domain registration
-                                                                </td>
-                                                                <td class="hidden-480"> --- </td>
-                                                                <td>$10</td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td class="center">2</td>
-
-                                                                <td>
-                                                                    <a href="#">yahoo.com</a>
-                                                                </td>
-                                                                <td class="hidden-xs">
-                                                                    5 year domain registration
-                                                                </td>
-                                                                <td class="hidden-480"> 5% </td>
-                                                                <td>$45</td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td class="center">3</td>
-                                                                <td>Hosting</td>
-                                                                <td class="hidden-xs"> 1 year basic hosting </td>
-                                                                <td class="hidden-480"> 10% </td>
-                                                                <td>$90</td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td class="center">4</td>
-                                                                <td>Design</td>
-                                                                <td class="hidden-xs"> Theme customization </td>
-                                                                <td class="hidden-480"> 50% </td>
-                                                                <td>$250</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                                <div class="hr hr8 hr-double hr-dotted"></div>
-
-                                                <div class="row">
-                                                    <div class="col-sm-5 pull-right">
-                                                        <h4 class="pull-right">
-                                                            Total amount :
-                                                            <span class="red">$395</span>
-                                                        </h4>
-                                                    </div>
-                                                    <div class="col-sm-7 pull-left"> Extra Information </div>
-                                                </div>
-
-                                                <div class="space-6"></div>
-                                                <div class="well">
-                                                    Thank you for choosing Ace Company products.
-                                                    We believe you will be satisfied by our services.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-xs-3">
+                                    <select class="form-control" id="selectTypeVideo" name="typeVideoId">
+                                        <option value="" selected="">เนื้อหาภาพยนตร์</option>
+                                        <option value="73">ชีวิต</option>
+                                        <option value="41">ต่อสู้</option>
+                                        <option value="28">สงคราม</option>
+                                        <option value="22">วิทยาศาสตร์</option>
+                                        <option value="75">ตื่นเต้น</option>
+                                        <option value="74">สยองขวัญ</option>
+                                        <option value="50">การ์ตูน</option>
+                                        <option value="49">ตลก</option>
+                                        <option value="26">ภาพยนตร์โฆษณา</option>
+                                        <option value="12">อื่นๆ</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select class="form-control" id="selectSound" name="soundId">
+                                        <option value="" selected="">พากย์ภาษา</option>
+                                        <option value="73">ไทย</option>
+                                        <option value="41">อังกฤษ</option>
+                                        <option value="28">จีน</option>
+                                        <option value="22">ญี่ปุ่น</option>
+                                        <option value="75">ฝรั่งเศส</option>
+                                        <option value="74">เกาหลี</option>
+                                        <option value="50">อื่นๆ</option>
+                                    </select>
+                                </div>
+                                <div class='col-xs-6'>
+                                    <button type="button" class="btn btn-info btn-sm" id="btn_search">
+                                        <i class="ace-icon fa fa-search"></i>{{#i18n}}search{{/i18n}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="space-6"></div>
+                            <div class="widget-box transparent">
+                                <div class="widget-header widget-header-flat">
+                                    <!--       <h4 class="widget-title lighter">
+                                            <i class="ace-icon fa fa-list"></i>
+                                            
+                                        </h4>
+    
+                                      <div class="widget-toolbar">
+                                            <a href="#" data-action="collapse">
+                                                <i class="ace-icon fa fa-chevron-up"></i>
+                                            </a>
+                                        </div>-->
+                                </div>
+                                <div class="widget-body">
+                                    <table id="table" class="table table-bordered table-striped table-condensed mb-none">
+                                        <thead>
+                                            <tr>
+                                                <th class="center">{{#i18n}}table.no{{/i18n}}</th>
+                                                <th class="center">{{#i18n}}videoName{{/i18n}}</th>
+                                                <th class="center">{{#i18n}}customerName{{/i18n}}</th>
+                                                <th class="center">{{#i18n}}detail{{/i18n}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="6" class="text-center">-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div><!-- /.col -->
+
 
                     </div><!-- /.row -->
 
@@ -334,6 +203,100 @@
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.page-content -->
+
+        <!-- dialog message -->
+        <div id="dialog-message" class="hide">
+            <div class="widget-box transparent">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="widget-title lighter">
+                        <i class="ace-icon fa fa-info-circle"></i>
+                        {{#i18n}}detail{{/i18n}}
+                    </h4>
+
+                    <!--                   <div class="widget-toolbar">
+                                            <a href="#" data-action="collapse">
+                                                <i class="ace-icon fa fa-chevron-up"></i>
+                                            </a>
+                                        </div>-->
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main padding-4">
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="purple fa fa-rss-square"></i> {{#i18n}}videoCode{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="videoCode" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="blue fa fa-user"></i> {{#i18n}}customerName{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="customerName" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="green fa fa-file-video-o"></i> {{#i18n}}videoTypeName{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="videoTypeName" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4>
+                                    <!--                                    <i class="blue fa fa-pencil-square"></i>-->
+                                    {{#i18n}}videoNameTH{{/i18n}} :</h4>
+
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="videoNameTH" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4>
+                                    <!--                                    <i class="red fa fa-pencil-square-o"></i> -->
+                                    {{#i18n}}videoNameEN{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="videoNameEN" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="red fa fa-envelope"></i> {{#i18n}}videoAddress{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="videoAddress" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="red fa fa-calendar"></i> {{#i18n}}dateIssue{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="dateIssue" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="red fa fa-calendar"></i> {{#i18n}}dateExpire{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="dateExpire" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+
+                    </div><!-- /.widget-main -->
+                </div><!-- /.widget-body -->
+            </div><!-- /.widget-box -->
+        </div><!-- #dialog-message -->
+        <!-- /.dialog message -->
     </div>
 </div><!-- /.main-content -->
 
@@ -343,5 +306,110 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
+    $(document).ready(function () {
+        $("#bkkDistrict").hide();
+        var listsArr = {};
+        var datas;
+        var t;
 
+        // searchSelect(datas);
+        function drawTable(datas) {
+            t = $("#table").DataTable({
+                "destroy": true,
+                "data": datas,
+                "order": [0, 'asc'],
+                "iDisplayLength": 50,
+                "columnDefs": [
+                    {
+                        "targets": 0,
+                        "searchable": false,
+                        "orderable": false,
+                        "data": "videoCode",
+                        "sClass": "text-center col-md-1"
+                    },
+                    {
+                        "targets": 1,
+                        "data": "videoNameTH",
+                        "sClass": "text-center col-md-5",
+                        "render": function (data, key, full) {
+                            return full["videoNameTH"] + ' (' + full["videoNameEN"] + ')';
+                        }
+                    },
+                    {
+                        "targets": 2,
+                        "data": "customerName",
+                        "sClass": "text-center col-md-4",
+//                    "render": function (data, key, full) {
+//                        return full["facultyName"] + ' / ' + full["deptName"];
+//                    }
+
+                    },
+                    {
+                        "targets": 3,
+                        "data": "videoCode",
+                        "sClass": "text-center col-md-2",
+                        "render": function (data) {
+                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดู{{#i18n}}detail{{/i18n}}" data-videoCode="' + data + '"><i class="fa fa-list"></i></button>'
+                            // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
+
+                        }
+                    }
+                ]
+            });
+            t.on('order.dt search.dt', function () {
+                t.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+            $.each(datas, function (key, value) {
+                listsArr[value["videoCode"]] = value;
+            });
+            btnEdit();
+        }
+        function btnEdit() {
+            $("button.detail").click(function (e) {
+                e.preventDefault();
+                var videoCode = $(this).attr("data-videoCode");
+                var data = listsArr[videoCode];
+                //console.log(data);
+                $("#videoCode").text(data["videoCode"]);
+                $("#customerName").text(data["customerName"]);
+                $("#videoTypeName").text(data["videoTypeName"]);
+                $("#videoNameTH").text(data["videoNameTH"]);
+                $("#videoNameEN").text(data["videoNameEN"]);
+                $("#videoAddress").text(data["videoAddress"]);
+                $("#dateIssue").text(data["dateIssue"]);
+                $("#dateExpire").text(data["dateExpire"]);
+                var dialog = $("#dialog-message").removeClass('hide').dialog({
+                    modal: true,
+                    maxWidth: 600,
+                    maxHeight: 500,
+                    width: 600,
+                    height: 500,
+                    buttons: [
+                        {
+                            text: "{{#i18n}}close{{/i18n}}",
+                            "class": "btn btn-default btn-minier",
+                            click: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    ]
+                });
+            });
+        }
+        $('#btn_search').click(function () {
+            datas = callAjax("{{_context_path}}/apps/search/dataLicense.json", "get", {}, "json")["lists"];
+            drawTable(datas);
+        });
+        $("#searchProvince").change(function () {
+            if (this.value == "73") {
+                $("#district").hide();
+                $("#bkkDistrict").show();
+            } else {
+                $("#bkkDistrict").hide();
+                $("#district").show();
+            }
+        });
+    });
 </script>

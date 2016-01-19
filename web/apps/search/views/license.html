@@ -1,5 +1,4 @@
 {{>header}}
-
 <div class="main-content">
     <div class="main-content-inner">
         <div class="breadcrumbs" id="breadcrumbs">
@@ -15,7 +14,7 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="#">Home</a>
                 </li>
-                <li class="active">{{#i18n}}fees.title{{/i18n}}</li>
+                <li class="active">{{#i18n}}search.title.license{{/i18n}}</li>
             </ul><!-- /.breadcrumb -->
 
             <div class="nav-search" id="nav-search">
@@ -98,7 +97,7 @@
 
             <div class="page-header">
                 <h1>
-                    {{#i18n}}fees.title{{/i18n}}
+                    {{#i18n}}search.title.license{{/i18n}}
                     <!--								<small>
                                                                                             <i class="ace-icon fa fa-angle-double-right"></i>
                                                                                             overview &amp; stats
@@ -111,38 +110,114 @@
                     <div class="row">
                         <div class="space-6"></div>
                         <div class="col-md-12">
-                            <div class="widget-box transparent">
-                                <div class="widget-header widget-header-flat">
-                                    <h4 class="widget-title lighter">
-                                        <i class="ace-icon fa fa-search"></i>
-                                        {{#i18n}}search{{/i18n}}
-                                    </h4>
-
-                                    <div class="widget-toolbar">
-                                        <a href="#" data-action="collapse">
-                                            <i class="ace-icon fa fa-chevron-up"></i>
-                                        </a>
-                                    </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input type="text" class="form-control" placeholder="กรอกข้อมูลที่ต้องการค้นหา" id="searchText" />
                                 </div>
-
-                                <div class="widget-body">
-                                    <div class="widget-main padding-4">
-                                        <div class="col-sm-6">
-                                            <label class="col-sm-4 control-label text-right">{{#i18n}}type{{/i18n}} :</label>
-                                            <div class="col-sm-8 text-left">
-                                                <select id="searchType" class="chosen-select form-control"></select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <label class="col-sm-4 control-label text-right">{{#i18n}}status{{/i18n}} :</label>
-                                            <div class="col-sm-8 text-left">
-                                                <select id="searchStatus" class="chosen-select form-control"></select>
-                                            </div>
-                                        </div>
-                                    </div><!-- /.widget-main -->
-                                </div><!-- /.widget-body -->
-                            </div><!-- /.widget-box -->
+                                <div class="col-xs-2">
+                                    <select id="searchTopic" class="form-control">
+                                        <option value="all" selected>ทั้งหมด</option>
+                                        <option value="title">{{#i18n}}customerName{{/i18n}}</option>
+                                        <option value="author">{{#i18n}}licenseName{{/i18n}}</option>
+                                        <option value="approveCode">เลขที่ใบอนุญาต</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="space-2"></div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <select class="form-control" id="searchProvince" name="Province">
+                                        <option value="" selected="">จังหวัด</option>
+                                        <option value="73">กรุงเทพมหานคร</option>
+                                        <option value="41">นนทบุรี</option>
+                                        <option value="28">ปทุมธานี</option>
+                                        <option value="22">สมุทรปราการ</option>
+                                        <option value="75">อ่างทอง</option>
+                                        <option value="74">อยุธยา</option>
+                                        <option value="50">นครนายก</option>
+                                        <option value="49">นครปฐม</option>
+                                        <option value="26">ราชบุรี</option>
+                                        <option value="12">สุพรรณบุรี</option>
+                                        <option value="61">กาญจนบุรี</option>
+                                        <option value="21">สมุทรสาคร</option>
+                                        <option value="20">สมุทรสงคราม</option>
+                                        <option value="71">ฉะเชิงเทรา</option>
+                                        <option value="35">เพชรบุรี</option>
+                                        <option value="68">จันทบุรี</option>
+                                        <option value="65">ชลบุรี</option>
+                                        <option value="30">ปราจีนบุรี</option>
+                                        <option value="25">ระยอง</option>
+                                        <option value="14">สระแก้ว</option>
+                                        <option value="07">ตราด</option>
+                                        <option value="67">เชียงใหม่</option>
+                                        <option value="66">เชียงราย</option>
+                                        <option value="62">กำแพงเพชร</option>
+                                        <option value="58">ลำปาง</option>
+                                        <option value="57">ลำพูน</option>
+                                        <option value="54">แม่ฮ่องสอน</option>
+                                        <option value="47">นครสวรรค์</option>
+                                        <option value="45">น่าน</option>
+                                        <option value="37">พะเยา</option>
+                                        <option value="36">เพชรบูรณ์</option>
+                                        <option value="34">พิษณุโลก </option>
+                                        <option value="33">แพร่</option>
+                                        <option value="31">พิจิตร</option>
+                                        <option value="13">สุโขทัย</option>
+                                        <option value="09">ตาก</option>
+                                        <option value="04">อุทัยธานี</option>
+                                        <option value="03">อุตรดิตถ์</option>
+                                        <option value="19">สระบุรี</option>
+                                        <option value="17">สิงห์บุรี</option>
+                                        <option value="70">ชัยนาท</option>
+                                        <option value="55">ลพบุรี</option>
+                                        <option value="76">อำนาจเจริญ</option>
+                                        <option value="72">บุรีรัมย์</option>
+                                        <option value="69">ชัยภูมิ</option>
+                                        <option value="63">กาฬสินธุ์</option>
+                                        <option value="60">ขอนแก่น</option>
+                                        <option value="56">เลย</option>
+                                        <option value="53">มหาสารคาม</option>
+                                        <option value="52">มุกดาหาร</option>
+                                        <option value="51">นครพนม</option>
+                                        <option value="48">นครราชสีมา</option>
+                                        <option value="43">หนองบัวลำภู</option>
+                                        <option value="42">หนองคาย</option>
+                                        <option value="24">ร้อยเอ็ด</option>
+                                        <option value="16">ศรีษะเกษ</option>
+                                        <option value="10">สุรินทร์</option>
+                                        <option value="06">อุบลราชธานี</option>
+                                        <option value="05">อุดรธานี</option>
+                                        <option value="01">ยโสธร</option>
+                                        <option value="23">สกลนคร</option>
+                                        <option value="64">ชุมพร</option>
+                                        <option value="59">กระบี่</option>
+                                        <option value="46">นครศรีธรรมราช</option>
+                                        <option value="44">นราธิวาส</option>
+                                        <option value="40">ปัตตานี </option>
+                                        <option value="29">ประจวบคีรีขันธ์</option>
+                                        <option value="39">พัทลุง</option>
+                                        <option value="38">พังงา</option>
+                                        <option value="32">ภูเก็ต</option>
+                                        <option value="27">ระนอง</option>
+                                        <option value="18">สตูล</option>
+                                        <option value="15">สงขลา</option>
+                                        <option value="11">สุราษฏร์ธานี</option>
+                                        <option value="08">ตรัง</option>
+                                        <option value="02">ยะลา</option>
+                                        <option value="77">บึงกาฬ</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="text" class="form-control" id="district" name="district" />
+                                    <select class="form-control" id="bkkDistrict" name="bkkDistrict"><option value="" selected="">เขต</option><option value="7323">คลองเตย</option><option value="7324">คลองสาน</option><option value="7322">คลองสามวา</option><option value="7321">คันนายาว</option><option value="7315">จตุจักร</option><option value="7316">จอมทอง</option><option value="7318">ดอนเมือง</option><option value="7317">ดินแดง</option><option value="7319">ดุสิต</option><option value="7344">ตลิ่งชัน</option><option value="7345">ทวีวัฒนา</option><option value="7347">ทุ่งครุ</option><option value="7346">ธนบุรี</option><option value="7312">บางกอกน้อย</option><option value="7313">บางกอกใหญ่</option><option value="7303">บางกะปิ</option><option value="7307">บางขุนเทียน</option><option value="7305">บางเขน</option><option value="7306">บางคอแหลม</option><option value="7304">บางแค</option><option value="7311">บางซื่อ</option><option value="7308">บางนา</option><option value="7302">บางบอน</option><option value="7309">บางพลัด</option><option value="7310">บางรัก</option><option value="7314">บึงกุ่ม</option><option value="7331">ปทุมวัน</option><option value="7336">ประเวศ</option><option value="7335">ป้อมปราบศัตรูพ่าย</option><option value="7333">พญาไท</option><option value="7334">พระโขนง</option><option value="7301">พระนคร</option><option value="7332">ภาษีเจริญ</option><option value="7328">มีนบุรี</option><option value="9900">ไม่ระบุเขต</option><option value="7350">ยานนาวา</option><option value="7338">ราชเทวี</option><option value="7337">ราษฎร์บูรณะ</option><option value="7326">ลาดกระบัง</option><option value="7327">ลาดพร้าว</option><option value="7348">วังทองหลาง</option><option value="7349">วัฒนา</option><option value="7343">สวนหลวง</option><option value="7341">สะพานสูง</option><option value="7340">สัมพันธวงค์</option><option value="7342">สาทร</option><option value="7339">สายไหม</option><option value="7330">หนองแขม</option><option value="7329">หนองจอก</option><option value="7325">หลักสี่</option><option value="7320">ห้วยขวาง</option></select>
+                                </div>
+                                <div class='col-xs-6'>
+                                    <button type="button" class="btn btn-info btn-sm" id="btn_search">
+                                        <i class="ace-icon fa fa-search"></i>{{#i18n}}search{{/i18n}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="space-6"></div>
                             <div class="widget-box transparent">
                                 <div class="widget-header widget-header-flat">
                                     <!--       <h4 class="widget-title lighter">
@@ -160,12 +235,10 @@
                                     <table id="table" class="table table-bordered table-striped table-condensed mb-none">
                                         <thead>
                                             <tr>
-                                                <th class="text-center col-md-1">{{#i18n}}table.no{{/i18n}}</th>
-                                                <th class="text-center col-md-1">{{#i18n}}feesCode{{/i18n}}</th>
-                                                <th class="text-center col-md-4">{{#i18n}}customerName{{/i18n}}</th>
-                                                <th class="text-center col-md-2">{{#i18n}}type{{/i18n}}</th>
-                                                <th class="text-center col-md-2">{{#i18n}}status{{/i18n}}</th>
-                                                <th class="text-center col-md-2">{{#i18n}}detail{{/i18n}}</th>
+                                                <th class="center">{{#i18n}}table.no{{/i18n}}</th>
+                                                <th class="center">{{#i18n}}licenseName{{/i18n}}</th>
+                                                <th class="center">{{#i18n}}customerName{{/i18n}}</th>
+                                                <th class="center">{{#i18n}}detail{{/i18n}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -209,45 +282,75 @@
                 <div class="widget-body">
                     <div class="widget-main padding-4">
                         <div class="row">
-                            <div class="col-sm-4 text-right">
-                                <h4><i class="blue fa fa-user"></i> {{#i18n}}customer{{/i18n}} :</h4>
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="purple fa fa-rss-square"></i> {{#i18n}}licenseCode{{/i18n}} :</h4>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
+                                <h4><span id="licenseCode" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="blue fa fa-user"></i> {{#i18n}}customerName{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
                                 <h4><span id="customerName" style="font-weight: bold;"></span></h4>
                             </div>
                         </div><!-- /.col -->
                         <div class="row">
-                            <div class="col-sm-4 text-right">
-                                <h4><i class="purple fa fa-file-video-o"></i> {{#i18n}}type{{/i18n}} :</h4>
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="green fa fa-file-video-o"></i> {{#i18n}}licenseTypeName{{/i18n}} :</h4>
                             </div>
-                            <div class="col-sm-8">
-                                <h4><span id="typeName" style="font-weight: bold;"></span></h4>
-                            </div>
-                        </div><!-- /.col -->
-                        <div class="row">
-                            <div class="col-sm-4 text-right">
-                                <h4><i class="green fa fa-check-square"></i> {{#i18n}}status{{/i18n}} :</h4>
-                            </div>
-                            <div class="col-sm-8">
-                                <h4><span id="statusCode" style="font-weight: bold;"></span></h4>
+                            <div class="col-sm-7">
+                                <h4><span id="licenseTypeName" style="font-weight: bold;"></span></h4>
                             </div>
                         </div><!-- /.col -->
                         <div class="row">
-                            <div class="col-sm-4 text-right">
-                                <h4><i class="red fa fa-bank"></i> {{#i18n}}fees{{/i18n}} :</h4>
+                            <div class="col-sm-5 text-right">
+                                <h4>
+                                    <!--                                    <i class="blue fa fa-pencil-square"></i>-->
+                                    {{#i18n}}licenseNameTH{{/i18n}} :</h4>
+
                             </div>
-                            <div class="col-sm-8">
-                                <h4><span id="amount" style="font-weight: bold;"></span><span> {{#i18n}}currency.th{{/i18n}}</span></h4>
+                            <div class="col-sm-7">
+                                <h4><span id="licenseNameTH" style="font-weight: bold;"></span></h4>
                             </div>
                         </div><!-- /.col -->
                         <div class="row">
-                            <div class="col-sm-4 text-right">
-                                <h4><i class="red fa fa-credit-card"></i> {{#i18n}}datePay{{/i18n}} :</h4>
+                            <div class="col-sm-5 text-right">
+                                <h4>
+                                    <!--                                    <i class="red fa fa-pencil-square-o"></i> -->
+                                    {{#i18n}}licenseNameEN{{/i18n}} :</h4>
                             </div>
-                            <div class="col-sm-8">
-                                <h4><span id="datePay" style="font-weight: bold;"></span></h4>
+                            <div class="col-sm-7">
+                                <h4><span id="licenseNameEN" style="font-weight: bold;"></span></h4>
                             </div>
                         </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="red fa fa-envelope"></i> {{#i18n}}licenseAddress{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="licenseAddress" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="red fa fa-calendar"></i> {{#i18n}}dateIssue{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="dateIssue" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="row">
+                            <div class="col-sm-5 text-right">
+                                <h4><i class="red fa fa-calendar"></i> {{#i18n}}dateExpire{{/i18n}} :</h4>
+                            </div>
+                            <div class="col-sm-7">
+                                <h4><span id="dateExpire" style="font-weight: bold;"></span></h4>
+                            </div>
+                        </div><!-- /.col -->
+
                     </div><!-- /.widget-main -->
                 </div><!-- /.widget-body -->
             </div><!-- /.widget-box -->
@@ -263,13 +366,12 @@
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
     $(document).ready(function () {
+        $("#bkkDistrict").hide();
         var listsArr = {};
-        var datas = callAjax("{{_context_path}}/apps/fees/datatest.json", "get", {}, "json")["lists"];
+        var datas;
         var t;
-        drawTable(datas);
-        searchSelect(datas);
 
-
+        // searchSelect(datas);
         function drawTable(datas) {
             t = $("#table").DataTable({
                 "destroy": true,
@@ -281,21 +383,21 @@
                         "targets": 0,
                         "searchable": false,
                         "orderable": false,
-                        "data": "feesId",
+                        "data": "licenseCode",
                         "sClass": "text-center col-md-1"
                     },
                     {
                         "targets": 1,
-                        "data": "feesCode",
-                        "sClass": "text-center col-md-1",
-//                    "render": function (data) {
-//                        return 'ง.' + data;
-//                    }
+                        "data": "licenseNameTH",
+                        "sClass": "text-center col-md-5",
+                        "render": function (data, key, full) {
+                            return full["licenseNameTH"] + ' (' + full["licenseNameEN"] + ')';
+                        }
                     },
                     {
                         "targets": 2,
                         "data": "customerName",
-                        "sClass": "col-md-3",
+                        "sClass": "text-center col-md-4",
 //                    "render": function (data, key, full) {
 //                        return full["facultyName"] + ' / ' + full["deptName"];
 //                    }
@@ -303,28 +405,10 @@
                     },
                     {
                         "targets": 3,
-                        "data": "typeName",
-                        "sClass": "text-center col-md-2"
-                    },
-                    {
-                        "targets": 4,
-                        "data": "statusCode",
+                        "data": "licenseCode",
                         "sClass": "text-center col-md-2",
                         "render": function (data) {
-                            if (data == "PAID") {
-                                return '<span class="label label-success arrowed-in arrowed-in-right">{{#i18n}}PAID{{/i18n}}</span>'
-                            } else {
-                                return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}WAITING{{/i18n}}</span>'
-                            }
-
-                        }
-                    },
-                    {
-                        "targets": 5,
-                        "data": "feesId",
-                        "sClass": "text-center col-md-2",
-                        "render": function (data) {
-                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-feesId="' + data + '"><i class="fa fa-list"></i></button>'
+                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดู{{#i18n}}detail{{/i18n}}" data-licenseCode="' + data + '"><i class="fa fa-list"></i></button>'
                             // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
 
                         }
@@ -336,131 +420,55 @@
                     cell.innerHTML = i + 1;
                 });
             }).draw();
-
-
+            $.each(datas, function (key, value) {
+                listsArr[value["licenseCode"]] = value;
+            });
             btnEdit();
         }
-        function searchSelect(datas) {
-            var datasType = {}
-            var datasStatus = {};
-            $.each(datas, function (key, value) {
-                listsArr[value["feesId"]] = value;
-                datasType[value["typeName"]] = value["typeName"];
-                datasStatus[value["statusCode"]] = value["statusCode"];
-            });
-
-            //search selectbox type
-            var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
-            $.each(datasType, function (key, value) {
-                search += '<option value="' + value + '">' + value + '</option>';
-            });
-            $("#searchType").html(search);
-            //search selectbox status
-            var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
-            $.each(datasStatus, function (key, value) {
-                if(value=="PAID"){
-                    search += '<option value="{{#i18n}}PAID{{/i18n}}">{{#i18n}}PAID{{/i18n}}</option>';
-                }else if(value=="WAITING"){
-                    search += '<option value="{{#i18n}}WAITING{{/i18n}}">{{#i18n}}WAITING{{/i18n}}</option>';
-                }
-               // search += '<option value="' + val + '">' + val + '</option>';
-
-            });
-            console.log(search);
-            $("#searchStatus").html(search);
-            $('.chosen-select').chosen({allow_single_deselect: true});
-            $(window)
-                    .off('resize.chosen')
-                    .on('resize.chosen', function () {
-                        $('.chosen-select').each(function () {
-                            var $this = $(this);
-                            $this.next().css({'width': $this.parent().width()});
-                        })
-                    }).trigger('resize.chosen');
-
-            $("#searchType").change(function () {
-                t.columns(3).search($(this).val()).draw();
-            });
-            $("#searchStatus").change(function () {
-                t.columns(4).search($(this).val()).draw();
-            });
-        }
-
         function btnEdit() {
             $("button.detail").click(function (e) {
                 e.preventDefault();
-                var feesId = $(this).attr("data-feesId");
-                var data = listsArr[feesId];
+                var licenseCode = $(this).attr("data-licenseCode");
+                var data = listsArr[licenseCode];
+                //console.log(data);
+                $("#licenseCode").text(data["licenseCode"]);
                 $("#customerName").text(data["customerName"]);
-                $("#typeName").text(data["typeName"]);
-                $("#statusCode").text(data["statusCode"]);
-                $("#amount").text(data["amount"]);
-
-                if (data["statusCode"] == "WAITING") {
-                    $("#datePay").text("-");
-                    var dialog = $("#dialog-message").removeClass('hide').dialog({
-                        modal: true,
-//                title: "ค่าธรรมเนียม",
-//                title_html: true,
-                        maxWidth: 500,
-                        maxHeight: 370,
-                        width: 500,
-                        height: 370,
-                        buttons: [
-                            {
-                                text: "{{#i18n}}cancel{{/i18n}}",
-                                "class": "btn btn-default btn-minier",
-                                click: function () {
-                                    $(this).dialog("close");
-                                }
-                            },
-                            {
-                                text: "{{#i18n}}feesPay{{/i18n}}",
-                                "class": "btn btn-success btn-minier",
-                                click: function () {
-                                    listsArr[feesId]["statusCode"] = "PAID";
-                                    var datax = [];
-                                    $.each(listsArr, function (k, v) {
-                                        datax.push(v);
-                                    });
-                                    drawTable(datax);
-                                    $(this).dialog("close");
-                                    window.open("http://localhost/culture/web/apps/report/views/files/bill.pdf", '_blank');
-
-                                }
+                $("#licenseTypeName").text(data["licenseTypeName"]);
+                $("#licenseNameTH").text(data["licenseNameTH"]);
+                $("#licenseNameEN").text(data["licenseNameEN"]);
+                $("#licenseAddress").text(data["licenseAddress"]);
+                $("#dateIssue").text(data["dateIssue"]);
+                $("#dateExpire").text(data["dateExpire"]);
+                var dialog = $("#dialog-message").removeClass('hide').dialog({
+                    modal: true,
+                    maxWidth: 600,
+                    maxHeight: 500,
+                    width: 600,
+                    height: 500,
+                    buttons: [
+                        {
+                            text: "{{#i18n}}close{{/i18n}}",
+                            "class": "btn btn-default btn-minier",
+                            click: function () {
+                                $(this).dialog("close");
                             }
-                        ]
-                    });
-                } else if (data["statusCode"] == "PAID") {
-                    $("#datePay").text(data["datePay"]);
-                    var dialog = $("#dialog-message").removeClass('hide').dialog({
-                        modal: true,
-//                title: "ค่าธรรมเนียม",
-//                title_html: true,
-                        maxWidth: 500,
-                        maxHeight: 370,
-                        width: 500,
-                        height: 370,
-                        buttons: [
-                            {
-                                text: "{{#i18n}}cancel{{/i18n}}",
-                                "class": "btn btn-default btn-minier",
-                                click: function () {
-                                    $(this).dialog("close");
-                                }
-                            },
-                            {
-                                text: "{{#i18n}}printReceipt{{/i18n}}",
-                                "class": "btn btn-primary btn-minier",
-                                click: function () {
-                                    window.open("http://localhost/culture/web/apps/report/views/files/bill.pdf", '_blank');
-                                    $(this).dialog("close");
-                                }
-                            }
-                        ]
-                    });
-                }
+                        }
+                    ]
+                });
             });
         }
+        $('#btn_search').click(function () {
+            datas = callAjax("{{_context_path}}/apps/search/dataLicense.json", "get", {}, "json")["lists"];
+            drawTable(datas);
+        });
+        $("#searchProvince").change(function () {
+            if (this.value == "73") {
+                $("#district").hide();
+                $("#bkkDistrict").show();
+            } else {
+                $("#bkkDistrict").hide();
+                $("#district").show();
+            }
+        });
     });
 </script>
