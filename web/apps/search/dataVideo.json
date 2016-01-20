@@ -1,0 +1,126 @@
+{
+    "lists": [
+        {
+            "videoCode": "032401/2558",
+            "videoTypeId": "1234",
+            "videoTypeName": "ภาพยนตร์",
+            "videoTypeCode": "MOVIE",
+            "videoNameTH": "เร็วแรงทะลุนรก 8",
+            "videoNameEN": "The Fast 8",
+            "description": "เรื่องราวใน Fast & Furious 7 เกิดขึ้นมากกว่าหนึ่งปีหลังจากที่ลูกทีมของดอม (ดีเซล) และไบรอัน (วอล์คเกอร์) ได้รับการอภัยโทษให้กลับอเมริกาได้ เราได้พบว่าพวกเขาได้ปรับตัวมาใช้ชีวิตถูกกฎหมาย แต่คำว่าบ้านของพวกเขากลับเป็นอะไรที่เกินจริง ดอมพยายามจะรื้อฟื้นความสัมพันธ์กับเล็ตตี้ (โรดริเกซ) ในขณะที่ไบรอันเองก็พยายามจะปรับตัวให้เข้ากับชีวิตย่านชานเมืองกับไมอา (บรูว์สเตอร์) และลูกชายของพวกเขา ส่วนเทจ (บริดเจส) และโรมัน (กิ๊บสัน) ก็เฉลิมฉลองอิสรภาพของพวกเขาด้วยการใช้ชีวิตตามความฝันของหนุ่มเพลย์บอย",
+            "director": [
+                {
+                    "directorId": "DI1234",
+                    "directorName": "ต้อม บางโพธิ์"
+                }
+            ],
+            "writer": [
+                {
+                    "writerId": "DI1234",
+                    "writerName": "แจ๊ส ชวนชื่น"
+                }
+            ],
+            "actor": [
+                {
+                    "actorId": "11",
+                    "actorName": "เอ สมจิตร"
+                },
+                {
+                    "actorId": "11",
+                    "actorName": "นิค กลับกลาย"
+                }
+            ],
+            "genre": [
+                {
+                    "genreId": "575",
+                    "genreName": "ต่อสู้"
+                },
+                {
+                    "genreId": "325",
+                    "genreName": "โรแมนติก"
+                }
+            ],
+            "sound": [
+                {
+                    "soundId": "123",
+                    "soundCode": "TH",
+                    "soundNameTH": "ไทย",
+                    "soundNameEN": "Thai"
+                },
+                {
+                    "soundId": "133",
+                    "soundCode": "EN",
+                    "soundNameTH": "อังกฤษ",
+                    "soundNameEN": "English"
+                }
+            ],
+            "videoRateId": "123",
+            "videoRateName": "สำหรับผู้ที่มีอายุตั้งแต่ 15 ปีขึ้นไป",
+            "releaseDate": "2015-12-17",
+            "poster": "http://f.ptcdn.info/708/029/000/1427289587-1377322602-o.jpg",
+            "statusCode": "WAITING",
+            "isActive": "ACTIVE"
+        },
+        {
+            "videoCode": "33456/2558",
+            "videoTypeId": "234",
+            "videoTypeName": "ภาพยนตร์",
+            "videoTypeCode": "MOVIE",
+            "videoNameTH": "แฮรี่พอตเตอร์ กับคนแคระทั้ง7",
+            "videoNameEN": "The Harry Potter and 7 Litte Man",
+            "description": "เรื่องราวใน Fast & Furious 7 เกิดขึ้นมากกว่าหนึ่งปีหลังจากที่ลูกทีมของดอม (ดีเซล) และไบรอัน (วอล์คเกอร์) ได้รับการอภัยโทษให้กลับอเมริกาได้ เราได้พบว่าพวกเขาได้ปรับตัวมาใช้ชีวิตถูกกฎหมาย แต่คำว่าบ้านของพวกเขากลับเป็นอะไรที่เกินจริง ดอมพยายามจะรื้อฟื้นความสัมพันธ์กับเล็ตตี้ (โรดริเกซ) ในขณะที่ไบรอันเองก็พยายามจะปรับตัวให้เข้ากับชีวิตย่านชานเมืองกับไมอา (บรูว์สเตอร์) และลูกชายของพวกเขา ส่วนเทจ (บริดเจส) และโรมัน (กิ๊บสัน) ก็เฉลิมฉลองอิสรภาพของพวกเขาด้วยการใช้ชีวิตตามความฝันของหนุ่มเพลย์บอย",
+            "director": [
+                {
+                    "directorId": "DI1324",
+                    "directorName": "David Fincher"
+                }
+            ],
+            "writer": [
+                {
+                    "writerId": "DI1234",
+                    "writerName": "บาส บางใหญ่"
+                }
+            ],
+            "actor": [
+                {
+                    "actorId": "11",
+                    "actorName": "น้ำแข็ง เด็กเดน"
+                },
+                {
+                    "actorId": "11",
+                    "actorName": "แสตมป์ บุรีรัมย์"
+                }
+            ],
+            "genre": [
+                {
+                    "genreId": "575",
+                    "genreName": "ต่อสู้"
+                },
+                {
+                    "genreId": "325",
+                    "genreName": "โรแมนติก"
+                }
+            ],
+            "sound": [
+                {
+                    "soundId": "123",
+                    "soundCode": "TH",
+                    "soundNameTH": "ไทย",
+                    "soundNameEN": "Thai"
+                },
+                {
+                    "soundId": "133",
+                    "soundCode": "EN",
+                    "soundNameTH": "อังกฤษ",
+                    "soundNameEN": "English"
+                }
+            ],
+            "videoRateId": "123",
+            "videoRateName": "สำหรับผู้ที่มีอายุตั้งแต่ 15 ปีขึ้นไป",
+            "releaseDate": "2015-12-17",
+            "poster": "http://cdn.pastemagazine.com/www/articles/harry%20potter%20world%20.jpg",
+            "statusCode": "WAITING",
+            "isActive": "ACTIVE"
+        }
+    ]
+}
