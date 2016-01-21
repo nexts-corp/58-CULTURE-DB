@@ -1,0 +1,204 @@
+{{>header}}
+
+<div class="main-content">
+    <div class="main-content-inner">        
+        <div class="page-content">
+
+
+
+            <div class="page-header">
+                <h1>
+                    จัดการข้อมูลการขออนุญาต ประกอบกิจการโรงภาพยนต์
+                    
+                    <button class="btn btn-primary pull-right btn-sm RbtnMargin btn-add" type="button"><i class="fa fa-plus-circle"></i> เพิ่มข้อมูล</button>
+                </h1>
+
+
+
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- PAGE CONTENT BEGINS -->
+
+
+                    <div class="clearfix">
+                        <div class="pull-right tableTools-container"></div>
+                    </div>
+                    <div>
+                        <table id="table" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-1">ลำดับ</th>
+                                    <th class="col-md-8">ชื่อร้าน</th>
+                                    <th class="col-md-1">ปรเภท</th>
+                                    <th class="col-md-1">สถานะ</th>
+                                    <th class="col-md-1">เครื่องมือ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- PAGE CONTENT ENDS -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+
+<!-- dialog-confirm -->
+<div id="dialog-confirm" class="hide">
+    <!--
+    <div class="alert alert-info bigger-110">
+        ต้องการลบข้อมูลใช่หรือไม่
+    </div>
+    -->
+    <div class="space-6"></div> 
+
+    <p class="bigger-110 bolder center grey">
+        <i class="ace-icon fa fa-hand-o-right blue bigger-120"></i>
+        ต้องการลบข้อมูลหรือไม่
+    </p>
+</div><!-- #dialog-confirm -->
+{{>footer}}
+
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function($) {
+        
+
+        var dataSet = [
+            {certId: "1", titleTh: "ร้านเกม Zero Games",titleEng: "Zero Games", type:"บุคคลธรรมดา",  status: "1"},
+            {certId: "2", titleTh: "ร้านเกม Start Games",titleEng: "Zero Games", type:"บุคคลธรรมดา",  status: "2"},
+            {certId: "3", titleTh: "ร้านเกมรักเกมส์นะ",titleEng: "Zero Games", type:"บุคคลธรรมดา",  status: "1"}
+        ]
+
+
+
+        $(".btn-add").unbind("click").click(function() {
+            
+            window.location.assign("{{_context_path}}/api/certificate/certsellvideo/add");
+        });
+
+        var t = $("#table").DataTable({
+            "destroy": true,
+            "data": dataSet,
+            "order": [0, 'asc'],
+            "iDisplayLength": 50,
+            "columnDefs": [
+                {
+                    "targets": 0,
+                    "searchable": false,
+                    "orderable": false,
+                    "data": "certId",
+                    "sClass": "text-center col-md-1"
+                },
+                {
+                    "targets": 1,
+                    "data": "titleTh",
+                    "sClass": "text-left col-md-8",
+                    "render": function(data, key, full) {
+                        return full["titleTh"] + "&nbsp;/&nbsp;" + full["titleEng"];
+                    }
+                },
+                {
+                    "targets": 2,
+                    "data": "type",
+                    "sClass": "text-left col-md-2"
+                },{
+                    "targets": 3,
+                    "data": "status",
+                    "render": function(data, key, full) {
+                        var value="";
+                        if(data==1){
+                            value='<span class="label label-sm label-info">กำลังตรวจสอบ</span>';
+                        }else if(data==2){
+                            value='<span class="label label-sm label-success">ตรวจสอบเรียบร้อยแล้ว</span>';
+                            
+                        }
+                        return value;
+                        
+                    }
+                },{
+                    "targets": 4,
+                    "data": "memberId",
+                    "sClass": "text-left col-md-1",
+                    "render": function(data, key, full) {
+                        $html = ' <button title="แก้ไขข้อมูล" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
+                        $html += ' <button  title="ลบข้อมูล" data-rel="tooltip" class=" tooltip-error dialogDelete btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
+
+
+                        return $html;
+                    }
+                }
+            ]
+        });
+        t.on('order.dt search.dt', function() {
+            t.column(0, {search: 'applied', order: 'applied'}).nodes().each(function(cell, i) {
+                cell.innerHTML = i + 1;
+            });
+        }).draw();
+
+        //override dialog's title function to allow for HTML titles
+        $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+            _title: function(title) {
+                var $title = this.options.title || '&nbsp;'
+                if (("title_html" in this.options) && this.options.title_html == true)
+                    title.html($title);
+                else
+                    title.text($title);
+            }
+        }));
+
+        //dialog confirm
+        $(".dialogDelete").on('click', function(e) {
+            e.preventDefault();
+            var tr = $(this).closest("tr");
+            $("#dialog-confirm").removeClass('hide').dialog({
+                resizable: false,
+                width: '320',
+                modal: true,
+                title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> ยืนยันการลบข้อมูล</h4></div>",
+                title_html: true,
+                buttons: [
+                    {
+                        html: "<i class='ace-icon fa fa-trash-o bigger-110'></i>&nbsp; Delete",
+                        "class": "btn btn-danger btn-minier",
+                        click: function() {
+
+                            //var Rows=$(this).closest("tr").index();
+                            tr.remove();
+                            $(this).dialog("close");
+                            //alert(tr);
+                        }
+                    }
+                    ,
+                    {
+                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
+                        "class": "btn btn-minier",
+                        click: function() {
+                            $(this).dialog("close");
+                        }
+                    }
+                ]
+            });
+        });
+        
+        $('[data-rel=tooltip]').tooltip();
+        $(".btn-update").unbind("click").click(function() {
+            
+            window.location.assign("{{_context_path}}/api/certificate/certsellvideo/edit");
+            
+        });
+        $(".btn-role").unbind("click").click(function() {
+            window.location.assign("{{_context_path}}/api/member/role/view/manage");
+        });
+        
+
+    })
+</script>
