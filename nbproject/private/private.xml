@@ -2,11 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="culture">
-            <file>file:/D:/workspace/culture.go.th/culture/web/apps/login2/service/LoginService.php</file>
-            <file>file:/D:/workspace/culture.go.th/culture/web/apps/login2/views/login.html</file>
-            <file>file:/D:/workspace/culture.go.th/culture/web/apps/login1/views/login.html</file>
-            <file>file:/D:/workspace/culture.go.th/culture/web/apps/login2/interfaces/ILoginService.php</file>
-        </group>
+        <group name="culture"/>
     </open-files>
 </project-private>

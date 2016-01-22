@@ -21,6 +21,7 @@
                     <!-- PAGE CONTENT BEGINS -->
 
                     <div id="accordion" class="accordion-style1 panel-group">
+                        
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
@@ -31,7 +32,7 @@
                                 </h4>
                             </div>
 
-                            <div class="panel-collapse collapse in" id="collapseOne">
+                            <div class="panel-collapse collapse " id="collapseOne">
                                 <div class="panel-body">
 
                                     <table id="table" class="table table-striped table-bordered table-hover">
@@ -63,7 +64,7 @@
                                 </h4>
                             </div>
 
-                            <div class="panel-collapse collapse" id="collapseTwo">
+                            <div class="panel-collapse collapse in" id="collapseTwo">
                                 <div class="panel-body">
                                     <table id="table" class="table table-striped table-bordered table-hover">
                                         <thead>
@@ -156,7 +157,7 @@
 
     <p class="bigger-110 bolder center grey">
         <i class="ace-icon fa fa-hand-o-right blue bigger-120"></i>
-        ต้องการลบข้อมูลหรือไม่
+        ยืนยันการยกเลิกใบอนุญาประกอบกิจการ
     </p>
 </div><!-- #dialog-confirm -->
 {{>footer}}
@@ -296,13 +297,13 @@
                                 '<a href = "{{_context_path}}/api/certificate/permit/view/index"> ต่อใบอนุญาต </a>' +
                                 '</li>' +
                                 '<li>' +
-                                '<a href = "#"> แจ้งเปลี่ยนกรรมการ </a>' +
+                                '<a href = ""> แจ้งเปลี่ยนกรรมการ </a>' +
                                 '</li>' +
                                 '<li>' +
                                 '<a href = "#"> เพิ่มเครื่องมือ </a>' +
                                 '</li>' +
                                 '<li>' +
-                                '<a href = "#"> ขอใบแทนใบอนุญาต </a>' +
+                                '<a href = "{{_context_path}}/api/certificate/substitute/view/index"> ขอใบแทนใบอนุญาต </a>' +
                                 '</li>' +
                                 '<li>' +
                                 '<a href = "#"> ยกเลิกใบอนุญาต </a>' +
@@ -348,7 +349,7 @@
                 resizable: false,
                 width: '320',
                 modal: true,
-                title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> ยืนยันการลบข้อมูล</h4></div>",
+                title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> ยกเลิกใบอนุญาประกอบกิจการ</h4></div>",
                 title_html: true,
                 buttons: [
                     {

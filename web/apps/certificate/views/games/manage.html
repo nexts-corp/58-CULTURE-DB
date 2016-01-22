@@ -60,7 +60,7 @@
 
     <p class="bigger-110 bolder center grey">
         <i class="ace-icon fa fa-hand-o-right blue bigger-120"></i>
-        ต้องการลบข้อมูลหรือไม่
+        ยืนยันการยกเลิกขอรับใบอนุญาตประกอบกิจการ
     </p>
 </div><!-- #dialog-confirm -->
 {{>footer}}
@@ -129,8 +129,8 @@
                     "data": "memberId",
                     "sClass": "text-left col-md-1",
                     "render": function(data, key, full) {
-                        $html = ' <button title="แก้ไขข้อมูล" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
-                        $html += ' <button  title="ลบข้อมูล" data-rel="tooltip" class=" tooltip-error dialogDelete btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
+                        $html = ' <button title="แก้ไขใบอนุญาต" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
+                        $html += ' <button  title="ยกเลิกการขอใบอนุญาต" data-rel="tooltip" class=" tooltip-error dialogDelete btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
 
 
                         return $html;
