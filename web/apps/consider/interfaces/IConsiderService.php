@@ -1,13 +1,13 @@
 <?php
 
-namespace apps\login1\interfaces;
+namespace apps\consider\interfaces;
 
 /**
- * @name ILoginService
- * @uri /login
- * @description จัดการผู้ใช้งาน
+ * @name IConsiderService
+ * @uri /consider
+ * @description พิจารณา
  */
-interface ILoginService {
+interface IConsiderService {
 
     
     
@@ -44,12 +44,12 @@ interface ILoginService {
     public function delete($user);
     
     /**
-     * @name login
-     * @uri /view
-     * @description แสดงหน้าการจัดการผู้ใช้งาน
+     * @name consider
+     * @uri /view/manage
+     * @description แสดงหน้าต่างพิจารณาคำขอ
      * @resource 1000
      **/
-    public function viewLogin();
+    public function viewConsider();
     
 
     
