@@ -117,10 +117,15 @@
         var data = selectMDB({"status.code": "verify"});
 
         var dataSet = [];
+        var searchType = {};
+        var searchStatus = {};
+
         $.each(data, function(key, value){
             dataSet.push(value);
 
             listsArr[value["_id"]["$oid"]] = value;
+            searchType[value["certTypeId"]] = value["certTypeName"];
+            //searchStatus[value["status"]] = value["certTypeName"];
         });
         t = $("#table").DataTable({
             "destroy": true,
@@ -138,7 +143,7 @@
                 {
                     "targets": 1,
                     "data": "certNameTH",
-                    "sClass": "text-center col-md-3",
+                    "sClass": "text-left col-md-3",
                     "render": function (data, key, full) {
                         return full["certNameTH"] + ' / ' + full["certNameEN"];
                     }
@@ -229,11 +234,20 @@
             });
         }).draw();
 
+        //search selectbox type
+        var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
+        $.each(searchType, function (key, value) {
+            search += '<option value="' + value + '">' + value + '</option>';
+        });
+        $("#searchType").html(search);
+
+        $("#searchType").change(function () {
+            t.columns(2).search($(this).val()).draw();
+        });
+
         $("button.selectTeam").unbind().click(function(){
             var teamNo = $(this).attr("data-team");
             var id = $(this).attr("data-_id");
-
-
         });
     }
 
