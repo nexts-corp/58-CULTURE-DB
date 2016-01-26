@@ -198,7 +198,7 @@ function datetimeTH(datetime){
 function selectMDB(filter){
     var param = '';
     if(typeof filter !== "undefined")
-        param = "?filter="+filter;
+        param = "?filter="+JSON.stringify(filter);
 
     var value = "";
     $.ajax({
