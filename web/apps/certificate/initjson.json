@@ -1,0 +1,54 @@
+{
+    "lists": [
+        {
+            "certId": "1",
+            "certCode": "00001/2558",
+            "memberId": "1",
+            "memberName": "แมงป่อง",
+            "certTypeId": "1",
+            "certTypeName": "ร้านวีดิทัศน์ (คาราโอเกะ)",
+            "certNameTH": "เชิญชิมคาราโอเกะ",
+            "certNameEN": "Karaoke",
+            "memberTypeId": "1",
+            "memberTypeName": "บุคคลธรรมดา",
+            "memberAddress": {
+                "no": "4/85",
+                "district": "-",
+                "area": "วงศ์สว่าง",
+                "province": "กรุงเทพฯ",
+                "zipcode": "10800"
+            },
+            "certAddress": {
+                "no": "4/85",
+                "district": "-",
+                "area": "วงศ์สว่าง",
+                "province": "กรุงเทพฯ",
+                "zipcode": "10800"
+            },
+            "attachment": {
+                "citizenCard": "cz1101.pdf",
+                "profile": "pf1101.pdf",
+                "commercial": "cm1101.pdf",
+                "map": "mp1101.pdf",
+                "plan": "pn1101.pdf",
+                "shop": "sp1101.pdf"
+            },
+            "cordinate": {
+                "lat": "13.426546",
+                "lng": "100.123456"
+            },
+            "status": [
+                {
+                    "code": "stamp",
+                    "result": "Y/N"
+                },
+                {
+                    "code": "pong",
+                    "result": "Y/N"
+                }
+            ]
+
+
+        }
+    ]
+}

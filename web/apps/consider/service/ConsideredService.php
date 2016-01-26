@@ -6,12 +6,12 @@ use th\co\bpg\cde\core\CServiceBase;
 use th\co\bpg\cde\data\CDataContext;
 use th\co\bpg\cde\collection\CJView;
 use th\co\bpg\cde\collection\CJViewType;
-use apps\consider\interfaces\IConsiderService;
+use apps\consider\interfaces\IConsideredService;
 
 use apps\common\entity;
 use apps\common\entity\Department;
 
-class ConsiderService extends CServiceBase implements IConsiderService  {
+class ConsideredService extends CServiceBase implements IConsideredService  {
 
     public $datacontext;
     public $logger;
@@ -35,8 +35,8 @@ class ConsiderService extends CServiceBase implements IConsiderService  {
         
     }
 
-    public function viewConsider() {
-        $view = new CJView("consider/manage", CJViewType::HTML_VIEW_ENGINE);
+    public function viewConsidered() {
+        $view = new CJView("considered/manage", CJViewType::HTML_VIEW_ENGINE);
         return $view;
     }
 

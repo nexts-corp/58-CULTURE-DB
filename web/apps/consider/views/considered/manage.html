@@ -8,7 +8,7 @@
 
             <div class="page-header">
                 <h1>
-                    คำขอใบอนุญาต
+                    คำขอใบอนุญาตที่พิจารณาแล้ว
 
                 </h1>
 
@@ -32,7 +32,7 @@
                                 </h4>
                             </div>
 
-                            <div class="panel-collapse collapse " id="collapseOne">
+                            <div class="panel-collapse collapse" id="collapseOne">
                                 <div class="panel-body">
 
                                     <table id="table" class="table table-striped table-bordered table-hover">
@@ -43,7 +43,7 @@
                                                 <th class="col-md-2">ชื่อ-นามสกุล</th>
                                                 <th class="col-md-2">ประเภท</th>
                                                 <th class="col-md-2">วันที่ขอ</th>
-                                                <th class="col-md-1">จัดการ</th>
+                                                <th class="col-md-1">วันที่อนุมัติ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,7 +65,7 @@
                                 </h4>
                             </div>
 
-                            <div class="panel-collapse collapse in" id="collapseTwo">
+                            <div class="panel-collapse collapse" id="collapseTwo">
                                 <div class="panel-body">
                                     <table id="table" class="table table-striped table-bordered table-hover">
                                         <thead>
@@ -73,7 +73,9 @@
                                                 <th class="col-md-1">ลำดับ</th>
                                                 <th class="col-md-8">ชื่อเรื่อง</th>
                                                 <th class="col-md-2">ชื่อ-นามสกุล</th>
-                                                <th class="col-md-1">จัดการ</th>
+                                                <th class="col-md-2">ประเภท</th>
+                                                <th class="col-md-2">วันที่ขอ</th>
+                                                <th class="col-md-1">วันที่อนุมัติ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -102,7 +104,9 @@
                                                 <th class="col-md-1">ลำดับ</th>
                                                 <th class="col-md-8">ชื่อเรื่อง</th>
                                                 <th class="col-md-2">ชื่อ-นามสกุล</th>
-                                                <th class="col-md-1">จัดการ</th>
+                                                <th class="col-md-2">ประเภท</th>
+                                                <th class="col-md-2">วันที่ขอ</th>
+                                                <th class="col-md-1">วันที่อนุมัติ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -130,7 +134,9 @@
                                                 <th class="col-md-1">ลำดับ</th>
                                                 <th class="col-md-8">ชื่อเรื่อง</th>
                                                 <th class="col-md-2">ชื่อ-นามสกุล</th>
-                                                <th class="col-md-1">จัดการ</th>
+                                                <th class="col-md-2">ประเภท</th>
+                                                <th class="col-md-2">วันที่ขอ</th>
+                                                <th class="col-md-1">วันที่อนุมัติ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -140,7 +146,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
                     </div>
 
@@ -192,23 +198,19 @@
 
 
         var dataSet = [
-            {certId: "1", name: "เกมสนุก", type: "ร้านวีดิทัศน์(การเล่นเกม)", Date: "12 JANUARY 2016"},
-            {certId: "2", name: "เกมสนุก1", type: "ร้านวีดิทัศน์(การเล่นเกม)", Date: "23 JANUARY 2016"},
-            {certId: "3", name: "เกมสนุก2", type: "ให้เช่า แลกเปลี่ยน หรือจำหน่ายภาพยนต์", Date: "25 JANUARY 2016"}
+            {certId: "1", name: "เกมสนุก", type: "ร้านวีดิทัศน์(การเล่นเกม)", user: "นายยุทธชัย  สมมุติ", date: "12 JANUARY 2016", dateEnd: "25 JANUARY 2016"},
+            {certId: "2", name: "เกมสนุก1", type: "ร้านวีดิทัศน์(การเล่นเกม)", user: "นายยุทธชัย  สมมุติ", date: "23 JANUARY 2016", dateEnd: "29 JANUARY 2016"},
         ]
         var dataSet1 = [
-            {certId: "1", titleTh: "อินดี้สไมค์", titleEng: "-", DateEnd: "12 JANUARY 2016", BalanceDate: "หมดอายุ", status: "1"},
-            {certId: "2", titleTh: "เอนเตอร์เทน", titleEng: "-", DateEnd: "3 FEBRUARY 2016", BalanceDate: "15", status: "2"},
-            {certId: "3", titleTh: "มาลิโอ้", titleEng: "", DateEnd: "15 MARCH 2016", BalanceDate: "67", status: "1"}
+            {certId: "1", name: "บูมเมอแรงมูฟวี่", type: "ให้เช่า แลกเปลี่ยน หรือจำหน่ายภาพยนต์", user: "นายยุทธชัย  สมมุติ", date: "12 JANUARY 2016", dateEnd: "25 JANUARY 2016"},
+            {certId: "2", name: "เกิดมาลุย5", type: "ให้เช่า แลกเปลี่ยน หรือจำหน่ายภาพยนต์", user: "นายยุทธชัย  สมมุติ", date: "23 JANUARY 2016", dateEnd: "29 JANUARY 2016"},
+            {certId: "3", name: "คนไฟบิน", type: "ให้เช่า แลกเปลี่ยน หรือจำหน่ายภาพยนต์", user: "นายยุทธชัย  สมมุติ", date: "25 JANUARY 2016", dateEnd: "30 JANUARY 2016"}
         ]
-
         var dataSet2 = [
-            {certId: "1", titleTh: "แจ้งเพิ่มขนาดพื้นที่ใช้สร้อยของสถานประกอบกิจการ ให้ช่า แลกเปลี่ยน", titleEng: "เมเจอร์ซีนีเพล็กซ์ อิมพีเรียลเวิลด์ ลาดพร้าว(อีจีวี)", DateEnd: "เมเจอร์ซีนีเพล็กซ์ อิมพีเรียลเวิลด์ ลาดพร้าว(อีจีวี)", status: "1"},
-            {certId: "2", titleTh: "แจ้งเพิ่มขนาดพื้นที่ใช้สร้อยของสถานประกอบกิจการ", titleEng: "เอนเตอร์เทน", status: "2"},
-            {certId: "3", titleTh: "แจ้งเพิ่มขนาดพื้นที่ใช้สร้อยของสถานประกอบกิจการ", titleEng: "เอนเตอร์เทน", status: "2"},
+            {certId: "1", name: "บ้านตัวโน๊ต", type: "ร้านวีดิทัศน์(คาราโอเกะ)", user: "นายยุทธชัย  สมมุติ", date: "12 JANUARY 2016", dateEnd: "25 JANUARY 2016"},
+            {certId: "2", name: "สุขหรรษา", type: "ร้านวีดิทัศน์(คาราโอเกะ)", user: "นายยุทธชัย  สมมุติ", date: "23 JANUARY 2016", dateEnd: "30 JANUARY 2016"},
+            {certId: "3", name: "ร้องรำบุฟเฟ่", type: "ร้านวีดิทัศน์(คาราโอเกะ)", user: "นายยุทธชัย  สมมุติ", date: "25 JANUARY 2016", dateEnd: "30 JANUARY 2016"}
         ]
-
-
 
         $(".btn-add").unbind("click").click(function() {
 
@@ -230,46 +232,32 @@
                 {
                     "targets": 1,
                     "data": "name",
-                    "sClass": "text-left col-md-5",
+                    "sClass": "text-left col-md-3",
                     "render": function(data, key, full) {
                         return data;
                     }
                 },
                 {
                     "targets": 2,
-                    "data": "type",
+                    "data": "user",
                     "sClass": "text-left col-md-2"
                 }, {
                     "targets": 3,
-                    "data": "Date",
+                    "data": "type",
+                    "sClass": "text-left col-md-2"
+                }, {
+                    "targets": 4,
+                    "data": "date",
                     "sClass": "text-left col-md-2",
                     "render": function(data, key, full) {
                         return data;
                     }
-                }, {
-                    "targets": 4,
-                    "data": "memberId",
+                },{
+                    "targets": 5,
+                    "data": "dateEnd",
                     "sClass": "text-left col-md-2",
                     "render": function(data, key, full) {
-                        $html = '<div class="btn-group"><button data-toggle="dropdown" class="btn btn-sm btn-primary btn-white dropdown-toggle">จัดการ<i class = "ace-icon fa fa-angle-down icon-on-right" > </i></button>';
-                        $html += '<ul class="dropdown-menu">' +
-                                '<li>' +
-                                '<a href = "#"> ต่อใบอนุญาต </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "#"> แจ้งเปลี่ยนกรรมการ </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "#"> เพิ่มเครื่องมือ </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "#"> ขอใบแทนใบอนุญาต </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "#"> ยกเลิกใบอนุญาต </a>' +
-                                '</li>' +
-                                '</ul></div>';
-                        return $html;
+                        return data;
                     }
                 }
             ]
@@ -297,47 +285,33 @@
                 },
                 {
                     "targets": 1,
-                    "data": "titleTh",
-                    "sClass": "text-left col-md-5",
+                    "data": "name",
+                    "sClass": "text-left col-md-3",
                     "render": function(data, key, full) {
-                        return full["titleTh"] + "&nbsp;/&nbsp;" + full["titleEng"];
+                        return data;
                     }
                 },
                 {
                     "targets": 2,
-                    "data": "DateEnd",
+                    "data": "user",
                     "sClass": "text-left col-md-2"
                 }, {
                     "targets": 3,
-                    "data": "BalanceDate",
+                    "data": "type",
+                    "sClass": "text-left col-md-2"
+                }, {
+                    "targets": 4,
+                    "data": "date",
                     "sClass": "text-left col-md-2",
                     "render": function(data, key, full) {
                         return data;
                     }
-                }, {
-                    "targets": 4,
-                    "data": "memberId",
+                },{
+                    "targets": 5,
+                    "data": "dateEnd",
                     "sClass": "text-left col-md-2",
                     "render": function(data, key, full) {
-                        $html = '<div class="btn-group"><button data-toggle="dropdown" class="btn btn-sm btn-primary btn-white dropdown-toggle">จัดการ<i class = "ace-icon fa fa-angle-down icon-on-right" > </i></button>';
-                        $html += '<ul class="dropdown-menu">' +
-                                '<li>' +
-                                '<a href = "{{_context_path}}/api/certificate/permit/view/index"> ต่อใบอนุญาต </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = ""> แจ้งเปลี่ยนกรรมการ </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "{{_context_path}}/api/certificate/change/view/tools"> เพิ่มเครื่องมือ </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "{{_context_path}}/api/certificate/substitute/view/index"> ขอใบแทนใบอนุญาต </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "#" class="dialogDelete"> ยกเลิกใบอนุญาต </a>' +
-                                '</li>' +
-                                '</ul></div>';
-                        return $html;
+                        return data;
                     }
                 }
             ]
@@ -350,75 +324,7 @@
 
 
 
-        var t3 = $("#collapsefor #table").DataTable({
-            "destroy": true,
-            "data": dataSet1,
-            "order": [0, 'asc'],
-            "iDisplayLength": 50,
-            "columnDefs": [
-                {
-                    "targets": 0,
-                    "searchable": false,
-                    "orderable": false,
-                    "data": "certId",
-                    "sClass": "text-center col-md-1"
-                },
-                {
-                    "targets": 1,
-                    "data": "titleTh",
-                    "sClass": "text-left col-md-5",
-                    "render": function(data, key, full) {
-                        return full["titleTh"] + "&nbsp;/&nbsp;" + full["titleEng"];
-                    }
-                },
-                {
-                    "targets": 2,
-                    "data": "DateEnd",
-                    "sClass": "text-left col-md-2"
-                }, {
-                    "targets": 3,
-                    "data": "BalanceDate",
-                    "sClass": "text-left col-md-2",
-                    "render": function(data, key, full) {
-                        return data;
-                    }
-                }, {
-                    "targets": 4,
-                    "data": "memberId",
-                    "sClass": "text-left col-md-2",
-                    "render": function(data, key, full) {
-                        $html = '<div class="btn-group"><button data-toggle="dropdown" class="btn btn-sm btn-primary btn-white dropdown-toggle">จัดการ<i class = "ace-icon fa fa-angle-down icon-on-right" > </i></button>';
-                        $html += '<ul class="dropdown-menu">' +
-                                '<li>' +
-                                '<a href = "{{_context_path}}/api/certificate/permit/view/index"> ต่อใบอนุญาต </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = ""> แจ้งเปลี่ยนกรรมการ </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "{{_context_path}}/api/certificate/change/view/area"> เพิ่มขนาดพื้นที่ </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "{{_context_path}}/api/certificate/substitute/view/index"> ขอใบแทนใบอนุญาต </a>' +
-                                '</li>' +
-                                '<li>' +
-                                '<a href = "#" class="dialogDelete"> ยกเลิกใบอนุญาต </a>' +
-                                '</li>' +
-                                '</ul></div>';
-                        return $html;
-                    }
-                }
-            ]
-        });
-        t3.on('order.dt search.dt', function() {
-            t3.column(0, {search: 'applied', order: 'applied'}).nodes().each(function(cell, i) {
-                cell.innerHTML = i + 1;
-            });
-        }).draw();
-
-
-
-        var t4 = $("#collapsesix #table").DataTable({
+        var t3 = $("#collapsethree #table").DataTable({
             "destroy": true,
             "data": dataSet2,
             "order": [0, 'asc'],
@@ -433,43 +339,87 @@
                 },
                 {
                     "targets": 1,
-                    "data": "titleTh",
-                    "sClass": "text-left col-md-5",
+                    "data": "name",
+                    "sClass": "text-left col-md-3",
                     "render": function(data, key, full) {
-                        return full["titleTh"] + "&nbsp;/&nbsp;" + full["titleEng"];
+                        return data;
                     }
                 },
                 {
                     "targets": 2,
-                    "data": "status",
-                    "sClass": "text-left col-md-2",
-                    "render": function(data, key, full) {
-                        if(data==1){
-                            
-                            return "ยังไม่อนุมัติ";
-                            
-                        }else if(data==2){
-                            
-                            
-                            return "อนุมัติแล้ว";
-                        }
-                        
-                    }
-                    
+                    "data": "user",
+                    "sClass": "text-left col-md-2"
                 }, {
                     "targets": 3,
-                    "data": "status",
-                    "sClass": "text-left col-md-1",
+                    "data": "type",
+                    "sClass": "text-left col-md-2"
+                }, {
+                    "targets": 4,
+                    "data": "date",
+                    "sClass": "text-left col-md-2",
                     "render": function(data, key, full) {
-                        if (data == 1) {
-                            $html = ' <button title="แก้ไขข้อมูล" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
-                            $html += ' <button  title="ลบข้อมูล" data-rel="tooltip" class=" tooltip-error dialogDelete1 btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
+                        return data;
+                    }
+                },{
+                    "targets": 5,
+                    "data": "dateEnd",
+                    "sClass": "text-left col-md-2",
+                    "render": function(data, key, full) {
+                        return data;
+                    }
+                }
+            ]
+        });
+        t3.on('order.dt search.dt', function() {
+            t3.column(0, {search: 'applied', order: 'applied'}).nodes().each(function(cell, i) {
+                cell.innerHTML = i + 1;
+            });
+        }).draw();
 
-                        }else if(data==2){
-                            
-                            $html='<button  title="เรียกดูข้อมูล" data-rel="tooltip" class=" tooltip-error btn btn-success btn-xs"><i class="fa fa-file-pdf-o"></i></button>';
-                        }
-                        return $html;
+
+
+        var t4 = $("#collapsefor #table").DataTable({
+            "destroy": true,
+            "data": dataSet2,
+            "order": [0, 'asc'],
+            "iDisplayLength": 50,
+            "columnDefs": [
+                {
+                    "targets": 0,
+                    "searchable": false,
+                    "orderable": false,
+                    "data": "certId",
+                    "sClass": "text-center col-md-1"
+                },
+                {
+                    "targets": 1,
+                    "data": "name",
+                    "sClass": "text-left col-md-3",
+                    "render": function(data, key, full) {
+                        return data;
+                    }
+                },
+                {
+                    "targets": 2,
+                    "data": "user",
+                    "sClass": "text-left col-md-2"
+                }, {
+                    "targets": 3,
+                    "data": "type",
+                    "sClass": "text-left col-md-2"
+                }, {
+                    "targets": 4,
+                    "data": "date",
+                    "sClass": "text-left col-md-2",
+                    "render": function(data, key, full) {
+                        return data;
+                    }
+                },{
+                    "targets": 5,
+                    "data": "dateEnd",
+                    "sClass": "text-left col-md-2",
+                    "render": function(data, key, full) {
+                        return data;
                     }
                 }
             ]
