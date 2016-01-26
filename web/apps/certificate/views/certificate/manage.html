@@ -166,30 +166,34 @@
                     "sClass": "text-left col-md-2",
                     "render": function(data, key, full) {
 
-                        return data[0]["datetime"];
+                        return datetimeTH(data[0]["datetime"]);
 
                     }
                 },
                 {
                     "targets": 4,
                     "data": "status",
-                    "sClass": "text-left col-md-1",
+                    "sClass": "text-center col-md-2",
                     "render": function(data, key, full) {
-                        status = "";
-
+                        var convert="";
+                        var status="";
                         $.each(data, function(key, value) {
-                            status = value["code"];
+                            status=value["code"];
+                            convert = statusConvert('certificate',value);
+                            
                         });
-                        return status;
-
+                        console.log(convert["code"]);
+                        
+                        return '<span class="label label-sm label-success arrowed-in">'+convert["code"]+'</span>';
+                        
                     }
                 }, {
                     "targets": 5,
                     "data": "memberId",
-                    "sClass": "col-md-2 text-center",
+                    "sClass": "col-md-1 text-center",
                     "render": function(data, key, full) {
-                        $html = ' <button title="ดูรายละเอียด" data-rel="tooltip" class="tooltip-warning btn-view btn btn-default btn-xs"><i class="fa fa fa-list"></i></button>';
-                        $html += ' <button title="แก้ไขใบอนุญาต" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs" data-type="' + full["certTypeId"] + '"><i class="fa fa-pencil"></i></button>';
+                        //$html = ' <button title="ดูรายละเอียด" data-rel="tooltip" class="tooltip-warning btn-view btn btn-default btn-xs"><i class="fa fa fa-list"></i></button>';
+                        $html = ' <button title="แก้ไขใบอนุญาต" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs" data-type="' + full["certTypeId"] + '"><i class="fa fa-pencil"></i></button>';
                         $html += ' <button  title="ยกเลิกการขอใบอนุญาต" data-rel="tooltip" class=" tooltip-error dialogDelete btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
 
 
