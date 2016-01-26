@@ -1,0 +1,215 @@
+{{>header}}
+<div class="main-content">
+    <div class="main-content-inner">        
+        <div class="page-content">
+
+            <form class="form-horizontal CertiGames-form has-validation-callback" role="form" id="CertiGames-form">
+                <div class="page-header">
+                    <h1>
+                        ขอใบอนุญาตประกอบกิจการร้านวีดิทัศน์ (เกมการเล่น)
+                        <small>
+                            <i class="ace-icon fa fa-angle-double-right"></i>
+                            แก้ไขข้อมูล
+                        </small>
+                        <button class="btn btn-default pull-right btn-sm " type="reset"><i class="ace-icon fa fa-times bigger-110"></i> ยกเลิก</button>
+                        <span>&nbsp;&nbsp;</span>
+                        <button class="btn btn-success pull-right btn-sm " type="submit"><i class="ace-icon fa fa-floppy-o bigger-110"></i> บันทึกข้อมูล</button>
+                    </h1>
+
+                </div><!-- /.page-header -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="active">
+                                <a data-toggle="tab" href="#infomation">
+                                    <i class="green ace-icon fa fa-home bigger-120"></i>
+                                    ข้อมูลคำขอ
+                                </a>
+                            </li>
+
+                            <li>
+                                <a data-toggle="tab" href="#attachment">
+                                    <i class="green fa fa-paperclip"></i>
+
+                                    เอกสารแนบ
+
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="infomation" class="tab-pane fade in active">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">ประเภทบุคคล *</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                            <option>บุคคลธรรมดา</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">ชื่อร้านภาษาไทย *</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" value="ร้านเกม Zero Games">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">ชื่อร้านภาษาอังกฤษ *</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" id="inputPassword3" value="Zero Games">
+                                    </div>
+                                </div>
+                                <div class="hr hr-16 hr-dotted"></div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">บ้านเลขที่</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="5/12">
+                                    </div>
+                                    <label class="col-sm-1 control-label no-padding-right">ตรอก/ซอย</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="-">
+                                    </div>
+                                    <label class="col-sm-1 control-label no-padding-right">ถนน</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="วงศ์สว่าง">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">หมู่ที่</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="-">
+                                    </div>
+                                    <label class="col-sm-1 control-label no-padding-right">ตำบล</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="วงศ์สว่าง">
+                                    </div>
+                                    <label class="col-sm-1 control-label no-padding-right">อำเภอ *</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" value="บางซื่อ">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">จังหวัด *</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                            <option>กรุงเทพมหานคร</option>
+                                            <option>ชลบุรี</option>
+                                            <option>ระยอง</option>
+                                            <option>ศรีสะเกษ</option>
+                                            <option>เชียงใหม่</option>
+                                        </select>
+
+
+                                    </div>
+
+
+                                </div>
+
+                                </form>
+                            </div>
+
+                            <div id="attachment" class="tab-pane fade">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">สำเนาบัตรประจำตัวประชาชน *</label>
+                                    <div class="col-sm-2">
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
+                                    </div>
+
+                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายครึ่งตัว *</label>
+                                    <div class="col-sm-2">
+
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
+
+                                    </div>
+                                </div>
+                                <div class="hr hr-16 hr-dotted"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">สำเนาใบทะเบียนพาณิช *</label>
+                                    <div class="col-sm-2">
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
+                                    </div>
+
+                                    <label class="col-sm-3 control-label no-padding-right">แผนที่โดยสังเขปที่ตั้งร้าน *</label>
+                                    <div class="col-sm-2">
+
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
+
+                                    </div>
+                                </div>
+                                <div class="hr hr-16 hr-dotted"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">แบบแปลนแผนผังแสดงพื้นที่การให้บริการ *</label>
+                                    <div class="col-sm-2">
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
+                                    </div>
+
+                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายของร้านวีดิทัศน์ *</label>
+                                    <div class="col-sm-2">
+
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </form>
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+{{>footer}}
+<!-- inline scripts related to this page -->
+
+<script type="text/javascript">
+    jQuery(function($) {
+        //$("#departmentId").select2();
+        alert("{{certId}}");
+        $.validate({
+            addValidClassOnAll: true
+        });
+
+        $('input[type=file]').bootstrapFileInput();
+
+
+        $('#CertiGames-form').on('submit', function() {
+            if ($(this).isValid()) {
+                //displayErrors( errors );
+
+                var data = {};
+                data['firstname'] = $("#firstname").val();
+                data['lastname'] = $("#lastname").val();
+                data['departmentId'] = $("#departmentId").val();
+                data['telephone'] = $("#telephone").val();
+                data['email'] = $("#email").val();
+                data['username'] = $("#username").val();
+                data['password'] = $("#password").val();
+
+                var jdata = {};
+                jdata['member'] = data;
+                var result = callAjax('{{_context_path}}/api/member/member/insert', 'post', jsonEncode(jdata), 'json');
+                console.log(result);
+                window.location.assign("{{_context_path}}/api/certificate/certificate/view/certgames");
+                return false;
+            }
+        });
+
+
+    });
+</script>
