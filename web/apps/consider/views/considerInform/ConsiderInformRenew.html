@@ -1,0 +1,491 @@
+{{>header}}
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="page-content">
+            <form class="form-horizontal CertiGames-form has-validation-callback" role="form" id="CertiGames-form">
+                <div class="page-header">
+                    <h1>
+                        ขอต่ออายุใบอนุญาตประกอบกิจการร้านวีดิทัศน์ (คาราโอเกะ)
+                        <div class="inline pull-right" style="padding-left: 10px">&nbsp;
+                            <button class="btn btn-primary pull-right btn-sm hide">ดูข้อมูลใบอนุญาต</button>
+                        </div>
+                        <button class="btn btn-default pull-right btn-sm " id="cancelApprove" type="reset"><i
+                                class="ace-icon fa fa-times bigger-110"></i> ไม่อนุญาต
+                        </button>
+                        <span>&nbsp;&nbsp;</span>
+                        <button class="btn btn-success pull-right btn-sm" id="approve" type="submit"><i
+                                class="ace-icon fa fa-floppy-o bigger-110"></i> อนุญาติ
+                        </button>
+                    </h1>
+                </div>
+                <!-- /.page-header -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="active">
+                                <a data-toggle="tab" href="#infomation">
+                                    <i class="green ace-icon fa fa-home bigger-120"></i>
+                                    ข้อมูลคำขอ
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#audit">
+                                    <i class="green fa fa-file-text-o"></i>
+                                    ผลตรวจประเมิน
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#attachment">
+                                    <i class="green fa fa-paperclip"></i>
+                                    เอกสารแนบ
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="infomation" class="tab-pane fade in active">
+                                <div class="form-group">
+                                    <div class="col-sm-8 text-left">
+                                        <div class="col-sm-12">
+                                            <label class="control-label text-bold" id="nameCompany"><h4>นางสมจิตร
+                                                สิงหเขตต์</h4></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-8 text-left">
+                                        <div class="col-sm-12 text-left">
+                                            <label class="control-label text-bold"><b>ประเภทบุคคลธรรมดา</b></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>บ้านเลขที่</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label">18/13 (ตลาดน้ำคลองลัดมะยม)</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>ตรอก/ซอย</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label"> - </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>ถนน</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label">บางระมาด</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>หมู่ที่</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label">15</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>ตำบล/แขวง</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label">บางระมาด</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>อำเภอ/เขต</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label">ตลิ่งชัน</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>จังหวัด</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label">กรุงเทพ</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>รหัสไปรษณีย์</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label">10170</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>โทรศัพท์</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label">088-4551212</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>โทรสาร</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label"> - </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 text-left">
+                                            <label class="control-label"><b>E–mail</b></label>
+                                        </div>
+                                        <div class="col-sm-8 text-left">
+                                            <label class="control-label"> - </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hr hr-16 hr-dotted"></div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-12"><label class="control-label"><b>ชื่อร้าน</b></label>
+                                        </div>
+                                        <div class="col-sm-12"><input type="text" class="form-control" disabled
+                                                                      value="บ้านตัวโน๊ต"/></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="col-sm-12"><label class="control-label"><b>ภาษา</b></label></div>
+                                        <div class="col-sm-12"><select class="form-control">
+                                            <option>ไทย</option>
+                                            <option>ต่างประเทศ</option>
+                                        </select></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <div class="col-sm-12"><label class="control-label"><b>ใบอนุญาต
+                                            เลขที่</b></label></div>
+                                        <div class="col-sm-12"><label class="control-label">49/1000</label></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="col-sm-12"><label
+                                                class="control-label"><b>ออกเมื่อวันที่</b></label></div>
+                                        <div class="col-sm-12"><label class="control-label">01/01/2555</label></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="col-sm-12"><label class="control-label"><b>วันสิ้นอายุ</b></label>
+                                        </div>
+                                        <div class="col-sm-12"><label class="control-label">31/12/2560</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="audit" class="tab-pane fade">
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <div class="col-sm-12"><label class="control-label"><b>วันที่ออกตรวจ</b></label>
+                                        </div>
+                                        <div class="col-sm-12"><input type="text" value="03/11/2558"></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="radio-inline" style="margin-top: 20px">
+                                            <label>
+                                                <input name="groupRadio" type="radio" class="ace input-md" value="1" checked/>
+                                                <span class="lbl"> เจ้าของร้าน</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio-inline" style="margin-top: 20px">
+                                            <label>
+                                                <input name="groupRadio" type="radio" class="ace input-md" value="2"/>
+                                                <span class="lbl"> ผู้ดูแล</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="form-field-checkbox" type="checkbox" class="ace" checked>
+                                                <span class="lbl"> อาคารหรือสถานที่ตั้ง มีความมั่นคงแข็งแรง</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="form-field-checkbox" type="checkbox" class="ace" checked>
+                                                <span class="lbl"> ตั้งอยู่ในทำเลที่ปลอดภัย หมายความว่าอยู่ในแหล่งชุมชน ไม่เป็นสถานที่ลับตา มองเห็นร้านวีดีทัศน์ได้ง่าย</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="form-field-checkbox" type="checkbox" class="ace" checked>
+                                                <span class="lbl"> สามารถมองเห็นสภาพภายในร้านวีดีทัศน์จากภายนอกได้อย่างชัดเจน หมายความว่าไม่มีสิ่งใดมาเป็นอุปสรรคในการมองเห็น</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="form-field-checkbox" type="checkbox" class="ace" checked>
+                                                <span class="lbl"> ระบบป้องกันไฟฟ้าลัดวงจรที่ใช้งานได้อย่างเหมาะสม</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="form-field-checkbox" type="checkbox" class="ace" checked>
+                                                <span class="lbl"> ร้านวีดีทัศน์ที่มีพื้นที่ให้บริการชั้นเดียวและเครื่องมือสำหรับฉายหรือเล่นวีดีทัศน์ ตั้งแต่ 15 ชุดขึ้นไป จะต้องติดตั้ง กล้องวงจารปิดและเครื่องดับเพลิงอย่างน้อยอย่างละหนึ่งเครื่อง</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="form-field-checkbox" type="checkbox" class="ace" checked>
+                                                <span class="lbl"> ร้านวีดีทัศน์มีพื้นที่ให้บริการมากกว่าหนึ่งชั้น จะต้องติดตั้งกล้องวงจรปิดและเครื่องดับเพลิงอย่างน้อยอย่างละหนึ่งเครื่องในแต่ละชั้นที่ให้บริการ</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="form-field-checkbox" type="checkbox" class="ace" checked>
+                                                <span class="lbl"> พื้นที่สำหรับผู้ให้บริการแต่ละคนอย่างเพียงพอ และมีทางเดินสะดวก</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="form-field-checkbox" type="checkbox" class="ace" checked>
+                                                <span class="lbl"> มีห้องสุขาที่สะอาดถูกสุขลักษณะ มีแสงสว่างเพียงพอ อากาศถ่ายเทได้สะดวกและไม่มีเสียงและกลิ่นรบกวน</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="form-field-checkbox" type="checkbox" class="ace" checked>
+                                                <span class="lbl"> กรณีร้านวีดีทัศน์และกิจการให้เช่า แลกเปลี่ยนหรือจำหน่ายภาพยนต์หรือวีดีทัศน์ ตั้งในสถานที่เดียวกันจะต้องแยกพื้นที่การให้บริการออกจากกัน โดย</span>
+                                                <br>
+                                                <span class="lbl"> - มีผนังหรือฉากกั้น ส่วนที่มีความสูงจากพื้นหนึ่งเมตรขึ้นไปของผนัง</span>
+                                                <br>
+                                                <span class="lbl"> - ฉากกั้นเป็นวัสดุโปร่งใส สามารถมองเห็นจากภายนอกได้</span>
+                                                <br>
+                                                <span class="lbl"> - มีทางเข้าของพื้นที่แยกจากกัน</span>
+                                                <br>
+                                                <span class="lbl"> - จัดให้มีผู้ดูแลพื้นที่ในแต่ละส่วน อย่างน้อยส่วนละหนึ่งคน</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hr hr-16 hr-dotted"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-12"><label class="control-label"><b>หมายเหตุ</b></label>
+                                        </div>
+                                        <div class="col-sm-12"><Textarea rows="3" class="form-control"></Textarea></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="attachment" class="tab-pane fade">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">สำเนาบัตรประจำตัวประชาชน</label>
+
+                                    <div class="col-xs-3">
+                                        <label class="ace-file-input"><input type="file"><span
+                                                class="ace-file-container" data-title="Choose"><span
+                                                class="ace-file-name" data-title="No File ..."><i
+                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                    href="#"><i
+                                                class=" ace-icon fa fa-times"></i></a></label>
+                                    </div>
+
+                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายครึ่งตัว </label>
+
+                                    <div class="col-xs-3">
+                                        <label class="ace-file-input"><input type="file"><span
+                                                class="ace-file-container" data-title="Choose"><span
+                                                class="ace-file-name" data-title="No File ..."><i
+                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                    href="#"><i
+                                                class=" ace-icon fa fa-times"></i></a></label>
+                                    </div>
+
+                                </div>
+                                <div class="hr hr-16 hr-dotted"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">สำเนาใบทะเบียนพาณิช</label>
+
+                                    <div class="col-xs-3">
+                                        <label class="ace-file-input"><input type="file"><span
+                                                class="ace-file-container" data-title="Choose"><span
+                                                class="ace-file-name" data-title="No File ..."><i
+                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                    href="#"><i
+                                                class=" ace-icon fa fa-times"></i></a></label>
+                                    </div>
+
+                                    <label class="col-sm-3 control-label no-padding-right">แผนที่โดยสังเขปที่ตั้งร้าน</label>
+
+                                    <div class="col-xs-3">
+                                        <label class="ace-file-input"><input type="file"><span
+                                                class="ace-file-container" data-title="Choose"><span
+                                                class="ace-file-name" data-title="No File ..."><i
+                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                    href="#"><i
+                                                class=" ace-icon fa fa-times"></i></a></label>
+                                    </div>
+
+                                </div>
+                                <div class="hr hr-16 hr-dotted"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">แบบแปลนแผนผังแสดงพื้นที่การให้บริการ</label>
+
+                                    <div class="col-xs-3">
+                                        <label class="ace-file-input"><input type="file"><span
+                                                class="ace-file-container" data-title="Choose"><span
+                                                class="ace-file-name" data-title="No File ..."><i
+                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                    href="#"><i
+                                                class=" ace-icon fa fa-times"></i></a></label>
+                                    </div>
+
+                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายของร้านวีดิทัศน์</label>
+
+                                    <div class="col-xs-3">
+                                        <label class="ace-file-input"><input type="file"><span
+                                                class="ace-file-container" data-title="Choose"><span
+                                                class="ace-file-name" data-title="No File ..."><i
+                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                    href="#"><i
+                                                class=" ace-icon fa fa-times"></i></a></label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--dialog -->
+                    <div class="col-sm-6">
+                        <div id="dialog-confirm" class="hide">
+                            <div class="space-6"></div>
+                            <p class="bigger-110 bolder center grey">
+                                <i class="ace-icon blue bigger-120"></i>
+                                ต้องการยืนยันการอนุญาต
+                            </p>
+                        </div>
+                        <div id="dialog-input" class="hide">
+                            <div class="space-6"></div>
+                            <textarea class="form-control" rows="4" placeholder="เหตุผลการไม่อนุญาต"></textarea>
+                        </div>
+                        <div id="dialog-success" class="hide">
+                            <div class="space-6"></div>
+                            <p class="bigger-110 bolder center grey">
+                                พิจารณาคำขอต่อใบอนุญาตประกอบกิจการสำเร็จ
+                            </p>
+                        </div>
+                        <!-- #dialog-confirm -->
+                    </div>
+                    <!-- ./span -->
+                    <!-- PAGE CONTENT ENDS -->
+                </div>
+                <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        </form>
+    </div>
+</div>
+<!-- /.main-content -->
+{{>footer}}
+<script type="text/javascript">
+
+    //override dialog's title function to allow for HTML titles
+    $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+        _title: function (title) {
+            var $title = this.options.title || '&nbsp;'
+            if (("title_html" in this.options) && this.options.title_html == true)
+                title.html($title);
+            else title.text($title);
+        }
+    }));
+
+    $("#approve").on('click', function (e) {
+        e.preventDefault();
+
+        $("#dialog-confirm").removeClass('hide').dialog({
+            resizable: false,
+            width: '320',
+            modal: true,
+            title_html: true,
+            title: "<div class='widget-header widget-header-small'><h4 class='smaller'> ต้องการยืนยัน</h4></div>",
+            buttons: [
+                {
+                    html: "<i class='ace-icon fa fa-check bigger-110'></i>&nbsp; ยืนยัน",
+                    "class": "btn btn-success btn-minier",
+                    click: function () {
+                        //click
+                        $(this).dialog("close");
+                        $("#dialog-success").removeClass('hide').dialog({
+                            resizable: false,
+                            width: '320',
+                            modal: true,
+                            title_html: true,
+                            title: "<div class='widget-header widget-header-small'><h4 class='smaller'> สำเร็จ</h4></div>",
+                            buttons: [{
+                                html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Close",
+                                "class": "btn btn-minier",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
+                            }]
+                        });
+                    }
+                }
+                ,
+                {
+                    html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
+                    "class": "btn btn-minier",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+    });
+    $("#cancelApprove").on('click', function (e) {
+        e.preventDefault();
+
+        $("#dialog-input").removeClass('hide').dialog({
+            resizable: false,
+            width: '320',
+            modal: true,
+            title_html: true,
+            title: "<div class='widget-header widget-header-small'><h4 class='smaller'> ยืนยันการไม่อนุญาต</h4></div>",
+            buttons: [
+                {
+                    html: "<i class='ace-icon fa fa-check bigger-110'></i>&nbsp; ยืนยันการไม่อนุญาต",
+                    "class": "btn btn-success btn-minier",
+                    click: function () {
+                        $(this).dialog("close");
+                        $("#dialog-success").removeClass('hide').dialog({
+                            resizable: false,
+                            width: '320',
+                            modal: true,
+                            title_html: true,
+                            title: "<div class='widget-header widget-header-small'><h4 class='smaller'> สำเร็จ</h4></div>",
+                            buttons: [{
+                                html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Close",
+                                "class": "btn btn-minier",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
+                            }]
+                        });
+                    }
+                }
+                ,
+                {
+                    html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
+                    "class": "btn btn-minier",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+    });
+
+</script>

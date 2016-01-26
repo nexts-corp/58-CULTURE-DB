@@ -31,7 +31,7 @@ class ConsiderInformToolsService extends CServiceBase implements  IConsiderInfor
 
     public function viewConsiderInformTools()
     {
-        $view = new CJView("ConsiderInformTools", CJViewType::HTML_VIEW_ENGINE);
+        $view = new CJView("considerInform/ConsiderInformTools", CJViewType::HTML_VIEW_ENGINE);
         return $view;
     }
 }

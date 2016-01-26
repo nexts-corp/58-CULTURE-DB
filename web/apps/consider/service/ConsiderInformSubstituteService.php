@@ -8,13 +8,13 @@
 
 namespace apps\consider\service;
 
-use apps\consider\interfaces\IConsiderInformSizeService;
+use apps\consider\interfaces\IConsiderInformSubstituteService;
 use th\co\bpg\cde\collection\CJView;
 use th\co\bpg\cde\collection\CJViewType;
 use th\co\bpg\cde\core\CServiceBase;
 use th\co\bpg\cde\data\CDataContext;
 
-class ConsiderInformSizeService extends CServiceBase implements  IConsiderInformSizeService
+class ConsiderInformSubstituteService extends CServiceBase implements  IConsiderInformSubstituteService
 {
 
     public $datacontext;
@@ -28,10 +28,9 @@ class ConsiderInformSizeService extends CServiceBase implements  IConsiderInform
         $this->datacontext = new CDataContext(NULL);
     }
 
-
-    public function viewConsiderInformSize()
+    public function viewConsiderInformSubstitute()
     {
-        $view = new CJView("considerInform/ConsiderInformSize", CJViewType::HTML_VIEW_ENGINE);
+        $view = new CJView("considerInform/ConsiderInformSubstitute", CJViewType::HTML_VIEW_ENGINE);
         return $view;
     }
 }
