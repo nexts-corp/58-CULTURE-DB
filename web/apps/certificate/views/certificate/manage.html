@@ -198,8 +198,8 @@
                     "render": function(data, key, full) {
                         //$html = ' <button title="ดูรายละเอียด" data-rel="tooltip" class="tooltip-warning btn-view btn btn-default btn-xs"><i class="fa fa fa-list"></i></button>';
                         $html = ' <button title="แก้ไขใบอนุญาต" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs" data-type="' + full["certTypeId"] + '"><i class="fa fa-pencil"></i></button>';
-                        $html += ' <button  title="ยกเลิกการขอใบอนุญาต" data-rel="tooltip" class=" tooltip-error dialogDelete btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
-
+                        $html += ' <button  title="ยกเลิกการขอใบอนุญาต" data-rel="tooltip" class="tooltip-error dialogDelete btn btn-danger btn-xs" data-id="'+full["_id"]["$oid"]+'" data-etag="'+full["_etag"]["$oid"]+'"><i class=" fa fa-trash-o"></i></button>';
+                        console.log(full["_id"]["$oid"]);
 
                         return $html;
                     }
@@ -236,6 +236,9 @@
         $(".dialogDelete").on('click', function(e) {
             e.preventDefault();
             var tr = $(this).closest("tr");
+            var id=$(this).attr("data-id");
+            var etag=$(this).attr("data-etag");
+            
             $("#dialog-confirm").removeClass('hide').dialog({
                 resizable: false,
                 width: '320',
@@ -249,7 +252,12 @@
                         click: function() {
 
                             //var Rows=$(this).closest("tr").index();
+                            
+                            data={_id:{"$oid":id},_etag:{"$oid":etag}};
+                            var result=deleteMDB(data);
+                            console.log(result);
                             tr.remove();
+                            
                             $(this).dialog("close");
                             //alert(tr);
                         }
