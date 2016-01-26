@@ -13,7 +13,7 @@ interface IVerifyService {
      * @name index
      * @uri /view/index
      * @description หน้าหลัก
-     * @resource 1000
+        * @sitemap true
      * */
     public function view_index();
 
@@ -22,7 +22,7 @@ interface IVerifyService {
      * @uri /view/update
      * @description หน้าแก้ไข
      * @param string certId
-     * @resource 1000
+     * @sitemap true
      * */
     public function view_update($certId);
 }

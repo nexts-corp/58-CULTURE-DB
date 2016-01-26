@@ -48,7 +48,7 @@ interface ICertMovieService {
      * @name add
      * @uri /add
      * @description เพิ่มใบอนุญาตร้านเกม
-     * @resource 1000
+       * @sitemap true
      **/
     public function viewAdd();
     
@@ -56,7 +56,7 @@ interface ICertMovieService {
      * @name Update
      * @uri /edit
      * @description แก้ไขใบอนุญาตร้านเกม
-     * @resource 1000
+     * @sitemap true
      **/
     public function viewUpdate();    
 

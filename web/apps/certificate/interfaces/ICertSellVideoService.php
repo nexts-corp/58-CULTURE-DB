@@ -48,7 +48,7 @@ interface ICertSellVideoService {
      * @name add
      * @uri /add
      * @description เพิ่มใบอนุญาต
-     * @resource 1000
+     * @sitemap true
      **/
     public function viewAdd();
     
@@ -56,7 +56,7 @@ interface ICertSellVideoService {
      * @name Update
      * @uri /edit
      * @description แก้ไขใบอนุญาตร้านเกม
-     * @resource 1000
+     * @sitemap true
      **/
     public function viewUpdate();    
 

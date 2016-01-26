@@ -47,7 +47,7 @@ interface IMyCertService {
      * @name login
      * @uri /view/index
      * @description หน้าจัดการขอใบอนุญาตภาพยนต์
-     * @resource 1000
+      * @sitemap true
      **/
     public function viewMyCert();
 
