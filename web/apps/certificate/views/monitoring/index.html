@@ -187,15 +187,22 @@
                         $.each(data, function (key, value) {
                             if (value["code"] == "monitoring1") {
                                 if (value["result"] != "YES") {
-                                    content = '<select id="team1-' + full["_id"]["$oid"] + '" name="team1-' + full["_id"]["$oid"] + '">'
-                                            + '<option value="A">A</option>'
-                                            + '<option value="B">B</option>'
-                                            + '<option value="C">C</option>'
-                                            + '</select>&nbsp;'
-                                            + '<button class="btn btn-sm btn-success selectTeam" title="บันทึก" data-team="1" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-check"></i></button>';
+                                    content = '<div class="radio-inline no-padding">'
+                                            + '<label>'
+                                                + '<input name="monitor1-'+full["_id"]["$oid"]+'" type="radio" class="ace input-md" value="YES" checked />'
+                                                + '<span class="lbl"> ผ่าน</span>'
+                                            + '</label>'
+                                        + '</div>'
+                                        + '<div class="radio-inline no-padding">'
+                                            + '<label>'
+                                                + '<input name="monitor1-'+full["_id"]["$oid"]+'" type="radio" class="ace input-md" value="NO"/>'
+                                                + '<span class="lbl"> ไม่ผ่าน</span>'
+                                            + '</label>'
+                                        + '</div>&nbsp;'
+                                        + '<button class="btn btn-sm btn-success monitor" title="บันทึก" data-monitor="1" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-check"></i></button>';
                                 }
                                 else {
-                                    content = 'A';
+                                    content = '-';
                                 }
                             }
                         });
@@ -217,12 +224,19 @@
                             }
                             else if (value["code"] == "assign2" && monitoring1 == "NO") {
                                 if (value["result"] != "YES") {
-                                    content = '<select id="team2-' + full["_id"]["$oid"] + '" name="team2-' + full["_id"]["$oid"] + '">'
-                                            + '<option value="A">A</option>'
-                                            + '<option value="B">B</option>'
-                                            + '<option value="C">C</option>'
-                                        + '</select>&nbsp;'
-                                        + '<button class="btn btn-sm btn-success selectTeam" title="บันทึก" data-team="2" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-check"></i></button>';
+                                    content = '<div class="radio-inline no-padding">'
+                                            + '<label>'
+                                                + '<input name="monitor2-'+full["_id"]["$oid"]+'" type="radio" class="ace input-md" value="YES" checked />'
+                                                + '<span class="lbl"> ผ่าน</span>'
+                                            + '</label>'
+                                        + '</div>'
+                                        + '<div class="radio-inline no-padding">'
+                                            + '<label>'
+                                                + '<input name="monitor2-'+full["_id"]["$oid"]+'" type="radio" class="ace input-md" value="NO"/>'
+                                                + '<span class="lbl"> ไม่ผ่าน</span>'
+                                            + '</label>'
+                                        + '</div>&nbsp;'
+                                        + '<button class="btn btn-sm btn-success selectTeam" title="บันทึก" data-monitor="2" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-check"></i></button>';
                                 }
                                 else {
                                     content = 'A';
@@ -250,5 +264,36 @@
         $("#searchType").change(function () {
             t.columns(2).search($(this).val()).draw();
         });
+
+        $("button.monitor").unbind().click(function(){
+            var monitorNo = $(this).attr("data-monitor");
+            var id = $(this).attr("data-_id");
+
+            var result = $("input[name=monitor"+monitorNo+"-"+id+"]").val();
+            var oldData = listsArr[id];
+            //var findNext = false;
+            $.each(oldData["status"], function(key, value){
+                if(value["code"] == "monitoring"+monitorNo){
+                    oldData["status"][key]["result"] = result;
+                    oldData["status"][key]["datetime"] = getDateTime();
+                }
+                //if(value["code"] == "tranfer")
+            });
+            if(result == "YES"){
+                oldData["status"].push({
+                    code: "transfer",
+                    result: "WAIT",
+                    datetime: ""
+                });
+            }
+            updateData(oldData);
+        });
+    }
+
+    function updateData(input){
+        var data = updateMDB(input);
+        if(data == "success"){
+            listsData();
+        }
     }
 </script>
