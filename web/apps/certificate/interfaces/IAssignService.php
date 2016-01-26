@@ -5,14 +5,14 @@ namespace apps\certificate\interfaces;
 /**
  * @name IAssignService
  * @uri /assign
- * @description ขอบใบอนุญาต
+ * @description ขอใบอนุญาต
  */
 interface IAssignService {
 
     /**
      * @name index
      * @uri /view/index
-     * @description หน้าหลัก
+     * @description มอบหมายชุดตรวจ
      * @sitemap true
      * */
     public function view_index();

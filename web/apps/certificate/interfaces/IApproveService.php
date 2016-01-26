@@ -5,14 +5,14 @@ namespace apps\certificate\interfaces;
 /**
  * @name IApproveService
  * @uri /approve
- * @description ขอบใบอนุญาต
+ * @description ขอใบอนุญาต
  */
 interface IApproveService {
 
     /**
      * @name index
      * @uri /view/index
-     * @description หน้าหลัก
+     * @description พิจารณาคำขอ
      * @sitemap true
      * */
     public function view_index();

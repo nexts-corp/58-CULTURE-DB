@@ -5,14 +5,14 @@ namespace apps\certificate\interfaces;
 /**
  * @name IMonitoringService
  * @uri /monitoring
- * @description ขอบใบอนุญาต
+ * @description ขอใบอนุญาต
  */
 interface IMonitoringService {
 
     /**
      * @name index
      * @uri /view/index
-     * @description หน้าหลัก
+     * @description ตรวจสถานประกอบการ
      * @sitemap true
      * */
     public function view_index();
