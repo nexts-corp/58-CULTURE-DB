@@ -11,9 +11,10 @@ interface IViewBranchService {
     /**
      * @name view
      * @uri /view
+     * @param String group description
      * @description  viewBranch.html
      */
-    public function view();
+    public function view($group);
 }
 
 ?>

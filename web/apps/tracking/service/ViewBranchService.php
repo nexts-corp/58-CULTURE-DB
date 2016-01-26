@@ -20,7 +20,7 @@ class ViewBranchService extends CServiceBase implements IViewBranchService {
         $this->datacontext = new CDataContext(NULL);
     }
 
-    public function view() {
+    public function view($group) {
         $view = new CJView("viewBranch", CJViewType::HTML_VIEW_ENGINE);
         return $view;
     }
