@@ -43,6 +43,15 @@ interface ICertificateService {
      **/
     public function delete($user);
     
+    
+    /**
+     * @name login
+     * @uri /view/index
+     * @description หน้าจัดการขอใบอนุญาต
+     * @resource 1000
+     **/
+    public function viewIndex();
+        
     /**
      * @name login
      * @uri /view/certmovie

@@ -4,12 +4,13 @@
             "certId": "1",
             "certCode": "00001/2558",
             "memberId": "1",
-            "memberName": "แมงป่อง",
+            "memberName": "นายยุทธชัย  สมมุติ",
             "certTypeId": "1",
             "certTypeName": "ร้านวีดิทัศน์ (คาราโอเกะ)",
             "certNameTH": "เชิญชิมคาราโอเกะ",
             "certNameEN": "Karaoke",
             "memberTypeId": "1",
+            
             "memberTypeName": "บุคคลธรรมดา",
             "memberAddress": {
                 "no": "4/85",
@@ -39,12 +40,34 @@
             },
             "status": [
                 {
-                    "code": "stamp",
-                    "result": "Y/N"
+                    "code": "request",
+                    "result": "YES",
+                    "datetime": "2016-01-18 15:25:04"
                 },
                 {
-                    "code": "pong",
-                    "result": "Y/N"
+                    "code": "verify",
+                    "result": "WAIT",
+                    "datetime": ""
+                },
+                {
+                    "code": "assing",
+                    "result": "WAIT",
+                    "datetime": ""
+                },
+                {
+                    "code": "monitoring",
+                    "result": "WAIT",
+                    "datetime": ""
+                },
+                {
+                    "code": "transfer",
+                    "result": "WAIT",
+                    "datetime": ""
+                },
+                {
+                    "code": "approve",
+                    "result": "WAIT",
+                    "datetime": ""
                 }
             ]
 

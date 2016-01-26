@@ -61,6 +61,11 @@ class CertificateService extends CServiceBase implements ICertificateService  {
         
     }
 
+    public function viewIndex() {
+        $view = new CJView("certificate/manage", CJViewType::HTML_VIEW_ENGINE);
+        return $view;
+    }
+
 }
 
 ?>
