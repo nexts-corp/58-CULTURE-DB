@@ -219,7 +219,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var listsArr = {};
-        var datas = callAjax("http://mdb.codeunbug.com/culture/cert/", "get", {}, "json")["_embedded"]["rh:doc"];
+        var datas = callAjax("http://mdb.codeunbug.com/culture/cert?filter={'status.code':'request','status.result':'YES'}&filter={'status.code':'verify','status.result':'WAIT'}", "get", {}, "json")["_embedded"]["rh:doc"];
+       //var datas = selectMDB("filter={'status.code':'request','status.result':'YES'}&filter={'status.code':'verify','status.result':'WAIT'}");
         //console.log(datas);
         var t;
         drawTable(datas);
