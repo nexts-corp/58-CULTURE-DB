@@ -109,16 +109,7 @@
 
 <script type="text/javascript">
     $(function () {
-        var data = deleteMDB({
-            _id: {
-                $oid: "56a74cc49207896231f27c19"
-            },
-            name: 1,
-            code: 2,
-            _etag: {
-                $oid: "56a74cc49207896231f27c1a"
-            }
-        });
+        var data = selectMDB();
         console.log(data);
     });
 </script>

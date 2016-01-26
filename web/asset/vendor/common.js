@@ -218,7 +218,13 @@ function selectMDB(filter){
 
         },
         success: function (result) {
-            value = result["_embedded"]["rh:doc"];
+            if(typeof result !== "undefined"){
+                value = result["_embedded"]["rh:doc"];
+            }
+            else{
+                value = [];
+            }
+
         }
     });
     return value;
