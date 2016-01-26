@@ -530,7 +530,7 @@
 
         $("#btnSave").on('click', function (e) {
             e.preventDefault();
-            var data = [];
+            // var data = [];
             $("#dialog-input").removeClass('hide').dialog({
                 resizable: false,
                 width: '320',
@@ -543,15 +543,19 @@
                         "class": "btn btn-success btn-minier",
                         click: function () {
                             var verify = [];
-                            var check = true;
+                            var checkNull = true;
+                            var checkNo = true;
                             $("input[type=radio]").each(function (k, v) {
                                 if (this.checked) {
                                     if (this.value == "NO" && ($("input[name=" + this.name + "Remark]").val() == "")) {
                                         alert("กรุณาใส่หมายเหตุ");
                                         $("input[name=" + this.name + "Remark]").focus();
-                                        check = false;
+                                        checkNull = false;
                                         return false;
                                     } else {
+                                        if (this.value == "NO") {
+                                            checkNo = false;
+                                        }
                                         var d = {};
                                         d[this.name] = this.value;
                                         d[this.name + "Remark"] = $("input[name=" + this.name + "Remark]").val();
@@ -561,8 +565,7 @@
                                     }
                                 }
                             });
-                            if (check) {
-                                data["verify"] = verify;
+                            if (checkNull) {
                                 var status = [];
                                 var oldData = selectMDB({"_id": {"$oid": id}})[0];
                                 $.each(oldData["status"], function (index, obj) {
@@ -570,30 +573,38 @@
                                         status.push(obj);
                                     }
                                 });
-                                var statusVerify = {"code": "verify", "result": "YES", "datetime": getDateTime()};
-                                status.push(statusVerify);
-                                if (assign == "YES") {
-                                    var assign1 = {"code": "assign1", "result": "WAIT", "datetime": ""};
-                                    var assign2 = {"code": "assign2", "result": "WAIT", "datetime": ""};
-                                    status.push(assign1);
-                                    status.push(assign2);
+
+                                var statusVerify;
+                                if (checkNo) {
+                                    statusVerify = {"code": "verify", "result": "YES", "datetime": getDateTime()};
+                                    if (assign == "YES") {
+                                        var assign1 = {"code": "assign1", "result": "WAIT", "datetime": ""};
+                                        var assign2 = {"code": "assign2", "result": "WAIT", "datetime": ""};
+                                        status.push(assign1);
+                                        status.push(assign2);
+                                    } else {
+                                        var transfer = {"code": "transfer", "result": "WAIT", "datetime": ""};
+                                        status.push(transfer);
+                                    }
                                 } else {
-                                    var transfer = {"code": "transfer", "result": "WAIT", "datetime": ""};
-                                    status.push(transfer);
+                                    statusVerify = {"code": "verify", "result": "NO", "datetime": getDateTime()};
                                 }
-                                data["status"] = status;
-                                data['_id'] = oldData["_id"];
-                                data["_etag"] = oldData["_etag"];
-                                console.log(data);
-                                if (updateMDB(data) == "success") {
+                                status.push(statusVerify);
+                                oldData["verify"] = verify;
+                                oldData["status"] = status;
+//                                data['_id'] = oldData["_id"];
+//                                data["_etag"] = oldData["_etag"];
+                                // console.log(data);
+                                if (updateMDB(oldData) == "success") {
                                     alert("บันทึกสำเร็จ");
                                     $(this).dialog("close");
                                     window.location = "{{_context_path}}/api/certificate/verify/view/index";
                                 } else {
                                     alert("บันทึกไม่สำเร็จ โปรดทำอีกครั้ง");
                                 }
+                            } else {
+                                $(this).dialog("close");
                             }
-
                         }
                     }
                     ,

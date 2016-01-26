@@ -219,8 +219,16 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var listsArr = {};
-        var datas = callAjax("http://mdb.codeunbug.com/culture/cert?filter={'status.code':'request','status.result':'YES'}&filter={'status.code':'verify','status.result':'WAIT'}", "get", {}, "json")["_embedded"]["rh:doc"];
-       //var datas = selectMDB("filter={'status.code':'request','status.result':'YES'}&filter={'status.code':'verify','status.result':'WAIT'}");
+        var filter = selectMDB({"status.code": "verify"});
+        var datas = [];
+        $.each(filter, function (index, obj) {
+            $.each(obj["status"], function (k, v) {
+                if (v["code"] == "verify" && v["result"] == "WAIT") {
+                    datas.push(obj);
+                }
+            });
+        });
+        //var datas = selectMDB("filter={'status.code':'request','status.result':'YES'}&filter={'status.code':'verify','status.result':'WAIT'}");
         //console.log(datas);
         var t;
         drawTable(datas);
@@ -257,15 +265,22 @@
                     },
                     {
                         "targets": 3,
-                        "data": "statusCode",
+                        "data": "status",
                         "sClass": "text-center col-md-2",
-                        "render": function (data) {
-                            if (data == "YES") {
-                                return '<span class="label label-success arrowed-in arrowed-in-right">{{#i18n}}verify.YES{{/i18n}}</span>'
-                            } else {
-                                return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}verify.WAIT{{/i18n}}</span>'
-                            }
+                        "render": function (data, key, full) {
+                            return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}verify.WAIT{{/i18n}}</span>'
 
+//                            //console.log(data);
+//                            $.each(data, function (k, v) {
+//                                if (v["code"] == "verify") {
+//                                    if (v["result"] == "WAIT") {
+//                                        // console.log(v["result"]);
+//                                        return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}verify.WAIT{{/i18n}}</span>'
+//                                    } else {
+//                                        return '<span class="label label-success arrowed-in arrowed-in-right">{{#i18n}}verify.YES{{/i18n}}</span>'
+//                                    }
+//                                }
+//                            });
                         }
                     },
                     {
