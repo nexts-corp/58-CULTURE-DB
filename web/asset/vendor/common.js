@@ -33,90 +33,6 @@ function selectedMenu(){
     });
 }
 
-function getFormValue(formId, inputs) {
-    if (inputs == null || inputs == undefined) {
-        inputs = $("#" + formId).find("input");
-    }
-    var data = {};
-    $(inputs).each(function (i) {
-        var fname = $(this).attr("name");
-        var fvalue = $(this).val();
-        data[fname] = fvalue;
-    });
-    return data;
-}
-function getFormValues(formId) {
-    var datas = [];
-    var n = $("#" + formId).attr("data-size");
-    for (var i = 0; i < n; i++)
-    {
-        var inputs = $("#" + formId).find("input[row-index='" + i + "'],select[row-index='" + i + "']");
-        var data = getFormValue(formId, inputs);
-        datas.push(data);
-    }
-    return datas;
-}
-
-function sendData(formId, callback) {
-    var url = $("#" + formId).attr("action");
-    var pname = $("#" + formId).attr("name");
-    var method = $("#" + formId).attr("method");
-    var isArray = $("#" + formId).attr("isArray");
-    var data = {};
-    if (isArray != undefined && isArray == "true") {
-        data = getFormValues(formId);
-    } else {
-        data = getFormValue(formId, null);
-    }
-
-    var fdata = {};
-    fdata[pname] = data;
-    var dataJSON = JSON.stringify(fdata);
-
-    var dataJSONEN = encodeURIComponent(dataJSON);
-    $.ajax({
-        url: url,
-        cache: false,
-        type: method,
-        data: dataJSONEN,
-        async: true,
-        error: function (xhr) {
-            if (xhr.status == 401) {
-                window.location.href = xhr.getResponseHeader('Location');
-            }
-            else if (xhr.status == 403) {
-               alert("ไม่มีสิทธิ์ใช้งานส่วนนี้");
-            }
-            value = "Time Out!!";
-
-        },
-        success: function (data) {
-            //console.log(data);
-            // return data;
-            callback(data);
-        }
-    });
-    return false;
-}
-
-function dataJson(formId) {
-    var pname = $("#" + formId).attr("name");
-    var isArray = $("#" + formId).attr("isArray");
-    var data = {};
-    if (isArray != undefined && isArray == "true") {
-        data = getFormValues(formId);
-    } else {
-        data = getFormValue(formId, null);
-    }
-
-    var fdata = {};
-    fdata[pname] = data;
-    var dataJSON = JSON.stringify(fdata);
-
-    var dataJSONEN = encodeURIComponent(dataJSON);
-
-    return dataJSONEN;
-}
 
 function callAjaxFile(url, type, data, dataType) {
     var value = "";
@@ -188,7 +104,6 @@ function jsonEncode(data) {
 }
 
 function getHTML(id, link, data) {
-    
     //have data ==> getHTML("navbar","/api/xxx/xxx/",{name:name});
     ////have data ==> getHTML("navbar","/api/xxx/xxx/",jsonEncode(xxx));
     //dont have data ==> getHTML("navbar","/api/xxx/xxx/",null);
@@ -278,4 +193,127 @@ function datetimeTH(datetime){
 
     return datetimeTH;
 
+}
+
+function selectMDB(filter){
+    var param = '';
+    if(typeof filter !== "undefined")
+        param = "?filter="+filter;
+
+    var value = "";
+    $.ajax({
+        url: "http://mdb.codeunbug.com/culture/cert/"+param,
+        type: "get",
+        async: false,
+        timeout: 20000, // 1000 = 1 s
+        dataType: "json",
+        error: function (xhr) {
+            if (xhr.status == 401) {
+                window.location.href = xhr.getResponseHeader('Location');
+            }
+            else if (xhr.status == 403) {
+                alert("ไม่มีสิทธิ์ใช้งานส่วนนี้");
+            }
+            value = "Time Out!!";
+
+        },
+        success: function (result) {
+            value = result["_embedded"]["rh:doc"];
+        }
+    });
+    return value;
+}
+
+function insertMDB(data){
+    var value = "";
+    $.ajax({
+        url: "http://mdb.codeunbug.com/culture/cert/",
+        type: "post",
+        async: false,
+        timeout: 20000, // 1000 = 1 s
+        dataType: "json",
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        error: function (xhr) {
+            if (xhr.status == 401) {
+                window.location.href = xhr.getResponseHeader('Location');
+            }
+            else if (xhr.status == 403) {
+                alert("ไม่มีสิทธิ์ใช้งานส่วนนี้");
+            }
+            else if (xhr.status == 201) {
+                value = "success"
+            }
+            else {
+                value = "Time Out!!";
+            }
+        },
+        success: function (result) {
+        }
+    });
+    return value;
+}
+
+function updateMDB(data){
+    var value = "";
+    $.ajax({
+        url: "http://mdb.codeunbug.com/culture/cert/"+data["_id"]["$oid"],
+        type: "patch",
+        async: false,
+        timeout: 20000, // 1000 = 1 s
+        dataType: "json",
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        headers:{
+            "if-match": data["_etag"]["$oid"]
+        },
+        error: function (xhr) {
+            if (xhr.status == 401) {
+                window.location.href = xhr.getResponseHeader('Location');
+            }
+            else if (xhr.status == 403) {
+                alert("ไม่มีสิทธิ์ใช้งานส่วนนี้");
+            }
+            else {
+                value = "Time Out!!";
+            }
+        },
+        success: function (result) {
+            value = "success";
+        }
+    });
+    return value;
+}
+
+function deleteMDB(data){
+    var value = "";
+    $.ajax({
+        url: "http://mdb.codeunbug.com/culture/cert/"+data["_id"]["$oid"],
+        type: "delete",
+        async: false,
+        timeout: 20000, // 1000 = 1 s
+        dataType: "json",
+        contentType: "application/json",
+        headers:{
+            "if-match": data["_etag"]["$oid"]
+        },
+        error: function (xhr) {
+            if (xhr.status == 401) {
+                window.location.href = xhr.getResponseHeader('Location');
+            }
+            else if (xhr.status == 403) {
+                alert("ไม่มีสิทธิ์ใช้งานส่วนนี้");
+            }
+            else if (xhr.status == 204) {
+                value = "success";
+            }
+            else {
+                value = "Time Out!!";
+            }
+        },
+        success: function (result) {
+            value = "success";
+        }
+    });
+    return value;
 }
