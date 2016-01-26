@@ -25,7 +25,21 @@ class VerifyService extends CServiceBase implements IVerifyService {
 
     public function view_update($certId) {
         $view = new CJView("verify/update", CJViewType::HTML_VIEW_ENGINE);
-        $view->certId = $certId;
+//        $opts = array(
+//            'http' => array(
+//                'method' => "GET",
+//                'header' => "Accept-language: en\r\n" .
+//                "Cookie: foo=bar\r\n".
+//                "Content-Type: application/hal+json"
+//            )
+//        );
+//
+//        $context = stream_context_create($opts);
+// Open the file using the HTTP headers set above
+        $file = file_get_contents('http://mdb.codeunbug.com/culture/cert/' . $certId);
+        $json = json_decode($file, true);
+        // return $json;
+        $view->lists = $json;
         return $view;
     }
 
