@@ -130,7 +130,7 @@
                     "sClass": "text-left col-md-1",
                     "render": function(data, key, full) {
                         $html = ' <button title="แก้ไขข้อมูล" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
-                        $html += ' <button  title="ลบข้อมูล" data-rel="tooltip" class=" tooltip-error dialogDelete btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
+                        $html += ' <button  title="ลบข้อมูล" data-rel="tooltip" class=" tooltip-error dialogDelete btn btn-danger btn-xs" data-id="'+full["_id"]["$oid"]+'"><i class=" fa fa-trash-o"></i></button>';
 
 
                         return $html;
@@ -172,6 +172,8 @@
                         click: function() {
 
                             //var Rows=$(this).closest("tr").index();
+                            //var data={};
+                            //var result = deleteMDB(data);
                             tr.remove();
                             $(this).dialog("close");
                             //alert(tr);

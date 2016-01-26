@@ -11,9 +11,9 @@
                             <i class="ace-icon fa fa-angle-double-right"></i>
                             เพิ่มข้อมูล
                         </small>
-                        <button class="btn btn-default pull-right btn-sm " type="reset"><i class="ace-icon fa fa-times bigger-110"></i> ยกเลิก</button>
-                        <span>&nbsp;&nbsp;</span>
-                        <button class="btn btn-success pull-right btn-sm " type="submit"><i class="ace-icon fa fa-floppy-o bigger-110"></i> บันทึกข้อมูล</button>
+                        <button class="btn btn-default pull-right btn-sm inline" type="reset"><i class="ace-icon fa fa-times bigger-110"></i> ยกเลิก</button>
+
+                        <button class="btn btn-success pull-right btn-sm inline" type="submit"><i class="ace-icon fa fa-floppy-o bigger-110"></i> บันทึกข้อมูล</button>
                     </h1>
 
                 </div><!-- /.page-header -->
@@ -45,7 +45,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">ประเภทบุคคล *</label>
                                             <div class="col-sm-5">
-                                                <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                                <select class="form-control" id="memberTypeId" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
                                                     <option>บุคคลธรรมดา</option>
                                                     <option>นิติบุคคล</option>
 
@@ -55,20 +55,20 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">ชื่อภาษาไทย *</label>
                                             <div class="col-sm-5">
-                                                <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                                <input type="text" class="form-control" id="certNameTH" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">ชื่อภาษาอังกฤษ </label>
                                             <div class="col-sm-5">
-                                                <input type="text" class="form-control" id="inputPassword3">
+                                                <input type="text" class="form-control" id="certNameEN">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">บ้านเลขที่</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" id="inputPassword3">
+                                                <input type="text" id="no" class="form-control" id="inputPassword3">
                                             </div>
                                             <label class="col-sm-1 control-label no-padding-right">ตรอก/ซอย</label>
                                             <div class="col-sm-2">
@@ -88,23 +88,23 @@
                                             </div>
                                             <label class="col-sm-1 control-label no-padding-right">ตำบล</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" id="inputPassword3">
+                                                <input type="text" id="district" class="form-control" id="inputPassword3">
                                             </div>
                                             <label class="col-sm-1 control-label no-padding-right">อำเภอ *</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                                <input type="text" id="area" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
                                             </div>
 
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">จังหวัด *</label>
                                             <div class="col-sm-5">
-                                                <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
-                                                    <option>กรุงเทพมหานคร</option>
-                                                    <option>ชลบุรี</option>
-                                                    <option>ระยอง</option>
-                                                    <option>ศรีสะเกษ</option>
-                                                    <option>เชียงใหม่</option>
+                                                <select class="form-control" id="province" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                                    <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                                    <option value="ชลบุรี">ชลบุรี</option>
+                                                    <option value="ระยอง">ระยอง</option>
+                                                    <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                                                    <option value="เชียงใหม่">เชียงใหม่</option>
                                                 </select>
 
 
@@ -121,7 +121,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">ชื่อ-นามสกุล *</label>
                                             <div class="col-sm-5">
-                                                <input type="text" value="นายยุทธชัย  สมมุติ" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                                <input type="text" id="memberName" value="นายยุทธชัย  สมมุติ" class="form-control"  data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -133,7 +133,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">บ้านเลขที่</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" id="inputPassword3" value="5">
+                                                <input type="text" id="m_no" class="form-control"  value="5">
                                             </div>
                                             <label class="col-sm-1 control-label no-padding-right">ตรอก/ซอย</label>
                                             <div class="col-sm-2">
@@ -153,34 +153,31 @@
                                             </div>
                                             <label class="col-sm-1 control-label no-padding-right">ตำบล</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" id="inputPassword3" value="บุสูง">
+                                                <input type="text" class="form-control" id="m_district" value="บุสูง">
                                             </div>
                                             <label class="col-sm-1 control-label no-padding-right">อำเภอ *</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" value="วังหิน">
+                                                <input type="text" class="form-control" id="m_area" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" value="วังหิน">
                                             </div>
 
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">จังหวัด *</label>
                                             <div class="col-sm-5">
-                                                <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
-                                                    <option>ศรีสะเกษ</option>
-                                                    <option>กรุงเทพฯ</option>
-                                                    <option>ระยอง</option>
-                                                    <option>ชลบุรี</option>
-                                                    <option>เชียงใหม่</option>
+                                                <select class="form-control" id="m_province" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                                    <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                                                    <option value="กรุงเทพฯ">กรุงเทพฯ</option>
+                                                    <option value="ระยอง">ระยอง</option>
+                                                    <option value="ชลบุรี">ชลบุรี</option>
+                                                    <option value="เชียงใหม่">เชียงใหม่</option>
                                                 </select>
-
-
                                             </div>
-
-
                                         </div>
-
-
                                     </div>
                                 </div>
+
+
+
                             </div>
 
                             <div id="attachment" class="tab-pane fade">
@@ -273,10 +270,13 @@
         });
 
         $('input[type=file]').bootstrapFileInput();
+
         $('[type="reset"]').unbind("click").click(function() {
 
             window.location.assign("{{_context_path}}/api/certificate/certificate/view/index");
         });
+
+
 
         //override dialog's title function to allow for HTML titles
         $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
@@ -324,9 +324,66 @@
                             html: "<i class='fa fa-paper-plane-o'></i>&nbsp; ส่งคำขอ",
                             "class": "btn btn-info btn-minier",
                             click: function() {
+                                var now = new Date();
 
+
+                                var data = {
+                                    "certCode": "00001/2558",
+                                    "memberId": "1",
+                                    "memberName": $("#memberName").val(),
+                                    "certTypeId": "2",
+                                    "certTypeName": "ร้านวีดิทัศน์ (เกมการเล่น)",
+                                    "certNameTH": $("#certNameTH").val(),
+                                    "certNameEN": $("#certNameEN").val(),
+                                    "memberTypeId": "1",
+                                    "memberTypeName": "บุคคลธรรมดา",
+                                    "memberAddress": {
+                                        "no": $("#m_no").val(),
+                                        "district": $("#m_district").val(),
+                                        "area": $("#m_area").val(),
+                                        "province": $("#m_province").val(),
+                                        "zipcode": "10800"
+                                    },
+                                    "certAddress": {
+                                        "no": $("#no").val(),
+                                        "district": $("#district").val(),
+                                        "area": $("#area").val(),
+                                        "province": $("#province").val(),
+                                        "zipcode": "10800"
+                                    },
+                                    "attachment": {
+                                        "citizenCard": "cz1101.pdf",
+                                        "profile": "pf1101.pdf",
+                                        "commercial": "cm1101.pdf",
+                                        "map": "mp1101.pdf",
+                                        "plan": "pn1101.pdf",
+                                        "shop": "sp1101.pdf"
+                                    },
+                                    "cordinate": {
+                                        "lat": "13.426546",
+                                        "lng": "100.123456"
+                                    },
+                                    "status": [
+                                        {
+                                            "code": "request",
+                                            "result": "YES",
+                                            "datetime": getDateTime()
+                                        }, {
+                                            "code": "verify",
+                                            "result": "WAIT",
+                                            "datetime": ""
+                                        }
+                                    ]
+                                };
+                                var result = insertMDB(data);
+                                //console.log(result);
+                                //console.log(data);
                                 //var Rows=$(this).closest("tr").index();
-                                window.location.assign("{{_context_path}}/api/certificate/certificate/view/index");
+                                if(result=="success"){
+                                    window.location.assign("{{_context_path}}/api/certificate/certificate/view/index");
+                                }else{
+                                    alert("บันทึกข้อมูลไม่สำเร็จ");
+                                }
                                 $(this).dialog("close");
                                 //alert(tr);
                             }

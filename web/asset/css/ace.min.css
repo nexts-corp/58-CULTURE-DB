@@ -21522,3 +21522,7 @@ input.typeahead.scrollable ~ .tt-dropdown-menu {
         display: none !important
     }
 }
+
+.dataTables_empty{
+    text-align: center;
+}
