@@ -88,7 +88,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td colspan="6" class="text-center">-</td>
+                                                <td colspan="7" class="text-center">-</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -160,7 +160,7 @@
                     "render": function (data) {
                         var content = '';
                         $.each(data, function(key, value){
-                            if(value["code"] == "request"){
+                            if(value["code"] == "assign1"){
                                 content = statusConvert("certificate", value)["status"];
                             }
                         });
@@ -186,11 +186,11 @@
                         var content = '';
                         $.each(data, function(key, value){
                             if(value["code"] == "assign1"){
-                                if(value["result"] !== "YES"){
+                                if(value["result"] != "YES"){
                                     content = '<select id="team1-'+full["_id"]["$oid"]+'" name="team1-'+full["_id"]["$oid"]+'">'
-                                            + '<option>A</option>'
-                                            + '<option>B</option>'
-                                            + '<option>C</option>'
+                                            + '<option value="A">A</option>'
+                                            + '<option value="B">B</option>'
+                                            + '<option value="C">C</option>'
                                         + '</select>&nbsp;'
                                         + '<button class="btn btn-sm btn-success selectTeam" title="บันทึก" data-team="1" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-check"></i></button>';
                                 }
@@ -207,14 +207,20 @@
                     "data": "status",
                     "sClass": "text-center col-md-2",
                     "render": function (data, key, full) {
-                        var content = '';
+                        var content = '-';
+                        var monitoring1 = '';
                         $.each(data, function(key, value){
-                            if(value["code"] == "assign2"){
+                            if(value["code"] == "monitoring1"){
                                 if(value["result"] == "YES"){
+                                    monitoring1 = "YES";
+                                }
+                            }
+                            else if(value["code"] == "assign2" && monitoring1 == "NO"){
+                                if(value["result"] != "YES"){
                                     content = '<select id="team2-'+full["_id"]["$oid"]+'" name="team2-'+full["_id"]["$oid"]+'">'
-                                            + '<option>A</option>'
-                                            + '<option>B</option>'
-                                            + '<option>C</option>'
+                                            + '<option value="A">A</option>'
+                                            + '<option value="B">B</option>'
+                                            + '<option value="C">C</option>'
                                         + '</select>&nbsp;'
                                         + '<button class="btn btn-sm btn-success selectTeam" title="บันทึก" data-team="2" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-check"></i></button>';
                                 }
@@ -248,10 +254,37 @@
         $("button.selectTeam").unbind().click(function(){
             var teamNo = $(this).attr("data-team");
             var id = $(this).attr("data-_id");
+
+            var teamSelected = $("#team"+teamNo+"-"+id).val();
+            var oldData = listsArr[id];
+            $.each(oldData["status"], function(key, value){
+                if(value["code"] == "assign"+teamNo){
+                    oldData["status"][key]["result"] = "YES";
+                    oldData["status"][key]["datetime"] = getDateTime();
+                    oldData["status"][key]["team"] = teamSelected;
+
+                }
+            });
+            if(teamNo == "1"){
+                oldData["status"].push({
+                    code: "monitoring1",
+                    result: "WAIT",
+                    datetime: ""
+                });
+                oldData["status"].push({
+                    code: "monitoring2",
+                    result: "WAIT",
+                    datetime: ""
+                })
+            }
+            updateData(oldData);
         });
     }
 
-    function updateData(){
-
+    function updateData(input){
+        var data = updateMDB(input);
+        if(data == "success"){
+            listsData();
+        }
     }
 </script>
