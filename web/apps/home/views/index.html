@@ -1,0 +1,46 @@
+{{>header}}
+
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">หน้าหลัก</a>
+                </li>
+                <li class="active">Application</li>
+            </ul><!-- /.breadcrumb -->
+        </div>
+
+        <div class="page-content">
+
+            <div class="col-sm-7 infobox-container">
+                {{#apps}}
+                <div class="infobox infobox-blue">
+                    <div class="infobox-icon">
+                        <i class="ace-icon fa {{icon}}"></i>
+                    </div>
+
+                    <div class="infobox-data">
+                        <span class="infobox-data-number">32</span>
+                        <div class="infobox-content"> {{title}}</div>
+                    </div>
+
+                    <div class="stat stat-success">8%</div>
+                </div>
+                {{/apps}}
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{{>footer}}

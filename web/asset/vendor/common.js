@@ -154,8 +154,10 @@ function statusConvert(process, input){
         var processCode = {
             request: "ยื่นคำขอใบอนุญาต",
             verify: "ตรวจสอบเอกสาร",
-            assign: "มอบหมายชุดตรวจ",
-            monitoring: "ตรวจสถานประกอบการ",
+            assign1: "มอบหมายชุดตรวจ ครั้งที่ 1",
+            assign2: "มอบหมายชุดตรวจ ครั้งที่ 2",
+            monitoring1: "ตรวจสถานประกอบการ ครั้งที่ 1",
+            monitoring2: "ตรวจสถานประกอบการ ครั้งที่ 2",
             transfer: "ส่งมอบเอกสารหลักฐาน",
             approve: "พิจารณาคำขอใบอนุญาต"
         };

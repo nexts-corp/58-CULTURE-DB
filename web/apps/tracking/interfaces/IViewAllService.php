@@ -11,7 +11,8 @@ interface IViewAllService {
     /**
      * @name view
      * @uri /view
-     * @description  viewAll.html
+     * @description  กราฟ
+     * @sitemap true
      */
     public function view();
 

@@ -1,7 +1,7 @@
 {
     "id": "notification",
     "version": "1.0",
-    "title": "Notification",
+    "title": "แจ้งเตือนผู้ใช้งาน",
     "authors": "Pinsuda",
     "owners": "NEXTS-CORP CO.,LTD.",
     "description": "content plugin for notification",
@@ -9,7 +9,7 @@
     "summary": "content plugin for notification",
     "language": "th",
     "main": "api/root/view/index",
-    "icon": "api/root/view/index.png",
+    "icon": "fa-comments-o",
     "sitemap":"api/root/sitemap",
     "license": "content",
     "copyright": "content",

@@ -1,7 +1,7 @@
 {
-    "id": "member",
+    "id": "certificate",
     "version": "1.0",
-    "title": "example",
+    "title": "จัดการใบอนุญาต",
     "authors": "somchit",
     "owners": "BAAN PROGRAM CO.,LTD.",
     "description": "content plugin for test",
@@ -9,7 +9,7 @@
     "summary": "content plugin for test",
     "language": "th",
     "main": "api/rice/test/hello",
-    "icon": "apps/rice/images/icon.png",
+    "icon": "fa-certificate",
     "sitemap":"api/rice/sitemap",
     "license": "content",
     "copyright": "content",

@@ -1,7 +1,7 @@
 {
     "id": "search",
     "version": "1.0",
-    "title": "example",
+    "title": "สืบค้นข้อมูล",
     "authors": "somchit",
     "owners": "BAAN PROGRAM CO.,LTD.",
     "description": "content plugin for test",
@@ -9,7 +9,7 @@
     "summary": "content plugin for test",
     "language": "th",
     "main": "api/rice/test/hello",
-    "icon": "apps/rice/images/icon.png",
+    "icon": "fa-search",
     "sitemap":"api/rice/sitemap",
     "license": "content",
     "copyright": "content",

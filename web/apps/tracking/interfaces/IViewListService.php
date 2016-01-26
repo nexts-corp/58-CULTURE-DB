@@ -12,7 +12,8 @@ interface IViewListService {
     /**
      * @name view
      * @uri /view
-     * @description viewList.html
+     * @description ค้นหา
+     * @sitemap true
      */
     public function view();
 
