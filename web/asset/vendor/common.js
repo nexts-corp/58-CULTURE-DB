@@ -154,8 +154,7 @@ function statusConvert(process, input){
         var processCode = {
             request: "ยื่นคำขอใบอนุญาต",
             verify: "ตรวจสอบเอกสาร",
-            assign1: "มอบหมายชุดตรวจ",
-            assign2: "มอบหมายชุดตรวจ",
+            assign: "มอบหมายชุดตรวจ",
             monitoring: "ตรวจสถานประกอบการ",
             transfer: "ส่งมอบเอกสารหลักฐาน",
             approve: "พิจารณาคำขอใบอนุญาต"
@@ -199,7 +198,7 @@ function datetimeTH(datetime){
 function selectMDB(filter){
     var param = '';
     if(typeof filter !== "undefined")
-        param = "?filter="+JSON.stringify(filter);
+        param = "?filter="+filter;
 
     var value = "";
     $.ajax({
@@ -219,7 +218,7 @@ function selectMDB(filter){
 
         },
         success: function (result) {
-            if(typeof result["_embedded"] !== "undefined"){
+            if(typeof result !== "undefined"){
                 value = result["_embedded"]["rh:doc"];
             }
             else{

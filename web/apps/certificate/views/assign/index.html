@@ -78,12 +78,11 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center col-md-1">{{#i18n}}no.{{/i18n}}</th>
-                                                <th class="text-center col-md-3">{{#i18n}}listName{{/i18n}}</th>
-                                                <th class="text-center col-md-1">{{#i18n}}type{{/i18n}}</th>
+                                                <th class="text-center col-md-4">{{#i18n}}listName{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}type{{/i18n}}</th>
                                                 <th class="text-center col-md-2">{{#i18n}}status{{/i18n}}</th>
                                                 <th class="text-center col-md-1">{{#i18n}}detail{{/i18n}}</th>
-                                                <th class="text-center col-md-2">{{#i18n}}team1{{/i18n}}</th>
-                                                <th class="text-center col-md-2">{{#i18n}}team2{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}team{{/i18n}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -108,19 +107,16 @@
 {{>footer}}
 
 <script type="text/javascript">
-    var listsData = {};
     $(function () {
         listsData();
     });
 
     function listsData(){
-        var data = selectMDB({"status.code": "request"});
+        var data = selectMDB(JSON.stringify({memberId: 1}));
 
         var dataSet = [];
         $.each(data, function(key, value){
             dataSet.push(value);
-
-            listsData[value["_id"]["$oid"]] = value;
         });
         t = $("#table").DataTable({
             "destroy": true,
@@ -146,78 +142,7 @@
                 {
                     "targets": 2,
                     "data": "certTypeName",
-                    "sClass": "text-center col-md-1"
-                },
-                {
-                    "targets": 3,
-                    "data": "status",
-                    "sClass": "text-center col-md-2",
-                    "render": function (data) {
-                        var content = '';
-                        $.each(data, function(key, val){
-                            if(val["code"] == "request"){
-                                content = statusConvert("certificate", val)["status"];
-                            }
-                        });
-                        return content;
-
-                    }
-                },
-                {
-                    "targets": 4,
-                    "data": "_id",
-                    "sClass": "text-center col-md-1",
-                    "render": function (data) {
-                        return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-certId="' + data["$oid"] + '"><i class="fa fa-list"></i></button>';
-                    }
-                },
-                {
-                    "targets": 5,
-                    "data": "status",
-                    "sClass": "text-center col-md-2",
-                    "render": function (data, key, full) {
-                        var content = '';
-                        $.each(data, function(key, val){
-                            if(val["code"] == "request"){
-                                if(val["result"] != "YES"){
-                                    content = 'A';
-                                }
-                                else{
-                                    content = '<select id="team1-"'+full["_id"]["$oid"]+'" name="team1-"'+full["_id"]["$oid"]+'">'
-                                            + '<option>A</option>'
-                                            + '<option>B</option>'
-                                            + '<option>C</option>'
-                                        + '</select>&nbsp;'
-                                        + '<button class="btn btn-sm btn-success selectTeam" title="บันทึก" data-certId="' + full["_id"]["$oid"] + '" data-team="1"><i class="fa fa-check"></i></button>';
-                                }
-                            }
-                        });
-                        return content;
-                    }
-                },
-                {
-                    "targets": 6,
-                    "data": "status",
-                    "sClass": "text-center col-md-2",
-                    "render": function (data, key, full) {
-                        var content = '';
-                        $.each(data, function(key, val){
-                            if(val["code"] == "request"){
-                                if(val["result"] == "YES"){
-                                    content = 'A';
-                                }
-                                else{
-                                    content = '<select id="team2-"'+full["_id"]["$oid"]+'" name="team2-"'+full["_id"]["$oid"]+'">'
-                                            + '<option>A</option>'
-                                            + '<option>B</option>'
-                                            + '<option>C</option>'
-                                        + '</select>&nbsp;'
-                                        + '<button class="btn btn-sm btn-success selectTeam" title="บันทึก" data-certId="' + full["_id"]["$oid"] + '" data-team="2"><i class="fa fa-check"></i></button>';
-                                }
-                            }
-                        });
-                        return content;
-                    }
+                    "sClass": "text-center col-md-2"
                 }
             ]
         });
@@ -227,19 +152,5 @@
             });
         }).draw();
 
-        $("button.selectTeam").unbind().click(function(){
-            var teamNo = $(this).attr("data-team");
-            var certId = $(this).attr("data-certId");
-
-            var input = $("#team"+teamNo+"-"+certId);
-            updateMDB()
-        });
-    }
-
-    function updateTeam(){
-        //var data = updateMDB();
-        if(data == "success"){
-            listsData();
-        }
     }
 </script>
