@@ -1319,7 +1319,12 @@ pre.prettyprint {
     -webkit-box-shadow: none;
     box-shadow: none;
     min-height: 45px;
-    background: #438eb9
+    /*background: #892e65*/
+    background: #0c357c; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #0c357c 0%, #2d497a 33%, #495b7a 63%, #646c7a 100%, #484d54 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #0c357c 0%,#2d497a 33%,#495b7a 63%,#646c7a 100%,#484d54 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #0c357c 0%,#2d497a 33%,#495b7a 63%,#646c7a 100%,#484d54 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c357c', endColorstr='#484d54',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .navbar .navbar-text, .navbar .navbar-link {
