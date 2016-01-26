@@ -78,11 +78,12 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center col-md-1">{{#i18n}}no.{{/i18n}}</th>
-                                                <th class="text-center col-md-4">{{#i18n}}listName{{/i18n}}</th>
-                                                <th class="text-center col-md-2">{{#i18n}}type{{/i18n}}</th>
+                                                <th class="text-center col-md-3">{{#i18n}}listName{{/i18n}}</th>
+                                                <th class="text-center col-md-1">{{#i18n}}type{{/i18n}}</th>
                                                 <th class="text-center col-md-2">{{#i18n}}status{{/i18n}}</th>
                                                 <th class="text-center col-md-1">{{#i18n}}detail{{/i18n}}</th>
-                                                <th class="text-center col-md-2">{{#i18n}}team{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}team1{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}team2{{/i18n}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -107,16 +108,19 @@
 {{>footer}}
 
 <script type="text/javascript">
+    var listsArr = {};
     $(function () {
         listsData();
     });
 
     function listsData(){
-        var data = selectMDB({memberId: 1});
+        var data = selectMDB({"status.code": "verify"});
 
         var dataSet = [];
         $.each(data, function(key, value){
             dataSet.push(value);
+
+            listsArr[value["_id"]["$oid"]] = value;
         });
         t = $("#table").DataTable({
             "destroy": true,
@@ -142,7 +146,80 @@
                 {
                     "targets": 2,
                     "data": "certTypeName",
-                    "sClass": "text-center col-md-2"
+                    "sClass": "text-center col-md-1"
+                },
+                {
+                    "targets": 3,
+                    "data": "status",
+                    "sClass": "text-center col-md-2",
+                    "render": function (data) {
+                        var content = '';
+                        $.each(data, function(key, value){
+                            if(value["code"] == "request"){
+                                content = statusConvert("certificate", value)["status"];
+                            }
+                        });
+                        return content;
+                    }
+                },
+                {
+                    "targets": 4,
+                    "data": "_id",
+                    "sClass": "text-center col-md-1",
+                    "render": function (data, key, full) {
+
+                        return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-list"></i></button>';
+                        // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
+
+                    }
+                },
+                {
+                    "targets": 5,
+                    "data": "status",
+                    "sClass": "text-center col-md-2",
+                    "render": function (data, key, full) {
+                        var content = '';
+                        $.each(data, function(key, value){
+                            if(value["code"] == "request"){
+                                if(value["result"] !== "YES"){
+                                    content = '<select id="team1-'+full["_id"]["$oid"]+'" name="team1-'+full["_id"]["$oid"]+'">'
+                                            + '<option>A</option>'
+                                            + '<option>B</option>'
+                                            + '<option>C</option>'
+                                        + '</select>&nbsp;'
+                                        + '<button class="btn btn-sm btn-success selectTeam" title="บันทึก" data-team="1" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-check"></i></button>';
+                                }
+                                else{
+                                    content = 'A';
+                                }
+                            }
+                        });
+                        return content;
+                    }
+                },
+                {
+                    "targets": 6,
+                    "data": "status",
+                    "sClass": "text-center col-md-2",
+                    "render": function (data, key, full) {
+                        var content = '';
+                        $.each(data, function(key, value){
+                            if(value["code"] == "request"){
+                                if(value["result"] == "YES"){
+                                    content = '<select id="team2-'+full["_id"]["$oid"]+'" name="team2-'+full["_id"]["$oid"]+'">'
+                                            + '<option>A</option>'
+                                            + '<option>B</option>'
+                                            + '<option>C</option>'
+                                        + '</select>&nbsp;'
+                                        + '<button class="btn btn-sm btn-success selectTeam" title="บันทึก" data-team="2" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-check"></i></button>';
+                                }
+                                else{
+                                    content = 'A';
+                                }
+                            }
+                        });
+                        return content;
+                    }
                 }
             ]
         });
@@ -151,6 +228,16 @@
                 cell.innerHTML = i + 1;
             });
         }).draw();
+
+        $("button.selectTeam").unbind().click(function(){
+            var teamNo = $(this).attr("data-team");
+            var id = $(this).attr("data-_id");
+
+
+        });
+    }
+
+    function updateData(){
 
     }
 </script>
