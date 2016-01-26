@@ -219,7 +219,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var listsArr = {};
-        var datas = callAjax("{{_context_path}}/apps/certificate/views/verify/initjson.json", "get", {}, "json")["lists"];
+        var datas = callAjax("http://mdb.codeunbug.com/culture/cert?filter={'status.code':'request','status.result':'YES'}&filter={'status.code':'verify','status.result':'WAIT'}", "get", {}, "json")["_embedded"]["rh:doc"];
+       //var datas = selectMDB("filter={'status.code':'request','status.result':'YES'}&filter={'status.code':'verify','status.result':'WAIT'}");
+        //console.log(datas);
         var t;
         drawTable(datas);
         searchSelect(datas);
@@ -234,8 +236,11 @@
                         "targets": 0,
                         "searchable": false,
                         "orderable": false,
-                        "data": "certId",
-                        "sClass": "text-center col-md-1"
+                        "data": "_id",
+                        "sClass": "text-center col-md-1",
+                        "render": function (data, key, full) {
+                            return full["_id"]["$oid"];
+                        }
                     },
                     {
                         "targets": 1,
@@ -255,8 +260,8 @@
                         "data": "statusCode",
                         "sClass": "text-center col-md-2",
                         "render": function (data) {
-                            if (data == "PASS") {
-                                return '<span class="label label-success arrowed-in arrowed-in-right">{{#i18n}}verify.PASS{{/i18n}}</span>'
+                            if (data == "YES") {
+                                return '<span class="label label-success arrowed-in arrowed-in-right">{{#i18n}}verify.YES{{/i18n}}</span>'
                             } else {
                                 return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}verify.WAIT{{/i18n}}</span>'
                             }
@@ -265,10 +270,11 @@
                     },
                     {
                         "targets": 4,
-                        "data": "certId",
+                        "data": "_id",
                         "sClass": "text-center col-md-2",
-                        "render": function (data) {
-                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-certId="' + data + '"><i class="fa fa-list"></i></button>'
+                        "render": function (data, key, full) {
+
+                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-list"></i></button>'
                             // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
 
                         }
@@ -288,7 +294,7 @@
             var datasType = {}
             var datasStatus = {};
             $.each(datas, function (key, value) {
-                listsArr[value["certId"]] = value;
+                listsArr[value["_id"]] = value;
                 datasType[value["certTypeName"]] = value["certTypeName"];
                 datasStatus[value["statusCode"]] = value["statusCode"];
             });
@@ -303,8 +309,8 @@
             var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
 
             $.each(datasStatus, function (key, value) {
-                if (value == "PASS") {
-                    search += '<option value="{{#i18n}}verify.PASS{{/i18n}}">{{#i18n}}verify.PASS{{/i18n}}</option>';
+                if (value == "YES") {
+                    search += '<option value="{{#i18n}}verify.YES{{/i18n}}">{{#i18n}}verify.YES{{/i18n}}</option>';
                 } else if (value == "WAIT") {
                     search += '<option value="{{#i18n}}verify.WAIT{{/i18n}}">{{#i18n}}verify.WAIT{{/i18n}}</option>';
                 }
@@ -333,9 +339,9 @@
         function btnEdit() {
             $("button.detail").click(function (e) {
                 e.preventDefault();
-                var certId = $(this).attr("data-certId");
-                window.location = "{{_context_path}}/api/certificate/verify/view/update/" + certId;
-//                var data = listsArr[certId];
+                var _id = $(this).attr("data-_id");
+                window.location = "{{_context_path}}/api/certificate/verify/view/update/" + _id;
+//                var data = listsArr[_id];
 //                console.log(data);
             });
         }

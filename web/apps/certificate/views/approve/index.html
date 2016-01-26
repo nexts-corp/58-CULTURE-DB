@@ -109,6 +109,33 @@
 
 <script type="text/javascript">
     $(function () {
+        var data = {
+            "_id": {
+                "$oid": "56a7848f9207896231f27c4f"
+            },
+            "status": [
+                {
+                    "code": "request",
+                    "result": "YES",
+                    "datetime": "2016/01/26 21:30:05"
+                },
+                {
+                    "code": "verify",
+                    "result": "WAIT",
+                    "datetime": ""
+                },
+                {
+                    "code": "assign",
+                    "result": "WAIT",
+                    "datetime": ""
+                }
+            ],
+            "_etag": {
+                "$oid": "56a79d649207896231f27c56"
+            }
+        }
 
+        var result = updateMDB(data);
+        console.log(result);
     });
 </script>
