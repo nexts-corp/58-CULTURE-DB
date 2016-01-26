@@ -15,6 +15,24 @@ $.extend(true, $.fn.dataTable.defaults, {
     }
 });
 
+$(function () {
+    selectedMenu();
+});
+
+function selectedMenu(){
+    var pgurl = window.location.pathname;
+    $("ul.nav-list li").each(function(){
+        var link = $("a",this).attr('href');
+        if(link == pgurl){
+            if($(this).closest("ul.submenu").length == 1){
+                var head = $(this).closest("ul.submenu").parent().find("a.dropdown-toggle");
+                head.dropdown("toggle");
+            }
+            $(this).addClass("active");
+        }
+    });
+}
+
 function getFormValue(formId, inputs) {
     if (inputs == null || inputs == undefined) {
         inputs = $("#" + formId).find("input");

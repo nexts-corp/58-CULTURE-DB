@@ -5,7 +5,7 @@
             <form class="form-horizontal CertiGames-form has-validation-callback" role="form" id="CertiGames-form">
                 <div class="page-header">
                     <h1>
-                        แจ้งเพิ่มขนาดพื้นที่ใช้สอยของสถานประกอบการ
+                        ขอยกเลิกใบอนุญาตประกอบกิจการให้เช่า แลกเปลี่ยน หรือจำหน่ายภาพยนตร์
                         <div class="inline pull-right" style="padding-left: 10px">&nbsp;
                             <button class="btn btn-primary pull-right btn-sm">ดูข้อมูลใบอนุญาต</button>
                         </div>
@@ -28,20 +28,13 @@
                                     ข้อมูลคำขอ
                                 </a>
                             </li>
-                            <li>
-                                <a data-toggle="tab" href="#attachment">
-                                    <i class="green fa fa-paperclip"></i>
-                                    เอกสารแนบ
-                                </a>
-                            </li>
                         </ul>
                         <div class="tab-content">
                             <div id="infomation" class="tab-pane fade in active">
                                 <div class="form-group">
                                     <div class="col-sm-8 text-left">
                                         <div class="col-sm-12">
-                                            <label class="control-label text-bold" id="nameCompany"><h4>บูมเมอแรงมูฟวี่
-                                                - นายสมศักดิ์ โอกาศ</h4></label>
+                                            <label class="control-label text-bold" id="nameCompany"><h4>นายสมศักดิ์ โอกาส - ร้านบูมเมอแรงมูฟวี่</h4></label>
                                         </div>
                                     </div>
                                 </div>
@@ -152,31 +145,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="hr hr-16 hr-dotted"></div>
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <label class="control-label">เดิมมีพื้นที่ใช้สอยขนาดไม่เกิน 9 ตารางเมตร</label>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <label class="control-label">ขอเพิ่มพื้นที่ใช้สอยเป็นขนาดไม่เกิน</label>
-                                        <input type="text" style="width: 60px;margin-left: 5px;margin-right: 5px;" value="25" disabled/>
-                                        <label class="control-label">ตารางเมตร</label>
-                                    </div>
-                                    <div class="col-sm-12" style="margin-top: 8px">
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="groupRadio" type="radio" class="ace input-md" value="1"/>
-                                                <span class="lbl"> ส่วนนี้ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="groupRadio" type="radio" class="ace input-md" value="2"/>
-                                                <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div id="attachment" class="tab-pane fade">
                                 <div class="form-group">
@@ -270,7 +238,7 @@
                             <div id="dialog-success" class="hide">
                                 <div class="space-6"></div>
                                 <p class="bigger-110 bolder center grey">
-                                    พิจารณาขอเพิ่มขนาดพื้นที่ใช้สอยของสถานประกอบการสำเร็จ
+                                    พิจารณายกเลิกใบอนุญาตประกอบกิจการสำเร็จ
                                 </p>
                             </div>
                             <!-- #dialog-confirm -->
@@ -356,6 +324,20 @@
                         "class": "btn btn-success btn-minier",
                         click: function () {
                             $(this).dialog("close");
+                            $("#dialog-success").removeClass('hide').dialog({
+                                resizable: false,
+                                width: '320',
+                                modal: true,
+                                title_html: true,
+                                title:"<div class='widget-header widget-header-small'><h4 class='smaller'> สำเร็จ</h4></div>",
+                                buttons: [{
+                                    html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Close",
+                                    "class": "btn btn-minier",
+                                    click: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }]
+                            });
                         }
                     }
                     ,

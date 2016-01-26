@@ -9,8 +9,35 @@
             <div class="page-header">
                 <h1>
                     จัดการข้อมูลการขอใบอนุญาต 
+                    <div class="btn-group pull-right">
+                        <button data-toggle="dropdown" class="btn dropdown-toggle btn-sm btn-primary">
+                            <i class="fa fa-plus-circle"></i> เพิ่มการขอใบอนุญาต
+                            <span class="ace-icon fa fa-caret-down icon-on-right"></span>
+                        </button>
 
-                    <button class="btn btn-primary pull-right btn-sm RbtnMargin btn-add" type="button"><i class="fa fa-plus-circle"></i> เพิ่มการขอใบอนุญาต</button>
+                        <ul class="dropdown-menu dropdown-default">
+                            <li>
+                                <a href="{{_context_path}}/api/certificate/certmovie/add">โรงภาพยนตร์</a>
+                            </li>
+
+                            <li>
+                                <a href="{{_context_path}}/api/certificate/certgames/add">ร้านวีดิทัศน์ (เกมการเล่น)</a>
+                            </li>
+                            <li>
+                                <a href="{{_context_path}}/api/certificate/certkaraoke/add">ร้านวีดิทัศน์ (คาราโอเกะ)</a>
+                            </li>
+                            <li>
+                                <a href="{{_context_path}}/api/certificate/certsellmovie/add">ให้เช่า แลกเปลี่ยน หรือจำหน่ายภาพยนตร์</a>
+                            </li>
+                            <li>
+                                <a href="{{_context_path}}/api/certificate/certsellvideo/add">ให้เช่า แลกเปลี่ยน หรือจำหน่ายวีดิทัศน์</a>
+                            </li>
+
+                        </ul>
+                    </div><!-- /.btn-group -->
+
+
+
                 </h1>
 
 
@@ -22,10 +49,14 @@
                     <!-- PAGE CONTENT BEGINS -->
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            
-                            
-                            
-                            
+
+                            <div class="col-xs-2 text-right">ค้นหาตามประเภท</div> 
+                            <div class="col-xs-4">
+                                <select class="form-control" id="certTypeName">
+
+                                </select>
+                            </div> 
+
                         </div>
                     </div>
 
@@ -37,11 +68,11 @@
                             <thead>
                                 <tr>
                                     <th class="col-md-1">ลำดับ</th>
-                                    <th class="col-md-8">ชื่อรายการ</th>
-                                    <th class="col-md-1">ปรเภท</th>
-                                    <th class="col-md-1">ผู้ขอ</th>
-                                    <th class="col-md-1">สถานะ</th>
-                                    <th class="col-md-1">เครื่องมือ</th>
+                                    <th class="col-md-8 text-center">ชื่อรายการ</th>
+                                    <th class="col-md-1 text-center">ปรเภท</th>
+                                    <th class="col-md-1 text-center">วันที่ขอ</th>
+                                    <th class="col-md-1 text-center">สถานะ</th>
+                                    <th class="col-md-1 text-center">เครื่องมือ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,17 +109,26 @@
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
     jQuery(function($) {
-
+        var certTypeName = [];
         /*
-        var dataSet = [
-            {certId: "1", titleTh: "ร้านเกม Zero Games", titleEng: "Zero Games", type: "บุคคลธรรมดา", status: "1"},
-            {certId: "2", titleTh: "ร้านเกม Start Games", titleEng: "Zero Games", type: "บุคคลธรรมดา", status: "2"},
-            {certId: "3", titleTh: "ร้านเกมรักเกมส์นะ", titleEng: "Zero Games", type: "บุคคลธรรมดา", status: "1"}
-        ]
-        */
+         var dataSet = [
+         {certId: "1", titleTh: "ร้านเกม Zero Games", titleEng: "Zero Games", type: "บุคคลธรรมดา", status: "1"},
+         {certId: "2", titleTh: "ร้านเกม Start Games", titleEng: "Zero Games", type: "บุคคลธรรมดา", status: "2"},
+         {certId: "3", titleTh: "ร้านเกมรักเกมส์นะ", titleEng: "Zero Games", type: "บุคคลธรรมดา", status: "1"}
+         ]
+         */
 
         var datas = callAjax("{{_context_path}}/apps/certificate/initjson.json", "get", {}, "json")["lists"];
-        console.log(datas);
+
+
+
+
+        $.each(datas, function(key, value) {
+            certTypeName.push(value["certTypeName"]);
+            //console.log(value["certTypeName"]);
+        });
+        console.log(certTypeName);
+
         $(".btn-add").unbind("click").click(function() {
 
             window.location.assign("{{_context_path}}/api/certificate/certgames/add");
@@ -110,7 +150,7 @@
                 {
                     "targets": 1,
                     "data": "certNameTH",
-                    "sClass": "text-left col-md-5",
+                    "sClass": "text-left col-md-4",
                     "render": function(data, key, full) {
                         return full["certNameTH"] + "&nbsp;/&nbsp;" + full["certNameEN"];
                     }
@@ -122,31 +162,38 @@
                 },
                 {
                     "targets": 3,
-                    "data": "certDate",
-                    "sClass": "text-left col-md-2"
-                }, 
-                
-                {
-                    "targets": 4,
                     "data": "status",
                     "sClass": "text-left col-md-2",
                     "render": function(data, key, full) {
-                        var value = "";
-                        if (data == 1) {
-                            value = '<span class="label label-sm label-info">กำลังตรวจสอบ</span>';
-                        } else if (data == 2) {
-                            value = '<span class="label label-sm label-success">ตรวจสอบเรียบร้อยแล้ว</span>';
 
-                        }
-                        return data;
+                        return datetimeTH(data[0]["datetime"]);
 
+                    }
+                },
+                {
+                    "targets": 4,
+                    "data": "status",
+                    "sClass": "text-center col-md-2",
+                    "render": function(data, key, full) {
+                        var convert="";
+                        var status="";
+                        $.each(data, function(key, value) {
+                            status=value["code"];
+                            convert = statusConvert('certificate',value);
+                            
+                        });
+                        console.log(convert["code"]);
+                        
+                        return '<span class="label label-sm label-success arrowed-in">'+convert["code"]+'</span>';
+                        
                     }
                 }, {
                     "targets": 5,
                     "data": "memberId",
-                    "sClass": "text-left col-md-2",
+                    "sClass": "col-md-1 text-center",
                     "render": function(data, key, full) {
-                        $html = ' <button title="แก้ไขใบอนุญาต" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs"><i class="fa fa-pencil"></i></button>';
+                        //$html = ' <button title="ดูรายละเอียด" data-rel="tooltip" class="tooltip-warning btn-view btn btn-default btn-xs"><i class="fa fa fa-list"></i></button>';
+                        $html = ' <button title="แก้ไขใบอนุญาต" data-rel="tooltip" class="tooltip-warning btn-update btn btn-warning btn-xs" data-type="' + full["certTypeId"] + '"><i class="fa fa-pencil"></i></button>';
                         $html += ' <button  title="ยกเลิกการขอใบอนุญาต" data-rel="tooltip" class=" tooltip-error dialogDelete btn btn-danger btn-xs"><i class=" fa fa-trash-o"></i></button>';
 
 
@@ -160,6 +207,15 @@
                 cell.innerHTML = i + 1;
             });
         }).draw();
+
+
+        search = '<option value="" selected="selected">ทั้งหมด</option>';
+        $.each(certTypeName, function(key, value) {
+            search += '<option value="' + value + '">' + value + '</option>';
+        });
+        $("#certTypeName").html(search).select().change(function() {
+            t.columns(2).search(this.value).draw();
+        });
 
         //override dialog's title function to allow for HTML titles
         $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
@@ -208,8 +264,18 @@
 
         $('[data-rel=tooltip]').tooltip();
         $(".btn-update").unbind("click").click(function() {
-
-            window.location.assign("{{_context_path}}/api/certificate/certgames/edit");
+            var type = $(this).attr("data-type");
+            if (type == 1) {
+                window.location.assign("{{_context_path}}/api/certificate/certmovie/edit");
+            }else if(type==2){
+                window.location.assign("{{_context_path}}/api/certificate/certgames/edit");
+            }else if(type==3){
+                window.location.assign("{{_context_path}}/api/certificate/certkaraoke/edit");
+            }else if(type==4){
+                window.location.assign("{{_context_path}}/api/certificate/certsellmovie/edit");
+            }else if(type==5){
+                window.location.assign("{{_context_path}}/api/certificate/certsellvideo/edit");
+            }
 
         });
         $(".btn-role").unbind("click").click(function() {

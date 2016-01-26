@@ -6,7 +6,7 @@
             <form class="form-horizontal CertiGames-form has-validation-callback" role="form" id="CertiGames-form">
                 <div class="page-header">
                     <h1>
-                        ขอใบอนุญาตประกอบกิจการโรงภาพยนต์
+                        ขอใบอนุญาตประกอบกิจการให้เช่า แลกเปลี่ยน หรือจำหน่ายวีดิทัศน์
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
                             เพิ่มข้อมูล
@@ -39,75 +39,147 @@
                         <div class="tab-content">
                             <div id="infomation" class="tab-pane fade in active">
 
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right">ประเภทบุคคล *</label>
-                                    <div class="col-sm-5">
-                                        <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
-                                            <option>บุคคลธรรมดา</option>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">ข้อมูลทั่วไปเกี่ยวกับคำขอ</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">ประเภทบุคคล *</label>
+                                            <div class="col-sm-5">
+                                                <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                                    <option>บุคคลธรรมดา</option>
+                                                    <option>นิติบุคคล</option>
 
-                                        </select>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">ชื่อภาษาไทย *</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">ชื่อภาษาอังกฤษ </label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" id="inputPassword3">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">บ้านเลขที่</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3">
+                                            </div>
+                                            <label class="col-sm-1 control-label no-padding-right">ตรอก/ซอย</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3">
+                                            </div>
+                                            <label class="col-sm-1 control-label no-padding-right">ถนน</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">หมู่ที่</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3">
+                                            </div>
+                                            <label class="col-sm-1 control-label no-padding-right">ตำบล</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3">
+                                            </div>
+                                            <label class="col-sm-1 control-label no-padding-right">อำเภอ *</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">จังหวัด *</label>
+                                            <div class="col-sm-5">
+                                                <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                                    <option>กรุงเทพมหานคร</option>
+                                                    <option>ชลบุรี</option>
+                                                    <option>ระยอง</option>
+                                                    <option>ศรีสะเกษ</option>
+                                                    <option>เชียงใหม่</option>
+                                                </select>
+
+
+                                            </div>
+
+
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right">ชื่อภาษาไทย *</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right">ชื่อภาษาอังกฤษ *</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="inputPassword3">
-                                    </div>
-                                </div>
-                                <div class="hr hr-16 hr-dotted"></div>
 
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right">บ้านเลขที่</label>
-                                    <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="inputPassword3">
-                                    </div>
-                                    <label class="col-sm-1 control-label no-padding-right">ตรอก/ซอย</label>
-                                    <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="inputPassword3">
-                                    </div>
-                                    <label class="col-sm-1 control-label no-padding-right">ถนน</label>
-                                    <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="inputPassword3">
-                                    </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">ข้อมูลผู้ขอใบอนุญาต</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">ชื่อ-นามสกุล *</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" value="นายยุทธชัย  สมมุติ" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">เลขประจำตัวประชาชน *</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" value="1331600022010" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">บ้านเลขที่</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3" value="5">
+                                            </div>
+                                            <label class="col-sm-1 control-label no-padding-right">ตรอก/ซอย</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3" value="-">
+                                            </div>
+                                            <label class="col-sm-1 control-label no-padding-right">ถนน</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3" value="-">
+                                            </div>
 
-                                </div>
+                                        </div>
 
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right">หมู่ที่</label>
-                                    <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="inputPassword3">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">หมู่ที่</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3" value="19">
+                                            </div>
+                                            <label class="col-sm-1 control-label no-padding-right">ตำบล</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3" value="บุสูง">
+                                            </div>
+                                            <label class="col-sm-1 control-label no-padding-right">อำเภอ *</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" value="วังหิน">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">จังหวัด *</label>
+                                            <div class="col-sm-5">
+                                                <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                                    <option>ศรีสะเกษ</option>
+                                                    <option>กรุงเทพฯ</option>
+                                                    <option>ระยอง</option>
+                                                    <option>ชลบุรี</option>
+                                                    <option>เชียงใหม่</option>
+                                                </select>
+
+
+                                            </div>
+
+
+                                        </div>
+
+
                                     </div>
-                                    <label class="col-sm-1 control-label no-padding-right">ตำบล</label>
-                                    <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="inputPassword3">
-                                    </div>
-                                    <label class="col-sm-1 control-label no-padding-right">อำเภอ *</label>
-                                    <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
-                                    </div>
-
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right">จังหวัด *</label>
-                                    <div class="col-sm-5">
-                                        <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
-                                            <option>กรุงเทพมหานคร</option>
-                                            <option>ชลบุรี</option>
-                                            <option>ระยอง</option>
-                                            <option>ศรีสะเกษ</option>
-                                            <option>เชียงใหม่</option>
-                                        </select>
-
-
-                                    </div>
-
-
                                 </div>
 
                             </div>
@@ -192,6 +264,10 @@
 <script type="text/javascript">
     jQuery(function($) {
         //$("#departmentId").select2();
+        $('[type="reset"]').unbind("click").click(function() {
+
+            window.location.assign("{{_context_path}}/api/certificate/certificate/view/index");
+        });
 
         $.validate({
             addValidClassOnAll: true
@@ -247,7 +323,7 @@
                             click: function() {
 
                                 //var Rows=$(this).closest("tr").index();
-                                window.location.assign("{{_context_path}}/api/certificate/certificate/view/certsellsellvideo");
+                                window.location.assign("{{_context_path}}/api/certificate/certificate/view/index");
                                 $(this).dialog("close");
                                 //alert(tr);
                             }
@@ -257,7 +333,7 @@
                             html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; ยังไม่ส่งตอนนี้",
                             "class": "btn btn-minier",
                             click: function() {
-                                window.location.assign("{{_context_path}}/api/certificate/certificate/view/certsellsellvideo");
+                                window.location.assign("{{_context_path}}/api/certificate/certificate/view/index");
 
                                 $(this).dialog("close");
                             }

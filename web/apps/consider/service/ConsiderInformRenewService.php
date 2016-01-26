@@ -31,7 +31,7 @@ class ConsiderInformRenewService extends CServiceBase implements  IConsiderInfor
 
     public function viewConsiderInformTools()
     {
-        $view = new CJView("ConsiderInformRenew", CJViewType::HTML_VIEW_ENGINE);
+        $view = new CJView("considerInform/ConsiderInformRenew", CJViewType::HTML_VIEW_ENGINE);
         return $view;
     }
 }
