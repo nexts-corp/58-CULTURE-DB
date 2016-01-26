@@ -55,7 +55,7 @@ interface ICertificateService {
     /**
      * @name login
      * @uri /view/certmovie
-     * @description หน้าจัดการขอใบอนุญาตภาพยนต์
+     * @description หน้าจัดการขอใบอนุญาตภาพยนตร์
      * @resource 1000
      **/
     public function viewCertMovie();
@@ -79,7 +79,7 @@ interface ICertificateService {
     /**
      * @name login
      * @uri /view/certsellmovie
-     * @description หน้าจัดการขอใบอนุญาตเช่า แลกเปลี่ยน จำหน่ายภาพยนต์
+     * @description หน้าจัดการขอใบอนุญาตเช่า แลกเปลี่ยน จำหน่ายภาพยนตร์
      * @resource 1000
      **/
     public function viewCertSellMovie();

@@ -12,7 +12,7 @@ interface IMainService {
     /**
      * @name view/index
      * @uri /view/index
-     * @description ชำระค่าธรรมเนียน
+     * @description ชำระค่าธรรมเนียม
      * @sitemap true
      */
     public function index();
