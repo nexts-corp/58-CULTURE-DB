@@ -341,6 +341,20 @@
                         "class": "btn btn-success btn-minier",
                         click: function () {
                             $(this).dialog("close");
+                            $("#dialog-success").removeClass('hide').dialog({
+                                resizable: false,
+                                width: '320',
+                                modal: true,
+                                title_html: true,
+                                title:"<div class='widget-header widget-header-small'><h4 class='smaller'> สำเร็จ</h4></div>",
+                                buttons: [{
+                                    html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Close",
+                                    "class": "btn btn-minier",
+                                    click: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }]
+                            });
                         }
                     }
                     ,

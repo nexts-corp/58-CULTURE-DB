@@ -5,9 +5,9 @@
             <form class="form-horizontal CertiGames-form has-validation-callback" role="form" id="CertiGames-form">
                 <div class="page-header">
                     <h1>
-                        ขอต่ออายุใบอนุญาตประกอบกิจการร้านวีดิทัศน์ (คาราโอเกะ)
+                        คำขอใบแทนใบอนุญาต
                         <div class="inline pull-right" style="padding-left: 10px">&nbsp;
-                            <button class="btn btn-primary pull-right btn-sm hide">ดูข้อมูลใบอนุญาต</button>
+                            <button class="btn btn-primary pull-right btn-sm">ดูข้อมูลใบอนุญาต</button>
                         </div>
                         <button class="btn btn-default pull-right btn-sm " id="cancelApprove" type="reset"><i
                                 class="ace-icon fa fa-times bigger-110"></i> ไม่อนุญาต
@@ -29,12 +29,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a data-toggle="tab" href="#audit">
-                                    <i class="green fa fa-file-text-o"></i>
-                                    ผลตรวจประเมิน
-                                </a>
-                            </li>
-                            <li>
                                 <a data-toggle="tab" href="#attachment">
                                     <i class="green fa fa-paperclip"></i>
                                     เอกสารแนบ
@@ -46,15 +40,25 @@
                                 <div class="form-group">
                                     <div class="col-sm-8 text-left">
                                         <div class="col-sm-12">
-                                            <label class="control-label text-bold" id="nameCompany"><h4>นางสมจิตร สิงหเขตต์</h4></label>
+                                            <label class="control-label text-bold" id="nameCompany"><h4>บ้านตัวโน๊ต - นางสมจิตร สิงหเขตต์</h4></label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-sm-8 text-left">
-                                        <div class="col-sm-12 text-left">
-                                            <label class="control-label text-bold"><b>ประเภทบุคคลธรรมดา</b></label>
+                                    <div class="col-sm-3">
+                                        <div class="col-sm-12"><label class="control-label"><b>ใบอนุญาต
+                                            เลขที่</b></label></div>
+                                        <div class="col-sm-12"><label class="control-label">49/1000</label></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="col-sm-12"><label
+                                                class="control-label"><b>ออกเมื่อวันที่</b></label></div>
+                                        <div class="col-sm-12"><label class="control-label">01/01/2555</label></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="col-sm-12"><label class="control-label"><b>วันสิ้นอายุ</b></label>
                                         </div>
+                                        <div class="col-sm-12"><label class="control-label">31/12/2560</label></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -150,21 +154,18 @@
                                 <div class="hr hr-16 hr-dotted"></div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <label class="control-label">เดิมมีพื้นที่ใช้สอยขนาดไม่เกิน 9 ตารางเมตร</label>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <label class="control-label">ขอเพิ่มพื้นที่ใช้สอยเป็นขนาดไม่เกิน</label>
-                                        <input type="text" style="width: 60px;margin-left: 5px;margin-right: 5px;" value="25" disabled/>
-                                        <label class="control-label">ตารางเมตร</label>
+                                        <div class="col-sm-12"><label class="control-label"><b>เหตุที่ขอรับใบแทนใบอนุญาต</b></label>
+                                        </div>
+                                        <div class="col-sm-12"><Textarea rows="3" class="form-control">สูญหาย</Textarea></div>
                                     </div>
                                     <div class="col-sm-12" style="margin-top: 8px">
-                                        <div class="radio-inline no-padding">
+                                        <div class="radio-inline">
                                             <label>
-                                                <input name="groupRadio" type="radio" class="ace input-md" value="1"/>
+                                                <input name="groupRadio" type="radio" class="ace input-md" value="1" checked/>
                                                 <span class="lbl"> ส่วนนี้ถูกต้อง</span>
                                             </label>
                                         </div>
-                                        <div class="radio-inline no-padding">
+                                        <div class="radio-inline">
                                             <label>
                                                 <input name="groupRadio" type="radio" class="ace input-md" value="2"/>
                                                 <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
@@ -265,7 +266,7 @@
                             <div id="dialog-success" class="hide">
                                 <div class="space-6"></div>
                                 <p class="bigger-110 bolder center grey">
-                                    พิจารณาขอเพิ่มขนาดพื้นที่ใช้สอยของสถานประกอบการสำเร็จ
+                                    พิจารณาคำขอใบแทนอนุญาตสำเร็จ
                                 </p>
                             </div>
                             <!-- #dialog-confirm -->
@@ -351,6 +352,20 @@
                         "class": "btn btn-success btn-minier",
                         click: function () {
                             $(this).dialog("close");
+                            $("#dialog-success").removeClass('hide').dialog({
+                                resizable: false,
+                                width: '320',
+                                modal: true,
+                                title_html: true,
+                                title:"<div class='widget-header widget-header-small'><h4 class='smaller'> สำเร็จ</h4></div>",
+                                buttons: [{
+                                    html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Close",
+                                    "class": "btn btn-minier",
+                                    click: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }]
+                            });
                         }
                     }
                     ,
