@@ -46,8 +46,8 @@ interface IRoleService {
     /**
      * @name viewmanage
      * @uri /view/manage
-     * @description แสดงหน้าการจัดการผู้ใช้งาน
-     * @resource 1000
+     * @description กำหนดสิทธิ์
+     * @sitemap true
      **/
     public function viewManage();
     

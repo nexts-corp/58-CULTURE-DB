@@ -1,7 +1,7 @@
 {
     "id": "tracking",
     "version": "1.0",
-    "title": "Tracking",
+    "title": "ติดตามสถานะงาน",
     "authors": "Pinsuda",
     "owners": "NEXTS-CORP CO.,LTD.",
     "description": "content plugin for tracking",
@@ -9,7 +9,7 @@
     "summary": "content plugin for tracking",
     "language": "th",
     "main": "api/root/view/index",
-    "icon": "api/root/view/index.png",
+    "icon": "fa-check-square-o",
     "sitemap":"api/root/sitemap",
     "license": "content",
     "copyright": "content",

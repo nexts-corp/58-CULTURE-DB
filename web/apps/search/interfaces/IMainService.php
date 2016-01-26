@@ -13,6 +13,7 @@ interface IMainService {
      * @name view/video
      * @uri /view/video
      * @description ค้นหาสื่อวีดีทัศน์
+     * @sitemap true
      */
     public function video();
     
@@ -20,6 +21,7 @@ interface IMainService {
      * @name view/license
      * @uri /view/license
      * @description ค้นหาใบอนุญาต
+     * @sitemap true
      */
     public function license();
 

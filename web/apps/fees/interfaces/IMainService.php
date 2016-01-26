@@ -12,7 +12,8 @@ interface IMainService {
     /**
      * @name view/index
      * @uri /view/index
-     * @description หน้าหลัก
+     * @description ชำระค่าธรรมเนียน
+     * @sitemap true
      */
     public function index();
 

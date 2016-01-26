@@ -11,7 +11,8 @@ interface IManageService {
     /**
      * @name view
      * @uri /view
-     * @description  manage.html
+     * @description  รายการ
+     * @sitemap true
      */
     public function view();
 
