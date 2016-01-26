@@ -112,7 +112,7 @@
     });
 
     function listsData(){
-        var data = selectMDB(JSON.stringify({memberId: 1}));
+        var data = selectMDB({memberId: 1});
 
         var dataSet = [];
         $.each(data, function(key, value){

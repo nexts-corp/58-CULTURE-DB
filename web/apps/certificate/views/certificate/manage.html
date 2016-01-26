@@ -118,23 +118,19 @@
          ]
          */
 
-        //var datas = callAjax("{{_context_path}}/apps/certificate/initjson.json", "get", {}, "json")["lists"];
+        var datas = callAjax("{{_context_path}}/apps/certificate/initjson.json", "get", {}, "json")["lists"];
 
-        var data = selectMDB();
-        var datas=[];
-        $.each(data, function(key, value) {
-            datas.push(value);
-        });
-        
-        //console.log(datas);
+
+
 
         $.each(datas, function(key, value) {
             certTypeName.push(value["certTypeName"]);
             //console.log(value["certTypeName"]);
         });
-        //console.log(certTypeName);
+        console.log(certTypeName);
 
         $(".btn-add").unbind("click").click(function() {
+
             window.location.assign("{{_context_path}}/api/certificate/certgames/add");
         });
 
@@ -148,7 +144,7 @@
                     "targets": 0,
                     "searchable": false,
                     "orderable": false,
-                    "data": "certCode",
+                    "data": "certId",
                     "sClass": "text-center col-md-1"
                 },
                 {
@@ -186,7 +182,7 @@
                             convert = statusConvert('certificate',value);
                             
                         });
-                        //console.log(convert["code"]);
+                        console.log(convert["code"]);
                         
                         return '<span class="label label-sm label-success arrowed-in">'+convert["code"]+'</span>';
                         
