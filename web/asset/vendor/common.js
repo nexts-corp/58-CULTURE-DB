@@ -217,14 +217,16 @@ function statusConvert(process, input){
         datetime: "2016-01-18 14:32:20"
     };*/
 
-    var processCode = {
-        request: "ยื่นคำขอใบอนุญาต",
-        verify: "ตรวจสอบเอกสาร",
-        assign: "มอบหมายชุดตรวจ",
-        monitoring: "ตรวจสถานประกอบการ",
-        transfer: "ส่งมอบเอกสารหลักฐาน",
-        approve: "พิจารณาคำขอใบอนุญาต"
-    };
+    if(process == "certificate") {
+        var processCode = {
+            request: "ยื่นคำขอใบอนุญาต",
+            verify: "ตรวจสอบเอกสาร",
+            assign: "มอบหมายชุดตรวจ",
+            monitoring: "ตรวจสถานประกอบการ",
+            transfer: "ส่งมอบเอกสารหลักฐาน",
+            approve: "พิจารณาคำขอใบอนุญาต"
+        };
+    }
 
     var statusCode = {
         WAIT: "รอ",
@@ -234,7 +236,7 @@ function statusConvert(process, input){
 
     var output = {
         code: processCode[input["code"]],
-        status: statusCode[input["status"]],
+        status: statusCode[input["result"]]+" - "+processCode[input["code"]],
         datetime: datetimeTH(input["datetime"])
     };
 
@@ -247,9 +249,9 @@ function datetimeTH(datetime){
 
     var input = datetime.split(" ");
 
-    var day = input.substr(8, 2);
-    var month = monthTH[parseInt(input.substr(5, 2)) - 1];
-    var year = parseInt(input.substr(0,4)) + 543;
+    var day = input[0].substr(8, 2);
+    var month = monthTH[parseInt(input[0].substr(5, 2)) - 1];
+    var year = parseInt(input[0].substr(0,4)) + 543;
 
     var datetimeTH = day+" "+month+" "+year;
     if(input[1] !== "undefined") {
