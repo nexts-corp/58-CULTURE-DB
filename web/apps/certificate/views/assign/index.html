@@ -114,7 +114,7 @@
     });
 
     function listsData(){
-        var data = selectMDB({"status.code": "verify"});
+        var data = selectMDB({"status.code": "assign1"});
 
         var dataSet = [];
         var searchType = {};
@@ -185,7 +185,7 @@
                     "render": function (data, key, full) {
                         var content = '';
                         $.each(data, function(key, value){
-                            if(value["code"] == "request"){
+                            if(value["code"] == "assign1"){
                                 if(value["result"] !== "YES"){
                                     content = '<select id="team1-'+full["_id"]["$oid"]+'" name="team1-'+full["_id"]["$oid"]+'">'
                                             + '<option>A</option>'
@@ -209,7 +209,7 @@
                     "render": function (data, key, full) {
                         var content = '';
                         $.each(data, function(key, value){
-                            if(value["code"] == "request"){
+                            if(value["code"] == "assign2"){
                                 if(value["result"] == "YES"){
                                     content = '<select id="team2-'+full["_id"]["$oid"]+'" name="team2-'+full["_id"]["$oid"]+'">'
                                             + '<option>A</option>'
