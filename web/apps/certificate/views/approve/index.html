@@ -71,7 +71,11 @@
                             </div>
                             <div class="space-2"></div>
                             <div class="widget-box transparent">
-                                <div class="widget-header widget-header-flat">
+                                <div class="widget-header widget-header-flat text-right">
+                                    <button class="btn btn-sm btn-primary send">
+                                        <i class="fa fa-send"></i> อนุมัติคำขอ
+                                    </button>
+                                    <div class="space-2"></div>
                                 </div>
                                 <div class="widget-body">
                                     <table id="table" class="table table-bordered table-striped table-condensed mb-none">
@@ -80,9 +84,16 @@
                                                 <th class="text-center col-md-1">{{#i18n}}no.{{/i18n}}</th>
                                                 <th class="text-center col-md-4">{{#i18n}}listName{{/i18n}}</th>
                                                 <th class="text-center col-md-2">{{#i18n}}type{{/i18n}}</th>
-                                                <th class="text-center col-md-2">{{#i18n}}status{{/i18n}}</th>
+                                                <th class="text-center col-md-3">{{#i18n}}status{{/i18n}}</th>
                                                 <th class="text-center col-md-1">{{#i18n}}detail{{/i18n}}</th>
-                                                <th class="text-center col-md-2">{{#i18n}}team{{/i18n}}</th>
+                                                <th class="text-center col-md-1">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input name="chkAll" type="checkbox" class="ace" />
+                                                            <span class="lbl"> ทั้งหมด</span>
+                                                        </label>
+                                                    </div>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -108,34 +119,150 @@
 
 
 <script type="text/javascript">
+    var listsArr = {};
     $(function () {
-        var data = {
-            "_id": {
-                "$oid": "56a7848f9207896231f27c4f"
-            },
-            "status": [
-                {
-                    "code": "request",
-                    "result": "YES",
-                    "datetime": "2016/01/26 21:30:05"
-                },
-                {
-                    "code": "verify",
-                    "result": "WAIT",
-                    "datetime": ""
-                },
-                {
-                    "code": "assign",
-                    "result": "WAIT",
-                    "datetime": ""
-                }
-            ],
-            "_etag": {
-                "$oid": "56a79d649207896231f27c56"
-            }
-        }
-
-        var result = updateMDB(data);
-        console.log(result);
+        listsData();
     });
+
+    function listsData() {
+        var data = selectMDB({"status.code": "approve"});
+
+        var dataSet = [];
+        var searchType = {};
+        var searchStatus = {};
+
+        $.each(data, function (key, value) {
+            dataSet.push(value);
+
+            listsArr[value["_id"]["$oid"]] = value;
+            searchType[value["certTypeId"]] = value["certTypeName"];
+            //searchStatus[value["status"]] = value["certTypeName"];
+        });
+        t = $("#table").DataTable({
+            "destroy": true,
+            "data": dataSet,
+            "order": [0, 'asc'],
+            "iDisplayLength": 50,
+            "columnDefs": [
+                {
+                    "targets": 0,
+                    "searchable": false,
+                    "orderable": false,
+                    "data": "certCode",
+                    "sClass": "text-center col-md-1"
+                },
+                {
+                    "targets": 1,
+                    "data": "certNameTH",
+                    "sClass": "text-left col-md-4",
+                    "render": function (data, key, full) {
+                        return full["certNameTH"] + ' / ' + full["certNameEN"];
+                    }
+                },
+                {
+                    "targets": 2,
+                    "data": "certTypeName",
+                    "sClass": "text-center col-md-2"
+                },
+                {
+                    "targets": 3,
+                    "data": "status",
+                    "sClass": "text-center col-md-3",
+                    "render": function (data) {
+                        var content = '';
+                        $.each(data, function (key, value) {
+                            if (value["code"] == "approve") {
+                                content = statusConvert("certificate", value)["status"];
+
+                                if(value["result"] == "YES"){
+                                    content = '<span class="label label-success">'+content+'</span>';
+                                }
+                                else if(value["result"] == "NO"){
+                                    content = '<span class="label label-danger">'+content+'</span>';
+                                }
+                                else{
+                                    content = '<span class="label label-warning">'+content+'</span>';
+                                }
+                            }
+                        });
+                        return content;
+                    }
+                },
+                {
+                    "targets": 4,
+                    "data": "_id",
+                    "sClass": "text-center col-md-1",
+                    "render": function (data, key, full) {
+
+                        return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-list"></i></button>';
+                        // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
+
+                    }
+                },
+                {
+                    "targets": 5,
+                    "data": "status",
+                    "orderable": false,
+                    "sClass": "text-center col-md-1",
+                    "render": function (data, key, full) {
+                        var content = '-';
+                        $.each(data, function (key, value) {
+                            if (value["code"] == "approve") {
+                                if(value["result"] != "YES") {
+                                    content = '<div class="checkbox">'
+                                            + '<label class="block">'
+                                                + '<input name="' + full["_id"]["$oid"] + '" type="checkbox" class="ace input-lg" />'
+                                                + '<span class="lbl bigger-120"></span>'
+                                            + '</label>'
+                                        + '</div>';
+                                }
+                            }
+                        });
+                        return content;
+                    }
+                }
+            ]
+        });
+        t.on('order.dt search.dt', function () {
+            t.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                cell.innerHTML = i + 1;
+            });
+        }).draw();
+
+        //search selectbox type
+        var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
+        $.each(searchType, function (key, value) {
+            search += '<option value="' + value + '">' + value + '</option>';
+        });
+        $("#searchType").html(search);
+
+        $("#searchType").change(function () {
+            t.columns(2).search($(this).val()).draw();
+        });
+
+        $("input[name=chkAll]").unbind().click(function(){
+            $('td input:checkbox',"#table").prop('checked',this.checked);
+        });
+
+        $("button.send").unbind().click(function(){
+            $.each($("#table td input[type=checkbox]:checked"), function() {
+                var oldData = listsArr[$(this).attr("name")];
+                //var findNext = false;
+                $.each(oldData["status"], function(key, value){
+                    if(value["code"] == "approve"){
+                        oldData["status"][key]["result"] = "YES";
+                        oldData["status"][key]["datetime"] = getDateTime();
+                    }
+                });
+                updateData(oldData);
+            })
+        });
+    }
+
+    function updateData(input){
+        var data = updateMDB(input);
+        if(data == "success"){
+            listsData();
+        }
+    }
 </script>

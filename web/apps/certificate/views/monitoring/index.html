@@ -162,6 +162,16 @@
                         $.each(data, function (key, value) {
                             if (value["code"] == "monitoring1") {
                                 content = statusConvert("certificate", value)["status"];
+
+                                if(value["result"] == "YES"){
+                                    content = '<span class="label label-success">'+content+'</span>';
+                                }
+                                else if(value["result"] == "NO"){
+                                    content = '<span class="label label-danger">'+content+'</span>';
+                                }
+                                else{
+                                    content = '<span class="label label-warning">'+content+'</span>';
+                                }
                             }
                         });
                         return content;

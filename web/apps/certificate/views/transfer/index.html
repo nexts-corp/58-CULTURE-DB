@@ -71,7 +71,11 @@
                             </div>
                             <div class="space-2"></div>
                             <div class="widget-box transparent">
-                                <div class="widget-header widget-header-flat">
+                                <div class="widget-header widget-header-flat text-right">
+                                    <button class="btn btn-sm btn-primary send">
+                                        <i class="fa fa-send"></i> ส่งมอบเอกสาร
+                                    </button>
+                                    <div class="space-2"></div>
                                 </div>
                                 <div class="widget-body">
                                     <table id="table" class="table table-bordered table-striped table-condensed mb-none">
@@ -169,6 +173,16 @@
                         $.each(data, function (key, value) {
                             if (value["code"] == "transfer") {
                                 content = statusConvert("certificate", value)["status"];
+
+                                if(value["result"] == "YES"){
+                                    content = '<span class="label label-success">'+content+'</span>';
+                                }
+                                else if(value["result"] == "NO"){
+                                    content = '<span class="label label-danger">'+content+'</span>';
+                                }
+                                else{
+                                    content = '<span class="label label-warning">'+content+'</span>';
+                                }
                             }
                         });
                         return content;
@@ -191,14 +205,19 @@
                     "orderable": false,
                     "sClass": "text-center col-md-1",
                     "render": function (data, key, full) {
-                        var content = '<div class="checkbox">'
-                                + '<label class="block">'
-                                    + '<input name="chk-'+full["_id"]["$oid"]+'" type="checkbox" class="ace input-lg" />'
-                                    + '<span class="lbl bigger-120"></span>'
-                                + '</label>'
-                                + '</div>';
-                                //<input type=" title="บันทึก" data-monitor="1" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-check"></i></button>';
-
+                        var content = '-';
+                        $.each(data, function (key, value) {
+                            if (value["code"] == "transfer") {
+                                if(value["result"] != "YES") {
+                                    content = '<div class="checkbox">'
+                                            + '<label class="block">'
+                                                + '<input name="' + full["_id"]["$oid"] + '" type="checkbox" class="ace input-lg" />'
+                                                + '<span class="lbl bigger-120"></span>'
+                                            + '</label>'
+                                        + '</div>';
+                                }
+                            }
+                        });
                         return content;
                     }
                 }
@@ -221,28 +240,27 @@
             t.columns(2).search($(this).val()).draw();
         });
 
-        $("button.monitor").unbind().click(function(){
-            var monitorNo = $(this).attr("data-monitor");
-            var id = $(this).attr("data-_id");
+        $("input[name=chkAll]").unbind().click(function(){
+            $('td input:checkbox',"#table").prop('checked',this.checked);
+        });
 
-            var result = $("input[name=monitor"+monitorNo+"-"+id+"]").val();
-            var oldData = listsArr[id];
-            //var findNext = false;
-            $.each(oldData["status"], function(key, value){
-                if(value["code"] == "monitoring"+monitorNo){
-                    oldData["status"][key]["result"] = result;
-                    oldData["status"][key]["datetime"] = getDateTime();
-                }
-                //if(value["code"] == "tranfer")
-            });
-            if(result == "YES"){
+        $("button.send").unbind().click(function(){
+            $.each($("#table td input[type=checkbox]:checked"), function() {
+                var oldData = listsArr[$(this).attr("name")];
+                //var findNext = false;
+                $.each(oldData["status"], function(key, value){
+                    if(value["code"] == "transfer"){
+                        oldData["status"][key]["result"] = "YES";
+                        oldData["status"][key]["datetime"] = getDateTime();
+                    }
+                });
                 oldData["status"].push({
-                    code: "transfer",
+                    code: "approve",
                     result: "WAIT",
                     datetime: ""
                 });
-            }
-            updateData(oldData);
+                updateData(oldData);
+            })
         });
     }
 
