@@ -218,7 +218,7 @@ function selectMDB(filter){
 
         },
         success: function (result) {
-            if(typeof result !== "undefined"){
+            if(typeof result["_embedded"] !== "undefined"){
                 value = result["_embedded"]["rh:doc"];
             }
             else{
