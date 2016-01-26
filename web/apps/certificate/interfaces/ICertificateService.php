@@ -47,8 +47,9 @@ interface ICertificateService {
     /**
      * @name login
      * @uri /view/index
-     * @description หน้าจัดการขอใบอนุญาต
+     * @description 1.ยื่นคำขอใบอนุญาต
      * @resource 1000
+     * @sitemap true
      **/
     public function viewIndex();
         
@@ -56,7 +57,6 @@ interface ICertificateService {
      * @name login
      * @uri /view/certmovie
      * @description หน้าจัดการขอใบอนุญาตภาพยนตร์
-     * @sitemap true
      **/
     public function viewCertMovie();
 
@@ -64,7 +64,6 @@ interface ICertificateService {
      * @name login
      * @uri /view/certgames
      * @description หน้าจัดการขอใบอนุญาตร้านเกม
-     * @sitemap true
      **/
     public function viewCertGames();
 
@@ -72,7 +71,6 @@ interface ICertificateService {
      * @name login
      * @uri /view/certkaraoke
      * @description หน้าจัดการขอใบอนุญาตร้านคาราโอเกะ
-     * @sitemap true
      **/
     public function viewCertKaraoke();
     
@@ -80,7 +78,6 @@ interface ICertificateService {
      * @name login
      * @uri /view/certsellmovie
      * @description หน้าจัดการขอใบอนุญาตเช่า แลกเปลี่ยน จำหน่ายภาพยนตร์
-     * @sitemap true
      **/
     public function viewCertSellMovie();
     
@@ -88,7 +85,6 @@ interface ICertificateService {
      * @name login
      * @uri /view/certsellvideo
      * @description หน้าจัดการขอใบอนุญาตเช่า แลกเปลี่ยน จำหน่ายวีดิทัศน์
-     * @sitemap true
      **/
     public function viewCertSellVideo();
 }

@@ -48,7 +48,6 @@ interface ICertKaraokeService {
      * @name add
      * @uri /add
      * @description เพิ่มใบอนุญาตร้านเกม
-     * @sitemap true
      **/
     public function viewAdd();
     
@@ -56,7 +55,6 @@ interface ICertKaraokeService {
      * @name Update
      * @uri /edit
      * @description แก้ไขใบอนุญาตร้านเกม
-     * @sitemap true
      **/
     public function viewUpdate();    
 

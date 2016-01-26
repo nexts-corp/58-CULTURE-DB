@@ -47,7 +47,6 @@ interface IChangeService {
      * @name login
      * @uri /view/area
      * @description เปลี่ยนขนาดพื้นที่
-     * @sitemap true
      **/
     public function viewChangeArea();
     
@@ -55,7 +54,6 @@ interface IChangeService {
      * @name login
      * @uri /view/tools
      * @description เปลี่ยนจำนวนเครื่องมือ
-     * @sitemap true
      **/
     public function viewChangeTools();
 

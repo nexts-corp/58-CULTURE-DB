@@ -24,11 +24,35 @@ class NavWidget extends CWidget {
 
     public function render() {
         $loader = new CServiceLoaderImpl();
-        $apps = array("certificate", "tracking", "search", "fees", "report", "member", "notification");
+        $apps = array("certificate", "fees", "report", "tracking", "search", "member", "notification");
+        //ksort( $apps);
         $list_apps = [];
+        $k=0;
         foreach ($apps as $i => $value) {
             $list_apps[] = $loader->load($value);
+            
+            $rts=$list_apps[$k]->routeTables;
+          //ksort( $list_apps[$k]->routeTables);
+            $srts=[];
+           foreach ($rts as $i => $rt) {
+                if($rt->sitemap==true){
+                    $xx= $rt->operationDesc;
+                    $srts[$xx]=$rt;
+                }
+            }
+            ksort( $srts);
+            $list_apps[$k]->routeTables=[];
+            foreach ($srts as $i => $rt) {
+                 $list_apps[$k]->routeTables[]=$rt;
+            }
+            //print_r($srts);
+            //$list_apps[$k]->routeTables=[]
+            //$list_apps[$k]->routeTables=$srts;
+           /// print_r($list_apps[$k]->routeTables);
+            $k++;
         }
+        
+        //exit();
        
 
         $view = new CJView("nav", CJViewType::HTML_VIEW_ENGINE);

@@ -12,7 +12,7 @@ interface IApproveService {
     /**
      * @name index
      * @uri /view/index
-     * @description พิจารณาคำขอ
+     * @description 6.พิจารณาคำขอ
      * @sitemap true
      * */
     public function view_index();

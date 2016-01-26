@@ -12,7 +12,7 @@ interface IAssignService {
     /**
      * @name index
      * @uri /view/index
-     * @description มอบหมายชุดตรวจ
+     * @description 3.มอบหมายชุดตรวจ
      * @sitemap true
      * */
     public function view_index();

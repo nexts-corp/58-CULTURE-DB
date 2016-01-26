@@ -12,7 +12,7 @@ interface IVerifyService {
     /**
      * @name index
      * @uri /view/index
-     * @description หน้าหลัก
+     * @description 2.ตรวจสอบเอกสาร
         * @sitemap true
      * */
     public function view_index();
@@ -22,7 +22,6 @@ interface IVerifyService {
      * @uri /view/update
      * @description หน้าแก้ไข
      * @param string certId
-     * @sitemap true
-     * */
+     **/
     public function view_update($certId);
 }
