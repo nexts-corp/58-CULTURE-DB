@@ -6,9 +6,9 @@
             "memberId": "1",
             "memberName": "นายยุทธชัย  สมมุติ",
             "certTypeId": "1",
-            "certTypeName": "ร้านวีดิทัศน์ (คาราโอเกะ)",
-            "certNameTH": "เชิญชิมคาราโอเกะ",
-            "certNameEN": "Karaoke",
+            "certTypeName": "โรงภาพยนต์",
+            "certNameTH": "กรุงเทพมูฟวี่",
+            "certNameEN": "Bankkok Movie",
             "memberTypeId": "1",
             
             "memberTypeName": "บุคคลธรรมดา",
@@ -69,6 +69,102 @@
                     "result": "WAIT",
                     "datetime": ""
                 }
+            ]
+
+
+        },{
+            "certId": "2",
+            "certCode": "00002/2558",
+            "memberId": "1",
+            "memberName": "นายยุทธชัย  สมมุติ",
+            "certTypeId": "2",
+            "certTypeName": "ร้านวีดิทัศน์ (เกมการเล่น)",
+            "certNameTH": "อิคคิวซัง",
+            "certNameEN": "-",
+            "memberTypeId": "1",
+            
+            "memberTypeName": "บุคคลธรรมดา",
+            "memberAddress": {
+                "no": "4/85",
+                "district": "-",
+                "area": "วงศ์สว่าง",
+                "province": "กรุงเทพฯ",
+                "zipcode": "10800"
+            },
+            "certAddress": {
+                "no": "4/85",
+                "district": "-",
+                "area": "วงศ์สว่าง",
+                "province": "กรุงเทพฯ",
+                "zipcode": "10800"
+            },
+            "attachment": {
+                "citizenCard": "cz1101.pdf",
+                "profile": "pf1101.pdf",
+                "commercial": "cm1101.pdf",
+                "map": "mp1101.pdf",
+                "plan": "pn1101.pdf",
+                "shop": "sp1101.pdf"
+            },
+            "cordinate": {
+                "lat": "13.426546",
+                "lng": "100.123456"
+            },
+            "status": [
+                {
+                    "code": "request",
+                    "result": "YES",
+                    "datetime": "2016-01-18 15:25:04"
+                }
+                
+            ]
+
+
+        },{
+            "certId": "3",
+            "certCode": "00003/2558",
+            "memberId": "1",
+            "memberName": "นายยุทธชัย  สมมุติ",
+            "certTypeId": "3",
+            "certTypeName": "ร้านวีดิทัศน์ (คาราโอเกะ)",
+            "certNameTH": "ร้านคาราโอเกะ ซอย 3 ",
+            "certNameEN": "Karaoke",
+            "memberTypeId": "1",
+            
+            "memberTypeName": "บุคคลธรรมดา",
+            "memberAddress": {
+                "no": "4/85",
+                "district": "-",
+                "area": "วงศ์สว่าง",
+                "province": "กรุงเทพฯ",
+                "zipcode": "10800"
+            },
+            "certAddress": {
+                "no": "4/85",
+                "district": "-",
+                "area": "วงศ์สว่าง",
+                "province": "กรุงเทพฯ",
+                "zipcode": "10800"
+            },
+            "attachment": {
+                "citizenCard": "cz1101.pdf",
+                "profile": "pf1101.pdf",
+                "commercial": "cm1101.pdf",
+                "map": "mp1101.pdf",
+                "plan": "pn1101.pdf",
+                "shop": "sp1101.pdf"
+            },
+            "cordinate": {
+                "lat": "13.426546",
+                "lng": "100.123456"
+            },
+            "status": [
+                {
+                    "code": "request",
+                    "result": "YES",
+                    "datetime": "2016-01-18 15:25:04"
+                }
+                
             ]
 
 
