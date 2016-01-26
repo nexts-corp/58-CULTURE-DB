@@ -27,8 +27,8 @@ function selectedMenu(){
             if($(this).closest("ul.submenu").length == 1){
                 var head = $(this).closest("ul.submenu").parent().find("a.dropdown-toggle");
                 head.dropdown("toggle");
-                $(this).addClass("active");
             }
+            $(this).addClass("active");
         }
     });
 }
