@@ -1,502 +1,215 @@
 {{>header}}
 <div class="main-content">
-    <div class="main-content-inner">
+    <div class="main-content-inner">        
         <div class="page-content">
+
             <form class="form-horizontal CertiGames-form has-validation-callback" role="form" id="CertiGames-form">
                 <div class="page-header">
                     <h1>
-                        {{#i18n}}verify.title{{/i18n}} ประเภท{{#lists}}{{certTypeName}}{{/lists}}
+                        ขอใบอนุญาตประกอบกิจการร้านวีดิทัศน์ (เกมการเล่น)
+                        <small>
+                            <i class="ace-icon fa fa-angle-double-right"></i>
+                            แก้ไขข้อมูล
+                        </small>
+                        <button class="btn btn-default pull-right btn-sm " type="reset"><i class="ace-icon fa fa-times bigger-110"></i> ยกเลิก</button>
+                        <span>&nbsp;&nbsp;</span>
+                        <button class="btn btn-success pull-right btn-sm " type="submit"><i class="ace-icon fa fa-floppy-o bigger-110"></i> บันทึกข้อมูล</button>
                     </h1>
-                </div>
-                <!-- /.page-header -->
-                {{#lists}}
+
+                </div><!-- /.page-header -->
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="col-sm-6 text-left">
-                            <div class="col-sm-12">
-                                <label class="control-label text-bold" id="nameCompany"><h4>{{memberName}}</h4></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 text-left">
-                            <div class="col-sm-12 text-left">
-                                <label class="control-label text-bold"><b>ประเภท {{memberTypeName}}</b></label>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-xs-12">
                         <ul class="nav nav-tabs" id="myTab">
                             <li class="active">
-                                <a data-toggle="tab" href="#shop">
-                                    <i class="green ace-icon fa fa-file-text-o bigger-120"></i>
-                                    ที่อยู่สถานประกอบการ
+                                <a data-toggle="tab" href="#infomation">
+                                    <i class="green ace-icon fa fa-home bigger-120"></i>
+                                    ข้อมูลคำขอ
                                 </a>
                             </li>
-                            <li>
-                                <a data-toggle="tab" href="#member">
-                                    <i class="green fa fa-paperclip"></i>
-                                    ที่อยู่ปัจจุบัน
-                                </a>
-                            </li>
+
                             <li>
                                 <a data-toggle="tab" href="#attachment">
                                     <i class="green fa fa-paperclip"></i>
+
                                     เอกสารแนบ
+
                                 </a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div id="shop" class="tab-pane fade in active">
+                            <div id="infomation" class="tab-pane fade in active">
+
                                 <div class="form-group">
-                                    {{#certAddress}}
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>บ้านเลขที่</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{no}}{{^no}}-{{/no}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>หมู่ที่</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{moo}}{{^moo}}-{{/moo}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>ตรอก/ซอย</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{soi}}{{^soi}}-{{/soi}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>ถนน</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{road}}{{^road}}-{{/road}}</label>
-                                        </div>
-                                    </div>
+                                    <label class="col-sm-2 control-label no-padding-right">ประเภทบุคคล *</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                            <option>บุคคลธรรมดา</option>
 
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>ตำบล/แขวง</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{district}}{{^district}}-{{/district}}</label>
-                                        </div>
+                                        </select>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>อำเภอ/เขต</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{area}}{{^area}}-{{/area}}</label>
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">ชื่อร้านภาษาไทย *</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" value="ร้านเกม Zero Games">
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>จังหวัด</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{province}}{{^province}}-{{/province}}</label>
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">ชื่อร้านภาษาอังกฤษ *</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" id="inputPassword3" value="Zero Games">
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-5 text-left">
-                                            <label class="control-label"><b>รหัสไปรษณีย์</b></label>
-                                        </div>
-                                        <div class="col-sm-7 text-left">
-                                            <label class="control-label">{{zipcode}}{{^zipcode}}-{{/zipcode}}</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>โทรศัพท์</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{mobile}}{{^mobile}}-{{/mobile}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>โทรสาร</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{fax}}{{^fax}}-{{/fax}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>อีเมลล์</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{email}}{{^email}}-{{/email}}</label>
-                                        </div>
-                                    </div>
-                                    {{/certAddress}}
                                 </div>
                                 <div class="hr hr-16 hr-dotted"></div>
+
                                 <div class="form-group">
-                                    <div class="col-sm-12" style="margin-top: 8px">
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="1"/>
-                                                <span class="lbl"> ส่วนนี้ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="2"/>
-                                                <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                        <div class="inline col-sm-6">
-                                            <input type="text" class="form-control" placeholder="หมายเหตุ">
-                                        </div>
+                                    <label class="col-sm-2 control-label no-padding-right">บ้านเลขที่</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="5/12">
                                     </div>
-                                </div>
-                            </div>
-                            <div id="member" class="tab-pane fade">
-                                <div class="form-group">
-                                    {{#memberAddress}}
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>บ้านเลขที่</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{no}}{{^no}}-{{/no}}</label>
-                                        </div>
+                                    <label class="col-sm-1 control-label no-padding-right">ตรอก/ซอย</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="-">
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>หมู่ที่</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{moo}}{{^moo}}-{{/moo}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>ตรอก/ซอย</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{soi}}{{^soi}}-{{/soi}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>ถนน</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{road}}{{^road}}-{{/road}}</label>
-                                        </div>
+                                    <label class="col-sm-1 control-label no-padding-right">ถนน</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="วงศ์สว่าง">
                                     </div>
 
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>ตำบล/แขวง</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{district}}{{^district}}-{{/district}}</label>
-                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right">หมู่ที่</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="-">
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>อำเภอ/เขต</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{area}}{{^area}}-{{/area}}</label>
-                                        </div>
+                                    <label class="col-sm-1 control-label no-padding-right">ตำบล</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" value="วงศ์สว่าง">
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>จังหวัด</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{province}}{{^province}}-{{/province}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-5 text-left">
-                                            <label class="control-label"><b>รหัสไปรษณีย์</b></label>
-                                        </div>
-                                        <div class="col-sm-7 text-left">
-                                            <label class="control-label">{{zipcode}}{{^zipcode}}-{{/zipcode}}</label>
-                                        </div>
+                                    <label class="col-sm-1 control-label no-padding-right">อำเภอ *</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="inputPassword3" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล" value="บางซื่อ">
                                     </div>
 
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>โทรศัพท์</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{mobile}}{{^mobile}}-{{/mobile}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>โทรสาร</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{fax}}{{^fax}}-{{/fax}}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-4 text-left">
-                                            <label class="control-label"><b>อีเมลล์</b></label>
-                                        </div>
-                                        <div class="col-sm-8 text-left">
-                                            <label class="control-label">{{email}}{{^email}}-{{/email}}</label>
-                                        </div>
-                                    </div>
-                                    {{/memberAddress}}
                                 </div>
-                                <div class="hr hr-16 hr-dotted"></div>
                                 <div class="form-group">
-                                    <div class="col-sm-12" style="margin-top: 8px">
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="1"/>
-                                                <span class="lbl"> ส่วนนี้ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="2"/>
-                                                <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                        <div class="inline col-sm-6">
-                                            <input type="text" class="form-control" placeholder="หมายเหตุ">
-                                        </div>
+                                    <label class="col-sm-2 control-label no-padding-right">จังหวัด *</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control" data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนข้อมูล">
+                                            <option>กรุงเทพมหานคร</option>
+                                            <option>ชลบุรี</option>
+                                            <option>ระยอง</option>
+                                            <option>ศรีสะเกษ</option>
+                                            <option>เชียงใหม่</option>
+                                        </select>
+
+
                                     </div>
+
+
                                 </div>
+
+                                </form>
                             </div>
+
                             <div id="attachment" class="tab-pane fade">
-                                {{#attachment}}
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right">สำเนาบัตรประจำตัวประชาชน</label>
-
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{citizenCard}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                    <label class="col-sm-3 control-label no-padding-right">สำเนาบัตรประจำตัวประชาชน *</label>
+                                    <div class="col-sm-2">
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
                                     </div>
 
-                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายครึ่งตัว </label>
+                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายครึ่งตัว *</label>
+                                    <div class="col-sm-2">
 
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{profile}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
+
                                     </div>
-
                                 </div>
                                 <div class="hr hr-16 hr-dotted"></div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right">สำเนาใบทะเบียนพาณิช</label>
-
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{commercial}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                    <label class="col-sm-3 control-label no-padding-right">สำเนาใบทะเบียนพาณิช *</label>
+                                    <div class="col-sm-2">
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
                                     </div>
 
-                                    <label class="col-sm-3 control-label no-padding-right">แผนที่โดยสังเขปที่ตั้งร้าน</label>
+                                    <label class="col-sm-3 control-label no-padding-right">แผนที่โดยสังเขปที่ตั้งร้าน *</label>
+                                    <div class="col-sm-2">
 
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{map}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
+
                                     </div>
-
                                 </div>
                                 <div class="hr hr-16 hr-dotted"></div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right">แบบแปลนแผนผังแสดงพื้นที่การให้บริการ</label>
-
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{plan}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                    <label class="col-sm-3 control-label no-padding-right">แบบแปลนแผนผังแสดงพื้นที่การให้บริการ *</label>
+                                    <div class="col-sm-2">
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
                                     </div>
 
-                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายของร้านวีดิทัศน์</label>
+                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายของร้านวีดิทัศน์ *</label>
+                                    <div class="col-sm-2">
 
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{shop}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
-                                    </div>
+                                        <!-- Display filename inside the button instead of its label -->
+                                        <input type="file" title="เลือกไฟล์">
 
-                                </div>
-                                {{/attachment}}
-
-                                <div class="form-group">
-                                    <div class="col-sm-12" style="margin-top: 8px">
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="1"/>
-                                                <span class="lbl"> ส่วนนี้ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="2"/>
-                                                <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                        <div class="inline col-sm-6">
-                                            <input type="text" class="form-control" placeholder="หมายเหตุ" name="descAttachment">
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="space-6"></div>
-                        <div class="col-sm-12">
-                            <button class="btn btn-primary pull-right btn-sm " id="cancelApprove" type="reset"><i
-                                    class="ace-icon fa fa-save bigger-110"></i> บันทึก
-                            </button>
-                        </div>
-                        <div class="col-sm-6">
-                            <div id="dialog-confirm" class="hide">
-                                <div class="space-6"></div>
-                                <p class="bigger-110 bolder center grey">
-                                    <i class="ace-icon blue bigger-120"></i>
-                                    ต้องการยืนยันการอนุญาต
-                                </p>
-                            </div>
-                            <div id="dialog-input" class="hide">
-                                <div class="space-6"></div>
-                                <textarea class="form-control" rows="4" placeholder="เหตุผลการไม่อนุญาต"></textarea>
-                            </div>
-                            <div id="dialog-success" class="hide">
-                                <div class="space-6"></div>
-                                <p class="bigger-110 bolder center grey">
-                                    พิจารณาขอเพิ่มขนาดพื้นที่ใช้สอยของสถานประกอบการสำเร็จ
-                                </p>
-                            </div>
-                            <!-- #dialog-confirm -->
-                        </div>
-                        <!-- ./span -->
+
+
+
+
                         <!-- PAGE CONTENT ENDS -->
-                    </div>
-                    <!-- /.col -->
-                </div>
-                {{/lists}}
-                <!-- /.row -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
             </form>
-        </div>
+        </div><!-- /.page-content -->
     </div>
-    <!-- /.main-content -->
-    {{>footer}}
-    <script type="text/javascript">
+</div><!-- /.main-content -->
+{{>footer}}
+<!-- inline scripts related to this page -->
 
-        //override dialog's title function to allow for HTML titles
-        $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
-            _title: function (title) {
-                var $title = this.options.title || '&nbsp;'
-                if (("title_html" in this.options) && this.options.title_html == true)
-                    title.html($title);
-                else
-                    title.text($title);
+<script type="text/javascript">
+    jQuery(function($) {
+        //$("#departmentId").select2();
+        alert("{{certId}}");
+        $.validate({
+            addValidClassOnAll: true
+        });
+
+        $('input[type=file]').bootstrapFileInput();
+
+
+        $('#CertiGames-form').on('submit', function() {
+            if ($(this).isValid()) {
+                //displayErrors( errors );
+
+                var data = {};
+                data['firstname'] = $("#firstname").val();
+                data['lastname'] = $("#lastname").val();
+                data['departmentId'] = $("#departmentId").val();
+                data['telephone'] = $("#telephone").val();
+                data['email'] = $("#email").val();
+                data['username'] = $("#username").val();
+                data['password'] = $("#password").val();
+
+                var jdata = {};
+                jdata['member'] = data;
+                var result = callAjax('{{_context_path}}/api/member/member/insert', 'post', jsonEncode(jdata), 'json');
+                console.log(result);
+                window.location.assign("{{_context_path}}/api/certificate/certificate/view/certgames");
+                return false;
             }
-        }));
-
-        $("#approve").on('click', function (e) {
-            e.preventDefault();
-
-            $("#dialog-confirm").removeClass('hide').dialog({
-                resizable: false,
-                width: '320',
-                modal: true,
-                title_html: true,
-                title: "<div class='widget-header widget-header-small'><h4 class='smaller'> ต้องการยืนยัน</h4></div>",
-                buttons: [
-                    {
-                        html: "<i class='ace-icon fa fa-check bigger-110'></i>&nbsp; ยืนยัน",
-                        "class": "btn btn-success btn-minier",
-                        click: function () {
-                            //click
-                            $(this).dialog("close");
-                            $("#dialog-success").removeClass('hide').dialog({
-                                resizable: false,
-                                width: '320',
-                                modal: true,
-                                title_html: true,
-                                title: "<div class='widget-header widget-header-small'><h4 class='smaller'> สำเร็จ</h4></div>",
-                                buttons: [{
-                                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Close",
-                                        "class": "btn btn-minier",
-                                        click: function () {
-                                            $(this).dialog("close");
-                                        }
-                                    }]
-                            });
-                        }
-                    }
-                    ,
-                    {
-                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
-                        "class": "btn btn-minier",
-                        click: function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                ]
-            });
-        });
-        $("#cancelApprove").on('click', function (e) {
-            e.preventDefault();
-
-            $("#dialog-input").removeClass('hide').dialog({
-                resizable: false,
-                width: '320',
-                modal: true,
-                title_html: true,
-                title: "<div class='widget-header widget-header-small'><h4 class='smaller'> ยืนยันการไม่อนุญาต</h4></div>",
-                buttons: [
-                    {
-                        html: "<i class='ace-icon fa fa-check bigger-110'></i>&nbsp; ยืนยันการไม่อนุญาต",
-                        "class": "btn btn-success btn-minier",
-                        click: function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                    ,
-                    {
-                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
-                        "class": "btn btn-minier",
-                        click: function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                ]
-            });
         });
 
-    </script>
+
+    });
+</script>
