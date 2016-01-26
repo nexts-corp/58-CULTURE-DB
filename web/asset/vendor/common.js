@@ -209,3 +209,55 @@ function getHTML(id, link, data) {
 function text2html(input){
     return input.replace(/\n/g, '<br>');
 }
+
+function statusConvert(process, input){
+    /*input = {
+        code: "request",
+        result: "WAIT",
+        datetime: "2016-01-18 14:32:20"
+    };*/
+
+    if(process == "certificate") {
+        var processCode = {
+            request: "ยื่นคำขอใบอนุญาต",
+            verify: "ตรวจสอบเอกสาร",
+            assign: "มอบหมายชุดตรวจ",
+            monitoring: "ตรวจสถานประกอบการ",
+            transfer: "ส่งมอบเอกสารหลักฐาน",
+            approve: "พิจารณาคำขอใบอนุญาต"
+        };
+    }
+
+    var statusCode = {
+        WAIT: "รอ",
+        YES: "ผ่าน",
+        NO: "ไม่ผ่าน"
+    };
+
+    var output = {
+        code: processCode[input["code"]],
+        status: statusCode[input["result"]]+" - "+processCode[input["code"]],
+        datetime: datetimeTH(input["datetime"])
+    };
+
+    return output;
+
+}
+
+function datetimeTH(datetime){
+    var monthTH = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+
+    var input = datetime.split(" ");
+
+    var day = input[0].substr(8, 2);
+    var month = monthTH[parseInt(input[0].substr(5, 2)) - 1];
+    var year = parseInt(input[0].substr(0,4)) + 543;
+
+    var datetimeTH = day+" "+month+" "+year;
+    if(input[1] !== "undefined") {
+        datetimeTH += " "+input[1]+" น.";
+    }
+
+    return datetimeTH;
+
+}

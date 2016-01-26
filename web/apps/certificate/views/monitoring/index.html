@@ -1,0 +1,114 @@
+{{>header}}
+
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">Home</a>
+                </li>
+                <li class="active">{{#i18n}}monitoring.title{{/i18n}}</li>
+            </ul><!-- /.breadcrumb -->
+
+            <div class="nav-search" id="nav-search">
+                <form class="form-search">
+                    <span class="input-icon">
+                        <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                        <i class="ace-icon fa fa-search nav-search-icon"></i>
+                    </span>
+                </form>
+            </div><!-- /.nav-search -->
+        </div>
+
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    {{#i18n}}monitoring.title{{/i18n}}
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="widget-box">
+                                <div class="widget-header">
+                                    <h4 class="widget-title lighter">
+                                        <i class="fa fa-search"></i> ค้นหา
+                                    </h4>
+                                </div>
+
+                                <div class="widget-body">
+                                    <div class="widget-main">
+                                        <form class="form-horizontal" onsubmit="return false;">
+                                            <div class="form-group">
+                                                <div class="col-sm-6">
+                                                    <label class="col-sm-3 control-label text-right">{{#i18n}}type{{/i18n}} :</label>
+                                                    <div class="col-sm-6 text-left">
+                                                        <select id="searchType" class="chosen-select form-control"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6">
+                                                    <label class="col-sm-3 control-label text-right">{{#i18n}}status{{/i18n}} :</label>
+                                                    <div class="col-sm-8 text-left">
+                                                        <select id="searchStatus" class="chosen-select form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="widget-box transparent">
+                                <div class="widget-header widget-header-flat">
+                                </div>
+                                <div class="widget-body">
+                                    <table id="table" class="table table-bordered table-striped table-condensed mb-none">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center col-md-1">{{#i18n}}no.{{/i18n}}</th>
+                                                <th class="text-center col-md-4">{{#i18n}}listName{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}type{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}status{{/i18n}}</th>
+                                                <th class="text-center col-md-1">{{#i18n}}detail{{/i18n}}</th>
+                                                <th class="text-center col-md-2">{{#i18n}}team{{/i18n}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="6" class="text-center">-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+
+                    <div class="hr hr32 hr-dotted"></div>
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+{{>footer}}
+
+
+<script type="text/javascript">
+    $(function () {
+
+
+    });
+</script>
