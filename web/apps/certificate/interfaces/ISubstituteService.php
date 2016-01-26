@@ -47,7 +47,7 @@ interface ISubstituteService {
      * @name login
      * @uri /view/index
      * @description หน้าจัดการขอใบอนุญาตภาพยนตร์
-     * @resource 1000
+     * @sitemap true
      **/
     public function viewSubstitute();
 

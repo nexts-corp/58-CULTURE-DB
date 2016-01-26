@@ -5,7 +5,7 @@ namespace apps\certificate\interfaces;
 /**
  * @name ILicenseService
  * @uri /mycert
- * @description ขอบใบอนุญาต
+ * @description ขอใบอนุญาต
  */
 interface IMyCertService {
 
@@ -47,7 +47,7 @@ interface IMyCertService {
      * @name login
      * @uri /view/index
      * @description หน้าจัดการขอใบอนุญาตภาพยนตร์
-     * @resource 1000
+      * @sitemap true
      **/
     public function viewMyCert();
 

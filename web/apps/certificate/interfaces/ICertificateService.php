@@ -5,7 +5,7 @@ namespace apps\certificate\interfaces;
 /**
  * @name ILicenseService
  * @uri /certificate
- * @description ขอบใบอนุญาต
+ * @description ขอใบอนุญาต
  */
 interface ICertificateService {
 
@@ -56,7 +56,7 @@ interface ICertificateService {
      * @name login
      * @uri /view/certmovie
      * @description หน้าจัดการขอใบอนุญาตภาพยนตร์
-     * @resource 1000
+     * @sitemap true
      **/
     public function viewCertMovie();
 
@@ -64,7 +64,7 @@ interface ICertificateService {
      * @name login
      * @uri /view/certgames
      * @description หน้าจัดการขอใบอนุญาตร้านเกม
-     * @resource 1000
+     * @sitemap true
      **/
     public function viewCertGames();
 
@@ -72,7 +72,7 @@ interface ICertificateService {
      * @name login
      * @uri /view/certkaraoke
      * @description หน้าจัดการขอใบอนุญาตร้านคาราโอเกะ
-     * @resource 1000
+     * @sitemap true
      **/
     public function viewCertKaraoke();
     
@@ -80,7 +80,7 @@ interface ICertificateService {
      * @name login
      * @uri /view/certsellmovie
      * @description หน้าจัดการขอใบอนุญาตเช่า แลกเปลี่ยน จำหน่ายภาพยนตร์
-     * @resource 1000
+     * @sitemap true
      **/
     public function viewCertSellMovie();
     
@@ -88,7 +88,7 @@ interface ICertificateService {
      * @name login
      * @uri /view/certsellvideo
      * @description หน้าจัดการขอใบอนุญาตเช่า แลกเปลี่ยน จำหน่ายวีดิทัศน์
-     * @resource 1000
+     * @sitemap true
      **/
     public function viewCertSellVideo();
 }
