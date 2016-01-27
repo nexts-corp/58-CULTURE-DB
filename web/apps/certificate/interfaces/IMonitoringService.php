@@ -12,8 +12,8 @@ interface IMonitoringService {
     /**
      * @name index
      * @uri /view/index
-     * @description หน้าหลัก
-     * @resource 1000
+     * @description 4.ตรวจสถานประกอบการ
+     * @sitemap true
      * */
     public function view_index();
 }

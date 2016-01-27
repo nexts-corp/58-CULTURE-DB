@@ -12,8 +12,9 @@ interface IVerifyService {
     /**
      * @name index
      * @uri /view/index
-     * @description หน้าหลัก
+     * @description 2.ตรวจสอบเอกสาร
      * @resource 1000
+     * @sitemap true
      * */
     public function view_index();
 

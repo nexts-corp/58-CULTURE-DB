@@ -12,8 +12,8 @@ interface ITransferService {
     /**
      * @name index
      * @uri /view/index
-     * @description หน้าหลัก
-     * @resource 1000
+     * @description 5.ส่งมอบเอกสารหลักฐาน
+     * @sitemap true
      * */
     public function view_index();
 }

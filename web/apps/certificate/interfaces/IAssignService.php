@@ -12,8 +12,8 @@ interface IAssignService {
     /**
      * @name index
      * @uri /view/index
-     * @description หน้าหลัก
-     * @resource 1000
+     * @description 3.มอบหมายชุดตรวจ
+     * @sitemap true
      * */
     public function view_index();
 }

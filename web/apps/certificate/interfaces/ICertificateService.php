@@ -47,8 +47,8 @@ interface ICertificateService {
     /**
      * @name login
      * @uri /view/index
-     * @description หน้าจัดการขอใบอนุญาต
-     * @resource 1000
+     * @description 1.ยื่นคำขอใบอนุญาต
+     * @sitemap true
      **/
     public function viewIndex();
         
