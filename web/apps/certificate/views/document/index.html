@@ -15,7 +15,7 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="#">Home</a>
                 </li>
-                <li class="active">{{#i18n}}approve.title{{/i18n}}</li>
+                <li class="active">{{#i18n}}document.title{{/i18n}}</li>
             </ul><!-- /.breadcrumb -->
 
             <div class="nav-search" id="nav-search">
@@ -31,7 +31,7 @@
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    {{#i18n}}approve.title{{/i18n}}
+                    {{#i18n}}document.title{{/i18n}}
                 </h1>
             </div><!-- /.page-header -->
 
@@ -85,20 +85,12 @@
                                                 <th class="text-center col-md-4">{{#i18n}}listName{{/i18n}}</th>
                                                 <th class="text-center col-md-2">{{#i18n}}type{{/i18n}}</th>
                                                 <th class="text-center col-md-3">{{#i18n}}status{{/i18n}}</th>
-                                                <th class="text-center col-md-1">{{#i18n}}detail{{/i18n}}</th>
-                                                <th class="text-center col-md-1">
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input name="chkAll" type="checkbox" class="ace" />
-                                                            <span class="lbl"> ทั้งหมด</span>
-                                                        </label>
-                                                    </div>
-                                                </th>
+                                                <th class="text-center col-md-2">{{#i18n}}detail{{/i18n}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td colspan="6" class="text-center">-</td>
+                                                <td colspan="5" class="text-center">-</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -125,7 +117,7 @@
     });
 
     function listsData() {
-        var data = selectMDB({"status.code": "approve"});
+        var data = selectMDB({"status.code": "fees"});
 
         var dataSet = [];
         var searchType = {};
@@ -171,17 +163,14 @@
                     "render": function (data) {
                         var content = '';
                         $.each(data, function (key, value) {
-                            if (value["code"] == "approve") {
+                            if (value["code"] == "fees") {
                                 content = statusConvert("certificate", value)["status"];
 
                                 if(value["result"] == "YES"){
                                     content = '<span class="label label-success">'+content+'</span>';
                                 }
-                                else if(value["result"] == "NO"){
-                                    content = '<span class="label label-danger">'+content+'</span>';
-                                }
                                 else{
-                                    content = '<span class="label label-warning">'+content+'</span>';
+                                    content = '<span class="label label-danger">'+content+'</span>';
                                 }
                             }
                         });
@@ -190,34 +179,19 @@
                 },
                 {
                     "targets": 4,
-                    "data": "_id",
-                    "sClass": "text-center col-md-1",
-                    "render": function (data, key, full) {
-
-                        return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-list"></i></button>';
-                        // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
-
-                    }
-                },
-                {
-                    "targets": 5,
                     "data": "status",
-                    "orderable": false,
-                    "sClass": "text-center col-md-1",
+                    "sClass": "text-center col-md-2",
                     "render": function (data, key, full) {
-                        var content = '-';
+
+                        var content = '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-list"></i></button>';
                         $.each(data, function (key, value) {
-                            if (value["code"] == "approve") {
-                                if(value["result"] != "YES") {
-                                    content = '<div class="checkbox">'
-                                            + '<label class="block">'
-                                                + '<input name="' + full["_id"]["$oid"] + '" type="checkbox" class="ace input-lg" />'
-                                                + '<span class="lbl bigger-120"></span>'
-                                            + '</label>'
-                                        + '</div>';
+                            if (value["code"] == "fees") {
+                                if(value["result"] == "YES") {
+                                    content += '&nbsp;<button class="btn btn-sm btn-primary print" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-print"></i> ใบอนุญาต</button>';
                                 }
                             }
                         });
+
                         return content;
                     }
                 }
@@ -308,25 +282,11 @@
             });
         });
 
-        $("button.send").unbind().click(function(){
-            $.each($("#table td input[type=checkbox]:checked"), function() {
-                var oldData = listsArr[$(this).attr("name")];
-                //var findNext = false;
-                $.each(oldData["status"], function(key, value){
-                    if(value["code"] == "approve"){
-                        oldData["status"][key]["result"] = "YES";
-                        oldData["status"][key]["datetime"] = getDateTime();
-                    }
-                });
-                updateData(oldData);
-            })
+        $("button.print").unbind().click(function(){
+            var id = $(this).attr("data-_id");
+            window.open("{{_context_path}}/apps/certificate/views/document/cert.pdf", '_blank');
         });
     }
 
-    function updateData(input){
-        var data = updateMDB(input);
-        if(data == "success"){
-            listsData();
-        }
-    }
+
 </script>

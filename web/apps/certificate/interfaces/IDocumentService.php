@@ -12,7 +12,7 @@ interface IDocumentService {
     /**
      * @name index
      * @uri /view/index
-     * @description 7.ออกใบคำขออนุญาต
+     * @description 7.ออกใบอนุญาต
      * @sitemap true
      * */
     public function view_index();
