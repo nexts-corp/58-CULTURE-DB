@@ -222,11 +222,11 @@
         var filter = selectMDB({"status.code": "verify"});
         var datas = [];
         $.each(filter, function (index, obj) {
-            $.each(obj["status"], function (k, v) {
+            //$.each(obj["status"], function (k, v) {
                 //if (v["code"] == "verify" && v["result"] == "WAIT") {
                     datas.push(obj);
                 //}
-            });
+            //});
         });
         //var datas = selectMDB("filter={'status.code':'request','status.result':'YES'}&filter={'status.code':'verify','status.result':'WAIT'}");
         //console.log(datas);

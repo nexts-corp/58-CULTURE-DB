@@ -264,11 +264,21 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var listsArr = {};
-        var datas = callAjax("{{_context_path}}/apps/fees/datatest.json", "get", {}, "json")["lists"];
+        var filter = selectMDB({"status.code": "fees"});
+        var datas = [];
+        $.each(filter, function (index, obj) {
+            //$.each(obj["status"], function (k, v) {
+                //if (v["code"] == "verify" && v["result"] == "WAIT") {
+                datas.push(obj);
+            listsArr[obj["_id"]["$oid"]] = obj;
+                //}
+            //});
+        });
+
+        console.log(datas.length);
         var t;
         drawTable(datas);
         searchSelect(datas);
-
 
         function drawTable(datas) {
             t = $("#table").DataTable({
@@ -281,12 +291,12 @@
                         "targets": 0,
                         "searchable": false,
                         "orderable": false,
-                        "data": "feesId",
+                        "data": "_id",
                         "sClass": "text-center col-md-1"
                     },
                     {
                         "targets": 1,
-                        "data": "feesCode",
+                        "data": "certCode",
                         "sClass": "text-center col-md-1",
 //                    "render": function (data) {
 //                        return 'ง.' + data;
@@ -294,8 +304,8 @@
                     },
                     {
                         "targets": 2,
-                        "data": "customerName",
-                        "sClass": "col-md-3",
+                        "data": "certNameTH",
+                        "sClass": "col-md-3"
 //                    "render": function (data, key, full) {
 //                        return full["facultyName"] + ' / ' + full["deptName"];
 //                    }
@@ -303,27 +313,36 @@
                     },
                     {
                         "targets": 3,
-                        "data": "typeName",
+                        "data": "memberTypeName",
                         "sClass": "text-center col-md-2"
                     },
                     {
                         "targets": 4,
-                        "data": "statusCode",
+                        "data": "status",
                         "sClass": "text-center col-md-2",
                         "render": function (data) {
-                            if (data == "PAID") {
-                                return '<span class="label label-success arrowed-in arrowed-in-right">{{#i18n}}PAID{{/i18n}}</span>'
-                            } else {
-                                return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}WAITING{{/i18n}}</span>'
-                            }
+                            var content = '';
+                            $.each(data, function (key, value) {
+                                if (value["code"] == "fees") {
+                                    content = statusConvert("certificate", value)["status"];
+
+                                    if(value["result"] == "YES"){
+                                        content = '<span class="label label-success">'+content+'</span>';
+                                    }
+                                    else{
+                                        content = '<span class="label label-danger">'+content+'</span>';
+                                    }
+                                }
+                            });
+                            return content;
                         }
                     },
                     {
                         "targets": 5,
-                        "data": "feesId",
+                        "data": "_id",
                         "sClass": "text-center col-md-2",
                         "render": function (data) {
-                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-feesId="' + data + '"><i class="fa fa-list"></i></button>'
+                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + data["$oid"] + '"><i class="fa fa-list"></i></button>'
                             // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
 
                         }
@@ -343,7 +362,7 @@
             var datasType = {}
             var datasStatus = {};
             $.each(datas, function (key, value) {
-                listsArr[value["feesId"]] = value;
+                //listsArr[value["feesId"]] = value;
                 datasType[value["typeName"]] = value["typeName"];
                 datasStatus[value["statusCode"]] = value["statusCode"];
             });
@@ -388,14 +407,22 @@
         function btnEdit() {
             $("button.detail").click(function (e) {
                 e.preventDefault();
-                var feesId = $(this).attr("data-feesId");
+                var feesId = $(this).attr("data-_id");
                 var data = listsArr[feesId];
                 $("#customerName").text(data["customerName"]);
                 $("#typeName").text(data["typeName"]);
-                $("#statusCode").text(data["statusCode"]);
                 $("#amount").text(data["amount"]);
 
-                if (data["statusCode"] == "WAITING") {
+                var status = '';
+                $.each(data["status"], function(key, value){
+                    if(value["code"] == "fees"){
+                        status = value["result"];
+                    }
+                });
+
+                $("#statusCode").text(status);
+
+                if (status == "NO") {
                     $("#datePay").text("-");
                     var dialog = $("#dialog-message").removeClass('hide').dialog({
                         modal: true,
@@ -417,7 +444,7 @@
                                 text: "{{#i18n}}feesPay{{/i18n}}",
                                 "class": "btn btn-success btn-minier",
                                 click: function () {
-                                    listsArr[feesId]["statusCode"] = "PAID";
+                                    listsArr[feesId]["statusCode"] = "YES";
                                     var datax = [];
                                     $.each(listsArr, function (k, v) {
                                         datax.push(v);
@@ -430,7 +457,7 @@
                             }
                         ]
                     });
-                } else if (data["statusCode"] == "PAID") {
+                } else if (data["statusCode"] == "YES") {
                     $("#datePay").text(data["datePay"]);
                     var dialog = $("#dialog-message").removeClass('hide').dialog({
                         modal: true,
