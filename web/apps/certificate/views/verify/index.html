@@ -223,9 +223,9 @@
         var datas = [];
         $.each(filter, function (index, obj) {
             $.each(obj["status"], function (k, v) {
-                if (v["code"] == "verify" && v["result"] == "WAIT") {
+                //if (v["code"] == "verify" && v["result"] == "WAIT") {
                     datas.push(obj);
-                }
+                //}
             });
         });
         //var datas = selectMDB("filter={'status.code':'request','status.result':'YES'}&filter={'status.code':'verify','status.result':'WAIT'}");
@@ -268,7 +268,24 @@
                         "data": "status",
                         "sClass": "text-center col-md-2",
                         "render": function (data, key, full) {
-                            return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}verify.WAIT{{/i18n}}</span>'
+                            var content = '';
+                            $.each(data, function (key, value) {
+                                if (value["code"] == "verify") {
+                                    content = statusConvert("certificate", value)["status"];
+
+                                    if(value["result"] == "YES"){
+                                        content = '<span class="label label-success">'+content+'</span>';
+                                    }
+                                    else if(value["result"] == "NO"){
+                                        content = '<span class="label label-danger">'+content+'</span>';
+                                    }
+                                    else{
+                                        content = '<span class="label label-warning">'+content+'</span>';
+                                    }
+                                }
+                            });
+                            return content;
+                            //return '<span class="label label-warning arrowed arrowed-right">{{#i18n}}verify.WAIT{{/i18n}}</span>'
 
 //                            //console.log(data);
 //                            $.each(data, function (k, v) {
@@ -285,11 +302,19 @@
                     },
                     {
                         "targets": 4,
-                        "data": "_id",
+                        "data": "status",
                         "sClass": "text-center col-md-2",
                         "render": function (data, key, full) {
+                            var content = '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-list"></i></button>'
 
-                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-list"></i></button>'
+                            $.each(data, function (key, value) {
+                                if (value["code"] == "verify") {
+                                    if(value["result"] == "YES"){
+                                        content += '&nbsp;<button class="btn btn-sm btn-success print" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-print"></i> เอกสาร</button>';
+                                    }
+                                }
+                            });
+                            return content;
                             // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
 
                         }
@@ -358,6 +383,10 @@
                 window.location = "{{_context_path}}/api/certificate/verify/view/update/" + _id;
 //                var data = listsArr[_id];
 //                console.log(data);
+            });
+
+            $("button.print").unbind().click(function(){
+
             });
         }
     });
