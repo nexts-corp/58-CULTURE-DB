@@ -310,7 +310,7 @@
                             $.each(data, function (key, value) {
                                 if (value["code"] == "verify") {
                                     if(value["result"] == "YES"){
-                                        content += '&nbsp;<button class="btn btn-sm btn-success print" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-print"></i> เอกสาร</button>';
+                                        content += '&nbsp;<button class="btn btn-sm btn-success print" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-print"></i> ใบรับเอกสาร</button>';
                                     }
                                 }
                             });
@@ -386,7 +386,8 @@
             });
 
             $("button.print").unbind().click(function(){
-
+                var id = $(this).attr("data-_id");
+                window.open("{{_context_path}}/apps/certificate/views/verify/doc.pdf", '_blank');
             });
         }
     });
