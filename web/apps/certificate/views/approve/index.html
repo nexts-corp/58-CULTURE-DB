@@ -319,11 +319,15 @@
                     }
                 });
 
-                oldData["status"].push({
+                /*oldData["status"].push({
                     code: "fees",
                     result: "NO",
                     datetime: ""
-                });
+                });*/
+
+                oldData["fees"] = {
+                    amount: ""
+                };
 
                 updateData(oldData);
             })
