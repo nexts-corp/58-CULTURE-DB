@@ -237,7 +237,7 @@
                                 <h4><i class="red fa fa-bank"></i> {{#i18n}}fees{{/i18n}} :</h4>
                             </div>
                             <div class="col-sm-8">
-                                <h4><span id="amount" style="font-weight: bold;"></span><span> {{#i18n}}currency.th{{/i18n}}</span></h4>
+                                <h4><span style="font-weight: bold;"><input type="text" id="amount"></span><span> {{#i18n}}currency.th{{/i18n}}</span></h4>
                             </div>
                         </div><!-- /.col -->
                         <div class="row">
@@ -339,12 +339,18 @@
                     },
                     {
                         "targets": 5,
-                        "data": "_id",
+                        "data": "status",
                         "sClass": "text-center col-md-2",
-                        "render": function (data) {
-                            return '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + data["$oid"] + '"><i class="fa fa-list"></i></button>'
-                            // + '<button class="btn btn-sm btn-default delete" title="ลบ" data-bgh="'+data+'"><i class="fa fa-trash"></i> ลบ</button>'
-
+                        "render": function (data, key, full) {
+                            var content =  '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-list"></i></button>'
+                            $.each(data, function (key, value) {
+                                if (value["code"] == "fees") {
+                                    if(value["result"] == "YES"){
+                                        content += '&nbsp;<button class="btn btn-sm btn-success print" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-print"></i> ใบเสร็จ</button>';
+                                    }
+                                }
+                            });
+                            return content;
                         }
                     }
                 ]
@@ -376,9 +382,9 @@
             //search selectbox status
             var search = '<option value="" selected="selected">{{#i18n}}all{{/i18n}}</option>';
             $.each(datasStatus, function (key, value) {
-                if(value=="PAID"){
+                if(value=="YES"){
                     search += '<option value="{{#i18n}}PAID{{/i18n}}">{{#i18n}}PAID{{/i18n}}</option>';
-                }else if(value=="WAITING"){
+                }else if(value=="NO"){
                     search += '<option value="{{#i18n}}WAITING{{/i18n}}">{{#i18n}}WAITING{{/i18n}}</option>';
                 }
                // search += '<option value="' + val + '">' + val + '</option>';
@@ -405,29 +411,30 @@
         }
 
         function btnEdit() {
-            $("button.detail").click(function (e) {
+            $("button.detail").unbind().click(function (e) {
                 e.preventDefault();
                 var feesId = $(this).attr("data-_id");
                 var data = listsArr[feesId];
-                $("#customerName").text(data["customerName"]);
-                $("#typeName").text(data["typeName"]);
-                $("#amount").text(data["amount"]);
+                $("#customerName").text(data["certNameTH"]);
+                $("#typeName").text(data["certTypeName"]);
+                $("#amount").val(data["fees"]["amount"]);
 
                 var status = '';
+                var datetime = '';
                 $.each(data["status"], function(key, value){
                     if(value["code"] == "fees"){
                         status = value["result"];
+                        datetime = datetimeTH(value["datetime"]);
                     }
                 });
 
                 $("#statusCode").text(status);
 
                 if (status == "NO") {
+                    $("#amount").prop('disabled', false);
                     $("#datePay").text("-");
                     var dialog = $("#dialog-message").removeClass('hide').dialog({
                         modal: true,
-//                title: "ค่าธรรมเนียม",
-//                title_html: true,
                         maxWidth: 500,
                         maxHeight: 370,
                         width: 500,
@@ -444,21 +451,41 @@
                                 text: "{{#i18n}}feesPay{{/i18n}}",
                                 "class": "btn btn-success btn-minier",
                                 click: function () {
-                                    listsArr[feesId]["statusCode"] = "YES";
+                                    /*listsArr[feesId]["statusCode"] = "YES";
                                     var datax = [];
                                     $.each(listsArr, function (k, v) {
                                         datax.push(v);
                                     });
                                     drawTable(datax);
                                     $(this).dialog("close");
-                                    window.open("http://localhost/culture/web/apps/report/views/files/bill.pdf", '_blank');
+                                    window.open("http://localhost/culture/web/apps/report/views/files/bill.pdf", '_blank');*/
 
+                                    var oldData = listsArr[feesId];
+                                    //var findNext = false;
+                                    $.each(oldData["status"], function(key, value){
+                                        if(value["code"] == "fees"){
+                                            oldData["status"][key]["result"] = "YES";
+                                            oldData["status"][key]["datetime"] = getDateTime();
+                                        }
+                                    });
+
+                                    oldData["fees"]["amount"] = $("#amount").val();
+
+                                    updateMDB(oldData);
+                                    $(this).dialog("close");
+
+                                    var datax = [];
+                                    $.each(listsArr, function (k, v) {
+                                        datax.push(v);
+                                    });
+                                    drawTable(datax);
                                 }
                             }
                         ]
                     });
-                } else if (data["statusCode"] == "YES") {
-                    $("#datePay").text(data["datePay"]);
+                } else if (status == "YES") {
+                    $("#amount").prop('disabled', true);
+                    $("#datePay").text(datetime);
                     var dialog = $("#dialog-message").removeClass('hide').dialog({
                         modal: true,
 //                title: "ค่าธรรมเนียม",
