@@ -275,6 +275,70 @@
             t.columns(2).search($(this).val()).draw();
         });
 
+        $("button.detail").unbind().click(function() {
+            var id = $(this).attr("data-_id");
+            var data = listsArr[id];
+
+            var html = '<span class="bigger-110 bolder">ขอใบอนุญาต : '+data["certTypeName"]+'</span>'
+                    + '<div class="row">'
+                    + '<table class="table">'
+                    + '<tbody>'
+                    + '<tr>'
+                    + '<td colspan="2" class="text-center bolder">ข้อมูลทั่วไปเกี่ยวกับคำขอ</td>'
+                    + '</tr>'
+                    + '<tr>'
+                    + '<td class="col-md-3 text-right">ประเภทบุคคล : </td><td>'+data["memberTypeName"]+'</td>'
+                    + '</tr>'
+                    + '<tr>'
+                    + '<td class="col-md-3 text-right">ชื่อภาษาไทย : </td><td>'+data["certNameTH"]+'</td>'
+                    + '</tr>'
+                    + '<tr>'
+                    + '<td class="col-md-3 text-right">ชื่อภาษาอังกฤษ : </td><td>'+data["certNameEN"]+'</td>'
+                    + '</tr>'
+                    + '<tr>'
+                    + '<td class="col-md-3 text-right">ที่อยู่ : </td>'
+                    + '<td>'
+                    + 'บ้านเลขที่ '+data["certAddress"]["no"]+'  แขวง/ตำบล '+data["certAddress"]["district"]+'  เขต/อำเภอ '+data["certAddress"]["area"]+'<br>'
+                    + 'จังหวัด '+data["certAddress"]["province"]+'  รหัสไปรษณีย์ '+data["certAddress"]["zipcode"]
+                    + '</td>'
+                    + '</tr>'
+
+                    + '<tr>'
+                    + '<td colspan="2" class="text-center bolder">ข้อมูลผู้ขอใบอนุญาต</td>'
+                    + '</tr>'
+                    + '<tr>'
+                    + '<td class="col-md-3 text-right">ชื่อ-นามสกุล : </td><td>'+data["memberName"]+'</td>'
+                    + '</tr>'
+                    + '<tr>'
+                    + '<td class="col-md-3 text-right">เลขประจำตัวประชาชน : </td><td>'+data["memberId"]+'</td>'
+                    + '</tr>'
+                    + '<tr>'
+                    + '<td class="col-md-3 text-right">ที่อยู่ : </td>'
+                    + '<td>'
+                    + 'บ้านเลขที่ '+data["memberAddress"]["no"]+'  แขวง/ตำบล '+data["memberAddress"]["district"]+'  เขต/อำเภอ '+data["memberAddress"]["area"]+'<br>'
+                    + 'จังหวัด '+data["memberAddress"]["province"]+'  รหัสไปรษณีย์ '+data["memberAddress"]["zipcode"]
+                    + '</td>'
+                    + '</tr>'
+                    + '</tbody>'
+                    + '</table>'
+                    + '</div>';
+
+            bootbox.dialog({
+                message: html,
+                buttons:
+                {
+                    "success" :
+                    {
+                        "label" : "ปิด!",
+                        "className" : "btn-sm btn-default",
+                        "callback": function() {
+                            bootbox.hideAll();
+                        }
+                    }
+                }
+            });
+        });
+
         $("button.monitor").unbind().click(function(){
             var monitorNo = $(this).attr("data-monitor");
             var id = $(this).attr("data-_id");
