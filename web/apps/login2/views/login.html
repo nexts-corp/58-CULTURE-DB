@@ -72,7 +72,11 @@
                                                             <input type="text" id="idCard" class="form-control"  data-validation="number" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนเลขบัตรประจำตัวประชาชน" autocomplete="off"/>
                                                         </span>
                                                     </label>
+                                                    <label class="block clearfix">
+                                                        <span class="block input-icon input-icon-right inputpassword">
 
+                                                        </span>
+                                                    </label>
 
 
                                                     <div class="space-4"></div>
@@ -146,8 +150,8 @@
                                                 1) พักเที่ยงเวลา 12.00 น. ถึง 13.00 น.<br/>
                                                 2) ควรเข้ารับบริการในวันและเวลาทำการหรือก่อนปิดทำการครึ่งชั่วโมง<br/>
                                             </p>
-                                            
-                                            
+
+
                                         </div><!-- /.widget-main -->
 
                                         <div class="toolbar center">
@@ -296,8 +300,12 @@ window.jQuery || document.write("<script src='{{_context_path}}/asset/js/jquery.
         </script>
         <script src="{{_context_path}}/asset/js/jquery.form-validator.min.js"></script>
         <script src="{{_context_path}}/asset/js/jquery.maskedinput.min.js"></script>
+
         <!-- <![endif]-->
 
+        <!-- This is what you need sweetalert-->
+        <script src="{{_context_path}}/asset/vendor/sweetalert/sweetalert-dev.js"></script>
+        <link rel="stylesheet" href="{{_context_path}}/asset/vendor/sweetalert/sweetalert.css">
         <!--[if IE]>
     <script type="text/javascript">
     window.jQuery || document.write("<script src='{{_context_path}}/asset/js/jquery1x.min.js'>"+"<"+"/script>");
@@ -333,36 +341,36 @@ if ('ontouchstart' in document.documentElement)
 
 
                 $('#form-register').on('submit', function() {
-                        
-                        
+
+
                     if ($(this).isValid()) {
 
                         var RegitIdCard = $("#RegitIdCard").val();
                         var RegitPassword = $("#RegitPassword").val();
                         var RegitConfPassword = $("#RegitConfPassword").val();
-                        
-                        
+
+
                         RegitIdCard = RegitIdCard.replace("-", "");
                         RegitIdCard = RegitIdCard.replace("-", "");
                         RegitIdCard = RegitIdCard.replace("-", "");
                         RegitIdCard = RegitIdCard.replace("-", "");
                         //alert(checkID(RegitIdCard));
                         if (checkID(RegitIdCard)) {
-                            
-                            if(RegitPassword==RegitConfPassword){
+
+                            if (RegitPassword == RegitConfPassword) {
 
                                 $("#registerError").html('<div class="alert alert-success" role="alert"><i class="fa fa-check"></i> ลงทะเบียนเรียบร้อยแล้ว</div>');
                                 $("#form-register button").remove();
-                            }else{
+                            } else {
 
                                 $("#registerError").html('<div class="alert alert-danger" role="alert">การยืนยันรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง</div>');
 
                             }
-                            
-                        }else{
-                            
+
+                        } else {
+
                             $("#registerError").html('<div class="alert alert-danger" role="alert">เลขบัตรประจำตัวประชาชนไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง</div>');
-                            
+
                         }
                         return false;
                     }
@@ -399,9 +407,24 @@ if ('ontouchstart' in document.documentElement)
 
                             //var result = callAjax('{{_context_path}}/api/member/member/insert', 'post', jsonEncode(jdata), 'json');
                             if (idCardCheck == idCard) {
-                                window.location.assign("{{_context_path}}/api/member/member/view/manage");
-                                //alert("OK");
+                                $(".inputpassword").html('<input type="password" id="passwordLogin" class="form-control"  data-validation="required" data-validation-error-msg="&nbsp;&nbsp;กรุณาป้อนรหัสผ่าน" autocomplete="off"/>');
+                                //window.location.assign("{{_context_path}}/api/member/member/view/manage");
+                                $("#passwordLogin").focus();
+                                $('#passwordLogin').keypress(function(e) {
+                                    if (e.which == 13) {
+                                        var password = $("#passwordLogin").val();
 
+                                        if (password == "admin" && idCardCheck == idCard) {
+
+                                            window.location.assign("{{_context_path}}/api/tracking/all/view");
+
+                                        } else {
+
+                                            sweetAlert("ลงชื่อเข้าใช้ไม่สำเร็จ", "รหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง", "error");
+
+                                        }
+                                    }
+                                });
                             } else {
 
                                 $(".checkUserData span").html("เลขประจำตัวประชาชนยังไม่ได้ลงทะเบียน");
