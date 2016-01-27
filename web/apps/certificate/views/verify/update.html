@@ -145,18 +145,18 @@
                                     <div class="col-sm-12" style="margin-top: 8px">
                                         <div class="radio-inline no-padding">
                                             <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="1"/>
+                                                <input name="certAddress" type="radio" class="ace input-md" value="YES" checked />
                                                 <span class="lbl"> ส่วนนี้ถูกต้อง</span>
                                             </label>
                                         </div>
                                         <div class="radio-inline no-padding">
                                             <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="2"/>
+                                                <input name="certAddress" type="radio" class="ace input-md" value="NO"/>
                                                 <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
                                             </label>
                                         </div>
                                         <div class="inline col-sm-6">
-                                            <input type="text" class="form-control" placeholder="หมายเหตุ">
+                                            <input type="text" class="frmData form-control" placeholder="หมายเหตุ" name="certAddressRemark" />
                                         </div>
                                     </div>
                                 </div>
@@ -261,18 +261,18 @@
                                     <div class="col-sm-12" style="margin-top: 8px">
                                         <div class="radio-inline no-padding">
                                             <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="1"/>
+                                                <input name="memberAddress" type="radio" class="ace input-md" value="YES" checked />
                                                 <span class="lbl"> ส่วนนี้ถูกต้อง</span>
                                             </label>
                                         </div>
                                         <div class="radio-inline no-padding">
                                             <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="2"/>
+                                                <input name="memberAddress" type="radio" class="ace input-md" value="NO"/>
                                                 <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
                                             </label>
                                         </div>
                                         <div class="inline col-sm-6">
-                                            <input type="text" class="form-control" placeholder="หมายเหตุ">
+                                            <input type="text" class="frmData form-control" placeholder="หมายเหตุ" name="memberAddressRemark" />
                                         </div>
                                     </div>
                                 </div>
@@ -280,126 +280,224 @@
                             <div id="attachment" class="tab-pane fade">
                                 {{#attachment}}
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right">สำเนาบัตรประจำตัวประชาชน</label>
-
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{citizenCard}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                    <div class="col-sm-6">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-6 control-label no-padding">สำเนาบัตรประจำตัวประชาชน</label>
+                                            <div class="col-xs-6">
+                                                <label class="ace-file-input"><input type="file"><span
+                                                        class="ace-file-container" data-title="Choose"><span
+                                                            class="ace-file-name" data-title="{{citizenCard}}"><i
+                                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                        href="#"><i
+                                                            class=" ace-icon fa fa-times"></i></a></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="citizenCard" type="radio" class="ace input-md" value="YES" checked />
+                                                    <span class="lbl"> ส่วนนี้ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="citizenCard" type="radio" class="ace input-md" value="NO"/>
+                                                    <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="inline col-sm-6">
+                                                <input type="text" class="frmData form-control" placeholder="หมายเหตุ" name="citizenCardRemark" />
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายครึ่งตัว </label>
-
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{profile}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                    <div class="col-sm-6">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-6 control-label no-padding">รูปถ่ายครึ่งตัว</label>
+                                            <div class="col-xs-6">
+                                                <label class="ace-file-input"><input type="file"><span
+                                                        class="ace-file-container" data-title="Choose"><span
+                                                            class="ace-file-name" data-title="{{profile}}"><i
+                                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                        href="#"><i
+                                                            class=" ace-icon fa fa-times"></i></a></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="profile" type="radio" class="ace input-md" value="YES" checked />
+                                                    <span class="lbl"> ส่วนนี้ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="profile" type="radio" class="ace input-md" value="NO"/>
+                                                    <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="inline col-sm-6">
+                                                <input type="text" class="frmData form-control" placeholder="หมายเหตุ" name="profileRemark" />
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
                                 <div class="hr hr-16 hr-dotted"></div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right">สำเนาใบทะเบียนพาณิช</label>
-
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{commercial}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                    <div class="col-sm-6">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-6 control-label no-padding">สำเนาใบทะเบียนพาณิช</label>
+                                            <div class="col-xs-6">
+                                                <label class="ace-file-input"><input type="file"><span
+                                                        class="ace-file-container" data-title="Choose"><span
+                                                            class="ace-file-name" data-title="{{commercial}}"><i
+                                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                        href="#"><i
+                                                            class=" ace-icon fa fa-times"></i></a></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="commercial" type="radio" class="ace input-md" value="YES" checked />
+                                                    <span class="lbl"> ส่วนนี้ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="commercial" type="radio" class="ace input-md" value="NO"/>
+                                                    <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="inline col-sm-6">
+                                                <input type="text" class="frmData form-control" placeholder="หมายเหตุ" name="commercialRemark" />
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <label class="col-sm-3 control-label no-padding-right">แผนที่โดยสังเขปที่ตั้งร้าน</label>
-
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{map}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                    <div class="col-sm-6">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-6 control-label no-padding">แผนที่โดยสังเขปที่ตั้งร้าน</label>
+                                            <div class="col-xs-6">
+                                                <label class="ace-file-input"><input type="file"><span
+                                                        class="ace-file-container" data-title="Choose"><span
+                                                            class="ace-file-name" data-title="{{map}}"><i
+                                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                        href="#"><i
+                                                            class=" ace-icon fa fa-times"></i></a></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="map" type="radio" class="ace input-md" value="YES" checked />
+                                                    <span class="lbl"> ส่วนนี้ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="map" type="radio" class="ace input-md" value="NO"/>
+                                                    <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="inline col-sm-6">
+                                                <input type="text" class="frmData form-control" placeholder="หมายเหตุ" name="mapRemark" />
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
                                 <div class="hr hr-16 hr-dotted"></div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right">แบบแปลนแผนผังแสดงพื้นที่การให้บริการ</label>
-
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{plan}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                    <div class="col-sm-6">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-6 control-label no-padding">แบบแปลนแผนผังแสดงพื้นที่การให้บริการ</label>
+                                            <div class="col-xs-6">
+                                                <label class="ace-file-input"><input type="file"><span
+                                                        class="ace-file-container" data-title="Choose"><span
+                                                            class="ace-file-name" data-title="{{plan}}"><i
+                                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                        href="#"><i
+                                                            class=" ace-icon fa fa-times"></i></a></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="plan" type="radio" class="ace input-md" value="YES" checked />
+                                                    <span class="lbl"> ส่วนนี้ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="plan" type="radio" class="ace input-md" value="NO"/>
+                                                    <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="inline col-sm-6">
+                                                <input type="text" class="frmData form-control" placeholder="หมายเหตุ" name="planRemark" />
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <label class="col-sm-3 control-label no-padding-right">รูปถ่ายของร้านวีดิทัศน์</label>
-
-                                    <div class="col-xs-3">
-                                        <label class="ace-file-input"><input type="file"><span
-                                                class="ace-file-container" data-title="Choose"><span
-                                                    class="ace-file-name" data-title="{{shop}}"><i
-                                                        class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
-                                                                                                href="#"><i
-                                                    class=" ace-icon fa fa-times"></i></a></label>
+                                    <div class="col-sm-6">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-6 control-label no-padding">รูปถ่ายของร้านวีดิทัศน์</label>
+                                            <div class="col-xs-6">
+                                                <label class="ace-file-input"><input type="file"><span
+                                                        class="ace-file-container" data-title="Choose"><span
+                                                            class="ace-file-name" data-title="{{shop}}"><i
+                                                                class=" ace-icon fa fa-upload"></i></span></span><a class="remove"
+                                                                                                        href="#"><i
+                                                            class=" ace-icon fa fa-times"></i></a></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="shop" type="radio" class="ace input-md" value="YES" checked />
+                                                    <span class="lbl"> ส่วนนี้ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-inline no-padding">
+                                                <label>
+                                                    <input name="shop" type="radio" class="ace input-md" value="NO"/>
+                                                    <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
+                                                </label>
+                                            </div>
+                                            <div class="inline col-sm-6">
+                                                <input type="text" class="frmData form-control" placeholder="หมายเหตุ" name="shopRemark" />
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
                                 {{/attachment}}
-
-                                <div class="form-group">
-                                    <div class="col-sm-12" style="margin-top: 8px">
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="1"/>
-                                                <span class="lbl"> ส่วนนี้ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                        <div class="radio-inline no-padding">
-                                            <label>
-                                                <input name="attachment" type="radio" class="ace input-md" value="2"/>
-                                                <span class="lbl"> ส่วนนี้ไม่ถูกต้อง</span>
-                                            </label>
-                                        </div>
-                                        <div class="inline col-sm-6">
-                                            <input type="text" class="form-control" placeholder="หมายเหตุ" name="descAttachment">
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="space-6"></div>
                         <div class="col-sm-12">
-                            <button class="btn btn-primary pull-right btn-sm " id="cancelApprove" type="reset"><i
+                            <button class="btn btn-primary pull-right btn-sm " id="btnSave"><i
                                     class="ace-icon fa fa-save bigger-110"></i> บันทึก
                             </button>
                         </div>
                         <div class="col-sm-6">
-                            <div id="dialog-confirm" class="hide">
-                                <div class="space-6"></div>
-                                <p class="bigger-110 bolder center grey">
-                                    <i class="ace-icon blue bigger-120"></i>
-                                    ต้องการยืนยันการอนุญาต
-                                </p>
-                            </div>
+                            <!--                            <div id="dialog-confirm" class="hide">
+                                                            <div class="space-6"></div>
+                                                            <p class="bigger-110 bolder center grey">
+                                                                <i class="ace-icon blue bigger-120"></i>
+                                                                ต้องการยืนยันการอนุญาต
+                                                            </p>
+                                                        </div>-->
                             <div id="dialog-input" class="hide">
-                                <div class="space-6"></div>
-                                <textarea class="form-control" rows="4" placeholder="เหตุผลการไม่อนุญาต"></textarea>
+                                <div class="text-left">
+                                    <h4>คุณต้องการบันทึกใช่ไหม?</h4>
+                                </div>
                             </div>
-                            <div id="dialog-success" class="hide">
-                                <div class="space-6"></div>
-                                <p class="bigger-110 bolder center grey">
-                                    พิจารณาขอเพิ่มขนาดพื้นที่ใช้สอยของสถานประกอบการสำเร็จ
-                                </p>
-                            </div>
+                            <!--                            <div id="dialog-success" class="hide">
+                                                            <div class="space-6"></div>
+                                                            <p class="bigger-110 bolder center grey">
+                                                                พิจารณาขอเพิ่มขนาดพื้นที่ใช้สอยของสถานประกอบการสำเร็จ
+                                                            </p>
+                                                        </div>-->
                             <!-- #dialog-confirm -->
                         </div>
                         <!-- ./span -->
@@ -415,6 +513,9 @@
     <!-- /.main-content -->
     {{>footer}}
     <script type="text/javascript">
+        // var id = "{{#lists}}{{#_id}}{{$oid}}{{/_id}}{{/lists}}";
+        var id = "{{id}}";
+        var assign = "{{assign}}";
 
         //override dialog's title function to allow for HTML titles
         $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
@@ -427,69 +528,88 @@
             }
         }));
 
-        $("#approve").on('click', function (e) {
+        $("#btnSave").on('click', function (e) {
             e.preventDefault();
-
-            $("#dialog-confirm").removeClass('hide').dialog({
-                resizable: false,
-                width: '320',
-                modal: true,
-                title_html: true,
-                title: "<div class='widget-header widget-header-small'><h4 class='smaller'> ต้องการยืนยัน</h4></div>",
-                buttons: [
-                    {
-                        html: "<i class='ace-icon fa fa-check bigger-110'></i>&nbsp; ยืนยัน",
-                        "class": "btn btn-success btn-minier",
-                        click: function () {
-                            //click
-                            $(this).dialog("close");
-                            $("#dialog-success").removeClass('hide').dialog({
-                                resizable: false,
-                                width: '320',
-                                modal: true,
-                                title_html: true,
-                                title: "<div class='widget-header widget-header-small'><h4 class='smaller'> สำเร็จ</h4></div>",
-                                buttons: [{
-                                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Close",
-                                        "class": "btn btn-minier",
-                                        click: function () {
-                                            $(this).dialog("close");
-                                        }
-                                    }]
-                            });
-                        }
-                    }
-                    ,
-                    {
-                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
-                        "class": "btn btn-minier",
-                        click: function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                ]
-            });
-        });
-        $("#cancelApprove").on('click', function (e) {
-            e.preventDefault();
-
+            // var data = [];
             $("#dialog-input").removeClass('hide').dialog({
                 resizable: false,
                 width: '320',
                 modal: true,
                 title_html: true,
-                title: "<div class='widget-header widget-header-small'><h4 class='smaller'> ยืนยันการไม่อนุญาต</h4></div>",
+                title: "<div class='widget-header widget-header-small'><h4 class='smaller'> ยืนยันการบันทึก</h4></div>",
                 buttons: [
                     {
-                        html: "<i class='ace-icon fa fa-check bigger-110'></i>&nbsp; ยืนยันการไม่อนุญาต",
+                        html: "<i class='ace-icon fa fa-check bigger-110'></i> บันทึก",
                         "class": "btn btn-success btn-minier",
                         click: function () {
-                            $(this).dialog("close");
+                            var verify = [];
+                            var checkNull = true;
+                            var checkNo = true;
+                            $("input[type=radio]").each(function (k, v) {
+                                if (this.checked) {
+                                    if (this.value == "NO" && ($("input[name=" + this.name + "Remark]").val() == "")) {
+                                        alert("กรุณาใส่หมายเหตุ");
+                                        $("input[name=" + this.name + "Remark]").focus();
+                                        checkNull = false;
+                                        return false;
+                                    } else {
+                                        if (this.value == "NO") {
+                                            checkNo = false;
+                                        }
+                                        var d = {};
+                                        d[this.name] = this.value;
+                                        d[this.name + "Remark"] = $("input[name=" + this.name + "Remark]").val();
+                                        verify.push(d);
+//                                        console.log(this.name + " " + this.value);
+//                                        console.log($("input[name=" + this.name + "Remark]").val());
+                                    }
+                                }
+                            });
+                            if (checkNull) {
+                                var status = [];
+                                var oldData = selectMDB({"_id": {"$oid": id}})[0];
+                                $.each(oldData["status"], function (index, obj) {
+                                    if (obj["code"] == "request") {
+                                        status.push(obj);
+                                    }
+                                });
+
+                                var statusVerify;
+                                if (checkNo) {
+                                    statusVerify = {"code": "verify", "result": "YES", "datetime": getDateTime()};
+                                    if (assign == "YES") {
+                                        var assign1 = {"code": "assign1", "result": "WAIT", "datetime": ""};
+                                        var assign2 = {"code": "assign2", "result": "WAIT", "datetime": ""};
+                                        status.push(assign1);
+                                        status.push(assign2);
+                                    } else {
+                                        var transfer = {"code": "transfer", "result": "WAIT", "datetime": ""};
+                                        status.push(transfer);
+                                    }
+                                } else {
+                                    statusVerify = {"code": "verify", "result": "NO", "datetime": getDateTime()};
+                                }
+                                status.push(statusVerify);
+                                oldData["verify"] = verify;
+                                oldData["status"] = status;
+//                                data['_id'] = oldData["_id"];
+//                                data["_etag"] = oldData["_etag"];
+                                // console.log(data);
+                                if (updateMDB(oldData) == "success") {
+                                    alert("บันทึกสำเร็จ");
+                                    $(this).dialog("close");
+                                    window.location = "{{_context_path}}/api/certificate/verify/view/index";
+                                } else {
+                                    alert("บันทึกไม่สำเร็จ โปรดทำอีกครั้ง");
+                                }
+                            } else {
+                                $(this).dialog("close");
+                            }
                         }
                     }
                     ,
                     {
-                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
+                        html: "<i class='ace-icon fa fa-times bigger-110'></i> ยกเลิก",
                         "class": "btn btn-minier",
                         click: function () {
                             $(this).dialog("close");

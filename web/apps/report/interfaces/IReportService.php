@@ -13,7 +13,8 @@ interface IReportService
     /**
      * @name view
      * @uri /view
-     * @description  viewReport
+     * @description  เรียกดูรายงาน
+     * @sitemap true
      */
     public function view();
 

@@ -26,10 +26,36 @@
 
         <span class="btn btn-danger"></span>
     </div>
-</div><!-- /.sidebar-shortcuts -->
+</div>
 
 <ul class="nav nav-list">
+
+    {{#apps}}
     <li class="">
+        <a href="#" class="dropdown-toggle">
+            <i class="menu-icon fa {{icon}}"></i>
+            <span class="menu-text">
+                {{title}}
+            </span>
+            <b class="arrow fa fa-angle-down"></b>
+        </a>
+        <b class="arrow"></b>
+        <ul class="submenu">
+            {{#routeTables}}
+                {{#sitemap}}
+                <li class="">
+                    <a href="{{uri}}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        {{operationDesc}}
+                    </a>
+                </li>
+                {{/sitemap}}
+            {{/routeTables}}
+        </ul>
+    </li>    
+    {{/apps}}
+</ul>
+    <!--li class="">
         <a href="{{_context_path}}/api/dashboard/dashboard/view/index">
             <i class="menu-icon fa fa-tachometer"></i>
             <span class="menu-text"> Dashboard </span>
@@ -131,7 +157,7 @@
             <li class="">
                 <a href="{{_context_path}}/api/certificate/certificate/view/certsellmovie">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    ให้เช่า แลกเปลี่ยน หรือจำหน่ายภาพยนต์
+                    ให้เช่า แลกเปลี่ยน หรือจำหน่ายภาพยนตร์
                 </a>
             </li>
 
@@ -164,7 +190,7 @@
                     </li>
                 </ul>
             </li>
-            -->
+            >
         </ul>
 
     </li>
@@ -302,7 +328,7 @@
                 ติดตามสถานะงาน
             </span>
         </a>
-    </li>-->
+    </li>>
 
     <li class="">
         <a href="#" class="dropdown-toggle">

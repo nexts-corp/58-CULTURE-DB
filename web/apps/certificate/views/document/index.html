@@ -15,7 +15,7 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="#">Home</a>
                 </li>
-                <li class="active">{{#i18n}}transfer.title{{/i18n}}</li>
+                <li class="active">{{#i18n}}approve.title{{/i18n}}</li>
             </ul><!-- /.breadcrumb -->
 
             <div class="nav-search" id="nav-search">
@@ -31,7 +31,7 @@
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    {{#i18n}}transfer.title{{/i18n}}
+                    {{#i18n}}approve.title{{/i18n}}
                 </h1>
             </div><!-- /.page-header -->
 
@@ -73,7 +73,7 @@
                             <div class="widget-box transparent">
                                 <div class="widget-header widget-header-flat text-right">
                                     <button class="btn btn-sm btn-primary send">
-                                        <i class="fa fa-send"></i> ส่งมอบเอกสาร
+                                        <i class="fa fa-send"></i> อนุมัติคำขอ
                                     </button>
                                     <div class="space-2"></div>
                                 </div>
@@ -125,7 +125,7 @@
     });
 
     function listsData() {
-        var data = selectMDB({"status.code": "transfer"});
+        var data = selectMDB({"status.code": "approve"});
 
         var dataSet = [];
         var searchType = {};
@@ -171,7 +171,7 @@
                     "render": function (data) {
                         var content = '';
                         $.each(data, function (key, value) {
-                            if (value["code"] == "transfer") {
+                            if (value["code"] == "approve") {
                                 content = statusConvert("certificate", value)["status"];
 
                                 if(value["result"] == "YES"){
@@ -207,7 +207,7 @@
                     "render": function (data, key, full) {
                         var content = '-';
                         $.each(data, function (key, value) {
-                            if (value["code"] == "transfer") {
+                            if (value["code"] == "approve") {
                                 if(value["result"] != "YES") {
                                     content = '<div class="checkbox">'
                                             + '<label class="block">'
@@ -313,15 +313,10 @@
                 var oldData = listsArr[$(this).attr("name")];
                 //var findNext = false;
                 $.each(oldData["status"], function(key, value){
-                    if(value["code"] == "transfer"){
+                    if(value["code"] == "approve"){
                         oldData["status"][key]["result"] = "YES";
                         oldData["status"][key]["datetime"] = getDateTime();
                     }
-                });
-                oldData["status"].push({
-                    code: "approve",
-                    result: "WAIT",
-                    datetime: ""
                 });
                 updateData(oldData);
             })

@@ -1,7 +1,7 @@
 {
-    "id": "fees",
+    "id": "home",
     "version": "1.0",
-    "title": "ชำระค่าธรรมเนียม",
+    "title": "หน้าหลัก",
     "authors": "somchit",
     "owners": "BAAN PROGRAM CO.,LTD.",
     "description": "content plugin for test",
@@ -9,7 +9,7 @@
     "summary": "content plugin for test",
     "language": "th",
     "main": "api/rice/test/hello",
-    "icon": "fa-money",
+    "icon": "apps/rice/images/icon.png",
     "sitemap":"api/rice/sitemap",
     "license": "content",
     "copyright": "content",

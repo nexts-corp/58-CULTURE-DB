@@ -38,8 +38,13 @@ class VerifyService extends CServiceBase implements IVerifyService {
 // Open the file using the HTTP headers set above
         $file = file_get_contents('http://mdb.codeunbug.com/culture/cert/' . $certId);
         $json = json_decode($file, true);
-        // return $json;
         $view->lists = $json;
+        $view->id = $json['_id']['$oid'];
+        if ($json['certTypeId'] == "2" || $json['certTypeId'] == "3") {
+            $view->assign = "YES";
+        } else {
+            $view->assign = "NO";
+        }
         return $view;
     }
 
