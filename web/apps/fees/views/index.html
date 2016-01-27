@@ -343,13 +343,6 @@
                         "sClass": "text-center col-md-2",
                         "render": function (data, key, full) {
                             var content =  '<button class="btn btn-sm btn-default detail" title="คลิกเพื่อดูรายละเอียด" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-list"></i></button>'
-                            $.each(data, function (key, value) {
-                                if (value["code"] == "fees") {
-                                    if(value["result"] == "YES"){
-                                        content += '&nbsp;<button class="btn btn-sm btn-success print" data-_id="' + full["_id"]["$oid"] + '"><i class="fa fa-print"></i> ใบเสร็จ</button>';
-                                    }
-                                }
-                            });
                             return content;
                         }
                     }
@@ -506,7 +499,7 @@
                                 text: "{{#i18n}}printReceipt{{/i18n}}",
                                 "class": "btn btn-primary btn-minier",
                                 click: function () {
-                                    window.open("http://localhost/culture/web/apps/report/views/files/bill.pdf", '_blank');
+                                    window.open("http://reporter.codeunbug.com/demo/reporter?cert="+feesId, '_blank');
                                     $(this).dialog("close");
                                 }
                             }
