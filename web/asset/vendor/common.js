@@ -159,7 +159,8 @@ function statusConvert(process, input){
             monitoring1: "ตรวจสถานประกอบการ ครั้งที่ 1",
             monitoring2: "ตรวจสถานประกอบการ ครั้งที่ 2",
             transfer: "ส่งมอบเอกสารหลักฐาน",
-            approve: "พิจารณาคำขอใบอนุญาต"
+            approve: "พิจารณาคำขอใบอนุญาต",
+            fees: "ชำระค่าธรรมเนียม"
         };
     }
 
